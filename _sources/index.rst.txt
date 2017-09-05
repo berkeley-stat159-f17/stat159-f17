@@ -25,4 +25,14 @@ Lectures
    lectures/01-git/Git-Tutorial.ipynb
 
 
+Resources
+~~~~~~~~~
+
+
+.. toctree::
+   :maxdepth: 1
+
+   resources.md
+
+
 * :ref:`search`
