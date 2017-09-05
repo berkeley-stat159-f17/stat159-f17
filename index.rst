@@ -6,6 +6,8 @@
 Stat 159/259 - Reproducible and Collaborative Data Science
 ==========================================================
 
+All materials for this course are `available on GitHub <https://github.com/berkeley-stat159-f17/stat159-f17>`_.
+
 The `class syllabus <_static/ref/syllabus.pdf>`_ will be updated over the course of the first couple of weeks of class.
 
 Readings

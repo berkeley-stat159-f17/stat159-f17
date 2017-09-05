@@ -22,6 +22,6 @@ help:
 github: html
 	# cp -a data $(BUILDDIR)/html/.
 	ghp-import $(BUILDDIR)/html/
-	# git push -u origin gh-pages
+	git push -u origin gh-pages
 	@echo
 	@echo "Published to Github"
