@@ -1,0 +1,35 @@
+<h1 id="lab-2">Lab 2</h1>
+<h2 id="some-useful-configuration">Some useful configuration</h2>
+<h3 id="setting-up-visual-studio-code-as-the-default-editor-for-git">Setting up Visual Studio Code as the default editor for git</h3>
+<p>There are many times when git will pop open an editor, we'll set up that editor to be Visual Studio code.</p>
+<p>Setting it up (<a href="https://stackoverflow.com/questions/30024353/how-to-use-visual-studio-code-as-default-editor-for-git">thanks to this stack overflow answer</a>)</p>
+<ul>
+<li>Run <code>git config --global core.editor &quot;code --wait&quot;</code></li>
+<li>Now running <code>git config --global -e</code> in the command line opens up the config options in VS Code.</li>
+<li>In the config options add</li>
+</ul>
+<pre><code>[diff]
+    tool = default-difftool
+[difftool &quot;default-difftool&quot;]
+    cmd = code --wait --diff $LOCAL $REMOTE</code></pre>
+<h3 id="bash-prompt-customization">Bash prompt customization</h3>
+<p>We can customize the shell by adding to the <code>~/.bashrc</code> file. <code>~/.bashrc</code> is a bash script which is run whenever you open the terminal.</p>
+<p>Two useful utilities for git:</p>
+<ul>
+<li><a href="https://github.com/git/git/blob/master/contrib/completion/git-completion.bash">git-completion.bash</a></li>
+<li><a href="https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh">git-prompt.sh</a></li>
+</ul>
+<p>Copy these files into your home directory and add a <code>.</code> to the beginning of the names (e.g. <code>.git-completion.bash</code>), this will hide it. Then open up <code>~/.bashrc</code> and add</p>
+<pre><code>source $HOME/.git-completion.bash
+source $HOME/.git-prompt.sh
+PS1=&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;</code></pre>
+<p><code>source</code> runs the specified file. For instance, after changing <code>~/.bashrc</code> if you enter <code>source ~/.bashrc</code> into the command line, it will run the <code>~/.bashrc</code> file and you should see your terminal prompt change.</p>
+<h2 id="reading">Reading</h2>
+<h3 id="reading-assignment">Reading Assignment</h3>
+<p>Be sure to do the assignment associated with <a href="https://berkeley-stat159-f17.github.io/stat159-f17/_static/ref/millman-perez.pdf">this week's reading</a>. It's up on bcourses now. After reading write two paragraph-length responses</p>
+<ol style="list-style-type: decimal">
+<li>Summarizing the reading</li>
+<li>Exploring something that interests you (e.g. one aspect in particular, something you disagree with)</li>
+</ol>
+<h3 id="programming-reading">Programming Reading</h3>
+<p>Read chapter 1 of <a href="http://proquest.safaribooksonline.com/book/physics/9781491901564">Effective Computation in Physics</a> to brush up/learn command line basics. We won't be going over those in class/lab.</p>

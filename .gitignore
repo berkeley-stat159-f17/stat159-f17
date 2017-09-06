@@ -2,3 +2,5 @@ _build
 .ipynb_checkpoints
 gh-token
 
+# emacs backups
+*~
