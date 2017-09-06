@@ -24,6 +24,14 @@ Lectures
 
    lectures/01-git/Git-Tutorial.ipynb
 
+Labs
+~~~~
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   labs/*
 
 Resources
 ~~~~~~~~~

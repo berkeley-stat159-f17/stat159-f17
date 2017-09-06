@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Lab 2 &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Course resources" href="../resources.html" />
+    <link rel="prev" title="Lab 1" href="lab1.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="lab-2">
+<span id="lab-2"></span><h1>Lab 2<a class="headerlink" href="#lab-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="some-useful-configuration">
+<span id="some-useful-configuration"></span><h2>Some useful configuration<a class="headerlink" href="#some-useful-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setting-up-visual-studio-code-as-the-default-editor-for-git">
+<span id="setting-up-visual-studio-code-as-the-default-editor-for-git"></span><h3>Setting up Visual Studio Code as the default editor for git<a class="headerlink" href="#setting-up-visual-studio-code-as-the-default-editor-for-git" title="Permalink to this headline">¶</a></h3>
+<p>There are many times when git will pop open an editor, we&#8217;ll set up that editor to be Visual Studio code.</p>
+<p>Setting it up (<a class="reference external" href="https://stackoverflow.com/questions/30024353/how-to-use-visual-studio-code-as-default-editor-for-git">thanks to this stack overflow answer</a>)</p>
+<ul class="simple">
+<li>Run <code class="docutils literal"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;code</span> <span class="pre">--wait&quot;</span></code></li>
+<li>Now running <code class="docutils literal"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">-e</span></code> in the command line opens up the config options in VS Code.</li>
+<li>In the config options add</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[diff]
+    tool = default-difftool
+[difftool &quot;default-difftool&quot;]
+    cmd = code --wait --diff $LOCAL $REMOTE
+</pre></div>
+</div>
+</div>
+<div class="section" id="bash-prompt-customization">
+<span id="bash-prompt-customization"></span><h3>Bash prompt customization<a class="headerlink" href="#bash-prompt-customization" title="Permalink to this headline">¶</a></h3>
+<p>We can customize the shell by adding to the <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file. <code class="docutils literal"><span class="pre">~/.bashrc</span></code> is a bash script which is run whenever you open the terminal.</p>
+<p>Two useful utilities for git:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/git/git/blob/master/contrib/completion/git-completion.bash">git-completion.bash</a></li>
+<li><a class="reference external" href="https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh">git-prompt.sh</a></li>
+</ul>
+<p>Copy these files into your home directory and add a <code class="docutils literal"><span class="pre">.</span></code> to the beginning of the names (e.g. <code class="docutils literal"><span class="pre">.git-completion.bash</span></code>), this will hide it. Then open up <code class="docutils literal"><span class="pre">~/.bashrc</span></code> and add</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>source $HOME/.git-completion.bash
+source $HOME/.git-prompt.sh
+PS1=&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">source</span></code> runs the specified file. For instance, after changing <code class="docutils literal"><span class="pre">~/.bashrc</span></code> if you enter <code class="docutils literal"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code> into the command line, it will run the <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file and you should see your terminal prompt change.</p>
+</div>
+</div>
+<div class="section" id="reading">
+<span id="reading"></span><h2>Reading<a class="headerlink" href="#reading" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reading-assignment">
+<span id="reading-assignment"></span><h3>Reading Assignment<a class="headerlink" href="#reading-assignment" title="Permalink to this headline">¶</a></h3>
+<p>Be sure to do the assignment associated with <a class="reference external" href="https://berkeley-stat159-f17.github.io/stat159-f17/_static/ref/millman-perez.pdf">this week&#8217;s reading</a>. It&#8217;s up on bcourses now. After reading write two paragraph-length responses</p>
+<ol class="simple">
+<li>Summarizing the reading</li>
+<li>Exploring something that interests you (e.g. one aspect in particular, something you disagree with)</li>
+</ol>
+</div>
+<div class="section" id="programming-reading">
+<span id="programming-reading"></span><h3>Programming Reading<a class="headerlink" href="#programming-reading" title="Permalink to this headline">¶</a></h3>
+<p>Read chapter 1 of <a class="reference external" href="http://proquest.safaribooksonline.com/book/physics/9781491901564">Effective Computation in Physics</a> to brush up on/learn command line basics. We won&#8217;t be going over those in class/lab.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Stat 159/259 - Reproducible and Collaborative Data Science</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab 1</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lab 2</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="lab1.html" title="previous chapter">Lab 1</a></li>
+      <li>Next: <a href="../resources.html" title="next chapter">Course resources</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Fernando Perez.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/labs/lab2.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
