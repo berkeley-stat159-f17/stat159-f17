@@ -186,7 +186,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Version Control.ipynb  git-resources.md       notes.md\r\n"
+      "Git-Tutorial.ipynb  \u001b[34mfig\u001b[m\u001b[m/                gh-token\r\n"
      ]
     }
    ],
@@ -228,7 +228,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 110,
+   "execution_count": 2,
    "metadata": {},
    "outputs": [
     {
@@ -251,86 +251,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 111,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "'3b32905baabd5ff22b3832c892078f78f5e5bd3b'"
-      ]
-     },
-     "execution_count": 111,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "hash1"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 112,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "b'3b32905baabd5ff22b3832c892078f78f5e5bd3b'"
-      ]
-     },
-     "execution_count": 112,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "hash1.encode()"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 113,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "<class 'str'>\n",
-      "<class 'bytes'>\n"
-     ]
-    }
-   ],
-   "source": [
-    "print(type(hash1))\n",
-    "print(type(hash1.encode()))"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 115,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "<sha1 HASH object @ 0x106bbba80>"
-      ]
-     },
-     "execution_count": 115,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "sha1(b\"hello stats\")"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 120,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [
     {
@@ -373,7 +294,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 6,
    "metadata": {
     "collapsed": true
    },
@@ -393,7 +314,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 7,
    "metadata": {
     "collapsed": true
    },
@@ -432,7 +353,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 58,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [
     {
@@ -501,14 +422,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 59,
+   "execution_count": 9,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Initialized empty Git repository in /Users/fperez/teach/berkeley/2017-stat159/lecture-notes/lectures/git/test/.git/\n"
+      "Initialized empty Git repository in /Users/fperez/teach/berkeley/2017-stat159/stat159/lectures/01-git/test/.git/\n"
      ]
     }
    ],
@@ -541,7 +462,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 60,
+   "execution_count": 10,
    "metadata": {
     "collapsed": true
    },
@@ -555,7 +476,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 61,
+   "execution_count": 11,
    "metadata": {},
    "outputs": [
     {
@@ -563,9 +484,9 @@
      "output_type": "stream",
      "text": [
       "total 0\n",
-      "drwxr-xr-x  3 fperez  staff  102 Aug 31 00:12 .\n",
-      "drwxr-xr-x  8 fperez  staff  272 Aug 31 00:12 ..\n",
-      "drwxr-xr-x  9 fperez  staff  306 Aug 31 00:12 .git\n"
+      "drwxr-xr-x  3 fperez  staff  102 Sep  6 23:24 .\n",
+      "drwxr-xr-x  8 fperez  staff  272 Sep  6 23:24 ..\n",
+      "drwxr-xr-x  9 fperez  staff  306 Sep  6 23:24 .git\n"
      ]
     }
    ],
@@ -578,7 +499,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 62,
+   "execution_count": 12,
    "metadata": {
     "scrolled": true
    },
@@ -588,13 +509,13 @@
      "output_type": "stream",
      "text": [
       "total 24\n",
-      "-rw-r--r--   1 fperez  staff   23 Aug 31 00:12 HEAD\n",
-      "-rw-r--r--   1 fperez  staff  137 Aug 31 00:12 config\n",
-      "-rw-r--r--   1 fperez  staff   73 Aug 31 00:12 description\n",
-      "drwxr-xr-x  12 fperez  staff  408 Aug 31 00:12 hooks\n",
-      "drwxr-xr-x   3 fperez  staff  102 Aug 31 00:12 info\n",
-      "drwxr-xr-x   4 fperez  staff  136 Aug 31 00:12 objects\n",
-      "drwxr-xr-x   4 fperez  staff  136 Aug 31 00:12 refs\n"
+      "-rw-r--r--   1 fperez  staff   23 Sep  6 23:24 HEAD\n",
+      "-rw-r--r--   1 fperez  staff  137 Sep  6 23:24 config\n",
+      "-rw-r--r--   1 fperez  staff   73 Sep  6 23:24 description\n",
+      "drwxr-xr-x  12 fperez  staff  408 Sep  6 23:24 hooks\n",
+      "drwxr-xr-x   3 fperez  staff  102 Sep  6 23:24 info\n",
+      "drwxr-xr-x   4 fperez  staff  136 Sep  6 23:24 objects\n",
+      "drwxr-xr-x   4 fperez  staff  136 Sep  6 23:24 refs\n"
      ]
     }
    ],
@@ -614,7 +535,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 63,
+   "execution_count": 13,
    "metadata": {
     "collapsed": true
    },
@@ -639,7 +560,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 64,
+   "execution_count": 14,
    "metadata": {
     "collapsed": true
    },
@@ -660,7 +581,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 65,
+   "execution_count": 15,
    "metadata": {},
    "outputs": [
     {
@@ -706,14 +627,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 66,
+   "execution_count": 16,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "[master (root-commit) 1f299f3] This is our first commit\n",
+      "[master (root-commit) 8ce7775] This is our first commit\n",
       " 1 file changed, 1 insertion(+)\n",
       " create mode 100644 file1.txt\n"
      ]
@@ -746,16 +667,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 67,
+   "execution_count": 17,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "commit 1f299f3d1260f68222d5185e7cf8be62cc67c84c\n",
+      "commit 8ce7775da6ee3d042f78924aa1904154fd4c92f8\n",
       "Author: Fernando Perez <Fernando.Perez@berkeley.edu>\n",
-      "Date:   Thu Aug 31 00:12:52 2017 -0700\n",
+      "Date:   Wed Sep 6 23:24:25 2017 -0700\n",
       "\n",
       "    This is our first commit\n"
      ]
@@ -784,7 +705,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 68,
+   "execution_count": 18,
    "metadata": {
     "collapsed": true
    },
@@ -805,7 +726,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 69,
+   "execution_count": 19,
    "metadata": {},
    "outputs": [
     {
@@ -833,19 +754,58 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "The format of the output above is well explained in detail in [this Stack Overflow post](https://stackoverflow.com/questions/2529441/how-to-read-the-output-from-git-diff).  But we can provide a brief summary here:\n",
+    "\n",
+    "```\n",
+    "diff --git a/file1.txt b/file1.txt\n",
+    "```\n",
+    "\n",
+    "This tells us which files changed overall, with 'a' representing the old path and 'b' the new one (in this case it's the same file, though if a file had been renamed it would be different).\n",
+    "\n",
+    "```\n",
+    "index ce645c7..4baa979 100644\n",
+    "```\n",
+    "These are hashes of the file at the two stages, needed by git itself for other operations with the diff output.\n",
+    "\n",
+    "The next block shows the actual changes. The first two lines show which paths are being compared (in this case the same file, `file1.txt`): \n",
+    "\n",
+    "\n",
+    "```\n",
+    "--- a/file1.txt\n",
+    "+++ b/file1.txt\n",
+    "```\n",
+    "\n",
+    "The next line indicates where the changes happened. The format is `@@ from-file-range to-file-range @@`, where there's one more `@` character than there's parents to the file comparison (git can handle multi-way diff/merges), adn the file range format is `-/+<start line>,<# of lines>`, with `-` for the `from-file` and `+` for the `to-file`:\n",
+    "\n",
+    "```\n",
+    "@@ -1 +1,2 @@\n",
+    "```\n",
+    "\n",
+    "Lines prepended with `-` correspond to deletions (none in this case), and lines with `+` to additions. A few lines around deletions/additions are shown for context:\n",
+    "\n",
+    "```\n",
+    " My first bit of text\n",
+    "+And now some more text...\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "### The cycle of git virtue: work, commit, work, commit, ..."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 70,
+   "execution_count": 20,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "[master e819b08] I have made great progress on this critical matter.\n",
+      "[master f0163df] I have made great progress on this critical matter.\n",
       " 1 file changed, 1 insertion(+)\n"
      ]
     }
@@ -873,22 +833,22 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 71,
+   "execution_count": 21,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "commit e819b08b07dd618c217ee308830dd141878cde83\n",
+      "commit f0163df7db81ece0345dccc6d975dec9d4d7529f\n",
       "Author: Fernando Perez <Fernando.Perez@berkeley.edu>\n",
-      "Date:   Thu Aug 31 00:12:57 2017 -0700\n",
+      "Date:   Wed Sep 6 23:24:34 2017 -0700\n",
       "\n",
       "    I have made great progress on this critical matter.\n",
       "\n",
-      "commit 1f299f3d1260f68222d5185e7cf8be62cc67c84c\n",
+      "commit 8ce7775da6ee3d042f78924aa1904154fd4c92f8\n",
       "Author: Fernando Perez <Fernando.Perez@berkeley.edu>\n",
-      "Date:   Thu Aug 31 00:12:52 2017 -0700\n",
+      "Date:   Wed Sep 6 23:24:25 2017 -0700\n",
       "\n",
       "    This is our first commit\n"
      ]
@@ -910,15 +870,15 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 72,
+   "execution_count": 22,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "* e819b08 I have made great progress on this critical matter.\n",
-      "* 1f299f3 This is our first commit\n"
+      "* f0163df I have made great progress on this critical matter.\n",
+      "* 8ce7775 This is our first commit\n"
      ]
     }
    ],
@@ -938,15 +898,15 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 73,
+   "execution_count": 23,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "* e819b08 I have made great progress on this critical matter.\n",
-      "* 1f299f3 This is our first commit\n"
+      "* f0163df I have made great progress on this critical matter.\n",
+      "* 8ce7775 This is our first commit\n"
      ]
     }
    ],
@@ -977,7 +937,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 74,
+   "execution_count": 24,
    "metadata": {},
    "outputs": [
     {
@@ -1010,20 +970,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 75,
+   "execution_count": 25,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "[master 005d8e2] I like this new name better\n",
+      "[master 258b69f] I like this new name better\n",
       " 1 file changed, 0 insertions(+), 0 deletions(-)\n",
       " rename file1.txt => file-newname.txt (100%)\n",
       "Let's look at the log again:\n",
-      "* 005d8e2 I like this new name better\n",
-      "* e819b08 I have made great progress on this critical matter.\n",
-      "* 1f299f3 This is our first commit\n"
+      "* 258b69f I like this new name better\n",
+      "* f0163df I have made great progress on this critical matter.\n",
+      "* 8ce7775 This is our first commit\n"
      ]
     }
    ],
@@ -1130,7 +1090,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 76,
+   "execution_count": 26,
    "metadata": {},
    "outputs": [
     {
@@ -1160,7 +1120,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 77,
+   "execution_count": 27,
    "metadata": {},
    "outputs": [
     {
@@ -1181,20 +1141,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 78,
+   "execution_count": 28,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "[experiment 2cba531] Trying something new\n",
+      "[experiment e663a7f] Trying something new\n",
       " 1 file changed, 1 insertion(+)\n",
       " create mode 100644 experiment.txt\n",
-      "* 2cba531 Trying something new\n",
-      "* 005d8e2 I like this new name better\n",
-      "* e819b08 I have made great progress on this critical matter.\n",
-      "* 1f299f3 This is our first commit\n"
+      "* e663a7f Trying something new\n",
+      "* 258b69f I like this new name better\n",
+      "* f0163df I have made great progress on this critical matter.\n",
+      "* 8ce7775 This is our first commit\n"
      ]
     }
    ],
@@ -1210,16 +1170,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 79,
+   "execution_count": 29,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "* 005d8e2 I like this new name better\n",
-      "* e819b08 I have made great progress on this critical matter.\n",
-      "* 1f299f3 This is our first commit\n"
+      "* 258b69f I like this new name better\n",
+      "* f0163df I have made great progress on this critical matter.\n",
+      "* 8ce7775 This is our first commit\n"
      ]
     },
     {
@@ -1240,19 +1200,19 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 80,
+   "execution_count": 30,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "[master ff8b2ec] The mainline keeps moving\n",
+      "[master 38c854c] The mainline keeps moving\n",
       " 1 file changed, 1 insertion(+)\n",
-      "* ff8b2ec The mainline keeps moving\n",
-      "* 005d8e2 I like this new name better\n",
-      "* e819b08 I have made great progress on this critical matter.\n",
-      "* 1f299f3 This is our first commit\n"
+      "* 38c854c The mainline keeps moving\n",
+      "* 258b69f I like this new name better\n",
+      "* f0163df I have made great progress on this critical matter.\n",
+      "* 8ce7775 This is our first commit\n"
      ]
     }
    ],
@@ -1266,8 +1226,47 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "By default, all variations of the git `log` commands only show the currently active branch.  If we want to see *all* branches, we can ask for them with the `--all` flag:"
+   ]
+  },
+  {
    "cell_type": "code",
-   "execution_count": 81,
+   "execution_count": 33,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "* 38c854c The mainline keeps moving\n",
+      "| * e663a7f Trying something new\n",
+      "|/  \n",
+      "* 258b69f I like this new name better\n",
+      "* f0163df I have made great progress on this critical matter.\n",
+      "* 8ce7775 This is our first commit\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%bash\n",
+    "cd test\n",
+    "\n",
+    "git slog --all"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Above, we can see the commit whose message is `Try something new`, that comes from the `experiment` branch."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
    "metadata": {},
    "outputs": [
     {
@@ -1287,7 +1286,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 82,
+   "execution_count": 35,
    "metadata": {},
    "outputs": [
     {
@@ -1298,14 +1297,14 @@
       " experiment.txt | 1 +\n",
       " 1 file changed, 1 insertion(+)\n",
       " create mode 100644 experiment.txt\n",
-      "*   27b0ec9 Merge branch 'experiment'\n",
+      "*   83a8fc1 Merge branch 'experiment'\n",
       "|\\  \n",
-      "| * 2cba531 Trying something new\n",
-      "* | ff8b2ec The mainline keeps moving\n",
+      "| * e663a7f Trying something new\n",
+      "* | 38c854c The mainline keeps moving\n",
       "|/  \n",
-      "* 005d8e2 I like this new name better\n",
-      "* e819b08 I have made great progress on this critical matter.\n",
-      "* 1f299f3 This is our first commit\n"
+      "* 258b69f I like this new name better\n",
+      "* f0163df I have made great progress on this critical matter.\n",
+      "* 8ce7775 This is our first commit\n"
      ]
     }
    ],
