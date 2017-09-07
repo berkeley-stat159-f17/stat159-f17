@@ -16,7 +16,7 @@ Readings
 * Due Sept 14, 2017: three short papers about the scientific Python ecosystem and IPython/Jupyter: 
 
   - `IPython: A System for Interactive Scientific Computing <http://fperez.org/papers/ipython07_pe-gr_cise.pdf>`_.
-  - `Python: An Ecosystem for Scientific Computing <http://fperez.org/papers/perez11_cise_python_ecosystem.pdf>`_.
+  - `Python: An Ecosystem for Scientific Computing <http://fperez.org/papers/perez11_cise_python_ecosystem.pdf>`_.  
   - `Jupyter Notebooks—a publishing format for reproducible computational workflows <http://fperez.org/papers/kluyver16-jupyter-nb-repro.pdf>`_.
 
 * Due Sept 7, 2017: `Developing open source scientific practice <_static/ref/millman-perez.pdf>`_.
@@ -27,8 +27,10 @@ Lectures
 
 .. toctree::
    :maxdepth: 1
+   :glob:
 
    lectures/01-git/Git-Tutorial.ipynb
+   lectures/02-ipython/Index.ipynb
 
 Labs
 ~~~~
