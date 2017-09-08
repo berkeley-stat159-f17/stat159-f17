@@ -30,6 +30,15 @@
     "\n",
     "**Note:** The notes for this lecture are just a small subset of the official [IPython in-depth tutorial](https://github.com/ipython/ipython-in-depth), which you can clone from github and study in more depth."
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {

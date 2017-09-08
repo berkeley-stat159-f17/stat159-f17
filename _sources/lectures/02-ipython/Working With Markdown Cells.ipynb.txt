@@ -44,8 +44,8 @@
     "1. Here we go\n",
     "    1. Sublist\n",
     "    2. Sublist\n",
-    "2. There we go\n",
-    "3. Now this"
+    "1. There we go\n",
+    "1. Now this"
    ]
   },
   {
@@ -64,8 +64,8 @@
     "Here is a blockquote:\n",
     "\n",
     "> Beautiful is better than ugly.\n",
-    "> Explicit is better than implicit.\n",
-    "> Simple is better than complex.\n",
+    "Explicit is better than implicit.\n",
+    "Simple is better than complex.\n",
     "> Complex is better than complicated.\n",
     "> Flat is better than nested.\n",
     "> Sparse is better than dense.\n",
@@ -137,7 +137,9 @@
     "Courtesy of MathJax, you can include mathematical expressions both inline: \n",
     "$e^{i\\pi} + 1 = 0$  and displayed:\n",
     "\n",
-    "$$e^x=\\sum_{i=0}^\\infty \\frac{1}{i!}x^i$$\n",
+    "$$\n",
+    "e^x=\\sum_{i=0}^\\infty \\frac{1}{i!}x^i\n",
+    "$$\n",
     "\n",
     "Use single dolars delimiter for inline math, so `$thisisinline\\int math$`  will give $this is inline\\int math$, for exampple to refer to variable within text. \n",
     "\n",
@@ -225,7 +227,7 @@
     "\n",
     "    ![](images/python-logo.svg)\n",
     "\n",
-    "![](images/python-logo.svg)\n",
+    "![The python logo](images/python-logo.svg)\n",
     "\n",
     "and a video with the HTML5 video tag:\n",
     "\n",
