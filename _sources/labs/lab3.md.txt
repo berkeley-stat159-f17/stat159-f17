@@ -20,6 +20,20 @@ and complete the initial setup.
 The first homework is a "warm up" for the first project. You'll be working in pairs to reproduce the figures in [this paper](http://arxiv.org/abs/1502.00505).
 Working in pairs gives a feel for collaboration. How can we work together effectively?
 
+1. Start by selecting a work partner for this homework. This person will also be your work partner for the first project (but not the others).
+
+1. Select and write down the name of the team you will work as. The name of the team should be made from the first three letters of your Github usernames, in all lowercase. For example if your Github username is `Alice` and your partner's is `bobby`, your team name should be `ali-bob`.
+
+1. When each of you visits the link from Piazza, after you accept your name from  the initial list, you will create your team with the appropriate team name (`ali-bob` in this case, make sure to use **your actual team name!**):
+
+![ali-bob team creation](lab_fig/hw_team_signup.png)
+
+Once you have accepted the assignment, you'll see a repository created for your team that you can both access. You should then clone that repository on your laptop and begin working, as indicated below.
+
+You may find it useful to watch this brief video with an introduction to how assignments work:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-52quDR2QSc" frameborder="0" allowfullscreen></iframe>
+
 ## Working Together
 
 ### Working on a separate branch
