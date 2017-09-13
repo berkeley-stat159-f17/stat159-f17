@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>An interactive Git Tutorial: the tool you didn’t know you needed &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="A quick overview of the Jupyter Notebook and IPython" href="../02-ipython/Index.html" />
@@ -33,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -204,19 +207,19 @@ div.nboutput div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 </style>
 <div class="section" id="An-interactive-Git-Tutorial:-the-tool-you-didn't-know-you-needed">
-<h1>An interactive Git Tutorial: the tool you didn’t know you needed<a class="headerlink" href="#An-interactive-Git-Tutorial:-the-tool-you-didn't-know-you-needed" title="Permalink to this headline">¶</a></h1>
+<h1>An interactive Git Tutorial: the tool you didn&#8217;t know you needed<a class="headerlink" href="#An-interactive-Git-Tutorial:-the-tool-you-didn't-know-you-needed" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="From-personal-workflows-to-open-collaboration">
 <h2>From personal workflows to open collaboration<a class="headerlink" href="#From-personal-workflows-to-open-collaboration" title="Permalink to this headline">¶</a></h2>
 <p><strong>Note:</strong> this tutorial was particularly modeled, and therefore owes a
 lot, to the excellent materials offered in:</p>
 <ul class="simple">
-<li><a class="reference external" href="http://nyuccl.org/pages/GitTutorial">“Git for Scientists: A
-Tutorial”</a> by John McDonnell</li>
-<li>Emanuele Olivetti’s lecture notes and exercises from the G-Node
+<li><a class="reference external" href="http://nyuccl.org/pages/GitTutorial">&#8220;Git for Scientists: A
+Tutorial&#8221;</a> by John McDonnell</li>
+<li>Emanuele Olivetti&#8217;s lecture notes and exercises from the G-Node
 summer school on <a class="reference external" href="https://python.g-node.org/wiki/schedule">Advanced Scientific Programming in
 Python</a>.</li>
 </ul>
-<p>In particular I’ve reused the excellent images from the <a class="reference external" href="http://git-scm.com/book">Pro Git
+<p>In particular I&#8217;ve reused the excellent images from the <a class="reference external" href="http://git-scm.com/book">Pro Git
 book</a> that John had already selected and
 downloaded, as well as some of his outline. But this version of the
 tutorial aims to be 100% reproducible by being executed directly as an
@@ -224,7 +227,7 @@ IPython notebook and is hosted itself on github so that others can more
 easily make improvements to it by collaborating on Github. Many thanks
 to John and Emanuele for making their materials available online.</p>
 <p>After writing this document, I discovered <a class="reference external" href="https://github.com/jrjohansson">J.R.
-Johansson</a>’s <a class="reference external" href="http://nbviewer.ipython.org/urls/raw.github.com/jrjohansson/scientific-python-lectures/master/Lecture-7-Revision-Control-Software.ipynb">tutorial on version
+Johansson</a>&#8216;s <a class="reference external" href="http://nbviewer.ipython.org/urls/raw.github.com/jrjohansson/scientific-python-lectures/master/Lecture-7-Revision-Control-Software.ipynb">tutorial on version
 control</a>
 that is also written as a fully reproducible notebook and is also aimed
 at a scientific audience. It has a similar spirit to this one, and is
@@ -241,7 +244,7 @@ files.</strong>”</p>
 <p><strong>Reproducibility?</strong></p>
 <ul class="simple">
 <li>Tracking and recreating every step of your work</li>
-<li>In the software world: it’s called <em>Version Control</em>!</li>
+<li>In the software world: it&#8217;s called <em>Version Control</em>!</li>
 </ul>
 <p>What do (good) version control tools give you?</p>
 <ul class="simple">
@@ -270,7 +273,7 @@ files.</strong>”</p>
 <img src="https://raw.github.com/fperez/reprosw/master/fig/indefero_projects_notes.png" width="100%">
 --></div>
 <div class="section" id="Annotated-history-of-each-student's-worfklow-(and-backup!)">
-<h2>Annotated history of each student’s worfklow (and backup!)<a class="headerlink" href="#Annotated-history-of-each-student's-worfklow-(and-backup!)" title="Permalink to this headline">¶</a></h2>
+<h2>Annotated history of each student&#8217;s worfklow (and backup!)<a class="headerlink" href="#Annotated-history-of-each-student's-worfklow-(and-backup!)" title="Permalink to this headline">¶</a></h2>
 <!-- offline:
     <img src="files/fig/indefero_projects1.png" width="100%">
 <img src="https://raw.github.com/fperez/reprosw/master/fig/indefero_projects1.png" width="100%">
@@ -283,8 +286,8 @@ files.</strong>”</p>
 <p>This tutorial is structured in the following way: we will begin with a
 brief overview of key concepts you need to understand in order for git
 to really make sense. We will then dive into hands-on work: after a
-brief interlude into necessary configuration we will discuss 5 “stages
-of git” with scenarios of increasing sophistication and complexity,
+brief interlude into necessary configuration we will discuss 5 &#8220;stages
+of git&#8221; with scenarios of increasing sophistication and complexity,
 introducing the necessary commands for each stage:</p>
 <ol class="arabic simple">
 <li>Local, single-user, linear workflow</li>
@@ -296,9 +299,9 @@ introducing the necessary commands for each stage:</p>
 <p>In reality, this tutorial only covers stages 1-4, since for #5 there are
 many software develoment-oriented tutorials and documents of very high
 quality online. But most scientists start working alone with a few files
-or with a small team, so I feel it’s important to build first the key
+or with a small team, so I feel it&#8217;s important to build first the key
 concepts and practices based on problems scientists encounter in their
-everyday life and without the jargon of the software world. Once you’ve
+everyday life and without the jargon of the software world. Once you&#8217;ve
 become familiar with 1-4, the excellent tutorials that exist about
 collaborating on github on open-source projects should make sense.</p>
 </div>
@@ -407,7 +410,7 @@ git config --global user.email <span class="s2">&quot;Fernando.Perez@berkeley.ed
 </pre></div>
 </div>
 </div>
-<p>And while we’re at it, we also turn on the use of color, which is very
+<p>And while we&#8217;re at it, we also turn on the use of color, which is very
 useful</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -420,7 +423,7 @@ git config --global color.ui <span class="s2">&quot;auto&quot;</span>
 </pre></div>
 </div>
 </div>
-<p>Set git to use the credential memory cache so we don’t have to retype
+<p>Set git to use the credential memory cache so we don&#8217;t have to retype
 passwords too frequently.</p>
 <p>Github offers in its help pages instructions on how to configure the
 credentials helper for <a class="reference external" href="https://help.github.com/articles/caching-your-github-password-in-git/#platform-mac">Mac
@@ -431,7 +434,7 @@ and
 </div>
 <div class="section" id="Stage-1:-Local,-single-user,-linear-workflow">
 <h2>Stage 1: Local, single-user, linear workflow<a class="headerlink" href="#Stage-1:-Local,-single-user,-linear-workflow" title="Permalink to this headline">¶</a></h2>
-<p>Type <code class="docutils literal"><span class="pre">git</span></code> to see a full list of all the ‘core’ commands. We’ll now go
+<p>Type <code class="docutils literal"><span class="pre">git</span></code> to see a full list of all the &#8216;core&#8217; commands. We&#8217;ll now go
 through most of these via small practical exercises:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -526,7 +529,7 @@ lines:</p>
 </div>
 <p>that tell IPython to do that each time. But you should ignore those two
 lines and type the rest of each cell yourself in your terminal.</p>
-<p>Let’s look at what git did:</p>
+<p>Let&#8217;s look at what git did:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [10]:
@@ -592,9 +595,9 @@ drwxr-xr-x   4 fperez  staff  136 Sep  6 23:24 objects
 drwxr-xr-x   4 fperez  staff  136 Sep  6 23:24 refs
 </pre></div></div>
 </div>
-<p>Now let’s edit our first file in the test directory with a text
-editor… I’m doing it programatically here for automation purposes, but
-you’d normally be editing by hand</p>
+<p>Now let&#8217;s edit our first file in the test directory with a text
+editor... I&#8217;m doing it programatically here for automation purposes, but
+you&#8217;d normally be editing by hand</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [13]:
@@ -656,14 +659,14 @@ Changes to be committed:
 </div>
 </div>
 <div class="section" id="git-commit:-permanently-record-our-changes-in-git's-database">
-<h3><code class="docutils literal"><span class="pre">git</span> <span class="pre">commit</span></code>: permanently record our changes in git’s database<a class="headerlink" href="#git-commit:-permanently-record-our-changes-in-git's-database" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal"><span class="pre">git</span> <span class="pre">commit</span></code>: permanently record our changes in git&#8217;s database<a class="headerlink" href="#git-commit:-permanently-record-our-changes-in-git's-database" title="Permalink to this headline">¶</a></h3>
 <p>For now, we are <em>always</em> going to call <code class="docutils literal"><span class="pre">git</span> <span class="pre">commit</span></code> either with the
 <code class="docutils literal"><span class="pre">-a</span></code> option <em>or</em> with specific filenames
 (<code class="docutils literal"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">file1</span> <span class="pre">file2...</span></code>). This delays the discussion of an aspect
-of git called the <em>index</em> (often referred to also as the ‘staging area’)
+of git called the <em>index</em> (often referred to also as the &#8216;staging area&#8217;)
 that we will cover later. Most everyday work in regular scientific
-practice doesn’t require understanding the extra moving parts that the
-index involves, so on a first round we’ll bypass it. Later on we will
+practice doesn&#8217;t require understanding the extra moving parts that the
+index involves, so on a first round we&#8217;ll bypass it. Later on we will
 discuss how to use it to achieve more fine-grained control of what and
 how git records our actions.</p>
 <div class="nbinput docutils container">
@@ -690,11 +693,11 @@ git commit -a -m<span class="s2">&quot;This is our first commit&quot;</span>
 </pre></div></div>
 </div>
 <p>In the commit above, we used the <code class="docutils literal"><span class="pre">-m</span></code> flag to specify a message at the
-command line. If we don’t do that, git will open the editor we specified
+command line. If we don&#8217;t do that, git will open the editor we specified
 in our configuration above and require that we enter a message. By
-default, git refuses to record changes that don’t have a message to go
-along with them (though you can obviously ‘cheat’ by using an empty or
-meaningless string: git only tries to facilitate best practices, it’s
+default, git refuses to record changes that don&#8217;t have a message to go
+along with them (though you can obviously &#8216;cheat&#8217; by using an empty or
+meaningless string: git only tries to facilitate best practices, it&#8217;s
 not your nanny).</p>
 </div>
 <div class="section" id="git-log:-what-has-been-committed-so-far">
@@ -727,7 +730,7 @@ Date:   Wed Sep 6 23:24:25 2017 -0700
 </div>
 <div class="section" id="git-diff:-what-have-I-changed?">
 <h3><code class="docutils literal"><span class="pre">git</span> <span class="pre">diff</span></code>: what have I changed?<a class="headerlink" href="#git-diff:-what-have-I-changed?" title="Permalink to this headline">¶</a></h3>
-<p>Let’s do a little bit more work… Again, in practice you’ll be editing
+<p>Let&#8217;s do a little bit more work... Again, in practice you&#8217;ll be editing
 the files by hand, here we do it via shell commands for the sake of
 automation (and therefore the reproducibility of this tutorial!)</p>
 <div class="nbinput nblast docutils container">
@@ -778,8 +781,8 @@ But we can provide a brief summary here:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">diff</span> <span class="o">--</span><span class="n">git</span> <span class="n">a</span><span class="o">/</span><span class="n">file1</span><span class="o">.</span><span class="n">txt</span> <span class="n">b</span><span class="o">/</span><span class="n">file1</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
-<p>This tells us which files changed overall, with ‘a’ representing the old
-path and ‘b’ the new one (in this case it’s the same file, though if a
+<p>This tells us which files changed overall, with &#8216;a&#8217; representing the old
+path and &#8216;b&#8217; the new one (in this case it&#8217;s the same file, though if a
 file had been renamed it would be different).</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="n">ce645c7</span><span class="o">..</span><span class="mi">4</span><span class="n">baa979</span> <span class="mi">100644</span>
 </pre></div>
@@ -793,8 +796,8 @@ paths are being compared (in this case the same file, <code class="docutils lite
 </pre></div>
 </div>
 <p>The next line indicates where the changes happened. The format is
-<code class="docutils literal"><span class="pre">&#64;&#64;</span> <span class="pre">from-file-range</span> <span class="pre">to-file-range</span> <span class="pre">&#64;&#64;</span></code>, where there’s one more <code class="docutils literal"><span class="pre">&#64;</span></code>
-character than there’s parents to the file comparison (git can handle
+<code class="docutils literal"><span class="pre">&#64;&#64;</span> <span class="pre">from-file-range</span> <span class="pre">to-file-range</span> <span class="pre">&#64;&#64;</span></code>, where there&#8217;s one more <code class="docutils literal"><span class="pre">&#64;</span></code>
+character than there&#8217;s parents to the file comparison (git can handle
 multi-way diff/merges), adn the file range format is
 <code class="docutils literal"><span class="pre">-/+&lt;start</span> <span class="pre">line&gt;,&lt;#</span> <span class="pre">of</span> <span class="pre">lines&gt;</span></code>, with <code class="docutils literal"><span class="pre">-</span></code> for the <code class="docutils literal"><span class="pre">from-file</span></code> and
 <code class="docutils literal"><span class="pre">+</span></code> for the <code class="docutils literal"><span class="pre">to-file</span></code>:</p>
@@ -810,7 +813,7 @@ deletions/additions are shown for context:</p>
 </div>
 </div>
 <div class="section" id="The-cycle-of-git-virtue:-work,-commit,-work,-commit,-...">
-<h3>The cycle of git virtue: work, commit, work, commit, …<a class="headerlink" href="#The-cycle-of-git-virtue:-work,-commit,-work,-commit,-..." title="Permalink to this headline">¶</a></h3>
+<h3>The cycle of git virtue: work, commit, work, commit, ...<a class="headerlink" href="#The-cycle-of-git-virtue:-work,-commit,-work,-commit,-..." title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [20]:
@@ -836,7 +839,7 @@ git commit -a -m<span class="s2">&quot;I have made great progress on this critic
 </div>
 <div class="section" id="git-log-revisited">
 <h3><code class="docutils literal"><span class="pre">git</span> <span class="pre">log</span></code> revisited<a class="headerlink" href="#git-log-revisited" title="Permalink to this headline">¶</a></h3>
-<p>First, let’s see what the log shows us now:</p>
+<p>First, let&#8217;s see what the log shows us now:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [21]:
@@ -868,7 +871,7 @@ Date:   Wed Sep 6 23:24:25 2017 -0700
     This is our first commit
 </pre></div></div>
 </div>
-<p>Sometimes it’s handy to see a very summarized version of the log:</p>
+<p>Sometimes it&#8217;s handy to see a very summarized version of the log:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [22]:
@@ -891,7 +894,7 @@ git log --oneline --topo-order --graph
 * 8ce7775 This is our first commit
 </pre></div></div>
 </div>
-<p>Git supports <em>aliases:</em> new names given to command combinations. Let’s
+<p>Git supports <em>aliases:</em> new names given to command combinations. Let&#8217;s
 make this handy shortlog an alias, so we only have to type <code class="docutils literal"><span class="pre">git</span> <span class="pre">slog</span></code>
 and see this compact log:</p>
 <div class="nbinput docutils container">
@@ -955,7 +958,7 @@ Changes to be committed:
 </pre></div></div>
 </div>
 <p>Note that these changes must be committed too, to become permanent! In
-git’s world, until something hasn’t been committed, it isn’t permanently
+git&#8217;s world, until something hasn&#8217;t been committed, it isn&#8217;t permanently
 recorded anywhere.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -991,13 +994,13 @@ Let&#39;s look at the log again:
 <div class="section" id="Exercise">
 <h3>Exercise<a class="headerlink" href="#Exercise" title="Permalink to this headline">¶</a></h3>
 <p>Add a new file <code class="docutils literal"><span class="pre">file2.txt</span></code>, commit it, make some changes to it, commit
-them again, and then remove it (and don’t forget to commit this last
+them again, and then remove it (and don&#8217;t forget to commit this last
 step!).</p>
 </div>
 </div>
 <div class="section" id="Local-user,-branching">
 <h2>Local user, branching<a class="headerlink" href="#Local-user,-branching" title="Permalink to this headline">¶</a></h2>
-<p>What is a branch? Simply a <em>label for the ‘current’ commit in a sequence
+<p>What is a branch? Simply a <em>label for the &#8216;current&#8217; commit in a sequence
 of ongoing commits</em>:</p>
 <div class="figure">
 <img alt="" src="../../_images/masterbranch.png" />
@@ -1007,7 +1010,7 @@ of ongoing commits</em>:</p>
 --><p>There can be multiple branches alive at any point in time; the working
 directory is the state of a special pointer called HEAD. In this example
 there are two branches, <em>master</em> and <em>testing</em>, and <em>testing</em> is the
-currently active branch since it’s what HEAD points to:</p>
+currently active branch since it&#8217;s what HEAD points to:</p>
 <div class="figure">
 <img alt="" src="../../_images/HEAD_testing.png" />
 </div>
@@ -1028,7 +1031,7 @@ unified line of development:</p>
 <div class="figure">
 <img alt="" src="../../_images/mergeaftermath.png" />
 </div>
-<p>Let’s now illustrate all of this with a concrete example. Let’s get our
+<p>Let&#8217;s now illustrate all of this with a concrete example. Let&#8217;s get our
 bearings first:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -1262,7 +1265,7 @@ Merge made by the &#39;recursive&#39; strategy.
 pointer to another copy of the repository that lives on a different
 location. This can be simply a different path on the filesystem or a
 server on the internet.</p>
-<p>For this discussion, we’ll be using remotes hosted on the
+<p>For this discussion, we&#8217;ll be using remotes hosted on the
 <a class="reference external" href="http://github.com">GitHub.com</a> service, but you can equally use
 other services like <a class="reference external" href="http://bitbucket.org">BitBucket</a> or
 <a class="reference external" href="http://gitorious.org">Gitorious</a> as well as host your own.</p>
@@ -1291,14 +1294,14 @@ file-newname.txt
 Let&#39;s see if we have any remote repositories here:
 </pre></div></div>
 </div>
-<p>Since the above cell didn’t produce any output after the
+<p>Since the above cell didn&#8217;t produce any output after the
 <code class="docutils literal"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code> call, it means we have no remote repositories
 configured. We will now proceed to do so. Once logged into GitHub, go to
 the <a class="reference external" href="https://github.com/new">new repository page</a> and make a
 repository called <code class="docutils literal"><span class="pre">test</span></code>. Do <strong>not</strong> check the box that says
 <code class="docutils literal"><span class="pre">Initialize</span> <span class="pre">this</span> <span class="pre">repository</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">README</span></code>, since we already have an
-existing repository here. That option is useful when you’re starting
-first at Github and don’t have a repo made already on a local computer.</p>
+existing repository here. That option is useful when you&#8217;re starting
+first at Github and don&#8217;t have a repo made already on a local computer.</p>
 <p>We can now follow the instructions from the next page:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -1331,7 +1334,7 @@ To https://github.com/fperez/test.git
  * [new branch]      master -&gt; master
 </pre></div></div>
 </div>
-<p>Let’s see the remote situation again:</p>
+<p>Let&#8217;s see the remote situation again:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [94]:
@@ -1356,9 +1359,9 @@ origin  https://github.com/fperez/test.git (push)
 </div>
 <p>We can now <a class="reference external" href="https://github.com/fperez/test">see this repository publicly on
 github</a>.</p>
-<p>Let’s see how this can be useful for backup and syncing work between two
-different computers. I’ll simulate a 2nd computer by working in a
-different directory…</p>
+<p>Let&#8217;s see how this can be useful for backup and syncing work between two
+different computers. I&#8217;ll simulate a 2nd computer by working in a
+different directory...</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [95]:
@@ -1393,7 +1396,7 @@ origin  https://github.com/fperez/test.git (push)
 Cloning into &#39;test2&#39;...
 </pre></div></div>
 </div>
-<p>Let’s now make some changes in one ‘computer’ and synchronize them on
+<p>Let&#8217;s now make some changes in one &#8216;computer&#8217; and synchronize them on
 the second.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -1418,7 +1421,7 @@ git commit -a -m<span class="s2">&quot;More work, on machine #2&quot;</span>
  1 file changed, 1 insertion(+)
 </pre></div></div>
 </div>
-<p>Now we put this new work up on the github server so it’s available from
+<p>Now we put this new work up on the github server so it&#8217;s available from
 the internet</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -1442,7 +1445,7 @@ To https://github.com/fperez/test.git
    27b0ec9..94c7438  master -&gt; master
 </pre></div></div>
 </div>
-<p>Now let’s fetch that work from machine #1:</p>
+<p>Now let&#8217;s fetch that work from machine #1:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [98]:
@@ -1479,10 +1482,10 @@ From https://github.com/fperez/test
 <div class="section" id="An-important-aside:-conflict-management">
 <h3>An important aside: conflict management<a class="headerlink" href="#An-important-aside:-conflict-management" title="Permalink to this headline">¶</a></h3>
 <p>While git is very good at merging, if two different branches modify the
-same file in the same location, it simply can’t decide which change
+same file in the same location, it simply can&#8217;t decide which change
 should prevail. At that point, human intervention is necessary to make
 the decision. Git will help you by marking the location in the file that
-has a problem, but it’s up to you to resolve the conflict. Let’s see how
+has a problem, but it&#8217;s up to you to resolve the conflict. Let&#8217;s see how
 that works by intentionally creating a conflict.</p>
 <p>We start by creating a branch and making a change to our experiment
 file:</p>
@@ -1554,7 +1557,7 @@ Your branch is up-to-date with &#39;origin/master&#39;.
 Switched to branch &#39;master&#39;
 </pre></div></div>
 </div>
-<p>So now let’s see what happens if we try to merge the <code class="docutils literal"><span class="pre">trouble</span></code> branch
+<p>So now let&#8217;s see what happens if we try to merge the <code class="docutils literal"><span class="pre">trouble</span></code> branch
 into <code class="docutils literal"><span class="pre">master</span></code>:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -1579,7 +1582,7 @@ CONFLICT (content): Merge conflict in experiment.txt
 Automatic merge failed; fix conflicts and then commit the result.
 </pre></div></div>
 </div>
-<p>Let’s see what git has put into our file:</p>
+<p>Let&#8217;s see what git has put into our file:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [102]:
@@ -1608,7 +1611,7 @@ This is going to be a problem...
 </pre></div></div>
 </div>
 <p>At this point, we go into the file with a text editor, decide which
-changes to keep, and make a new commit that records our decision. I’ve
+changes to keep, and make a new commit that records our decision. I&#8217;ve
 now made the edits, in this case I decided that both pieces of text were
 useful, but integrated them with some changes:</p>
 <div class="nbinput docutils container">
@@ -1635,7 +1638,7 @@ More work on the master branch...
 This is going to be a problem...
 </pre></div></div>
 </div>
-<p>Let’s then make our new commit:</p>
+<p>Let&#8217;s then make our new commit:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [104]:
@@ -1672,7 +1675,7 @@ git slog
 * 1f299f3 This is our first commit
 </pre></div></div>
 </div>
-<p><em>Note:</em> While it’s a good idea to understand the basics of fixing merge
+<p><em>Note:</em> While it&#8217;s a good idea to understand the basics of fixing merge
 conflicts by hand, in some cases you may find the use of an automated
 tool useful. Git supports multiple <a class="reference external" href="https://www.kernel.org/pub/software/scm/git/docs/git-mergetool.html">merge
 tools</a>:
@@ -1694,17 +1697,17 @@ the distinction that commit and push are separate steps. SVN, having no
 local repository, commits directly to the shared central resource, so to
 a first approximation you can think of <code class="docutils literal"><span class="pre">svn</span> <span class="pre">commit</span></code> as being
 synonymous with <code class="docutils literal"><span class="pre">git</span> <span class="pre">commit;</span> <span class="pre">git</span> <span class="pre">push</span></code>.</p>
-<p>We will have two people, let’s call them Alice and Bob, sharing a
+<p>We will have two people, let&#8217;s call them Alice and Bob, sharing a
 repository. Alice will be the owner of the repo and she will give Bob
 write privileges.</p>
 <p>We begin with a simple synchronization example, much like we just did
 above, but now between <em>two people</em> instead of one person. Otherwise
-it’s the same:</p>
+it&#8217;s the same:</p>
 <ul class="simple">
-<li>Bob clones Alice’s repository.</li>
+<li>Bob clones Alice&#8217;s repository.</li>
 <li>Bob makes changes to a file and commits them locally.</li>
 <li>Bob pushes his changes to github.</li>
-<li>Alice pulls Bob’s changes into her own repository.</li>
+<li>Alice pulls Bob&#8217;s changes into her own repository.</li>
 </ul>
 <p>Next, we will have both parties make non-conflicting changes each, and
 commit them locally. Then both try to push their changes:</p>
@@ -1714,11 +1717,11 @@ commit them locally. Then both try to push their changes:</p>
 <li>Alice pushes to github.</li>
 <li>Bob tries to push to github. What happens here?</li>
 </ul>
-<p>The problem is that Bob’s changes create a commit that conflicts with
-Alice’s, so git refuses to apply them. It forces Bob to first do the
+<p>The problem is that Bob&#8217;s changes create a commit that conflicts with
+Alice&#8217;s, so git refuses to apply them. It forces Bob to first do the
 merge on his machine, so that if there is a conflict in the merge, Bob
 deals with the conflict manually (git could try to do the merge on the
-server, but in that case if there’s a conflict, the server repo would be
+server, but in that case if there&#8217;s a conflict, the server repo would be
 left in a conflicted state without a human to fix things up). The
 solution is for Bob to first pull the changes (pull in git is really
 fetch+merge), and then push again.</p>
@@ -1726,7 +1729,7 @@ fetch+merge), and then push again.</p>
 <div class="section" id="Full-contact-github:-distributed-collaboration-with-large-teams">
 <h2>Full-contact github: distributed collaboration with large teams<a class="headerlink" href="#Full-contact-github:-distributed-collaboration-with-large-teams" title="Permalink to this headline">¶</a></h2>
 <p>Multiple remotes and merging based on pull request workflow: this is
-beyond the scope of this brief tutorial, so we’ll simply discuss how it
+beyond the scope of this brief tutorial, so we&#8217;ll simply discuss how it
 works very briefly, illustrating it with the activity on the <a class="reference external" href="http://github.com/ipython/ipython">IPython
 github repository</a>.</p>
 </div>
@@ -1744,13 +1747,13 @@ github repository</a>.</p>
 <div class="section" id="Introductory-materials">
 <h3>Introductory materials<a class="headerlink" href="#Introductory-materials" title="Permalink to this headline">¶</a></h3>
 <p>There are lots of good tutorials and introductions for Git, which you
-can easily find yourself; this is just a short list of things I’ve found
-useful. For a beginner, I would recommend the following ‘core’ reading
+can easily find yourself; this is just a short list of things I&#8217;ve found
+useful. For a beginner, I would recommend the following &#8216;core&#8217; reading
 list, and below I mention a few extra resources:</p>
 <ol class="arabic simple">
 <li>The smallest, and in the style of this tuorial: <a class="reference external" href="http://rogerdudler.github.com/git-guide">git - the simple
-guide</a> contains ‘just the
-basics’. Very quick read.</li>
+guide</a> contains &#8216;just the
+basics&#8217;. Very quick read.</li>
 <li>In my own experience, the most useful resource was <a class="reference external" href="http://www.sbf5.com/~cduan/technical/git">Understanding Git
 Conceptually</a>. Git has a
 reputation for being hard to use, but I have found that with a clear
@@ -1759,7 +1762,7 @@ behavior is remarkably consistent, simple and comprehensible.</li>
 <li>For more detail, see the start of the excellent <a class="reference external" href="http://book.git-scm.com">Pro Git
 book</a>.</li>
 <li>You can also <a class="reference external" href="https://try.github.io">try Git in your browser</a>
-thanks to GitHub’s interactive tutorial.</li>
+thanks to GitHub&#8217;s interactive tutorial.</li>
 </ol>
 <p>If you are really impatient and just want a quick start, this <a class="reference external" href="http://www.ralfebert.de/blog/tools/visual_git_tutorial_1">visual
 git
@@ -1784,7 +1787,7 @@ These two documents, written in a similar spirit, are probably the most
 useful descriptions of the Git architecture short of diving into the
 actual implementation. They walk you through how you would go about
 building a version control system with a little story. By the end you
-realize that Git’s model is almost an inevitable outcome of the proposed
+realize that Git&#8217;s model is almost an inevitable outcome of the proposed
 constraints:</p>
 <ul class="simple">
 <li>The <a class="reference external" href="http://tom.preston-werner.com/2009/05/19/the-git-parable.html">Git
@@ -1809,13 +1812,13 @@ since it is based on Qt, it should run on OSX and Windows.</dd>
 Magic</a></p>
 <blockquote>
 <div>Another book-size guide that has useful snippets.</div></blockquote>
-<p>A <a class="reference external" href="http://cworth.org/hgbook-git/tour">port</a> of the Hg book’s
+<p>A <a class="reference external" href="http://cworth.org/hgbook-git/tour">port</a> of the Hg book&#8217;s
 beginning</p>
 <blockquote>
 <div>The <a class="reference external" href="http://hgbook.red-bean.com">Mercurial book</a> has a reputation
 for clarity, so Carl Worth decided to
 <a class="reference external" href="http://cworth.org/hgbook-git/tour">port</a> its introductory
-chapter to Git. It’s a nicely written intro, which is possible in
+chapter to Git. It&#8217;s a nicely written intro, which is possible in
 good measure because of how similar the underlying models of Hg and
 Git ultimately are.</div></blockquote>
 <p>Finally, if you prefer a video presentation, this 1-hour tutorial
@@ -1858,7 +1861,7 @@ commands and branches is extremely useful. I suggest you at least copy:</p>
 <li><a class="reference external" href="https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh">git-prompt.sh</a></li>
 </ul>
 <p>You can then source both of these files in your <code class="docutils literal"><span class="pre">~/.bashrc</span></code> and then
-set your prompt (I’ll assume you named them as the originals but
+set your prompt (I&#8217;ll assume you named them as the originals but
 starting with a <code class="docutils literal"><span class="pre">.</span></code> at the front of the name):</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>source $HOME/.git-completion.bash
 source $HOME/.git-prompt.sh
@@ -1891,7 +1894,7 @@ the line <code class="docutils literal"><span class="pre">\input{revision}</span
 </div>
 <div class="section" id="git-export">
 <h4>git export<a class="headerlink" href="#git-export" title="Permalink to this headline">¶</a></h4>
-<p>Git doesn’t have a native export command, but this works just fine:</p>
+<p>Git doesn&#8217;t have a native export command, but this works just fine:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">archive</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=</span><span class="n">fperez</span><span class="o">.</span><span class="n">org</span><span class="o">/</span>  <span class="n">master</span> <span class="o">|</span> <span class="n">gzip</span> <span class="o">&gt;</span> <span class="o">~/</span><span class="n">tmp</span><span class="o">/</span><span class="n">source</span><span class="o">.</span><span class="n">tgz</span>
 </pre></div>
 </div>
@@ -1927,12 +1930,14 @@ the line <code class="docutils literal"><span class="pre">\input{revision}</span
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-reading1-discussion.html">Some discussion points about last week&#8217;s reading</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab2.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab3.html">Lab 3</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Course resources</a></li>
@@ -1965,7 +1970,7 @@ the line <code class="docutils literal"><span class="pre">\input{revision}</span
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

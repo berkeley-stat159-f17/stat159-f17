@@ -2,16 +2,22 @@
 
 ## SCF Accounts
 
-We have SCF (Statistical Computing Facility) accounts set up for this course. To set up the accounts, we need to ssh into the cluster. Run one of
+We have SCF (Statistical Computing Facility) accounts set up for this course. To set up the accounts, we need to ssh into the cluster. Say your account name is `s159-X`, then you need to run one of
 
 ```
-ssh gandalf.berkeley.edu
+ssh s159-X@gandalf.berkeley.edu
 ```
 
 or
 
 ```
-ssh arwen.berkeley.edu
+ssh s159-X@arwen.berkeley.edu
+```
+
+or
+
+```
+ssh s159-X@legolas.berkeley.edu
 ```
 
 and complete the initial setup.
