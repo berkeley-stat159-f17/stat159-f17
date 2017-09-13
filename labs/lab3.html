@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Lab 3 &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Course resources" href="../resources.html" />
+    <link rel="prev" title="Lab 2" href="lab2.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="lab-3">
+<span id="lab-3"></span><h1>Lab 3<a class="headerlink" href="#lab-3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="scf-accounts">
+<span id="scf-accounts"></span><h2>SCF Accounts<a class="headerlink" href="#scf-accounts" title="Permalink to this headline">¶</a></h2>
+<p>We have SCF (Statistical Computing Facility) accounts set up for this course. To set up the accounts, we need to ssh into the cluster. Run one of</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">gandalf</span><span class="o">.</span><span class="n">berkeley</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">arwen</span><span class="o">.</span><span class="n">berkeley</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>and complete the initial setup.</p>
+</div>
+<div class="section" id="first-homework">
+<span id="first-homework"></span><h2>First Homework<a class="headerlink" href="#first-homework" title="Permalink to this headline">¶</a></h2>
+<p>The first homework is a &#8220;warm up&#8221; for the first project. You&#8217;ll be working in pairs to reproduce the figures in <a class="reference external" href="http://arxiv.org/abs/1502.00505">this paper</a>.
+Working in pairs gives a feel for collaboration. How can we work together effectively?</p>
+</div>
+<div class="section" id="working-together">
+<span id="working-together"></span><h2>Working Together<a class="headerlink" href="#working-together" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="working-on-a-separate-branch">
+<span id="working-on-a-separate-branch"></span><h3>Working on a separate branch<a class="headerlink" href="#working-on-a-separate-branch" title="Permalink to this headline">¶</a></h3>
+<p>Each pair will share a single repository, and it can get messy fast. A good way to avoid mistakes and merge errors is to create a separate branch for your work</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">my</span><span class="o">-</span><span class="n">awesome</span><span class="o">-</span><span class="n">work</span>
+</pre></div>
+</div>
+<p>After adding changes that you&#8217;re happy with, you should push the branch to the shared repo</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">my</span><span class="o">-</span><span class="n">awesome</span><span class="o">-</span><span class="n">work</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-the-pull-request">
+<span id="creating-the-pull-request"></span><h3>Creating the pull request<a class="headerlink" href="#creating-the-pull-request" title="Permalink to this headline">¶</a></h3>
+<p>Once the branch is pushed, you can merge it into master with a pull request. Go to the repo on Github and click on the &#8220;New pull request&#8221; button</p>
+<p><img alt="New pull request" src="../_images/pr.png" /></p>
+<p>You&#8217;ll see a drop down menu for &#8220;base&#8221; and &#8220;compare&#8221; or &#8220;head&#8221;.
+The &#8220;base&#8221; drop down menu chooses the branch you want to merge on to.</p>
+<p><img alt="Choosing master as the base branch" src="../_images/base_master.png" /></p>
+<p>The &#8220;compare&#8221; or &#8220;head&#8221; drop down menu chooses the branch you want to merge</p>
+<p><img alt="Choosing a head branch" src="../_images/compare_branch.png" /></p>
+<p>Now you can create the pull request and add general comments, comments on files, and comments on lines. If there isn&#8217;t a merge error, Github will let you merge the branch.</p>
+</div>
+</div>
+<div class="section" id="working-on-the-homework">
+<span id="working-on-the-homework"></span><h2>Working on the Homework<a class="headerlink" href="#working-on-the-homework" title="Permalink to this headline">¶</a></h2>
+<p>Use the rest of the lab time to work with your partner.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Stat 159/259 - Reproducible and Collaborative Data Science</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/03-reading1-discussion.html">Some discussion points about last week&#8217;s reading</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab2.html">Lab 2</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lab 3</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="lab2.html" title="previous chapter">Lab 2</a></li>
+      <li>Next: <a href="../resources.html" title="next chapter">Course resources</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Fernando Perez.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/labs/lab3.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
