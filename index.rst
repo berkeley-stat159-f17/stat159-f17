@@ -13,7 +13,13 @@ The `class syllabus <_static/ref/syllabus.pdf>`_ will be updated over the course
 Readings
 ~~~~~~~~
 
-* Due Sept 14, 2017: three short papers about the scientific Python ecosystem and IPython/Jupyter: 
+* Due **Monday** Sept 25, 2017:
+
+  - `Treating Code As an Essay <http://proquest.safaribooksonline.com/9780596510046/treating_code_as_an_essay>`_, by Yukihiro Matsumoto (aka "Matz"). Matz is the creator of Ruby and the essay talks about Ruby, but its ideas have generic value.
+
+  - `Python’s Dictionary Implementation: Being All Things to All People <http://proquest.safaribooksonline.com/9780596510046/pythons_dictionary_implementation_being_all_things_to_all_peopl>`_, by Andrew Kuchling. An essay that discusses the most important data structure in Python, the Dictionary.  In general we will not be diving deeply into technical implementation and programming details, but knowing a little bit about one of the key parts of the language is valuable.
+
+* Due Sept 14, 2017. Three short papers about the scientific Python ecosystem and IPython/Jupyter: 
 
   - `IPython: A System for Interactive Scientific Computing <http://fperez.org/papers/ipython07_pe-gr_cise.pdf>`_.
   - `Python: An Ecosystem for Scientific Computing <http://fperez.org/papers/perez11_cise_python_ecosystem.pdf>`_.  
@@ -32,7 +38,7 @@ Lectures
    lectures/01-git/Git-Tutorial.ipynb
    lectures/02-ipython/Index.ipynb
    lectures/03-reading1-discussion.ipynb
-   
+
 Labs
 ~~~~
 
