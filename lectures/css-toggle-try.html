@@ -24,8 +24,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lab 1" href="../labs/lab1.html" />
-    <link rel="prev" title="A quick overview of the Jupyter Notebook and IPython" href="02-ipython/Index.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -216,16 +214,14 @@ their actual subject. In an Academia where publishing is king, many
 scientists simply cannot afford to complete their work at an
 “open-source” standard. It also requires them to become skilled in tools
 and concepts they may have never been exposed to before. “</p>
-<div class="section" id="Discussion">
-<h3>Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
+<button onclick="toggle('m')"><p>Discussion</p>
+</button><div id="m" class="discuss" ,=""><ul class="simple">
 <li>What parts do you think are the most burdensome?</li>
 <li>Degrees of reproducibility?</li>
 <li>Incentives/recognition?</li>
 <li>What if social/community practices change?</li>
 </ul>
-<p class="space"></p></div>
-</div>
+</div><p class="space"></p></div>
 <div class="section" id="Point-2">
 <h2>Point 2<a class="headerlink" href="#Point-2" title="Permalink to this headline">¶</a></h2>
 <p>“So the fact that there still are such strong incentives for
@@ -235,15 +231,11 @@ because it really shouldn’t be considered research if it can’t be
 replicated by anyone) is very disappointing, but even more disappointing
 is that publication in these unscrupulous journals is even socially
 accepted in the scientific community as anything besides quack science.”</p>
-<div class="section" id="Discussion">
-<h3>Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Can someone think of cases where we can’t make research easily
 reproducible?</li>
-<li>Today, many journals don’t have formal guidelines for
-reproducibility. How can we change some of that?</li>
+<li>Today, still a huge range of journals have no</li>
 </ul>
-<p class="space"></p></div>
 </div>
 <div class="section" id="Point-3">
 <h2>Point 3<a class="headerlink" href="#Point-3" title="Permalink to this headline">¶</a></h2>
@@ -254,31 +246,75 @@ data before and I can see why researchers would be against things like
 code review, remote version control, etc. I know there are ways to scrub
 data of sensitive information and I wish those different techniques were
 discussed in the paper. “</p>
-<div class="section" id="Discussion">
-<h3>Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h3>
+<p>So to summarize the thoughts I see: 1. “Doing things right is hard” 2.
+“Science is broken because people are bad” 3. “How can you address
+privacy concerns?”</p>
+<p>I think the second point in particular is something you addressed that
+maybe didn’t sink in yet.</p>
+</div>
+<div class="section" id="Point-2">
+<h2>Point 2<a class="headerlink" href="#Point-2" title="Permalink to this headline">¶</a></h2>
+<p>“So the fact that there still are such strong incentives for
+unscrupulous journal editors to allow lax standards for non-reproducible
+scientific research (which honestly to some extent is an oxymoron,
+because it really shouldn’t be considered research if it can’t be
+replicated by anyone) is very disappointing, but even more disappointing
+is that publication in these unscrupulous journals is even socially
+accepted in the scientific community as anything besides quack science.”</p>
 <ul class="simple">
-<li>What are some types of data that can be problematic to share?</li>
-<li><em>Differential privacy:</em> <a class="reference external" href="https://blog.cryptographyengineering.com/2016/06/15/what-is-differential-privacy">this is a good overview written by an
-expert</a>,
-which in particular, links to the <a class="reference external" href="https://www.cs.utexas.edu/~shmat/shmat_oak08netflix.pdf">paper that showed the limits of
-anonymization on the Netflix
-dataset</a>.</li>
+<li>Can someone think of cases where we can’t make research easily
+reproducible?</li>
+<li>Today, still a huge range of journals have no</li>
 </ul>
+</div>
+<div class="section" id="Point-3">
+<h2>Point 3<a class="headerlink" href="#Point-3" title="Permalink to this headline">¶</a></h2>
+<p>“Reading this article, I think one of my biggest concerns about using
+open source practice would be security. This is especially a concern
+when working with EHR data. I’ve worked with sensitive patient level
+data before and I can see why researchers would be against things like
+code review, remote version control, etc. I know there are ways to scrub
+data of sensitive information and I wish those different techniques were
+discussed in the paper. “</p>
+<p>So to summarize the thoughts I see: 1. “Doing things right is hard” 2.
+“Science is broken because people are bad” 3. “How can you address
+privacy concerns?”</p>
+<p>I think the second point in particular is something you addressed that
+maybe didn’t sink in yet.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [16]:
+<span></span>In [11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="o">%%</span><span class="k">html</span>
 &lt;style&gt;
-  .space {
-     margin-bottom: 5cm;
+  .sm-space {
+     margin-bottom: 2cm;
   }
 
   .big-space {
-     margin-bottom: 8cm;
+     margin-bottom: 6cm;
   }
+
+.discuss {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top:20px;
+}
+
 &lt;/style&gt;
 </pre></div>
 </div>
@@ -288,14 +324,67 @@ dataset</a>.</li>
 </div>
 <div class="output_area docutils container">
 <style>
-  .space {
-     margin-bottom: 5cm;
+  .sm-space {
+     margin-bottom: 2cm;
   }
 
   .big-space {
-     margin-bottom: 8cm;
+     margin-bottom: 6cm;
   }
+
+.discuss {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top:20px;
+}
+
 </style></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [12]:
+</pre></div>
+</div>
+<div class="input_area highlight-javascript"><div class="highlight"><pre>
+<span></span><span class="o">%%</span><span class="nx">javascript</span>
+<span class="kd">function</span> <span class="nx">toggle</span><span class="p">(</span><span class="nx">eid</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">eid</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">===</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">x</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">x</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div id="01b72c67-e90b-48ea-a8af-bbc3c7ed55f4"></div>
+<script type="text/javascript">
+var element = document.getElementById('01b72c67-e90b-48ea-a8af-bbc3c7ed55f4');
+function toggle(eid) {
+    var x = document.getElementById(eid);
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -317,10 +406,10 @@ dataset</a>.</li>
 
 
 <h3>Navigation</h3>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Some discussion points about last week’s reading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-reading1-discussion.html">Some discussion points about last week’s reading</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>
@@ -334,8 +423,6 @@ dataset</a>.</li>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="02-ipython/Index.html" title="previous chapter">A quick overview of the Jupyter Notebook and IPython</a></li>
-      <li>Next: <a href="../labs/lab1.html" title="next chapter">Lab 1</a></li>
   </ul></li>
 </ul>
 </div>
@@ -361,7 +448,7 @@ dataset</a>.</li>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="../_sources/lectures/03-reading1-discussion.ipynb.txt"
+      <a href="../_sources/lectures/css-toggle-try.ipynb.txt"
           rel="nofollow">Page source</a>
     </div>
 
