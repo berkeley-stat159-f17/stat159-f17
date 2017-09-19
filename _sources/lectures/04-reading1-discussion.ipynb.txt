@@ -1,0 +1,300 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Reading discussion - Scientific Python, IPython, Jupyter\n",
+    "\n",
+    "## Point 1\n",
+    "\n",
+    "\"IPython is built and developed with the general principle of making life easier for scientists and students, but I believe that there are certain dangers in this as a result of my personal experience. If too much computation is abstracted away, then one can take the easy way out and miss out on learning fundamental concepts. Nowadays, one can simply call the appropriate methods in scikitlearn to do machine learning. In fact, my manager at my internship told me that a lot of folks who are trying to get into data science these days don’t even understand the algorithms/methods that they are using. Fifteen years ago, when scikitlearn didn’t exist, one needed to code the actual machine learning algorithm if he/she wanted to use it. This process forces the coder to deepen his/her fundamental understanding of the algorithm itself. The fact that we don’t need to do garbage collection in Python is a time-saver, but we miss out on the opportunity to learn about how our data is stored in memory. In fact, it’s possible for a newbie who has only coded in Python to not even be aware of what garbage collection is! In contrast, a C++ programmer has to become familiar with garbage collection and malloc by necessity. Actually, UC Berkeley’s entire computer science curriculum has embraced Python wholeheartedly; it is used in most of the upper division courses that I have taken. **As a result, I haven’t used C and C++ enough. This has caused my understanding of pointers and memory allocation, which I believe are still important for any computer programmer to know, to remain minimal.** One counter-argument would be to assert that teachers should insist that students learn the fundamental knowledge. In CS 189, the machine learning class here at Berkeley, we had to implement linear regression and a neural network in Numpy and Scipy in order to understand how they work. But, people often just want to finish a task in the most efficient way possible and will certainly find the most efficient way of doing so, especially if they are just searching online for the answers (through Stack Overflow, Quora, other online forums, etc.)\"\n",
+    "\n",
+    "### Discussion\n",
+    "\n",
+    "[Data Science from Scratch](http://proquest.safaribooksonline.com/book/databases/9781491901410), by Joel Grus.\n",
+    "\n",
+    "The [Online Python Tutor](http://www.pythontutor.com) is an excellent tool for visualizing the structure of algorithms in a variety of languages. We can even use it live in the notebook thanks to the [tutormagic](https://github.com/kikocorreoso/tutormagic) extension, which I've installed (you should go ahead and install it locally as well, as per the instructions on the site):"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The tutormagic extension is already loaded. To reload it, use:\n",
+      "  %reload_ext tutormagic\n"
+     ]
+    }
+   ],
+   "source": [
+    "%load_ext tutormagic"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "\n",
+       "        <iframe\n",
+       "            width=\"100%\"\n",
+       "            height=\"350\"\n",
+       "            src=\"http://pythontutor.com/iframe-embed.html#code=x%20%3D%20%5B1%2C2%2C3%5D%0Ay%20%3D%20x%0Ax.append%28%27hi%27%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&curInstr=0&&verticalStack=false&py=3&rawInputLstJSON=%5B%5D&codeDivWidth=50%25&codeDivHeight=100%25\"\n",
+       "            frameborder=\"0\"\n",
+       "            allowfullscreen\n",
+       "        ></iframe>\n",
+       "        "
+      ],
+      "text/plain": [
+       "<IPython.lib.display.IFrame at 0x10a6eb470>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "%%tutor -l python3\n",
+    "x = [1,2,3]\n",
+    "y = x\n",
+    "x.append('hi')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This is the quicksort algorithm as it used to be described in an old version of the [Wikipedia page](http://en.wikipedia.org/wiki/Quicksort) (today the descriptions are more complicated):\n",
+    "\n",
+    "    function quicksort(array)\n",
+    "         var list less, greater\n",
+    "         if length(array) <= 1\n",
+    "             return array\n",
+    "         select and remove a pivot value pivot from array\n",
+    "         for each x in array\n",
+    "             if x <= pivot then append x to less\n",
+    "             else append x to greater\n",
+    "         return concatenate(quicksort(less), pivot, quicksort(greater))\n",
+    "         \n",
+    "We can turn this into Python and visualize it:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "\n",
+       "        <iframe\n",
+       "            width=\"100%\"\n",
+       "            height=\"600\"\n",
+       "            src=\"http://pythontutor.com/iframe-embed.html#code=def%20qsort%28lst%29%3A%0A%20%20%20%20%22%22%22Return%20a%20sorted%20copy%20of%20the%20input%20list.%22%22%22%0A%20%20%20%20if%20len%28lst%29%20%3C%3D%201%3A%20return%20lst%0A%20%20%20%20pivot%2C%20rest%20%20%20%3D%20lst%5B0%5D%2C%20lst%5B1%3A%5D%0A%20%20%20%20less_than%20%20%20%20%20%3D%20%5B%20lt%20for%20lt%20in%20rest%20if%20lt%20%3C%20pivot%20%5D%0A%20%20%20%20greater_equal%20%3D%20%5B%20ge%20for%20ge%20in%20rest%20if%20ge%20%3E%3D%20pivot%20%5D%0A%20%20%20%20return%20qsort%28less_than%29%20%2B%20%5Bpivot%5D%20%2B%20qsort%28greater_equal%29%0A%0Aqsort%28%5B3%2C%2010%2C%20-9%2C%201%2C%207%5D%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&curInstr=0&&verticalStack=false&py=3&rawInputLstJSON=%5B%5D&codeDivWidth=50%25&codeDivHeight=100%25\"\n",
+       "            frameborder=\"0\"\n",
+       "            allowfullscreen\n",
+       "        ></iframe>\n",
+       "        "
+      ],
+      "text/plain": [
+       "<IPython.lib.display.IFrame at 0x10a6eb048>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "%%tutor -l python3 -h 600\n",
+    "def qsort(lst):\n",
+    "    \"\"\"Return a sorted copy of the input list.\"\"\"\n",
+    "    if len(lst) <= 1: return lst\n",
+    "    pivot, rest   = lst[0], lst[1:]\n",
+    "    less_than     = [ lt for lt in rest if lt < pivot ]\n",
+    "    greater_equal = [ ge for ge in rest if ge >= pivot ]\n",
+    "    return qsort(less_than) + [pivot] + qsort(greater_equal)\n",
+    "\n",
+    "qsort([3, 10, -9, 1, 7])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The Python [dis module](https://docs.python.org/3.6/library/dis.html) lets you analyze the internal structure of Python bytecode, which is what the interpreter actually executes:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "  2           0 LOAD_CONST               0 (1)\n",
+      "              2 LOAD_CONST               1 (2)\n",
+      "              4 LOAD_CONST               2 (3)\n",
+      "              6 BUILD_LIST               3\n",
+      "              8 STORE_NAME               0 (x)\n",
+      "\n",
+      "  3          10 LOAD_NAME                0 (x)\n",
+      "             12 STORE_NAME               1 (y)\n",
+      "\n",
+      "  4          14 LOAD_NAME                0 (x)\n",
+      "             16 LOAD_ATTR                2 (append)\n",
+      "             18 LOAD_CONST               3 ('hi')\n",
+      "             20 CALL_FUNCTION            1\n",
+      "             22 POP_TOP\n",
+      "             24 LOAD_CONST               4 (None)\n",
+      "             26 RETURN_VALUE\n"
+     ]
+    }
+   ],
+   "source": [
+    "import dis\n",
+    "dis.dis(\"\"\"\n",
+    "x = [1,2,3]\n",
+    "y = x\n",
+    "x.append('hi')\n",
+    "\"\"\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### XTensor\n",
+    "\n",
+    "`xtensor` is a C++ library meant for numerical analysis with multi-dimensional array expressions. Here is a [live demo](https://beta.mybinder.org/v2/gh/QuantStack/xtensor/0.11.1?filepath=notebooks/xtensor.ipynb)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Point 2\n",
+    "\n",
+    "\"Python has its drawbacks. For instance, Python has still not developed well-constructed function for parallel and distributed computing. And also what concerns me is that while lowering the standard for access to data analysis, Python may also lower the standard for preciseness and strictness of academic research. In jupyter notebook, we still have problem inserting academic citations. Anyone can post their research or article on platform like GitHub. The publication is no longer a very formal process as before. With the rapid rise of interactive computing systems, this issue also requires people's attention.\"\n",
+    "\n",
+    "\n",
+    "### Discussion\n",
+    "\n",
+    "- [Dask](https://dask.pydata.org): an excellent library for distributed computing in Python.\n",
+    "\n",
+    "- For numerically-oriented parallel computing, [MPI4Py](http://mpi4py.readthedocs.io) provides Python access to the complete MPI APIs.\n",
+    "\n",
+    "- Not very actively developed anymore, but can be interesting in certain contexts: [ipyparallel](http://ipyparallel.readthedocs.io).  If anyone is interested in how ipyparallel and mpi4py can be combined to interactively steer and introspect parallel codes, see me at office hours.\n",
+    "\n",
+    "- Preprints: the [ArXiV](https://arxiv.org). In-progress, non-peer-reviewed research hasn't been the death of physics, and these ideas are now picking up momentum in other areas: [BioRxiv](http://www.biorxiv.org), [OSF Preprints framework](https://osf.io/preprints).\n",
+    "\n",
+    "- Citations: not a completely solved problem, but [T. Kluyver's cite2c](https://github.com/takluyver/cite2c) is a step in the right direction, and we're working on improvements here.\n",
+    "\n",
+    "<p class=\"space\"></p>\n",
+    "\n",
+    "\n",
+    "## Point 3\n",
+    "\n",
+    "\"All in all, the article makes some good points (and to be fair it is out-of-date), but I think it makes a weak/strawman case when comparing Python to C/C++/Fortran/Mathematica/Matlab, because the former three are non-interactive, lower-level, the latter two are high-level interactive, and base Python (as mentioned here, without mentioning IPython engine/shell, much less Jupyter notebooks) is high-level and non-interactive. So really the only competitor that comes to mind for high-level non-interactive (at least with extensions) languages (that existed at the time, i.e. not Julia, which hasn't even had a stable release yet anyway) is R, but comparisons with R are mostly ignored and/or glossed over and/or inaccurate/unfair. (E.g. with regards to data visualization, statistical algorithms, and most importantly data manipulation, for which Python is absolutely terrible/not even worth using without pandas, and even then Python still doesn't have any super-killer like dplyr on top of R's better built-in features for data management/manipulation).\"\n",
+    "\n",
+    "### Discussion\n",
+    "\n",
+    "- Indeed, it's out of date: I couldn't find a current version of that article, which would be great to have. Much has changed since that article was written.  The Stack Overflow team published recently two interesting posts:\n",
+    "\n",
+    "  * [The Incredible Growth of Python](https://stackoverflow.blog/2017/09/06/incredible-growth-python)\n",
+    "  * [Why is Python Growing So Quickly?](https://stackoverflow.blog/2017/09/14/python-growing-quickly)\n",
+    "  \n",
+    "This image is particularly telling:\n",
+    "\n",
+    "<img width= 50% src=https://zgab33vy595fw5zq-zippykid.netdna-ssl.com/wp-content/uploads/2017/09/related_tags_over_time-1-1024x1024.png></img>\n",
+    "\n",
+    "- There's certainly nothing quite like the [TidyVerse](https://www.tidyverse.org) in Python. Note that at the time of writing of the article, dplyr (and much of the tidyverse) didn't exist (its [initial commit](https://github.com/tidyverse/dplyr/commit/80dc69b144711ec095db1d62cf0b73e09560eaf0) is dated Oct 28, 2012).  But it's certainly true that the R machinery is exceptionally powerful, and many of its tools interoperate with power and elegance.\n",
+    "\n",
+    "  In today's data science, research and industry environments, both R and Python play a role. Each has areas of particular strength, each has weaknesses, in some areas they overlap enough to be nearly interchangeable, in others they compete and feed each other.  In the end, a good scientist should know more than one tool, and know when to pick the most appropriate for the job. I hope this course will teach you enough Python to know when to use it, and when not to!\n",
+    "\n",
+    "<p class=\"space\"></p>\n",
+    "\n",
+    "## Point 4\n",
+    "\n",
+    "\"I hate the fact the Statistics department here seems set on using R in most classes instead of Python along with packages like NumPy, Sympy, etc, and having taken Stat 133 I have seen time wasted teaching the unintuitive R and RStudio to make R markdown files instead of converting to Python. I didn’t have any issues with these readings, Python is much less of a pain than high-level languages used in the CS department and I think should replace R and Matlab in statistics, numerical analaysis, and engineering classes.\"\n",
+    "\n",
+    "\n",
+    "### Discussion\n",
+    "\n",
+    "See above 😀!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "nbsphinx": "hidden"
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<style>\n",
+       "  .space {\n",
+       "     margin-bottom: 5cm;\n",
+       "  }\n",
+       "\n",
+       "  .big-space {\n",
+       "     margin-bottom: 8cm;\n",
+       "  }\n",
+       "</style>"
+      ],
+      "text/plain": [
+       "<IPython.core.display.HTML object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "%%html\n",
+    "<style>\n",
+    "  .space {\n",
+    "     margin-bottom: 5cm;\n",
+    "  }\n",
+    "\n",
+    "  .big-space {\n",
+    "     margin-bottom: 8cm;\n",
+    "  }\n",
+    "</style>"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
