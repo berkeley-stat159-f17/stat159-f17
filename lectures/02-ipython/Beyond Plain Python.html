@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>IPython: beyond plain Python &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
    
@@ -31,7 +34,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -216,7 +219,7 @@ new one if you are at the end. Alternately, you can use:</p>
 (useful when inserting new content in the middle of an existing
 notebook).</li>
 <li><code class="docutils literal"><span class="pre">Control-Enter</span></code> executes the cell and keeps the cursor in the same
-cell, useful for quick experimentation of snippets that you don’t
+cell, useful for quick experimentation of snippets that you don&#8217;t
 need to keep permanently.</li>
 </ul>
 <div class="nbinput docutils container">
@@ -585,7 +588,7 @@ BEYOND PLAIN PYTHON.IPYNB
 </div>
 <div class="section" id="Beyond-Python:-magic-functions">
 <h2>Beyond Python: magic functions<a class="headerlink" href="#Beyond-Python:-magic-functions" title="Permalink to this headline">¶</a></h2>
-<p>The IPyhton ‘magic’ functions are a set of commands, invoked by
+<p>The IPyhton &#8216;magic&#8217; functions are a set of commands, invoked by
 prepending one or two <code class="docutils literal"><span class="pre">%</span></code> signs to their name, that live in a
 namespace separate from your normal Python variables and provide a more
 command-like interface. They take flags with <code class="docutils literal"><span class="pre">--</span></code> and arguments
@@ -672,7 +675,7 @@ size: 300 2.35 µs ± 39 ns per loop (mean ± std. dev. of 7 runs, 100000 loops 
 size: 400 3.82 µs ± 41.2 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div></div>
 </div>
-<p>Magics can do anything they want with their input, so it doesn’t have to
+<p>Magics can do anything they want with their input, so it doesn&#8217;t have to
 be valid Python:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -746,7 +749,7 @@ It can contain anything I want...
 And more...
 </pre></div></div>
 </div>
-<p>Let’s see what other magics are currently defined in the system:</p>
+<p>Let&#8217;s see what other magics are currently defined in the system:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [34]:
@@ -852,7 +855,7 @@ def g(y):
 Overwriting mod.py
 </pre></div></div>
 </div>
-<p>Now let’s call the function <code class="docutils literal"><span class="pre">g</span></code> with an argument that would produce an
+<p>Now let&#8217;s call the function <code class="docutils literal"><span class="pre">g</span></code> with an argument that would produce an
 error:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -979,8 +982,8 @@ Exception reporting mode: Verbose
 <span class="ansi-red-fg">ZeroDivisionError</span>: float division by zero
 </pre></div></div>
 </div>
-<p>The default <code class="docutils literal"><span class="pre">%xmode</span></code> is “context”, which shows additional context but
-not all local variables. Let’s restore that one for the rest of our
+<p>The default <code class="docutils literal"><span class="pre">%xmode</span></code> is &#8220;context&#8221;, which shows additional context but
+not all local variables. Let&#8217;s restore that one for the rest of our
 session.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -1109,7 +1112,7 @@ notebook:</p>
 ipdb&gt; q
 </pre></div></div>
 </div>
-<p>Don’t foget to exit your debugging session. Raw input can of course be
+<p>Don&#8217;t foget to exit your debugging session. Raw input can of course be
 use to ask for user input:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -1230,16 +1233,6 @@ kernel with the <code class="docutils literal"><span class="pre">%qtconsole</spa
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 
@@ -1260,7 +1253,7 @@ kernel with the <code class="docutils literal"><span class="pre">%qtconsole</spa
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -1269,6 +1262,7 @@ kernel with the <code class="docutils literal"><span class="pre">%qtconsole</spa
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab2.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab3.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab4.html">Lab 4</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Course resources</a></li>
@@ -1299,7 +1293,7 @@ kernel with the <code class="docutils literal"><span class="pre">%qtconsole</spa
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
