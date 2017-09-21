@@ -39,6 +39,7 @@ Lectures
    lectures/02-ipython/Index.ipynb
    lectures/03-reading1-discussion.ipynb
    lectures/04-reading2-discussion.ipynb
+   lectures/05-class-practice.ipynb
 
 Labs
 ~~~~
