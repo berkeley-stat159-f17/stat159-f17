@@ -1,0 +1,454 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Class practice: strings, lists &amp; numbers &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab 1" href="../labs/lab1.html" />
+    <link rel="prev" title="Reading discussion - Scientific Python, IPython, Jupyter" href="04-reading2-discussion.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="section" id="Class-practice:-strings,-lists-&amp;-numbers">
+<h1>Class practice: strings, lists &amp; numbers<a class="headerlink" href="#Class-practice:-strings,-lists-&-numbers" title="Permalink to this headline">¶</a></h1>
+<p>These were copied and slightly modified from <a class="reference external" href="https://github.com/waddell/urban-informatics-and-visualization">Paul Waddell’s Urban
+Informatics and
+Visualization</a>.
+All credit goes to him, all mistakes are mine.</p>
+<div class="section" id="Exercises-|-String-&amp;-List">
+<h2>Exercises | String &amp; List<a class="headerlink" href="#Exercises-|-String-&-List" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Reversing-numbers">
+<h3>Reversing numbers<a class="headerlink" href="#Reversing-numbers" title="Permalink to this headline">¶</a></h3>
+<p>Write code that reverses even numbers from 0 to 100 (including 100) and
+print the result.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># Type your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="List-manipulations">
+<h3>List manipulations<a class="headerlink" href="#List-manipulations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="We-have-two-lists,-a-and-b,-a=[10,20,30]-b=[30,60,90].-Write-code-that-give-us-the-following-outputs:-[LIST]">
+<h4>We have two lists, a and b, a=[10,20,30] b=[30,60,90]. Write code that give us the following outputs: [LIST]<a class="headerlink" href="#We-have-two-lists,-a-and-b,-a=[10,20,30]-b=[30,60,90].-Write-code-that-give-us-the-following-outputs:-[LIST]" title="Permalink to this headline">¶</a></h4>
+<ol class="loweralpha simple">
+<li>[[10,20,30],[30,60,90]]</li>
+<li>[10,20,30,30,60,90]</li>
+<li>[10,20,60,90] (first two of a, last two of b)</li>
+<li>[20,40,60] (the element-wise differences between b and a)</li>
+</ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># Type your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="List-insertions">
+<h3>List insertions<a class="headerlink" href="#List-insertions" title="Permalink to this headline">¶</a></h3>
+<p><strong>Write code that add the name “Norah” to the following list, after the
+name “Michael”.</strong></p>
+<p>Make sure your code continues to do the right thing if more names are
+added to the list, or if the list is reordered, or if you need to find
+Jessica instead of Michael (or anyone else on the list).</p>
+<p>names: Akshara, Anna, Aqshems, Chester, Echo, James, Jessica, Matthew,
+Michael, Philip, Sarah</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># Type your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Maximizing-a-sum">
+<h3>Maximizing a sum<a class="headerlink" href="#Maximizing-a-sum" title="Permalink to this headline">¶</a></h3>
+<p>** Find a list in the following list (G) whose sum of its elements is
+the highest.**</p>
+<p>G = [[13,9,8], [14,6,12], [10,13,11], [7,18,9]]</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># Type your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Cars-and-brown-trucks">
+<h3>Cars and brown trucks<a class="headerlink" href="#Cars-and-brown-trucks" title="Permalink to this headline">¶</a></h3>
+<p>Write code that prints all colors in the list and the word ‘car’, one
+per line, <strong>unless</strong> the color is brown, when you should print ‘truck’
+instead:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># Type your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Numbers">
+<h2>Numbers<a class="headerlink" href="#Numbers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Reversing-numbers">
+<h3>Reversing numbers<a class="headerlink" href="#Reversing-numbers" title="Permalink to this headline">¶</a></h3>
+<p>Write a function nums_reversed that takes in an integer <code class="docutils literal"><span class="pre">n</span></code> and
+returns a string containing the numbers 1 through <code class="docutils literal"><span class="pre">n</span></code> including <code class="docutils literal"><span class="pre">n</span></code>
+in reverse order, separated by spaces. For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nums_reversed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">&#39;5 4 3 2 1&#39;</span>
+</pre></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># Type your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Divisibility">
+<h3>Divisibility<a class="headerlink" href="#Divisibility" title="Permalink to this headline">¶</a></h3>
+<p>Write a program which will find all such numbers which are divisible by
+7 but are not a multiple of 5, between 1000 and 1200 (both included).
+The numbers obtained should be printed in a comma-separated sequence on
+a single line.</p>
+<p><a href="#id2"><span class="problematic" id="id3">*</span></a>Hint: * Consider using <code class="docutils literal"><span class="pre">range(#begin,</span> <span class="pre">#end)</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># Type your code here</span>
+</pre></div>
+</div>
+</div>
+<p>Write the same program but this time use while loop instead of for loop</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># Type your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Double-trouble">
+<h3>Double trouble<a class="headerlink" href="#Double-trouble" title="Permalink to this headline">¶</a></h3>
+<p>Write a function <code class="docutils literal"><span class="pre">double100</span></code> that takes in a list of integers and
+returns <code class="docutils literal"><span class="pre">True</span></code> only if the list has two <code class="docutils literal"><span class="pre">100</span></code>s next to each other.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">double100</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">double100</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># Type your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Stat 159/259 - Reproducible and Collaborative Data Science</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Class practice: strings, lists &amp; numbers</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab2.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab3.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab4.html">Lab 4</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="04-reading2-discussion.html" title="previous chapter">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
+      <li>Next: <a href="../labs/lab1.html" title="next chapter">Lab 1</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Fernando Perez.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/lectures/05-class-practice.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

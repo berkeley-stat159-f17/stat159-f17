@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Stat 159/259 - Reproducible and Collaborative Data Science &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
-    
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
@@ -24,7 +21,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="An interactive Git Tutorial: the tool you didn’t know you needed" href="lectures/01-git/Git-Tutorial.html" />
@@ -35,7 +32,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -51,7 +48,7 @@
 <h2>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Due <strong>Monday</strong> Sept 25, 2017:<ul>
-<li><a class="reference external" href="http://proquest.safaribooksonline.com/9780596510046/treating_code_as_an_essay">Treating Code As an Essay</a>, by Yukihiro Matsumoto (aka &#8220;Matz&#8221;). Matz is the creator of Ruby and the essay talks about Ruby, but its ideas have generic value.</li>
+<li><a class="reference external" href="http://proquest.safaribooksonline.com/9780596510046/treating_code_as_an_essay">Treating Code As an Essay</a>, by Yukihiro Matsumoto (aka “Matz”). Matz is the creator of Ruby and the essay talks about Ruby, but its ideas have generic value.</li>
 <li><a class="reference external" href="http://proquest.safaribooksonline.com/9780596510046/pythons_dictionary_implementation_being_all_things_to_all_peopl">Python’s Dictionary Implementation: Being All Things to All People</a>, by Andrew Kuchling. An essay that discusses the most important data structure in Python, the Dictionary.  In general we will not be diving deeply into technical implementation and programming details, but knowing a little bit about one of the key parts of the language is valuable.</li>
 </ul>
 </li>
@@ -68,10 +65,11 @@
 <h2>Lectures<a class="headerlink" href="#lectures" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lectures/02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lectures/03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lectures/04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/05-class-practice.html">Class practice: strings, lists &amp; numbers</a></li>
 </ul>
 </div>
 </div>
@@ -116,10 +114,11 @@
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lectures/02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lectures/03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lectures/04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/05-class-practice.html">Class practice: strings, lists &amp; numbers</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="labs/lab1.html">Lab 1</a></li>
@@ -135,7 +134,7 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="lectures/01-git/Git-Tutorial.html" title="next chapter">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+      <li>Next: <a href="lectures/01-git/Git-Tutorial.html" title="next chapter">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
   </ul></li>
 </ul>
 </div>
@@ -157,7 +156,7 @@
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
