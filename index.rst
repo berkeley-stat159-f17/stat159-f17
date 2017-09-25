@@ -27,6 +27,27 @@ Readings
 
 * Due Sept 7, 2017: `Developing open source scientific practice <_static/ref/millman-perez.pdf>`_.
 
+* Due Oct 10th, 2017 (for guest lecture by Stuart Geiger):
+
+  - This lecture will be an inside look into a reproducible research project studying conflict between automated software agents (or bots) in Wikipedia. Spend however much time you'd normally spend preparing for this class browsing through Wikipedia's public but behind-the-scenes spaces to get a general background on what bots do and how the community governs them. 
+  
+  - Core readings
+  
+    - `The Bot Policy <https://en.wikipedia.org/wiki/Wikipedia:Bot_policy>`_.
+    - `Guide to the Bot Approvals Group <https://en.wikipedia.org/wiki/Wikipedia:Bot_Approvals_Group/Guide>`_.
+    - `Recent bot edits to English Wikipedia articles <https://en.wikipedia.org/wiki/Special:RecentChanges?limit=500&days=7&urlversion=2&hidehumans=1&hideWikibase=1&hidelog=1&hidecategorization=1&hidenewpages=1&namespace=0>`_.
+    
+      - Click "diff" on each line to get a diff of what the bot changed
+      - Click "hist" to see the history of edits to that artcile
+      - Click the bot's username to get their user talk page
+      - This is a version control system!
+      
+  - Some additional materials
+  
+    - `ClueBot NG <https://en.wikipedia.org/wiki/User:ClueBot_NG>`_ (an anti-spam/vandalism bot using machine learning and neural networks)
+    - `AnomieBOT's tasklist <https://en.wikipedia.org/wiki/User:AnomieBOT/TaskList>`_ (a bot account used for many different tasks).
+    - `Double redirects <https://en.wikipedia.org/wiki/Wikipedia:Double_redirects>`_ (a task frequently automated with bots).
+    - `Requests for Arbitration: Betacommand 2 <https://en.wikipedia.org/wiki/Wikipedia:Requests_for_arbitration/Betacommand_2>`_ (the Arbitration Committee is like Wikipedia's Supreme Court, this was a controversial case about a bot developer)
 
 Lectures
 ~~~~~~~~
