@@ -24,7 +24,7 @@
     "      We recomend that you clone the repo into a directory called `stat159-f17-reference`. First, move into your directory for this course (e.g. `stat159`) and clone the repo:\n",
     "      \n",
     "      ```\n",
-    "      git clone git@github.com:berkeley-stat159-f17/stat159-f17.git stat159-f17-reference\n",
+    "      git clone https://github.com/berkeley-stat159-f17/stat159-f17.git stat159-f17-reference\n",
     "      ```\n",
     "      \n",
     "      Then copy the contents of the repo into a new directory called `stat159-f17-work`:\n",
