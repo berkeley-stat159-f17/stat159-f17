@@ -1,0 +1,718 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Lab 5"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Some remarks"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "1. Repositories and directories for this course:\n",
+    "      Most course materials are in [the course repo](https://github.com/berkeley-stat159-f17/stat159-f17). \n",
+    "      \n",
+    "      We recomend that you clone the repo into a directory called `stat159-f17-reference`. First, move into your directory for this course (e.g. `stat159`) and clone the repo:\n",
+    "      \n",
+    "      ```\n",
+    "      git clone git@github.com:berkeley-stat159-f17/stat159-f17.git stat159-f17-reference\n",
+    "      ```\n",
+    "      \n",
+    "      Then copy the contents of the repo into a new directory called `stat159-f17-work`:\n",
+    "      \n",
+    "      ```\n",
+    "      cp -r stat159-f17-reference stat159-f17-work\n",
+    "      ```\n",
+    "      \n",
+    "      Now in the `stat159-f17-work` directory you can make changes on notebooks etc. When we add course materials you can pull in the `stat159-f17-reference` directory, and then copy again.\n",
+    "\n",
+    "2. Absolute paths vs relative paths: \n",
+    "\n",
+    "      Repositories are meant to be shared. If you have a path to data that looks like `Users/username/repo/data.csv`, will it be able to run on another computer? How can we change the path so that it can run from inside the `repo` directory?\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## File IO\n",
+    "This section was slightly modified from the [Python docs](https://docs.python.org/3.6/tutorial/inputoutput.html)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Opening a file"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The function `open` returns a file object, and is most commonly used with two\n",
+    "arguments: `open(filename, mode)`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "f = open('workfile', 'w')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The first argument is a string containing the filename. The second\n",
+    "argument is another string containing a few characters describing the\n",
+    "way in which the file will be used. *mode* can be `'r'` when the file\n",
+    "will only be read, `'w'` for only writing (an existing file with the\n",
+    "same name will be erased), and `'a'` opens the file for appending; any\n",
+    "data written to the file is automatically added to the end. `'r+'` opens\n",
+    "the file for both reading and writing. The *mode* argument is optional;\n",
+    "`'r'` will be assumed if it's omitted.\n",
+    "\n",
+    "Normally, files are opened in text mode, that means, you read and write\n",
+    "strings from and to the file, which are encoded in a specific encoding.\n",
+    "If encoding is not specified, the default is platform dependent (see\n",
+    "open). `'b'` appended to the mode opens the file in binary mode: now the\n",
+    "data is read and written in the form of bytes objects. This mode should\n",
+    "be used for all files that don't contain text.\n",
+    "\n",
+    "In text mode, the default when reading is to convert platform-specific\n",
+    "line endings (`\\n` on Unix, `\\r\\n` on Windows) to just `\\n`. When\n",
+    "writing in text mode, the default is to convert occurrences of `\\n` back\n",
+    "to platform-specific line endings. This behind-the-scenes modification\n",
+    "to file data is fine for text files, but will corrupt binary data like\n",
+    "that in JPEG or EXE files. Be very careful to use binary mode when\n",
+    "reading and writing such files."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "It is good practice to use the with keyword when dealing with file\n",
+    "objects. The advantage is that the file is properly closed after its\n",
+    "suite finishes, even if an exception is raised at some point. Using with\n",
+    "is also much shorter than writing equivalent try-finally blocks:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "with open('workfile') as f:\n",
+    "    read_data = f.read()\n",
+    "f.closed"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "If you're not using the with keyword, then you should call `f.close()`\n",
+    "to close the file and immediately free up any system resources used by\n",
+    "it. If you don't explicitly close a file, Python's garbage collector\n",
+    "will eventually destroy the object and close the open file for you, but\n",
+    "the file may stay open for a while. Another risk is that different\n",
+    "Python implementations will do this clean-up at different times.\n",
+    "\n",
+    "After a file object is closed, either by a with statement or by calling\n",
+    "`f.close()`, attempts to use the file object will automatically fail. :"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "f.close()\n",
+    "f.read()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Exercise: Write the equivalent logic of the `with` statement with try-finally blocks"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Your code here"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Methods for file objects"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "First, let's create a file object for `example.txt`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "f = open(\"lab5-files/example.txt\", \"r\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Reading"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "To read a file's contents, call `f.read(size)`, which reads some\n",
+    "quantity of data and returns it as a string (in text mode) or bytes\n",
+    "object (in binary mode). `size` is an optional numeric argument. When\n",
+    "`size` is omitted or negative, **the entire contents of the file will be\n",
+    "read and returned**; it's your problem if the file is twice as large as\n",
+    "your machine's memory. Otherwise, at most *size* bytes are read and\n",
+    "returned. If the end of the file has been reached, `f.read()` will\n",
+    "return an empty string (`''`). :"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "This is a temporary text file.\n",
+      "We'll parse this file.\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(f.read())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "''"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f.read()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "`f.readline()` reads a single line from the file; a newline character\n",
+    "(`\\n`) is left at the end of the string, and is only omitted on the last\n",
+    "line of the file if the file doesn't end in a newline. This makes the\n",
+    "return value unambiguous; if `f.readline()` returns an empty string, the\n",
+    "end of the file has been reached, while a blank line is represented by\n",
+    "`'\\n'`, a string containing only a single newline. :"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'This is a temporary text file.\\n'"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f = open(\"example.txt\", \"r\")\n",
+    "f.readline()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "\"We'll parse this file.\\n\""
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f.readline()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "''"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f.readline()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "For reading lines from a file, you can loop over the file object. This\n",
+    "is memory efficient, fast, and leads to simple code:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "This is a temporary text file.\n",
+      "We'll parse this file.\n"
+     ]
+    }
+   ],
+   "source": [
+    "f = open(\"example.txt\", \"r\")\n",
+    "for line in f:\n",
+    "    print(line, end='')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "If you want to read all the lines of a file in a list you can also use\n",
+    "`list(f)` or `f.readlines()`."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Writing"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now let's create a new file to write to"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "f = open(\"our_file.txt\", \"w\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "`f.write(string)` writes the contents of *string* to the file, returning\n",
+    "the number of characters written. :"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "15"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "\n",
+    "f.write('This is a test\\n')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Other types of objects need to be converted -- either to a string (in\n",
+    "text mode) or a bytes object (in binary mode) -- before writing them:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "value = ('the answer', 42)\n",
+    "s = str(value)  # convert the tuple to string\n",
+    "f.write(s)\n",
+    "f.close()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "`f.tell()` returns an integer giving the file object's current position\n",
+    "in the file represented as number of bytes from the beginning of the\n",
+    "file when in binary mode and an opaque number when in text mode.\n",
+    "\n",
+    "To change the file object's position, use `f.seek(offset, from_what)`.\n",
+    "The position is computed from adding *offset* to a reference point; the\n",
+    "reference point is selected by the *from\\_what* argument. A *from\\_what*\n",
+    "value of 0 measures from the beginning of the file, 1 uses the current\n",
+    "file position, and 2 uses the end of the file as the reference point.\n",
+    "*from\\_what* can be omitted and defaults to 0, using the beginning of\n",
+    "the file as the reference point. :"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "16"
+      ]
+     },
+     "execution_count": 40,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f = open('our_file.txt', 'rb+')\n",
+    "f.write(b'0123456789abcdef')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "5"
+      ]
+     },
+     "execution_count": 41,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f.seek(5)      # Go to the 6th byte in the file\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "b'5'"
+      ]
+     },
+     "execution_count": 42,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f.read(1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "48"
+      ]
+     },
+     "execution_count": 43,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f.seek(-3, 2)  # Go to the 3rd byte before the end\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "b'4'"
+      ]
+     },
+     "execution_count": 44,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f.read(1)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In text files (those opened without a `b` in the mode string), only\n",
+    "seeks relative to the beginning of the file are allowed (the exception\n",
+    "being seeking to the very file end with `seek(0, 2)`) and the only valid\n",
+    "*offset* values are those returned from the `f.tell()`, or zero. Any\n",
+    "other *offset* value produces undefined behaviour."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Other file types"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Many times you'll encounter data not stored in text files. In particular, data is oftentimes compressed. For the second homework you'll need to read a file which has been compressed with [GNU Gzip](https://www.gnu.org/software/gzip/). You can open files like this in python in similar ways as ordinary text files."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Calisthenics"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Exception handling\n",
+    "Using a try-catch-finally block, write a function which takes in a list of numbers and returns a list of all the elements up until the first negative number."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Type your code here"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Quantiles\n",
+    "Write a function to compute the median of a list of numbers"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Type your code here"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now write a function to compute the $p^\\text{th}$ percentile "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Type your code here"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### File I/O \n",
+    "Write a function which creates a file with $n$ lines numbered"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Type your code here"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Write a function which appends to that file an extra $m$ lines"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Type your code here"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

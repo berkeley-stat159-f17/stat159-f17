@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Class practice: strings, lists &amp; numbers &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Lab 1" href="../labs/lab1.html" />
@@ -33,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -205,7 +208,7 @@ div.nboutput div.output_area.stderr {
 </style>
 <div class="section" id="Class-practice:-strings,-lists-&amp;-numbers">
 <h1>Class practice: strings, lists &amp; numbers<a class="headerlink" href="#Class-practice:-strings,-lists-&-numbers" title="Permalink to this headline">¶</a></h1>
-<p>These were copied and slightly modified from <a class="reference external" href="https://github.com/waddell/urban-informatics-and-visualization">Paul Waddell’s Urban
+<p>These were copied and slightly modified from <a class="reference external" href="https://github.com/waddell/urban-informatics-and-visualization">Paul Waddell&#8217;s Urban
 Informatics and
 Visualization</a>.
 All credit goes to him, all mistakes are mine.</p>
@@ -217,13 +220,78 @@ All credit goes to him, all mistakes are mine.</p>
 print the result.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [2]:
+<span></span>In [33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span><span class="n">end</span> <span class="o">=</span> <span class="mi">100001</span>
 </pre></div>
 </div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="o">%%</span><span class="k">timeit</span>
+a = list(range(end))
+b = a[::-2]
+#print(b)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2.62 ms ± 74.1 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="o">%%</span><span class="k">timeit</span>
+a = []
+for i in range(end):
+    if i % 2 ==0:
+        a.append(i)
+b = a[::-1]
+#print(b)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+8.61 ms ± 332 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="o">%%</span><span class="k">timeit</span>
+a = list(range(end-1, -1, -2))
+#print(a)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+725 µs ± 12.2 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="List-manipulations">
@@ -238,11 +306,115 @@ print the result.</p>
 </ol>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [16]:
+<span></span>In [51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100</span><span class="n">_000</span>
+<span class="n">a</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">b</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [56]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">dis</span>
+<span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="s2">&quot;pd = [b[i]-a[i] for i in range(0,len(a))]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  1           0 LOAD_CONST               0 (&lt;code object &lt;listcomp&gt; at 0x106ec2a50, file &#34;&lt;dis&gt;&#34;, line 1&gt;)
+              2 LOAD_CONST               1 (&#39;&lt;listcomp&gt;&#39;)
+              4 MAKE_FUNCTION            0
+              6 LOAD_NAME                0 (range)
+              8 LOAD_CONST               2 (0)
+             10 LOAD_NAME                1 (len)
+             12 LOAD_NAME                2 (a)
+             14 CALL_FUNCTION            1
+             16 CALL_FUNCTION            2
+             18 GET_ITER
+             20 CALL_FUNCTION            1
+             22 STORE_NAME               3 (pd)
+             24 LOAD_CONST               3 (None)
+             26 RETURN_VALUE
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [59]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">l = []</span>
+<span class="s2">for i in range(len(a)):</span>
+<span class="s2">  l.append(b[i] - a[i])</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  2           0 BUILD_LIST               0
+              2 STORE_NAME               0 (l)
+
+  3           4 SETUP_LOOP              42 (to 48)
+              6 LOAD_NAME                1 (range)
+              8 LOAD_NAME                2 (len)
+             10 LOAD_NAME                3 (a)
+             12 CALL_FUNCTION            1
+             14 CALL_FUNCTION            1
+             16 GET_ITER
+        &gt;&gt;   18 FOR_ITER                26 (to 46)
+             20 STORE_NAME               4 (i)
+
+  4          22 LOAD_NAME                0 (l)
+             24 LOAD_ATTR                5 (append)
+             26 LOAD_NAME                6 (b)
+             28 LOAD_NAME                4 (i)
+             30 BINARY_SUBSCR
+             32 LOAD_NAME                3 (a)
+             34 LOAD_NAME                4 (i)
+             36 BINARY_SUBSCR
+             38 BINARY_SUBTRACT
+             40 CALL_FUNCTION            1
+             42 POP_TOP
+             44 JUMP_ABSOLUTE           18
+        &gt;&gt;   46 POP_BLOCK
+        &gt;&gt;   48 LOAD_CONST               0 (None)
+             50 RETURN_VALUE
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [55]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>==0]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[55]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[0, 2, 4, 6, 8]
 </pre></div>
 </div>
 </div>
@@ -250,20 +422,81 @@ print the result.</p>
 </div>
 <div class="section" id="List-insertions">
 <h3>List insertions<a class="headerlink" href="#List-insertions" title="Permalink to this headline">¶</a></h3>
-<p><strong>Write code that add the name “Norah” to the following list, after the
-name “Michael”.</strong></p>
+<p><strong>Write code that add the name &#8220;Norah&#8221; to the following list, after the
+name &#8220;Michael&#8221;.</strong></p>
 <p>Make sure your code continues to do the right thing if more names are
 added to the list, or if the list is reordered, or if you need to find
 Jessica instead of Michael (or anyone else on the list).</p>
 <p>names: Akshara, Anna, Aqshems, Chester, Echo, James, Jessica, Matthew,
 Michael, Philip, Sarah</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [23]:
+<span></span>In [65]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Akshara&quot;</span><span class="p">,</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Aqshems&quot;</span><span class="p">,</span> <span class="s2">&quot;Chester&quot;</span><span class="p">,</span> <span class="s2">&quot;Echo&quot;</span><span class="p">,</span> <span class="s2">&quot;James&quot;</span><span class="p">,</span> <span class="s2">&quot;Jessica&quot;</span><span class="p">,</span> <span class="s2">&quot;Matthew&quot;</span><span class="p">,</span> <span class="s2">&quot;Michael&quot;</span><span class="p">,</span> <span class="s2">&quot;Philip&quot;</span><span class="p">,</span> <span class="s2">&quot;Sarah&quot;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">add_after</span><span class="p">(</span><span class="n">name_list</span><span class="p">,</span> <span class="n">name_to_add</span><span class="p">,</span> <span class="n">name_to_after</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add a name to a list, at the specified position.</span>
+
+<span class="sd">    Adds....</span>
+<span class="sd">    ....</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="n">name_list</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="n">name_to_after</span><span class="p">:</span>
+            <span class="n">names</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">name_to_add</span><span class="p">)</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">names</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">add_after</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="s2">&quot;Norah&quot;</span><span class="p">,</span> <span class="s2">&quot;Michael&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">add_after</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="s2">&quot;Lance&quot;</span><span class="p">,</span> <span class="s2">&quot;Jessica&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Akshara&#39;, &#39;Anna&#39;, &#39;Aqshems&#39;, &#39;Chester&#39;, &#39;Echo&#39;, &#39;James&#39;, &#39;Jessica&#39;, &#39;Matthew&#39;, &#39;Michael&#39;, &#39;Norah&#39;, &#39;Philip&#39;, &#39;Sarah&#39;]
+[&#39;Akshara&#39;, &#39;Anna&#39;, &#39;Aqshems&#39;, &#39;Chester&#39;, &#39;Echo&#39;, &#39;James&#39;, &#39;Jessica&#39;, &#39;Lance&#39;, &#39;Matthew&#39;, &#39;Michael&#39;, &#39;Norah&#39;, &#39;Philip&#39;, &#39;Sarah&#39;]
+[&#39;Akshara&#39;, &#39;Anna&#39;, &#39;Aqshems&#39;, &#39;Chester&#39;, &#39;Echo&#39;, &#39;James&#39;, &#39;Jessica&#39;, &#39;Lance&#39;, &#39;Matthew&#39;, &#39;Michael&#39;, &#39;Norah&#39;, &#39;Philip&#39;, &#39;Sarah&#39;]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [66]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Akshara&quot;</span><span class="p">,</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Aqshems&quot;</span><span class="p">,</span> <span class="s2">&quot;Chester&quot;</span><span class="p">,</span> <span class="s2">&quot;Echo&quot;</span><span class="p">,</span> <span class="s2">&quot;James&quot;</span><span class="p">,</span> <span class="s2">&quot;Jessica&quot;</span><span class="p">,</span> <span class="s2">&quot;Matthew&quot;</span><span class="p">,</span> <span class="s2">&quot;Michael&quot;</span><span class="p">,</span> <span class="s2">&quot;Philip&quot;</span><span class="p">,</span> <span class="s2">&quot;Sarah&quot;</span><span class="p">]</span>
+<span class="n">name</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;Michael&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;Norah&quot;</span><span class="p">)</span>
+<span class="n">name</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[66]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&#39;Akshara&#39;,
+ &#39;Anna&#39;,
+ &#39;Aqshems&#39;,
+ &#39;Chester&#39;,
+ &#39;Echo&#39;,
+ &#39;James&#39;,
+ &#39;Jessica&#39;,
+ &#39;Matthew&#39;,
+ &#39;Michael&#39;,
+ &#39;Norah&#39;,
+ &#39;Philip&#39;,
+ &#39;Sarah&#39;]
 </pre></div>
 </div>
 </div>
@@ -286,8 +519,8 @@ the highest.**</p>
 </div>
 <div class="section" id="Cars-and-brown-trucks">
 <h3>Cars and brown trucks<a class="headerlink" href="#Cars-and-brown-trucks" title="Permalink to this headline">¶</a></h3>
-<p>Write code that prints all colors in the list and the word ‘car’, one
-per line, <strong>unless</strong> the color is brown, when you should print ‘truck’
+<p>Write code that prints all colors in the list and the word &#8216;car&#8217;, one
+per line, <strong>unless</strong> the color is brown, when you should print &#8216;truck&#8217;
 instead:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">]</span>
 </pre></div>
@@ -396,7 +629,7 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -439,7 +672,7 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

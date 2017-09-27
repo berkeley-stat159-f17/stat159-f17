@@ -108,7 +108,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 27,
    "metadata": {},
    "outputs": [
     {
@@ -116,7 +116,7 @@
      "output_type": "stream",
      "text": [
       "[[10, 20, 30], [30, 60, 90]]\n",
-      "[[10, 20, 30, 30, 60, 90]]\n",
+      "[10, 20, 30, 30, 60, 90]\n",
       "[10, 20, 60, 90]\n",
       "[20, 40, 60]\n"
      ]
@@ -129,8 +129,8 @@
     "b=[30,60,90]\n",
     "\n",
     "\n",
-    "A=[a,b]\n",
-    "B=[a+b]\n",
+    "A= [a,b]\n",
+    "B= a+b\n",
     "C= a[:2]+b[-2:]\n",
     "D=[y-x for x,y in zip(a, b)]\n",
     "\n",
@@ -257,32 +257,6 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": 8,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "red car\n",
-      "black car\n",
-      "gray car\n",
-      "brown truck\n",
-      "blue car\n",
-      "white car\n"
-     ]
-    }
-   ],
-   "source": [
-    "# Solution\n",
-    "colors = ['red', 'black', 'gray', 'brown', 'blue', 'white']\n",
-    "for color in colors:\n",
-    "    kind = 'truck' if color == 'brown' else 'car'\n",
-    "    print(f'{color} {kind}')"
-   ]
-  },
-  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
@@ -295,32 +269,6 @@
     "\n",
     "    >>> nums_reversed(5)\n",
     "    '5 4 3 2 1'"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 11,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "'5 4 3 2 1'"
-      ]
-     },
-     "execution_count": 11,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "# Solution\n",
-    "\n",
-    "def nums_reversed(n):\n",
-    "    nums = map(str, range(n, 0, -1))\n",
-    "    return ' '.join(nums)\n",
-    "    \n",
-    "nums_reversed(5)"
    ]
   },
   {
@@ -337,57 +285,10 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": 13,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "1001, 1008, 1022, 1029, 1036, 1043, 1057, 1064, 1071, 1078, 1092, 1099, 1106, 1113, 1127, 1134, 1141, 1148, 1162, 1169, 1176, 1183, 1197, "
-     ]
-    }
-   ],
-   "source": [
-    "# Solution\n",
-    "\n",
-    "start, stop  = 1000, 1200\n",
-    "nums = range(start, stop+1)\n",
-    "for n in nums:\n",
-    "    if n % 7 == 0 and n % 5 != 0:\n",
-    "        print(f'{n},', end=' ')"
-   ]
-  },
-  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
     "Write the same program but this time use while loop instead of for loop"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "## Double trouble\n",
-    "\n",
-    "Write a function `double100` that takes in a list of integers\n",
-    "and returns `True` only if the list has two `100`s next to each other.\n",
-    "\n",
-    "    >>> double100([100, 2, 3, 100])\n",
-    "    False\n",
-    "    >>> double100([2, 3, 100, 100, 5])\n",
-    "    True"
    ]
   },
   {

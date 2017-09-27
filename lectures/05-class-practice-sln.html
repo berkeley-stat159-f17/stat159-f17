@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Class practice: strings, lists &amp; numbers &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
    
@@ -31,7 +34,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -203,7 +206,7 @@ div.nboutput div.output_area.stderr {
 </style>
 <div class="section" id="Class-practice:-strings,-lists-&amp;-numbers">
 <h1>Class practice: strings, lists &amp; numbers<a class="headerlink" href="#Class-practice:-strings,-lists-&-numbers" title="Permalink to this headline">¶</a></h1>
-<p>These were copied and slightly modified from <a class="reference external" href="https://github.com/waddell/urban-informatics-and-visualization">Paul Waddell’s Urban
+<p>These were copied and slightly modified from <a class="reference external" href="https://github.com/waddell/urban-informatics-and-visualization">Paul Waddell&#8217;s Urban
 Informatics and
 Visualization</a>.
 All credit goes to him, all mistakes are mine.</p>
@@ -279,7 +282,7 @@ print the result.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [18]:
+<span></span>In [27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -289,8 +292,8 @@ print the result.</p>
 <span class="n">b</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">90</span><span class="p">]</span>
 
 
-<span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span>
-<span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">]</span>
+<span class="n">A</span><span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span>
+<span class="n">B</span><span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
 <span class="n">C</span><span class="o">=</span> <span class="n">a</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
 <span class="n">D</span><span class="o">=</span><span class="p">[</span><span class="n">y</span><span class="o">-</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)]</span>
 
@@ -304,7 +307,7 @@ print the result.</p>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 [[10, 20, 30], [30, 60, 90]]
-[[10, 20, 30, 30, 60, 90]]
+[10, 20, 30, 30, 60, 90]
 [10, 20, 60, 90]
 [20, 40, 60]
 </pre></div></div>
@@ -313,8 +316,8 @@ print the result.</p>
 </div>
 <div class="section" id="List-insertions">
 <h3>List insertions<a class="headerlink" href="#List-insertions" title="Permalink to this headline">¶</a></h3>
-<p><strong>Write code that add the name “Norah” to the following list, after the
-name “Michael”.</strong></p>
+<p><strong>Write code that add the name &#8220;Norah&#8221; to the following list, after the
+name &#8220;Michael&#8221;.</strong></p>
 <p>Make sure your code continues to do the right thing if more names are
 added to the list, or if the list is reordered, or if you need to find
 Jessica instead of Michael (or anyone else on the list).</p>
@@ -395,8 +398,8 @@ the highest.**</p>
 </div>
 <div class="section" id="Cars-and-brown-trucks">
 <h3>Cars and brown trucks<a class="headerlink" href="#Cars-and-brown-trucks" title="Permalink to this headline">¶</a></h3>
-<p>Write code that prints all colors in the list and the word ‘car’, one
-per line, <strong>unless</strong> the color is brown, when you should print ‘truck’
+<p>Write code that prints all colors in the list and the word &#8216;car&#8217;, one
+per line, <strong>unless</strong> the color is brown, when you should print &#8216;truck&#8217;
 instead:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">]</span>
 </pre></div>
@@ -410,33 +413,6 @@ instead:</p>
 <span></span><span class="c1"># Type your code here</span>
 </pre></div>
 </div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Solution</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
-    <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;truck&#39;</span> <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="s1">&#39;brown&#39;</span> <span class="k">else</span> <span class="s1">&#39;car&#39;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{color}</span><span class="s1"> </span><span class="si">{kind}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-red car
-black car
-gray car
-brown truck
-blue car
-white car
-</pre></div></div>
 </div>
 </div>
 </div>
@@ -452,32 +428,6 @@ in reverse order, separated by spaces. For example:</p>
 <span class="go">&#39;5 4 3 2 1&#39;</span>
 </pre></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Solution</span>
-
-<span class="k">def</span> <span class="nf">nums_reversed</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">nums</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-    <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-
-<span class="n">nums_reversed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[11]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&#39;5 4 3 2 1&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="Divisibility">
 <h2>Divisibility<a class="headerlink" href="#Divisibility" title="Permalink to this headline">¶</a></h2>
@@ -486,62 +436,7 @@ in reverse order, separated by spaces. For example:</p>
 The numbers obtained should be printed in a comma-separated sequence on
 a single line.</p>
 <p><a href="#id2"><span class="problematic" id="id3">*</span></a>Hint: * Consider using <code class="docutils literal"><span class="pre">range(#begin,</span> <span class="pre">#end)</span></code>.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [13]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Solution</span>
-
-<span class="n">start</span><span class="p">,</span> <span class="n">stop</span>  <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1200</span>
-<span class="n">nums</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{n}</span><span class="s1">,&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-1001, 1008, 1022, 1029, 1036, 1043, 1057, 1064, 1071, 1078, 1092, 1099, 1106, 1113, 1127, 1134, 1141, 1148, 1162, 1169, 1176, 1183, 1197,
-</pre></div></div>
-</div>
 <p>Write the same program but this time use while loop instead of for loop</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="Double-trouble">
-<h2>Double trouble<a class="headerlink" href="#Double-trouble" title="Permalink to this headline">¶</a></h2>
-<p>Write a function <code class="docutils literal"><span class="pre">double100</span></code> that takes in a list of integers and
-returns <code class="docutils literal"><span class="pre">True</span></code> only if the list has two <code class="docutils literal"><span class="pre">100</span></code>s next to each other.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">double100</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">double100</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
-<span class="go">True</span>
-</pre></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 
@@ -562,7 +457,7 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -603,7 +498,7 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
