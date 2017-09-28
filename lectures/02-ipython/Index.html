@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>A quick overview of the Jupyter Notebook and IPython &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
-    
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -24,7 +21,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Reading discussion - Developing open source scientific practice" href="../03-reading1-discussion.html" />
@@ -36,7 +33,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -44,9 +41,171 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="A-quick-overview-of-the-Jupyter-Notebook-and-IPython">
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="section" id="A-quick-overview-of-the-Jupyter-Notebook-and-IPython">
 <h1>A quick overview of the Jupyter Notebook and IPython<a class="headerlink" href="#A-quick-overview-of-the-Jupyter-Notebook-and-IPython" title="Permalink to this headline">¶</a></h1>
-<p>Today, we&#8217;ll cover the basics of using the Jupyter Notebook effectively
+<p>Today, we’ll cover the basics of using the Jupyter Notebook effectively
 as an everyday tool, as well as using IPython as an improved Python
 environment.</p>
 <p>From now on, to be able to follow easily along in class, the simplest
@@ -55,12 +214,12 @@ repository. The first one, you will clone from GitHub and you will
 <strong>never</strong> modify (unless you plan on submitting your changes back as a
 contribution/fix, which is very welcome). The second will be a local
 working copy of these materials, that you are free to work on and modify
-but where each week you&#8217;ll copy anew the new material for that week.
+but where each week you’ll copy anew the new material for that week.
 That is:</p>
 <ol class="arabic">
 <li><p class="first">Create a clone of the <a class="reference external" href="https://github.com/berkeley-stat159-f17/stat159-f17">official github
 repo</a> in a
-location on your computer you&#8217;ll keep for reference. You can do this
+location on your computer you’ll keep for reference. You can do this
 with the command:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">berkeley</span><span class="o">-</span><span class="n">stat159</span><span class="o">-</span><span class="n">f17</span><span class="o">/</span><span class="n">stat159</span><span class="o">-</span><span class="n">f17</span><span class="o">.</span><span class="n">git</span> <span class="n">stat159</span><span class="o">-</span><span class="n">f17</span><span class="o">-</span><span class="n">reference</span>
 </pre></div>
@@ -71,7 +230,7 @@ issue a <code class="docutils literal"><span class="pre">git</span> <span class=
 <li><p class="first">Next, make a folder at the same level as <code class="docutils literal"><span class="pre">stat159-f17-reference</span></code>
 that you can call <code class="docutils literal"><span class="pre">stat159-f17-working</span></code>. There, you can copy the
 materials from the <code class="docutils literal"><span class="pre">reference</span></code> folder for each week and work on
-them modifying them at your heart&#8217;s content.</p>
+them modifying them at your heart’s content.</p>
 </li>
 </ol>
 <div class="section" id="Class-outline">
@@ -86,6 +245,16 @@ them modifying them at your heart&#8217;s content.</p>
 official <a class="reference external" href="https://github.com/ipython/ipython-in-depth">IPython in-depth
 tutorial</a>, which you can
 clone from github and study in more depth.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -106,17 +275,15 @@ clone from github and study in more depth.</p>
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../05-class-practice.html">Class practice: strings, lists &amp; numbers</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab2.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab3.html">Lab 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../labs/lab4.html">Lab 4</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Course resources</a></li>
@@ -126,7 +293,7 @@ clone from github and study in more depth.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../01-git/Git-Tutorial.html" title="previous chapter">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+      <li>Previous: <a href="../01-git/Git-Tutorial.html" title="previous chapter">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
       <li>Next: <a href="../03-reading1-discussion.html" title="next chapter">Reading discussion - Developing open source scientific practice</a></li>
   </ul></li>
 </ul>
@@ -149,7 +316,7 @@ clone from github and study in more depth.</p>
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
