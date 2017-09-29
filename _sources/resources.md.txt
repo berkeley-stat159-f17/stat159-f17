@@ -14,6 +14,9 @@
 
 * [Reproducibility: a Primer on Semantics and Implications for Research](https://www.rti.org/sites/default/files/resources/18127052_Reproducibility_Primer.pdf) contains an excellent overview of the main concepts in this field.
 
+* [Elegant SciPy](http://proquest.safaribooksonline.com/9781491922927), a collection of example-oriented lessons on how to best use the scientific Python toolkit, by the creator of Scikit-Image and BIDS researcher [Stefan van der Walt](https://bids.berkeley.edu/people/st%C3%A9fan-van-der-walt). In addition to the previous O'Reilly reader, the [full book](https://github.com/elegant-scipy/elegant-scipy) as well as all the [notebooks](https://github.com/elegant-scipy/notebooks) are available.
+
+
 **O'Reilly book access note:**  if you are physically on campus, for you to freely access the O'Reilly Safari book library, you *must* be logged into WiFi via either AirBears2 or eduroam, but not through CalVisitor.  [This page](https://technology.berkeley.edu/wi-fi) explains the WiFi options that exist, and on the right provides links for you to set up either AirBears2 or eduroam access on your laptop or phone.
 
 If you want to be able to access this service while off-campus, you can set up a Firefox/Chrome profile configured to use the UC Berkeley Library proxy, which will give you access to all library-related materials (Safari Online books but also all academic journals available on campus).  [This page](http://www.lib.berkeley.edu/using-the-libraries/proxy-server) has details and instructions on the Library Proxy service.
