@@ -27,9 +27,9 @@ Readings
 
 * Due Sept 7, 2017: `Developing open source scientific practice <_static/ref/millman-perez.pdf>`_.
 
-* Due Oct 10th, 2017 (for guest lecture by Stuart Geiger):
+* Readings for Oct 10th, 2017 (for guest lecture by Stuart Geiger):
 
-  This lecture will be an inside look into a reproducible research project studying conflict between automated software agents (or bots) in Wikipedia. Spend however much time you'd normally spend preparing for this class browsing through Wikipedia's public but behind-the-scenes spaces to get a general background on what bots do and how the community governs them. Also try to get some familiarity with Wikipedia as a version control system, because these commit histories are the primary data analyzed in the study.
+  This lecture will be an inside look into `a reproducible research project <https://github.com/halfak/are-the-bots-really-fighting>`_, which studied conflict between automated software agents (or bots) in Wikipedia. Spend however much time you'd normally spend preparing for this class browsing through Wikipedia's public but behind-the-scenes spaces to get a general background on what bots do and how the community governs them. Also try to get some familiarity with Wikipedia as a version control system, because these commit histories are the primary data analyzed in the study.
   
   - Main materials to read:
   
