@@ -13,6 +13,10 @@ The `class syllabus <_static/ref/syllabus.pdf>`_ will be updated over the course
 Readings
 ~~~~~~~~
 
+* Due **Monday** October 3, 2017:
+
+ - `Operationalizing conflict and cooperation between automated software agents in Wikipedia: A replication and expansion of ‘Even Good Bots Fight’ <http://stuartgeiger.com/articles/2017-09-12-conflict-bots-cscw>`_, by R. Stuart Geiger (you should read the full PDF available at that address, not just the short summary). Stuart is an `ethnographer at BIDS <http://stuartgeiger.com>`_ and will guest lecture in the class on October 10th, talking about this work.
+
 * Due **Monday** Sept 25, 2017:
 
   - `Treating Code As an Essay <http://proquest.safaribooksonline.com/9780596510046/treating_code_as_an_essay>`_, by Yukihiro Matsumoto (aka "Matz"). Matz is the creator of Ruby and the essay talks about Ruby, but its ideas have generic value.
