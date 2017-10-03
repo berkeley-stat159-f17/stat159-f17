@@ -209,7 +209,7 @@ menubar, select Cell<span class="math">\(\rightarrow\)</span>Run All).</p>
 ANSWER HERE”, as well as your name and collaborators below:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [1]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -237,7 +237,7 @@ likeihood estimate for the mean and variance.</p>
 <p>Your function should return a tuple of (mean, variance)</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [2]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -249,9 +249,9 @@ likeihood estimate for the mean and variance.</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [3]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -271,28 +271,6 @@ likeihood estimate for the mean and variance.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NotImplementedError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-3-63b6f7d41a06&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      9</span> data <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span>np<span class="ansi-blue-fg">.</span>random<span class="ansi-blue-fg">.</span>randn<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1000</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     10</span> <span class="ansi-red-fg"># compute mean and variance and make sure it&#39;s right</span>
-<span class="ansi-green-fg">---&gt; 11</span><span class="ansi-red-fg"> </span>mean<span class="ansi-blue-fg">,</span> var <span class="ansi-blue-fg">=</span> compute_mean_and_var<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     12</span> np<span class="ansi-blue-fg">.</span>testing<span class="ansi-blue-fg">.</span>assert_approx_equal<span class="ansi-blue-fg">(</span>mean<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0.01574</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     13</span> np<span class="ansi-blue-fg">.</span>testing<span class="ansi-blue-fg">.</span>assert_approx_equal<span class="ansi-blue-fg">(</span>var<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0.9468</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">&lt;ipython-input-2-1d6eb31172c8&gt;</span> in <span class="ansi-cyan-fg">compute_mean_and_var</span><span class="ansi-blue-fg">(data)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-red-fg"># YOUR CODE HERE</span>
-<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">raise</span> NotImplementedError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NotImplementedError</span>:
-</pre></div></div>
-</div>
 </div>
 <div class="section" id="Part-B:-MLE-for-Log-Normal-(2-points)">
 <h2>Part B: MLE for Log-Normal (2 points)<a class="headerlink" href="#Part-B:-MLE-for-Log-Normal-(2-points)" title="Permalink to this headline">¶</a></h2>
@@ -311,7 +289,7 @@ missing, so make sure your function removes negative values. If all
 values are non-positive, return a <code class="docutils literal"><span class="pre">ValueError</span></code></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [4]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -325,9 +303,9 @@ values are non-positive, return a <code class="docutils literal"><span class="pr
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [5]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -342,31 +320,9 @@ values are non-positive, return a <code class="docutils literal"><span class="pr
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NotImplementedError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-5-6f51d409fd84&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> data <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span>np<span class="ansi-blue-fg">.</span>exp<span class="ansi-blue-fg">(</span>np<span class="ansi-blue-fg">.</span>random<span class="ansi-blue-fg">.</span>randn<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1000</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-red-fg"># compute mean and variance and make sure it&#39;s right</span>
-<span class="ansi-green-fg">----&gt; 6</span><span class="ansi-red-fg"> </span>mean<span class="ansi-blue-fg">,</span> var <span class="ansi-blue-fg">=</span> compute_log_mean_and_var<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      7</span> np<span class="ansi-blue-fg">.</span>testing<span class="ansi-blue-fg">.</span>assert_approx_equal<span class="ansi-blue-fg">(</span>mean<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0.01574</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      8</span> np<span class="ansi-blue-fg">.</span>testing<span class="ansi-blue-fg">.</span>assert_approx_equal<span class="ansi-blue-fg">(</span>var<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0.9468</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">&lt;ipython-input-4-399004469162&gt;</span> in <span class="ansi-cyan-fg">compute_log_mean_and_var</span><span class="ansi-blue-fg">(data)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span>     <span class="ansi-red-fg"># YOUR CODE HERE</span>
-<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">raise</span> NotImplementedError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NotImplementedError</span>:
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [6]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -380,28 +336,6 @@ values are non-positive, return a <code class="docutils literal"><span class="pr
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NotImplementedError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-6-d89bcf540120&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-blue-fg">&#34;&#34;&#34;Check for correct exception throwing&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg">     </span>compute_log_mean_and_var<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-green-fg">except</span> ValueError<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>     <span class="ansi-green-fg">pass</span>
-
-<span class="ansi-green-fg">&lt;ipython-input-4-399004469162&gt;</span> in <span class="ansi-cyan-fg">compute_log_mean_and_var</span><span class="ansi-blue-fg">(data)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span>     <span class="ansi-red-fg"># YOUR CODE HERE</span>
-<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">raise</span> NotImplementedError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NotImplementedError</span>:
-</pre></div></div>
-</div>
 </div>
 </div>
 <div class="section" id="Part-C:-Confidence-intervals-and-Hypothesis-tests-(3-points)">
@@ -413,9 +347,9 @@ values are non-positive, return a <code class="docutils literal"><span class="pr
 <p>Write a function which takes in data as a list of numbers and returns a
 95% confidence interval for <span class="math">\(\mu\)</span>. The function should return the
 left and right end points of the confidence interval</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [7]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -424,23 +358,9 @@ left and right end points of the confidence interval</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NotImplementedError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-7-15b94d1fa268&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># YOUR CODE HERE</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">raise</span> NotImplementedError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NotImplementedError</span>:
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [8]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -455,23 +375,6 @@ left and right end points of the confidence interval</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-8-595d4bb7406a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> data <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span>np<span class="ansi-blue-fg">.</span>random<span class="ansi-blue-fg">.</span>randn<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">100</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-red-fg"># compute confidence interval</span>
-<span class="ansi-green-fg">----&gt; 6</span><span class="ansi-red-fg"> </span>lower<span class="ansi-blue-fg">,</span> upper <span class="ansi-blue-fg">=</span> compute_mean_ci<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      7</span> np<span class="ansi-blue-fg">.</span>testing<span class="ansi-blue-fg">.</span>assert_approx_equal<span class="ansi-blue-fg">(</span>lower<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">0.1608</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      8</span> np<span class="ansi-blue-fg">.</span>testing<span class="ansi-blue-fg">.</span>assert_approx_equal<span class="ansi-blue-fg">(</span>upper<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0.2311</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;compute_mean_ci&#39; is not defined
-</pre></div></div>
-</div>
 <p>Using your function to compute confidence intervals, write a function
 which takes in a list of data and performs a hypothesis test at 5%
 significance level to reject the null hypothesis <span class="math">\(H_0:\mu=0\)</span>.</p>
@@ -479,7 +382,7 @@ significance level to reject the null hypothesis <span class="math">\(H_0:\mu=0\
 and <code class="docutils literal"><span class="pre">False</span></code> otherwise</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [9]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -490,9 +393,9 @@ and <code class="docutils literal"><span class="pre">False</span></code> otherwi
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [10]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -507,28 +410,6 @@ and <code class="docutils literal"><span class="pre">False</span></code> otherwi
 
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NotImplementedError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-10-aab5026b5901&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> data1 <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span>np<span class="ansi-blue-fg">.</span>random<span class="ansi-blue-fg">.</span>randn<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">100</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-red-fg"># run test</span>
-<span class="ansi-green-fg">----&gt; 6</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">assert</span> hypothesis_test<span class="ansi-blue-fg">(</span>data1<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span>
-<span class="ansi-green-intense-fg ansi-bold">      7</span> data2 <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span>np<span class="ansi-blue-fg">.</span>random<span class="ansi-blue-fg">.</span>randn<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">100</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      8</span> <span class="ansi-green-fg">assert</span> hypothesis_test<span class="ansi-blue-fg">(</span>data2<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">True</span>
-
-<span class="ansi-green-fg">&lt;ipython-input-9-084bd147cc0b&gt;</span> in <span class="ansi-cyan-fg">hypothesis_test</span><span class="ansi-blue-fg">(data)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span>     <span class="ansi-blue-fg">&#34;&#34;&#34;Test H_0:mu = 0&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>     <span class="ansi-red-fg"># YOUR CODE HERE</span>
-<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">raise</span> NotImplementedError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NotImplementedError</span>:
-</pre></div></div>
 </div>
 </div>
 <div class="section" id="Part-D:-Simulated-Data-(3-points)">
@@ -553,7 +434,7 @@ level that the two means are the same</p>
 sample means is different than the variance for the means</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [11]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -565,9 +446,9 @@ sample means is different than the variance for the means</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [12]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -587,28 +468,6 @@ sample means is different than the variance for the means</p>
 <span class="k">assert</span> <span class="n">reject2</span> <span class="o">==</span> <span class="kc">False</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NotImplementedError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-12-a603b11c43e9&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-blue-fg">&#34;&#34;&#34;Check if results of experiment are correct&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-red-fg"># compute ci and make sure it&#39;s right</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span><span class="ansi-blue-fg">(</span>lower1<span class="ansi-blue-fg">,</span> upper1<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> reject1 <span class="ansi-blue-fg">=</span> read_and_test<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;/accounts/class/s159/exchange/experiment1.txt&#34;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-blue-fg">(</span>lower2<span class="ansi-blue-fg">,</span> upper2<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> reject2 <span class="ansi-blue-fg">=</span> read_and_test<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;/accounts/class/s159/exchange/experiment2.txt&#34;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>
-
-<span class="ansi-green-fg">&lt;ipython-input-11-5d7a3afcf740&gt;</span> in <span class="ansi-cyan-fg">read_and_test</span><span class="ansi-blue-fg">(file_path)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-red-fg"># YOUR CODE HERE</span>
-<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">raise</span> NotImplementedError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NotImplementedError</span>:
-</pre></div></div>
 </div>
 </div>
 
@@ -636,6 +495,7 @@ sample means is different than the variance for the means</p>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/05-class-practice.html">Class practice: strings, lists &amp; numbers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/06-conda-pip-environments.html">Conda and pip - managing environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/07-reading3-discussion.html">From September 25 reading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/07-reading3-discussion.html#Make:-automating-tasks">Make: automating tasks</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
