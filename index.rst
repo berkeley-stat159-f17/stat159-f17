@@ -45,6 +45,7 @@ Lectures
    lectures/04-reading2-discussion.ipynb
    lectures/05-class-practice.ipynb
    lectures/06-conda-pip-environments.ipynb
+   lectures/07-reading3-discussion.ipynb
 
 Labs
 ~~~~
