@@ -29,15 +29,16 @@ Readings
 
 * Readings for Oct 10th, 2017 (for guest lecture by Stuart Geiger):
 
-  This lecture will be an inside look into `a reproducible research project <https://github.com/halfak/are-the-bots-really-fighting>`_, which studied conflict between automated software agents (or bots) in Wikipedia. Spend however much time you'd normally spend preparing for this class browsing through Wikipedia's public but behind-the-scenes spaces to get a general background on what bots do and how the community governs them. Also try to get some familiarity with Wikipedia as a version control system, because these commit histories are the primary data analyzed in the study.
+  This lecture will be an inside look into a reproducible research project (`repo <https://github.com/halfak/are-the-bots-really-fighting>`_), which studied conflict between automated software agents (or bots) in Wikipedia. The paper is a bit long and goes into a lot of detail, so feel free to skim. Also spend a little bit of time exploring Wikipedia's public but behind-the-scenes spaces to get a general background on what bots do and how the community governs them. Try to also get some familiarity with Wikipedia as a version control system, because these commit histories are the primary data analyzed in the study.
   
-  - Main materials to read:
+  - Main materials:
+  
+    - `The paper <https://upload.wikimedia.org/wikipedia/commons/f/f4/Operationalizing-conflict-bots-wikipedia-cscw-preprint.pdf>`_ 
   
     - `Introduction to Wikipedia Bots <https://en.wikipedia.org/wiki/Wikipedia:Bots>`_
     
       - This page contains many links to pages you might find interesting, including a list of bots
        
-    - `The Bot Policy <https://en.wikipedia.org/wiki/Wikipedia:Bot_policy>`_.
     - `Recent bot edits to English Wikipedia articles <https://en.wikipedia.org/wiki/Special:RecentChanges?limit=500&days=7&urlversion=2&hidehumans=1&hideWikibase=1&hidelog=1&hidecategorization=1&hidenewpages=1&namespace=0>`_ -- as every page on Wikipedia (including discussion pages) is a flat text file in a version control system.
     
       - Click "diff" on each line to get a diff of what the bot changed
@@ -48,6 +49,8 @@ Readings
       
   - Some additional materials if you are interested further:
   
+    - `The Bot Policy <https://en.wikipedia.org/wiki/Wikipedia:Bot_policy>`_
+
     - `ClueBot NG <https://en.wikipedia.org/wiki/User:ClueBot_NG>`_ (an anti-spam/vandalism bot using machine learning and neural networks)
     - `AnomieBOT's tasklist <https://en.wikipedia.org/wiki/User:AnomieBOT/TaskList>`_ (a bot account used for many different tasks).
     - `Double redirects <https://en.wikipedia.org/wiki/Wikipedia:Double_redirects>`_ (a task frequently automated with bots that features in the paper).
