@@ -6,7 +6,7 @@ This is the key figure from the original paper about event GW150914, [Observatio
 
 ![Figure 1 from LIGO GW150914 PRL paper](fig/ligo-prl-mplfig.png)
 
-At the [LIGO Open Science Center](https://losc.ligo.org/tutorials), the collaboration 
+At the [LIGO Open Science Center](https://losc.ligo.org/tutorials), the collaboration publishes the actual Jupyter Notebooks necessary to replicate the final steps of the analysis.
 
 Note: if you're curious about the fascinating history behind this discovery, [this article](https://www.newyorker.com/tech/elements/gravitational-waves-exist-heres-how-scientists-finally-found-them) makes for good reading.
 
