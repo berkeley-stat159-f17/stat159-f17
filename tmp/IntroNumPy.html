@@ -323,7 +323,7 @@ press <code class="docutils literal"><span class="pre">Shift-Enter</span></code>
 ‘cell’ in IPython:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [2]:
+<span></span>In [1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -359,7 +359,7 @@ approximating a definite integral with the trapezoid rule:</p>
 200 points:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [3]:
+<span></span>In [2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -377,7 +377,7 @@ only a few points in that region to illustrate the error behavior of the
 trapezoid approximation:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [5]:
+<span></span>In [3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -391,12 +391,14 @@ trapezoid approximation:</p>
 approximation:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [6]:
+<span></span>In [4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-dark&#39;</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">140</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">xint</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">yint</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
@@ -415,7 +417,7 @@ approximation:</p>
 approximation</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [7]:
+<span></span>In [5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -442,6 +444,12 @@ The absolute error is: 58.7135888589
 matplotlib libraries we can provide an illustration of a standard method
 in elementary calculus with just a few lines of code. We will now
 discuss with more detail the basic usage of these tools.</p>
+<p>A note on visual styles: matplotlib has a rich system for controlling
+the visual style of all plot elements. <a class="reference external" href="https://tonysyu.github.io/raw_content/matplotlib-style-gallery/gallery.html">This
+page</a>
+is a gallery that illustrates how each style choice affects different
+plot types, which you can use to select the most appropriate to your
+needs.</p>
 </div>
 <div class="section" id="NumPy-arrays:-the-right-data-structure-for-scientific-computing">
 <h1>NumPy arrays: the right data structure for scientific computing<a class="headerlink" href="#NumPy-arrays:-the-right-data-structure-for-scientific-computing" title="Permalink to this headline">¶</a></h1>
@@ -452,7 +460,7 @@ layer for the entire ‘scipy ecosystem’. Once you have installed numpy,
 you can import it as</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [8]:
+<span></span>In [6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -463,7 +471,7 @@ you can import it as</p>
 <p>though in this book we will use the common shorthand</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [9]:
+<span></span>In [7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -477,7 +485,7 @@ lists. We start by creating a simple list and an array with the same
 contents of the list:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [10]:
+<span></span>In [8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -490,7 +498,7 @@ contents of the list:</p>
 a list:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [11]:
+<span></span>In [9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -500,7 +508,7 @@ a list:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[11]:
+<span></span>Out[9]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -510,7 +518,7 @@ a list:</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [12]:
+<span></span>In [10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -520,7 +528,7 @@ a list:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[12]:
+<span></span>Out[10]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -530,7 +538,7 @@ a list:</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [13]:
+<span></span>In [11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -540,7 +548,7 @@ a list:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[13]:
+<span></span>Out[11]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -550,7 +558,7 @@ a list:</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [14]:
+<span></span>In [12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -560,7 +568,7 @@ a list:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[14]:
+<span></span>Out[12]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -574,7 +582,7 @@ In contrast, lists can contain elements of arbitrary type. For example,
 we can change the last element in our list above to be a string:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [15]:
+<span></span>In [13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -585,7 +593,7 @@ we can change the last element in our list above to be a string:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[15]:
+<span></span>Out[13]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -596,7 +604,7 @@ we can change the last element in our list above to be a string:</p>
 <p>but the same can not be done with an array, as we get an error message:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [16]:
+<span></span>In [14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -611,7 +619,7 @@ we can change the last element in our list above to be a string:</p>
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-16-9c0e43e56d9a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">&lt;ipython-input-14-9c0e43e56d9a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>arr<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;a string inside an array&#39;</span>
 
 <span class="ansi-red-fg">ValueError</span>: invalid literal for int() with base 10: &#39;a string inside an array&#39;
@@ -621,7 +629,7 @@ we can change the last element in our list above to be a string:</p>
 attribute:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [17]:
+<span></span>In [15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -631,7 +639,7 @@ attribute:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[17]:
+<span></span>Out[15]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -645,7 +653,7 @@ if we store a floating point number it will be automatically converted
 into an integer:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [18]:
+<span></span>In [16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -656,7 +664,7 @@ into an integer:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[18]:
+<span></span>Out[16]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -672,7 +680,7 @@ and multiplicative loops respectively); <code class="docutils literal"><span cla
 zeros, with any desired dtype:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [19]:
+<span></span>In [17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -682,7 +690,7 @@ zeros, with any desired dtype:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[19]:
+<span></span>Out[17]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -692,7 +700,7 @@ zeros, with any desired dtype:</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [20]:
+<span></span>In [18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -702,7 +710,7 @@ zeros, with any desired dtype:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[20]:
+<span></span>Out[18]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -712,7 +720,7 @@ zeros, with any desired dtype:</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [21]:
+<span></span>In [19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -722,7 +730,7 @@ zeros, with any desired dtype:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[21]:
+<span></span>Out[19]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -733,7 +741,7 @@ zeros, with any desired dtype:</p>
 <p>and similarly for <code class="docutils literal"><span class="pre">ones</span></code>:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [23]:
+<span></span>In [20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -754,7 +762,7 @@ an empty array and then use the fill method to put the value we want
 into the array:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [25]:
+<span></span>In [21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -766,7 +774,7 @@ into the array:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[25]:
+<span></span>Out[21]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -778,7 +786,7 @@ into the array:</p>
 <code class="docutils literal"><span class="pre">range</span></code> but returns an array instead of a list:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [26]:
+<span></span>In [22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -788,7 +796,7 @@ into the array:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[26]:
+<span></span>Out[22]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -801,7 +809,7 @@ logarithmically-spaced grids respectively, with a fixed number of points
 and including both ends of the specified interval:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [27]:
+<span></span>In [23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -826,7 +834,7 @@ will produce an array of 5 random samples taken from a standard normal
 distribution (0 mean and variance 1):</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [28]:
+<span></span>In [24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -836,11 +844,11 @@ distribution (0 mean and variance 1):</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[28]:
+<span></span>Out[24]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>array([-1.74471002, -0.00549129, -0.10605074, -0.41296812, -0.19224499])
+<span></span>array([ 0.49130837, -1.19852855, -0.82766758,  0.93745396,  0.33161721])
 </pre></div>
 </div>
 </div>
@@ -848,7 +856,7 @@ distribution (0 mean and variance 1):</p>
 with a mean of 10 and a variance of 3:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [29]:
+<span></span>In [25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -859,11 +867,11 @@ with a mean of 10 and a variance of 3:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[29]:
+<span></span>Out[25]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>array([  7.15476101,   5.01528108,   9.02151041,   9.87067778,  13.37551057])
+<span></span>array([  9.43012367,   9.53393332,  13.91704568,  10.78635109,  10.81453384])
 </pre></div>
 </div>
 </div>
@@ -881,7 +889,7 @@ values above 9 with the value 0. We can do so by first finding the
 <em>mask</em> that indicates where this condition is true or false:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [30]:
+<span></span>In [26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -892,11 +900,11 @@ values above 9 with the value 0. We can do so by first finding the
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[30]:
+<span></span>Out[26]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>array([False, False,  True,  True,  True], dtype=bool)
+<span></span>array([ True,  True,  True,  True,  True], dtype=bool)
 </pre></div>
 </div>
 </div>
@@ -904,7 +912,7 @@ values above 9 with the value 0. We can do so by first finding the
 to reset them to 0:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [32]:
+<span></span>In [27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -917,12 +925,12 @@ to reset them to 0:</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Values above 9: [  9.02151041   9.87067778  13.37551057]
+Values above 9: [  9.43012367   9.53393332  13.91704568  10.78635109  10.81453384]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [33]:
+<span></span>In [28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -938,7 +946,7 @@ Values above 9: [  9.02151041   9.87067778  13.37551057]
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Resetting all values above 9 to 0...
-[ 7.15476101  5.01528108  0.          0.          0.        ]
+[ 0.  0.  0.  0.  0.]
 </pre></div></div>
 </div>
 </div>
@@ -951,7 +959,7 @@ For example, a list of lists can be used to initialize a two dimensional
 array:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [34]:
+<span></span>In [29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -963,7 +971,7 @@ array:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[34]:
+<span></span>Out[29]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -978,7 +986,7 @@ multidimensional arrays support a much more natural indexing syntax with
 a single <code class="docutils literal"><span class="pre">[</span> <span class="pre">]</span></code> and a set of indices separated by commas:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [36]:
+<span></span>In [30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1000,7 +1008,7 @@ a single <code class="docutils literal"><span class="pre">[</span> <span class="
 than one dimension, for example:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [37]:
+<span></span>In [31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1010,7 +1018,7 @@ than one dimension, for example:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[37]:
+<span></span>Out[31]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -1021,7 +1029,7 @@ than one dimension, for example:</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [38]:
+<span></span>In [32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1031,12 +1039,12 @@ than one dimension, for example:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[38]:
+<span></span>Out[32]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>array([[ 10.25632175,   7.34255758,   5.17120789,   9.16431923],
-       [ 12.50809409,   9.29093135,  10.22869397,   8.20801491]])
+<span></span>array([[  9.46704557,  12.88473691,   9.51885476,   5.04978762],
+       [  7.47063249,   8.56406998,   7.90629616,  16.1035308 ]])
 </pre></div>
 </div>
 </div>
@@ -1045,7 +1053,7 @@ the total number of elements is unchanged. For example, if we want a 2x4
 array with numbers increasing from 0, the easiest way to create it is:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [39]:
+<span></span>In [33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1068,7 +1076,7 @@ and match slices and single indices in the different dimensions (using
 the same array as above):</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [41]:
+<span></span>In [34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1090,7 +1098,7 @@ All rows, third column   : [2 6]
 dimension containing that row:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [42]:
+<span></span>In [35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1114,7 +1122,7 @@ methods that arrays have. The following provide basic information about
 the size, shape and data in the array:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [43]:
+<span></span>In [36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1141,7 +1149,7 @@ Memory used (in bytes)   : 64
 <p>Arrays also have many useful methods, some especially useful ones are:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [44]:
+<span></span>In [37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1167,7 +1175,7 @@ to do the computation along a single dimension, by passing the <code class="docu
 parameter; for example:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [45]:
+<span></span>In [38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1199,7 +1207,7 @@ counts are 0-based). That consumes the dimension whose length was 5,
 leaving us with a new array that has shape <code class="docutils literal"><span class="pre">(3,4,6)</span></code>:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [46]:
+<span></span>In [39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1209,7 +1217,7 @@ leaving us with a new array that has shape <code class="docutils literal"><span 
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[46]:
+<span></span>Out[39]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -1221,7 +1229,7 @@ leaving us with a new array that has shape <code class="docutils literal"><span 
 allows you to access the transpose of the array:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [47]:
+<span></span>In [40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1275,7 +1283,7 @@ operations with arrays are applied <em>element-wise</em>, i.e., are applied to
 all the elements of the array at the same time. Consider for example:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [49]:
+<span></span>In [41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1298,7 +1306,7 @@ by default applied element-wise, it is <em>not</em> the matrix multiplication
 from linear algebra (as is the case in Matlab, for example):</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [50]:
+<span></span>In [42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1321,7 +1329,7 @@ to add the number 1.5 to <code class="docutils literal"><span class="pre">arr1</
 do it:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [51]:
+<span></span>In [43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1331,7 +1339,7 @@ do it:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[51]:
+<span></span>Out[43]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -1343,7 +1351,7 @@ do it:</p>
 valid:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [52]:
+<span></span>In [44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1353,7 +1361,7 @@ valid:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[52]:
+<span></span>Out[44]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -1402,7 +1410,7 @@ array is the maximum size along each dimension of the input arrays.</p>
 <p>This shows how the broadcasting rules work in several dimensions:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [53]:
+<span></span>In [45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1430,7 +1438,7 @@ to <code class="docutils literal"><span class="pre">arr</span></code> above? Sim
 error we previously mentioned:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [54]:
+<span></span>In [46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1446,7 +1454,7 @@ error we previously mentioned:</p>
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-54-295e9774345c&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">&lt;ipython-input-46-295e9774345c&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> c <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>arr <span class="ansi-blue-fg">+</span> c
 
@@ -1459,7 +1467,7 @@ that numpy allows you to ‘inject’ new dimensions anywhere into an array
 on the fly, by indexing it with the special object <code class="docutils literal"><span class="pre">np.newaxis</span></code>:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [55]:
+<span></span>In [47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1469,7 +1477,7 @@ on the fly, by indexing it with the special object <code class="docutils literal
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[55]:
+<span></span>Out[47]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -1480,7 +1488,7 @@ on the fly, by indexing it with the special object <code class="docutils literal
 <p>This is exactly what we need, and indeed it works:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [56]:
+<span></span>In [48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1490,7 +1498,7 @@ on the fly, by indexing it with the special object <code class="docutils literal
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[56]:
+<span></span>Out[48]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -1511,7 +1519,7 @@ function at 100 points between <span class="math">\(0\)</span> and <span class="
 as:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [57]:
+<span></span>In [49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1530,13 +1538,37 @@ matrix multiplication when one or both of its arguments are
 two-dimensional arrays:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [59]:
+<span></span>In [50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">v1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 <span class="n">v2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">v1</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[2 3 4] . [1 0 1] = 6
+</pre></div></div>
+</div>
+<p>In Python 3.5, the new <code class="docutils literal"><span class="pre">&#64;</span></code> operator was introduced to represent
+<a class="reference external" href="http://legacy.python.org/dev/peps/pep-0465">matrix multiplication</a>,
+at the request of the scientific community. While <code class="docutils literal"><span class="pre">np.dot</span></code> and the
+<code class="docutils literal"><span class="pre">.dot</span></code> method of arrays continue to exist, using <code class="docutils literal"><span class="pre">&#64;</span></code> tends to
+produce much more readable code. We will use <code class="docutils literal"><span class="pre">&#64;</span></code> henceforth in this
+tutorial. The above line would now read:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [51]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">v1</span> <span class="o">@</span> <span class="n">v2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1556,12 +1588,12 @@ of matrix multiplication, in this case we have a <span class="math">\(2 \times 3
 matrix multiplied by a 3-vector, which produces a 2-vector:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [61]:
+<span></span>In [52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">A</span> <span class="o">@</span> <span class="n">v1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1578,11 +1610,11 @@ matrix multiplied by a 3-vector, which produces a 2-vector:</p>
 be satisfied, e.g. consider the difference between <span class="math">\(A \times A^T\)</span>:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [62]:
+<span></span>In [53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1598,11 +1630,11 @@ be satisfied, e.g. consider the difference between <span class="math">\(A \times
 <p>and <span class="math">\(A^T \times A\)</span>:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [63]:
+<span></span>In [54]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1650,7 +1682,7 @@ dimensionality can be saved and read without loss of information.</li>
 control the precision, separators and even adding a header:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [64]:
+<span></span>In [55]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1674,7 +1706,7 @@ control the precision, separators and even adding a header:</p>
 <code class="docutils literal"><span class="pre">np.loadtxt</span></code> function:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [65]:
+<span></span>In [56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1701,7 +1733,7 @@ routines can then be read with the <code class="docutils literal"><span class="p
 single array:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [66]:
+<span></span>In [57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1728,7 +1760,7 @@ first mode, the function will auotmatically name the saved arrays in the
 archive as <code class="docutils literal"><span class="pre">arr_0</span></code>, <code class="docutils literal"><span class="pre">arr_1</span></code>, etc:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [67]:
+<span></span>In [58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1740,7 +1772,7 @@ archive as <code class="docutils literal"><span class="pre">arr_0</span></code>,
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[67]:
+<span></span>Out[58]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -1751,7 +1783,7 @@ archive as <code class="docutils literal"><span class="pre">arr_0</span></code>,
 <p>Alternatively, we can explicitly choose how to name the arrays we save:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [68]:
+<span></span>In [59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1763,7 +1795,7 @@ archive as <code class="docutils literal"><span class="pre">arr_0</span></code>,
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[68]:
+<span></span>Out[59]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -1777,7 +1809,7 @@ attribute using its special <code class="docutils literal"><span class="pre">.f<
 an example with the <code class="docutils literal"><span class="pre">arrays</span></code> object from above:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [69]:
+<span></span>In [60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1836,7 +1868,7 @@ plotting functions reside (the library contains a rich object-oriented
 architecture that we don’t have the space to discuss here):</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [70]:
+<span></span>In [61]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1851,12 +1883,13 @@ the last line to suppress the display of some information that is
 unnecessary right now):</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [71]:
+<span></span>In [62]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sin(x)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
@@ -1870,14 +1903,14 @@ unnecessary right now):</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tmp_IntroNumPy_134_0.png" src="../_images/tmp_IntroNumPy_134_0.png" />
+<img alt="../_images/tmp_IntroNumPy_136_0.png" src="../_images/tmp_IntroNumPy_136_0.png" />
 </div>
 </div>
 <p>You can control the style, color and other properties of the markers,
 for example:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [72]:
+<span></span>In [63]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1889,12 +1922,12 @@ for example:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tmp_IntroNumPy_136_0.png" src="../_images/tmp_IntroNumPy_136_0.png" />
+<img alt="../_images/tmp_IntroNumPy_138_0.png" src="../_images/tmp_IntroNumPy_138_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [73]:
+<span></span>In [64]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1906,14 +1939,14 @@ for example:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tmp_IntroNumPy_137_0.png" src="../_images/tmp_IntroNumPy_137_0.png" />
+<img alt="../_images/tmp_IntroNumPy_139_0.png" src="../_images/tmp_IntroNumPy_139_0.png" />
 </div>
 </div>
 <p>We will now see how to create a few other common plot types, such as a
 simple error plot:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [74]:
+<span></span>In [65]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1936,13 +1969,13 @@ simple error plot:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tmp_IntroNumPy_139_0.png" src="../_images/tmp_IntroNumPy_139_0.png" />
+<img alt="../_images/tmp_IntroNumPy_141_0.png" src="../_images/tmp_IntroNumPy_141_0.png" />
 </div>
 </div>
 <p>A simple log plot</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [75]:
+<span></span>In [66]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1956,14 +1989,14 @@ simple error plot:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tmp_IntroNumPy_141_0.png" src="../_images/tmp_IntroNumPy_141_0.png" />
+<img alt="../_images/tmp_IntroNumPy_143_0.png" src="../_images/tmp_IntroNumPy_143_0.png" />
 </div>
 </div>
 <p>A histogram annotated with text inside the plot, using the <code class="docutils literal"><span class="pre">text</span></code>
 function:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [76]:
+<span></span>In [67]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1979,7 +2012,7 @@ function:</p>
 <span class="c1"># This will put a text fragment at the position given:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="o">.</span><span class="mi">027</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\mu=100,\ \sigma=15$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1987,7 +2020,7 @@ function:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tmp_IntroNumPy_143_0.png" src="../_images/tmp_IntroNumPy_143_0.png" />
+<img alt="../_images/tmp_IntroNumPy_145_0.png" src="../_images/tmp_IntroNumPy_145_0.png" />
 </div>
 </div>
 <div class="section" id="Image-display">
@@ -1996,11 +2029,12 @@ function:</p>
 simple array of random numbers, plotted in grayscale:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [77]:
+<span></span>In [68]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">cm</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -2009,14 +2043,14 @@ simple array of random numbers, plotted in grayscale:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tmp_IntroNumPy_146_0.png" src="../_images/tmp_IntroNumPy_146_0.png" />
+<img alt="../_images/tmp_IntroNumPy_148_0.png" src="../_images/tmp_IntroNumPy_148_0.png" />
 </div>
 </div>
 <p>A real photograph is a multichannel image, <code class="docutils literal"><span class="pre">imshow</span></code> interprets it
 correctly:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [80]:
+<span></span>In [69]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2038,7 +2072,7 @@ Dimensions of the array img: (375, 500, 3)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tmp_IntroNumPy_148_1.png" src="../_images/tmp_IntroNumPy_148_1.png" />
+<img alt="../_images/tmp_IntroNumPy_150_1.png" src="../_images/tmp_IntroNumPy_150_1.png" />
 </div>
 </div>
 </div>
@@ -2047,7 +2081,7 @@ Dimensions of the array img: (375, 500, 3)
 <p>Note that you must execute at least once in your session:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [81]:
+<span></span>In [70]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2064,7 +2098,7 @@ Dimensions of the array img: (375, 500, 3)
 <p>A simple surface plot:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [82]:
+<span></span>In [71]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2078,7 +2112,7 @@ Dimensions of the array img: (375, 500, 3)
 <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
 <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
-<span class="n">surf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span>
+<span class="n">surf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">,</span>
         <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">antialiased</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_zlim3d</span><span class="p">(</span><span class="o">-</span><span class="mf">1.01</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">);</span>
 </pre></div>
@@ -2088,508 +2122,9 @@ Dimensions of the array img: (375, 500, 3)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tmp_IntroNumPy_154_0.png" src="../_images/tmp_IntroNumPy_154_0.png" />
+<img alt="../_images/tmp_IntroNumPy_156_0.png" src="../_images/tmp_IntroNumPy_156_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="IPython:-a-powerful-interactive-environment">
-<h1>IPython: a powerful interactive environment<a class="headerlink" href="#IPython:-a-powerful-interactive-environment" title="Permalink to this headline">¶</a></h1>
-<p>A key component of the everyday workflow of most scientific computing
-environments is a good interactive environment, that is, a system in
-which you can execute small amounts of code and view the results
-immediately, combining both printing out data and opening graphical
-visualizations. All modern systems for scientific computing, commercial
-and open source, include such functionality.</p>
-<p>Out of the box, Python also offers a simple interactive shell with very
-limited capabilities. But just like the scientific community built Numpy
-to provide arrays suited for scientific work (since Pytyhon’s lists
-aren’t optimal for this task), it has also developed an interactive
-environment much more sophisticated than the built-in one. The <a class="reference external" href="http://ipython.org">IPython
-project</a> offers a set of tools to make productive
-use of the Python language, all the while working interactively and with
-immedate feedback on your results. The basic tools that IPython provides
-are:</p>
-<ol class="arabic simple">
-<li>A powerful terminal shell, with many features designed to increase
-the fluidity and productivity of everyday scientific workflows,
-including:<ul>
-<li>rich introspection of all objects and variables including easy
-access to the source code of any function</li>
-<li>powerful and extensible tab completion of variables and filenames,</li>
-<li>tight integration with matplotlib, supporting interactive figures
-that don’t block the terminal,</li>
-<li>direct access to the filesystem and underlying operating system,</li>
-<li>an extensible system for shell-like commands called ‘magics’ that
-reduce the work needed to perform many common tasks,</li>
-<li>tools for easily running, timing, profiling and debugging your
-codes,</li>
-<li>syntax highlighted error messages with much more detail than the
-default Python ones,</li>
-<li>logging and access to all previous history of inputs, including
-across sessions</li>
-</ul>
-</li>
-<li>A Qt console that provides the look and feel of a terminal, but adds
-support for inline figures, graphical calltips, a persistent session
-that can survive crashes (even segfaults) of the kernel process, and
-more.</li>
-<li>A web-based notebook that can execute code and also contain rich text
-and figures, mathematical equations and arbitrary HTML. This notebook
-presents a document-like view with cells where code is executed but
-that can be edited in-place, reordered, mixed with explanatory text
-and figures, etc.</li>
-<li>A high-performance, low-latency system for parallel computing that
-supports the control of a cluster of IPython engines communicating
-over a network, with optimizations that minimize unnecessary copying
-of large objects (especially numpy arrays).</li>
-</ol>
-<p>We will now discuss the highlights of the tools 1-3 above so that you
-can make them an effective part of your workflow. The topic of parallel
-computing is beyond the scope of this document, but we encourage you to
-read the extensive
-<a class="reference external" href="http://ipython.org/ipython-doc/rel-0.12.1/parallel/index.html">documentation</a>
-and <a class="reference external" href="http://minrk.github.com/scipy-tutorial-2011/">tutorials</a> on this
-available on the IPython website.</p>
-<div class="section" id="The-IPython-terminal">
-<h2>The IPython terminal<a class="headerlink" href="#The-IPython-terminal" title="Permalink to this headline">¶</a></h2>
-<p>You can start IPython at the terminal simply by typing:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ ipython
-</pre></div>
-</div>
-<p>which will provide you some basic information about how to get started
-and will then open a prompt labeled <code class="docutils literal"><span class="pre">In</span> <span class="pre">[1]:</span></code> for you to start typing.
-Here we type <span class="math">\(2^{64}\)</span> and Python computes the result for us in
-exact arithmetic, returning it as <code class="docutils literal"><span class="pre">Out[1]</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ ipython
-Python 2.7.2+ (default, Oct  4 2011, 20:03:08)
-Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
-
-IPython 0.13.dev -- An enhanced Interactive Python.
-?         -&gt; Introduction and overview of IPython&#39;s features.
-%quickref -&gt; Quick reference.
-help      -&gt; Python&#39;s own help system.
-object?   -&gt; Details about &#39;object&#39;, use &#39;object??&#39; for extra details.
-
-In [1]: 2**64
-Out[1]: 18446744073709551616L
-</pre></div>
-</div>
-<p>The first thing you should know about IPython is that all your inputs
-and outputs are saved. There are two variables named <code class="docutils literal"><span class="pre">In</span></code> and <code class="docutils literal"><span class="pre">Out</span></code>
-which are filled as you work with your results. Furthermore, all outputs
-are also saved to auto-created variables of the form <code class="docutils literal"><span class="pre">_NN</span></code> where
-<code class="docutils literal"><span class="pre">NN</span></code> is the prompt number, and inputs to <code class="docutils literal"><span class="pre">_iNN</span></code>. This allows you to
-recover quickly the result of a prior computation by referring to its
-number even if you forgot to store it as a variable. For example, later
-on in the above session you can do:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="nb">print</span><span class="p">(</span><span class="n">_1</span>
-<span class="mi">18446744073709551616</span>
-</pre></div>
-</div>
-<p>We strongly recommend that you take a few minutes to read at least the
-basic introduction provided by the <code class="docutils literal"><span class="pre">?</span></code> command, and keep in mind that
-the <code class="docutils literal"><span class="pre">%quickref</span></code> command at all times can be used as a quick reference
-“cheat sheet” of the most frequently used features of IPython.</p>
-<p>At the IPython prompt, any valid Python code that you type will be
-executed similarly to the default Python shell (though often with more
-informative feedback). But since IPython is a <em>superset</em> of the default
-Python shell; let’s have a brief look at some of its additional
-functionality.</p>
-<div class="section" id="Object-introspection">
-<h3>Object introspection<a class="headerlink" href="#Object-introspection" title="Permalink to this headline">¶</a></h3>
-<p>A simple <code class="docutils literal"><span class="pre">?</span></code> command provides a general introduction to IPython, but
-as indicated in the banner above, you can use the <code class="docutils literal"><span class="pre">?</span></code> syntax to ask
-for details about any object. For example, if we type <code class="docutils literal"><span class="pre">_1?</span></code>, IPython
-will print(the following details about this variable:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>In [14]: _1?
-Type:       long
-Base Class: &lt;type &#39;long&#39;&gt;
-String Form:18446744073709551616
-Namespace:  Interactive
-Docstring:
-long(x[, base]) -&gt; integer
-
-Convert a string or number to a long integer, if possible.  A floating
-
-[etc... snipped for brevity]
-</pre></div>
-</div>
-<p>If you add a second <code class="docutils literal"><span class="pre">?</span></code> and for any oobject <code class="docutils literal"><span class="pre">x</span></code> type <code class="docutils literal"><span class="pre">x??</span></code>,
-IPython will try to provide an even more detailed analsysi of the
-object, including its syntax-highlighted source code when it can be
-found. It’s possible that <code class="docutils literal"><span class="pre">x??</span></code> returns the same information as
-<code class="docutils literal"><span class="pre">x?</span></code>, but in many cases <code class="docutils literal"><span class="pre">x??</span></code> will indeed provide additional
-details.</p>
-<p>Finally, the <code class="docutils literal"><span class="pre">?</span></code> syntax is also useful to search <em>namespaces</em> with
-wildcards. Suppose you are wondering if there is any function in Numpy
-that may do text-related things; with <code class="docutils literal"><span class="pre">np.*txt*?</span></code>, IPython will
-print(all the names in the <code class="docutils literal"><span class="pre">np</span></code> namespace (our Numpy shorthand) that
-have ‘txt’ anywhere in their name:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>In [17]: np.*txt*?
-np.genfromtxt
-np.loadtxt
-np.mafromtxt
-np.ndfromtxt
-np.recfromtxt
-np.savetxt
-</pre></div>
-</div>
-</div>
-<div class="section" id="Tab-completion">
-<h3>Tab completion<a class="headerlink" href="#Tab-completion" title="Permalink to this headline">¶</a></h3>
-<p>IPython makes the tab key work extra hard for you as a way to rapidly
-inspect objects and libraries. Whenever you have typed something at the
-prompt, by hitting the <code class="docutils literal"><span class="pre">&lt;tab&gt;</span></code> key IPython will try to complete the
-rest of the line. For this, IPython will analyze the text you had so far
-and try to search for Python data or files that may match the context
-you have already provided.</p>
-<p>For example, if you type <code class="docutils literal"><span class="pre">np.load</span></code> and hit the key, you’ll see:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">21</span><span class="p">]:</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="o">&lt;</span><span class="n">TAB</span> <span class="n">HERE</span><span class="o">&gt;</span>
-<span class="n">np</span><span class="o">.</span><span class="n">load</span>     <span class="n">np</span><span class="o">.</span><span class="n">loads</span>    <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span>
-</pre></div>
-</div>
-<p>so you can quickly find all the load-related functionality in numpy. Tab
-completion works even for function arguments, for example consider this
-function definition:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">20</span><span class="p">]:</span> <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">frobinate</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-   <span class="o">....</span><span class="p">:</span>     <span class="k">if</span> <span class="n">frobinate</span><span class="p">:</span>
-   <span class="o">....</span><span class="p">:</span>         <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-   <span class="o">....</span><span class="p">:</span>
-</pre></div>
-</div>
-<p>If you now use the <code class="docutils literal"><span class="pre">&lt;tab&gt;</span></code> key after having typed ‘fro’ you’ll get all
-valid Python completions, but those marked with <code class="docutils literal"><span class="pre">=</span></code> at the end are
-known to be keywords of your function:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">21</span><span class="p">]:</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">fro</span><span class="o">&lt;</span><span class="n">TAB</span> <span class="n">HERE</span><span class="o">&gt;</span>
-<span class="n">frobinate</span><span class="o">=</span>    <span class="n">frombuffer</span>    <span class="n">fromfunction</span>  <span class="n">frompyfunc</span>    <span class="n">fromstring</span>
-<span class="kn">from</span>          <span class="nn">fromfile</span>      <span class="n">fromiter</span>      <span class="n">fromregex</span>     <span class="nb">frozenset</span>
-</pre></div>
-</div>
-<p>at this point you can add the <code class="docutils literal"><span class="pre">b</span></code> letter and hit <code class="docutils literal"><span class="pre">&lt;tab&gt;</span></code> once more,
-and IPython will finish the line for you:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">21</span><span class="p">]:</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">frobinate</span><span class="o">=</span>
-</pre></div>
-</div>
-<p>As a beginner, simply get into the habit of using <code class="docutils literal"><span class="pre">&lt;tab&gt;</span></code> after most
-objects; it should quickly become second nature as you will see how
-helps keep a fluid workflow and discover useful information. Later on
-you can also customize this behavior by writing your own completion
-code, if you so desire.</p>
-</div>
-<div class="section" id="Matplotlib-integration">
-<h3>Matplotlib integration<a class="headerlink" href="#Matplotlib-integration" title="Permalink to this headline">¶</a></h3>
-<p>One of the most useful features of IPython for scientists is its tight
-integration with matplotlib: at the terminal IPython lets you open
-matplotlib figures without blocking your typing (which is what happens
-if you try to do the same thing at the default Python shell), and in the
-Qt console and notebook you can even view your figures embedded in your
-workspace next to the code that created them.</p>
-<p>The matplotlib support can be either activated when you start IPython by
-passing the <code class="docutils literal"><span class="pre">--pylab</span></code> flag, or at any point later in your session by
-using the <code class="docutils literal"><span class="pre">%pylab</span></code> command. If you start IPython with <code class="docutils literal"><span class="pre">--pylab</span></code>,
-you’ll see something like this (note the extra message about pylab):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ ipython --pylab
-Python 2.7.2+ (default, Oct  4 2011, 20:03:08)
-Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
-
-IPython 0.13.dev -- An enhanced Interactive Python.
-?         -&gt; Introduction and overview of IPython&#39;s features.
-%quickref -&gt; Quick reference.
-help      -&gt; Python&#39;s own help system.
-object?   -&gt; Details about &#39;object&#39;, use &#39;object??&#39; for extra details.
-
-Welcome to pylab, a matplotlib-based Python environment [backend: Qt4Agg].
-For more information, type &#39;help(pylab)&#39;.
-
-In [1]:
-</pre></div>
-</div>
-<p>Furthermore, IPython will import <code class="docutils literal"><span class="pre">numpy</span></code> with the <code class="docutils literal"><span class="pre">np</span></code> shorthand,
-<code class="docutils literal"><span class="pre">matplotlib.pyplot</span></code> as <code class="docutils literal"><span class="pre">plt</span></code>, and it will also load all of the numpy
-and pyplot top-level names so that you can directly type something like:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-
-<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span> <span class="n">at</span> <span class="mh">0x9e7c16c</span><span class="o">&gt;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>instead of having to prefix each call with its full signature (as we
-have been doing in the examples thus far):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-
-<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span> <span class="n">at</span> <span class="mh">0x9e900ac</span><span class="o">&gt;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>This shorthand notation can be a huge time-saver when working
-interactively (it’s a few characters but you are likely to type them
-hundreds of times in a session). But we should note that as you develop
-persistent scripts and notebooks meant for reuse, it’s best to get in
-the habit of using the longer notation (known as <em>fully qualified names</em>
-as it’s clearer where things come from and it makes for more robust,
-readable and maintainable code in the long run).</p>
-</div>
-<div class="section" id="Access-to-the-operating-system-and-files">
-<h3>Access to the operating system and files<a class="headerlink" href="#Access-to-the-operating-system-and-files" title="Permalink to this headline">¶</a></h3>
-<p>In IPython, you can type <code class="docutils literal"><span class="pre">ls</span></code> to see your files or <code class="docutils literal"><span class="pre">cd</span></code> to change
-directories, just like you would at a regular system prompt:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">cd</span> <span class="n">tests</span>
-<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">fperez</span><span class="o">/</span><span class="n">ipython</span><span class="o">/</span><span class="n">nbconvert</span><span class="o">/</span><span class="n">tests</span>
-
-<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">ls</span> <span class="n">test</span><span class="o">.*</span>
-<span class="n">test</span><span class="o">.</span><span class="n">aux</span>  <span class="n">test</span><span class="o">.</span><span class="n">html</span>  <span class="n">test</span><span class="o">.</span><span class="n">ipynb</span>  <span class="n">test</span><span class="o">.</span><span class="n">log</span>  <span class="n">test</span><span class="o">.</span><span class="n">out</span>  <span class="n">test</span><span class="o">.</span><span class="n">pdf</span>  <span class="n">test</span><span class="o">.</span><span class="n">rst</span>  <span class="n">test</span><span class="o">.</span><span class="n">tex</span>
-</pre></div>
-</div>
-<p>Furthermore, if you use the <code class="docutils literal"><span class="pre">!</span></code> at the beginning of a line, any
-commands you pass afterwards go directly to the operating system:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>In [4]: !echo &quot;Hello IPython&quot;
-Hello IPython
-</pre></div>
-</div>
-<p>IPython offers a useful twist in this feature: it will substitute in the
-command the value of any <em>Python</em> variable you may have if you prepend
-it with a <code class="docutils literal"><span class="pre">$</span></code> sign:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>In [5]: message = &#39;IPython interpolates from Python to the shell&#39;
-
-In [6]: !echo $message
-IPython interpolates from Python to the shell
-</pre></div>
-</div>
-<p>This feature can be extremely useful, as it lets you combine the power
-and clarity of Python for complex logic with the immediacy and
-familiarity of many shell commands. Additionally, if you start the line
-with <em>two</em> <code class="docutils literal"><span class="pre">$$</span></code> signs, the output of the command will be automatically
-captured as a list of lines, e.g.:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>In [10]: !!ls test.*
-Out[10]:
-[&#39;test.aux&#39;,
- &#39;test.html&#39;,
- &#39;test.ipynb&#39;,
- &#39;test.log&#39;,
- &#39;test.out&#39;,
- &#39;test.pdf&#39;,
- &#39;test.rst&#39;,
- &#39;test.tex&#39;]
-</pre></div>
-</div>
-<p>As explained above, you can now use this as the variable <code class="docutils literal"><span class="pre">_10</span></code>. If you
-directly want to capture the output of a system command to a Python
-variable, you can use the syntax <code class="docutils literal"><span class="pre">=!</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>In [11]: testfiles =! ls test.*
-
-In [12]: print(testfiles
-[&#39;test.aux&#39;, &#39;test.html&#39;, &#39;test.ipynb&#39;, &#39;test.log&#39;, &#39;test.out&#39;, &#39;test.pdf&#39;, &#39;test.rst&#39;, &#39;test.tex&#39;]
-</pre></div>
-</div>
-<p>Finally, the special <code class="docutils literal"><span class="pre">%alias</span></code> command lets you define names that are
-shorthands for system commands, so that you can type them without having
-to prefix them via <code class="docutils literal"><span class="pre">!</span></code> explicitly (for example, <code class="docutils literal"><span class="pre">ls</span></code> is an alias
-that has been predefined for you at startup).</p>
-</div>
-<div class="section" id="Magic-commands">
-<h3>Magic commands<a class="headerlink" href="#Magic-commands" title="Permalink to this headline">¶</a></h3>
-<p>IPython has a system for special commands, called ‘magics’, that let you
-control IPython itself and perform many common tasks with a more
-shell-like syntax: it uses spaces for delimiting arguments, flags can be
-set with dashes and all arguments are treated as strings, so no
-additional quoting is required. This kind of syntax is invalid in the
-Python language but very convenient for interactive typing (less
-parentheses, commans and quoting everywhere); IPython distinguishes the
-two by detecting lines that start with the <code class="docutils literal"><span class="pre">%</span></code> character.</p>
-<p>You can learn more about the magic system by simply typing <code class="docutils literal"><span class="pre">%magic</span></code> at
-the prompt, which will give you a short description plus the
-documentation on <em>all</em> available magics. If you want to see only a
-listing of existing magics, you can use <code class="docutils literal"><span class="pre">%lsmagic</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">lsmagic</span>
-<span class="n">Available</span> <span class="n">magic</span> <span class="n">functions</span><span class="p">:</span>
-<span class="o">%</span><span class="n">alias</span>  <span class="o">%</span><span class="n">autocall</span>  <span class="o">%</span><span class="n">autoindent</span>  <span class="o">%</span><span class="n">automagic</span>  <span class="o">%</span><span class="n">bookmark</span>  <span class="o">%</span><span class="n">c</span>  <span class="o">%</span><span class="n">cd</span>  <span class="o">%</span><span class="n">colors</span>  <span class="o">%</span><span class="n">config</span>  <span class="o">%</span><span class="n">cpaste</span>
-<span class="o">%</span><span class="n">debug</span>  <span class="o">%</span><span class="n">dhist</span>  <span class="o">%</span><span class="n">dirs</span>  <span class="o">%</span><span class="n">doctest_mode</span>  <span class="o">%</span><span class="n">ds</span>  <span class="o">%</span><span class="n">ed</span>  <span class="o">%</span><span class="n">edit</span>  <span class="o">%</span><span class="n">env</span>  <span class="o">%</span><span class="n">gui</span>  <span class="o">%</span><span class="n">hist</span>  <span class="o">%</span><span class="n">history</span>
-<span class="o">%</span><span class="n">install_default_config</span>  <span class="o">%</span><span class="n">install_ext</span>  <span class="o">%</span><span class="n">install_profiles</span>  <span class="o">%</span><span class="n">load_ext</span>  <span class="o">%</span><span class="n">loadpy</span>  <span class="o">%</span><span class="n">logoff</span>  <span class="o">%</span><span class="n">logon</span>
-<span class="o">%</span><span class="n">logstart</span>  <span class="o">%</span><span class="n">logstate</span>  <span class="o">%</span><span class="n">logstop</span>  <span class="o">%</span><span class="n">lsmagic</span>  <span class="o">%</span><span class="n">macro</span>  <span class="o">%</span><span class="n">magic</span>  <span class="o">%</span><span class="n">notebook</span>  <span class="o">%</span><span class="n">page</span>  <span class="o">%</span><span class="n">paste</span>  <span class="o">%</span><span class="n">pastebin</span>
-<span class="o">%</span><span class="n">pd</span>  <span class="o">%</span><span class="n">pdb</span>  <span class="o">%</span><span class="n">pdef</span>  <span class="o">%</span><span class="n">pdoc</span>  <span class="o">%</span><span class="n">pfile</span>  <span class="o">%</span><span class="n">pinfo</span>  <span class="o">%</span><span class="n">pinfo2</span>  <span class="o">%</span><span class="n">pop</span>  <span class="o">%</span><span class="n">popd</span>  <span class="o">%</span><span class="n">pprint</span><span class="p">(</span> <span class="o">%</span><span class="n">precision</span>  <span class="o">%</span><span class="n">profile</span>
-<span class="o">%</span><span class="n">prun</span>  <span class="o">%</span><span class="n">psearch</span>  <span class="o">%</span><span class="n">psource</span>  <span class="o">%</span><span class="n">pushd</span>  <span class="o">%</span><span class="n">pwd</span>  <span class="o">%</span><span class="n">pycat</span>  <span class="o">%</span><span class="n">pylab</span>  <span class="o">%</span><span class="n">quickref</span>  <span class="o">%</span><span class="n">recall</span>  <span class="o">%</span><span class="n">rehashx</span>
-<span class="o">%</span><span class="n">reload_ext</span>  <span class="o">%</span><span class="n">rep</span>  <span class="o">%</span><span class="n">rerun</span>  <span class="o">%</span><span class="n">reset</span>  <span class="o">%</span><span class="n">reset_selective</span>  <span class="o">%</span><span class="n">run</span>  <span class="o">%</span><span class="n">save</span>  <span class="o">%</span><span class="n">sc</span>  <span class="o">%</span><span class="n">stop</span>  <span class="o">%</span><span class="n">store</span>  <span class="o">%</span><span class="n">sx</span>  <span class="o">%</span><span class="n">tb</span>
-<span class="o">%</span><span class="n">time</span>  <span class="o">%</span><span class="n">timeit</span>  <span class="o">%</span><span class="n">unalias</span>  <span class="o">%</span><span class="n">unload_ext</span>  <span class="o">%</span><span class="n">who</span>  <span class="o">%</span><span class="n">who_ls</span>  <span class="o">%</span><span class="n">whos</span>  <span class="o">%</span><span class="n">xdel</span>  <span class="o">%</span><span class="n">xmode</span>
-
-<span class="n">Automagic</span> <span class="ow">is</span> <span class="n">ON</span><span class="p">,</span> <span class="o">%</span> <span class="n">prefix</span> <span class="n">NOT</span> <span class="n">needed</span> <span class="k">for</span> <span class="n">magic</span> <span class="n">functions</span><span class="o">.</span>
-</pre></div>
-</div>
-<p>Note how the example above omitted the eplicit <code class="docutils literal"><span class="pre">%</span></code> marker and simply
-uses <code class="docutils literal"><span class="pre">lsmagic</span></code>. As long as the ‘automagic’ feature is on (which it is
-by default), you can omit the <code class="docutils literal"><span class="pre">%</span></code> marker as long as there is no
-ambiguity with a Python variable of the same name.</p>
-</div>
-<div class="section" id="Running-your-code">
-<h3>Running your code<a class="headerlink" href="#Running-your-code" title="Permalink to this headline">¶</a></h3>
-<p>While it’s easy to type a few lines of code in IPython, for any
-long-lived work you should keep your codes in Python scripts (or in
-IPython notebooks, see below). Consider that you have a script, in this
-case trivially simple for the sake of brevity, named <code class="docutils literal"><span class="pre">simple.py</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>In [12]: !cat simple.py
-import numpy as np
-
-x = np.random.normal(size=100)
-
-print(&#39;First elment of x:&#39;, x[0]
-</pre></div>
-</div>
-<p>The typical workflow with IPython is to use the <code class="docutils literal"><span class="pre">%run</span></code> magic to
-execute your script (you can omit the .py extension if you want). When
-you run it, the script will execute just as if it had been run at the
-system prompt with <code class="docutils literal"><span class="pre">python</span> <span class="pre">simple.py</span></code> (though since modules don’t get
-re-executed on new imports by Python, all system initialization is
-essentially free, which can have a significant run time impact in some
-cases):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="n">run</span> <span class="n">simple</span>
-<span class="n">First</span> <span class="n">elment</span> <span class="n">of</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.55872256289</span>
-</pre></div>
-</div>
-<p>Once it completes, all variables defined in it become available for you
-to use interactively:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="p">(</span><span class="mi">100</span><span class="p">,)</span>
-</pre></div>
-</div>
-<p>This allows you to plot data, try out ideas, etc, in a
-<code class="docutils literal"><span class="pre">%run</span></code>/interact/edit cycle that can be very productive. As you start
-understanding your problem better you can refine your script further,
-incrementally improving it based on the work you do at the IPython
-prompt. At any point you can use the <code class="docutils literal"><span class="pre">%hist</span></code> magic to print(out your
-history without prompts, so that you can copy useful fragments back into
-the script.</p>
-<p>By default, <code class="docutils literal"><span class="pre">%run</span></code> executes scripts in a completely empty namespace,
-to better mimic how they would execute at the system prompt with plain
-Python. But if you use the <code class="docutils literal"><span class="pre">-i</span></code> flag, the script will also see your
-interactively defined variables. This lets you edit in a script larger
-amounts of code that still behave as if you had typed them at the
-IPython prompt.</p>
-<p>You can also get a summary of the time taken by your script with the
-<code class="docutils literal"><span class="pre">-t</span></code> flag; consider a different script <code class="docutils literal"><span class="pre">randsvd.py</span></code> that takes a bit
-longer to run:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">21</span><span class="p">]:</span> <span class="n">run</span> <span class="o">-</span><span class="n">t</span> <span class="n">randsvd</span><span class="o">.</span><span class="n">py</span>
-
-<span class="n">IPython</span> <span class="n">CPU</span> <span class="n">timings</span> <span class="p">(</span><span class="n">estimated</span><span class="p">):</span>
-  <span class="n">User</span>   <span class="p">:</span>       <span class="mf">0.38</span> <span class="n">s</span><span class="o">.</span>
-  <span class="n">System</span> <span class="p">:</span>       <span class="mf">0.04</span> <span class="n">s</span><span class="o">.</span>
-<span class="n">Wall</span> <span class="n">time</span><span class="p">:</span>       <span class="mf">0.34</span> <span class="n">s</span><span class="o">.</span>
-</pre></div>
-</div>
-<p><code class="docutils literal"><span class="pre">User</span></code> is the time spent by the computer executing your code, while
-<code class="docutils literal"><span class="pre">System</span></code> is the time the operating system had to work on your behalf,
-doing things like memory allocation that are needed by your code but
-that you didn’t explicitly program and that happen inside the kernel.
-The <code class="docutils literal"><span class="pre">Wall</span> <span class="pre">time</span></code> is the time on a ‘clock on the wall’ between the start
-and end of your program.</p>
-<p>If <code class="docutils literal"><span class="pre">Wall</span> <span class="pre">&gt;</span> <span class="pre">User+System</span></code>, your code is most likely waiting idle for
-certain periods. That could be waiting for data to arrive from a remote
-source or perhaps because the operating system has to swap large amounts
-of virtual memory. If you know that your code doesn’t explicitly wait
-for remote data to arrive, you should investigate further to identify
-possible ways of improving the performance profile.</p>
-<p>If you only want to time how long a single statement takes, you don’t
-need to put it into a script as you can use the <code class="docutils literal"><span class="pre">%timeit</span></code> magic, which
-uses Python’s <code class="docutils literal"><span class="pre">timeit</span></code> module to very carefully measure timig data;
-<code class="docutils literal"><span class="pre">timeit</span></code> can measure even short statements that execute extremely
-fast:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">27</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span>
-<span class="mi">10000000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">23</span> <span class="n">ns</span> <span class="n">per</span> <span class="n">loop</span>
-</pre></div>
-</div>
-<p>and for code that runs longer, it automatically adjusts so the overall
-measurement doesn’t take too long:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="mi">1</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">310</span> <span class="n">ms</span> <span class="n">per</span> <span class="n">loop</span>
-</pre></div>
-</div>
-<p>The <code class="docutils literal"><span class="pre">%run</span></code> magic still has more options for debugging and profiling
-data; you should read its documentation for many useful details (as
-always, just type <code class="docutils literal"><span class="pre">%run?</span></code>).</p>
-</div>
-</div>
-<div class="section" id="The-graphical-Qt-console">
-<h2>The graphical Qt console<a class="headerlink" href="#The-graphical-Qt-console" title="Permalink to this headline">¶</a></h2>
-<p>If you type at the system prompt (see the IPython website for
-installation details, as this requires some additional libraries):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ ipython qtconsole
-</pre></div>
-</div>
-<p>instead of opening in a terminal as before, IPython will start a
-graphical console that at first sight appears just like a terminal, but
-which is in fact much more capable than a text-only terminal. This is a
-specialized terminal designed for interactive scientific work, and it
-supports full multi-line editing with color highlighting and graphical
-calltips for functions, it can keep multiple IPython sessions open
-simultaneously in tabs, and when scripts run it can display the figures
-inline directly in the work area.</p>
-<center></center>% This cell is for the pdflatex output only
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=3in]{ipython_qtconsole2.png}
-\caption{The IPython Qt console: a lightweight terminal for scientific exploration, with code, results and graphics in a soingle environment.}
-\end{figure}<p>The Qt console accepts the same <code class="docutils literal"><span class="pre">--pylab</span></code> startup flags as the
-terminal, but you can additionally supply the value <code class="docutils literal"><span class="pre">--pylab</span> <span class="pre">inline</span></code>,
-which enables the support for inline graphics shown in the figure. This
-is ideal for keeping all the code and figures in the same session, given
-that the console can save the output of your entire session to HTML or
-PDF.</p>
-<p>Since the Qt console makes it far more convenient than the terminal to
-edit blocks of code with multiple lines, in this environment it’s worth
-knowing about the <code class="docutils literal"><span class="pre">%loadpy</span></code> magic function. <code class="docutils literal"><span class="pre">%loadpy</span></code> takes a path
-to a local file or remote URL, fetches its contents, and puts it in the
-work area for you to further edit and execute. It can be an extremely
-fast and convenient way of loading code from local disk or remote
-examples from sites such as the <a class="reference external" href="http://matplotlib.sourceforge.net/gallery.html">Matplotlib
-gallery</a>.</p>
-<p>Other than its enhanced capabilities for code and graphics, all of the
-features of IPython we’ve explained before remain functional in this
-graphical console.</p>
-</div>
-<div class="section" id="The-IPython-Notebook">
-<h2>The IPython Notebook<a class="headerlink" href="#The-IPython-Notebook" title="Permalink to this headline">¶</a></h2>
-<p>The third way to interact with IPython, in addition to the terminal and
-graphical Qt console, is a powerful web interface called the “IPython
-Notebook”. If you run at the system console (you can omit the <code class="docutils literal"><span class="pre">pylab</span></code>
-flags if you don’t need plotting support):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ ipython notebook --pylab inline
-</pre></div>
-</div>
-<p>IPython will start a process that runs a web server in your local
-machine and to which a web browser can connect. The Notebook is a
-workspace that lets you execute code in blocks called ‘cells’ and
-displays any results and figures, but which can also contain arbitrary
-text (including LaTeX-formatted mathematical expressions) and any rich
-media that a modern web browser is capable of displaying.</p>
-<center></center>% This cell is for the pdflatex output only
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=3in]{ipython-notebook-specgram-2.png}
-\caption{The IPython Notebook: text, equations, code, results, graphics and other multimedia in an open format for scientific exploration and collaboration}
-\end{figure}<p>In fact, this document was written as a Notebook, and only exported to
-LaTeX for printing. Inside of each cell, all the features of IPython
-that we have discussed before remain functional, since ultimately this
-web client is communicating with the same IPython code that runs in the
-terminal. But this interface is a much more rich and powerful
-environment for maintaining long-term “live and executable” scientific
-documents.</p>
-<p>Notebook environments have existed in commercial systems like
-Mathematica(TM) and Maple(TM) for a long time; in the open source world
-the <a class="reference external" href="http://sagemath.org">Sage</a> project blazed this particular trail
-starting in 2006, and now we bring all the features that have made
-IPython such a widely used tool to a Notebook model.</p>
-<p>Since the Notebook runs as a web application, it is possible to
-configure it for remote access, letting you run your computations on a
-persistent server close to your data, which you can then access remotely
-from any browser-equipped computer. We encourage you to read the
-extensive documentation provided by the IPython project for details on
-how to do this and many more features of the notebook.</p>
-<p>Finally, as we said earlier, IPython also has a high-level and easy to
-use set of libraries for parallel computing, that let you control
-(interactively if desired) not just one IPython but an entire cluster of
-‘IPython engines’. Unfortunately a detailed discussion of these tools is
-beyond the scope of this text, but should you need to parallelize your
-analysis codes, a quick read of the tutorials and examples provided at
-the IPython site may prove fruitful.</p>
 </div>
 </div>
 
@@ -2618,6 +2153,7 @@ the IPython site may prove fruitful.</p>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/06-conda-pip-environments.html">Conda and pip - managing environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/07-reading3-discussion.html">From September 25 reading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/07-reading3-discussion.html#Make:-automating-tasks">Make: automating tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/08-ligo-make.html">LIGO, the 2017 Nobel prize in physics, and wrapping up Makefiles</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>

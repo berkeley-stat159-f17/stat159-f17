@@ -1,37 +1,11 @@
-For Tuesday: 
-
-* Late reading assignments policy.  If you have any problem that will prevent you from using bCourses for the submission in time, send your reading report via email (from your phone if need be) before the deadline to Eli.  One point will be deducted from reports submitted in this manner.
-
-If you otherwise don't submit your report in time, you'll need to discuss it with me.  Short of a *documented* medical or family emergency (I will ask for proof), there will be no late assignments.
-
-* Responses selected for discussion (we'll normally pick two or three
-  high-quality ones) will be given an extra credit point.
-
-From Matthew Chang:
-
-"IPython is built and developed with the general principle of making life easier for scientists and students, but I believe that there are certain dangers in this as a result of my personal experience. If too much computation is abstracted away, then one can take the easy way out and miss out on learning fundamental concepts. Nowadays, one can simply call the appropriate methods in scikitlearn to do machine learning. In fact, my manager at my internship told me that a lot of folks who are trying to get into data science these days don’t even understand the algorithms/methods that they are using. Fifteen years ago, when scikitlearn didn’t exist, one needed to code the actual machine learning algorithm if he/she wanted to use it. This process forces the coder to deepen his/her fundamental understanding of the algorithm itself. The fact that we don’t need to do garbage collection in Python is a time-saver, but we miss out on the opportunity to learn about how our data is stored in memory. In fact, it’s possible for a newbie who has only coded in Python to not even be aware of what garbage collection is! In contrast, a C++ programmer has to become familiar with garbage collection and malloc by necessity. Actually, UC Berkeley’s entire computer science curriculum has embraced Python wholeheartedly; it is used in most of the upper division courses that I have taken. As a result, I haven’t used C and C++ enough. This has caused my understanding of pointers and memory allocation, which I believe are still important for any computer programmer to know, to remain minimal. One counter-argument would be to assert that teachers should insist that students learn the fundamental knowledge. In CS 189, the machine learning class here at Berkeley, we had to implement linear regression and a neural network in Numpy and Scipy in order to understand how they work. But, people often just want to finish a task in the most efficient way possible and will certainly find the most efficient way of doing so, especially if they are just searching online for the answers (through Stack Overflow, Quora, other online forums, etc.)"
-
-In a similar vein, from Baishan Guo
-"Python has its drawbacks. For instance, Python has still not developed well-constructed function for parallel and distributed computing. And also what concerns me is that while lowering the standard for access to data analysis, Python may also lower the standard for preciseness and strictness of academic research. In jupyter notebook, we still have problem inserting academic citations. Anyone can post their research or article on platform like GitHub. The publication is no longer a very formal process as before. With the rapid rise of interactive computing systems, this issue also requires people's attention."
-
-
-Some push back from William Krinsman
-"All in all, the article makes some good points (and to be fair it is out-of-date), but I think it makes a weak/strawman case when comparing Python to C/C++/Fortran/Mathematica/Matlab, because the former three are non-interactive, lower-level, the latter two are high-level interactive, and base Python (as mentioned here, without mentioning IPython engine/shell, much less Jupyter notebooks) is high-level and non-interactive. So really the only competitor that comes to mind for high-level non-interactive (at least with extensions) languages (that existed at the time, i.e. not Julia, which hasn't even had a stable release yet anyway) is R, but comparisons with R are mostly ignored and/or glossed over and/or inaccurate/unfair. (E.g. with regards to data visualization, statistical algorithms, and most importantly data manipulation, for which Python is absolutely terrible/not even worth using without pandas, and even then Python still doesn't have any super-killer like dplyr on top of R's better built-in features for data management/manipulation)."
-
-And a pro Python partisan, Jack Moorer
-
-"I hate the fact the Statistics department here seems set on using R in most classes instead of Python along with packages like NumPy, Sympy, etc, and having taken Stat 133 I have seen time wasted teaching the unintuitive R and RStudio to make R markdown files instead of converting to Python. I didn’t have any issues with these readings, Python is much less of a pain than high-level languages used in the CS department and I think should replace R and Matlab in statistics, numerical analaysis, and engineering classes."
-
-
---
-
-It's interesting to me that some students see access to computational tools and
-publishing mechanisms as something less than good.
-
-
-
 
 Future readings
 
 - floating point accuracy - 'what every cs...'
 - rngs?
+- Lorena Barba's manifesto and CISE paper
+
+- Notebook critiques. Do these only after covering `nbdime` and `nbconvert --execute`
+  * https://khinsen.wordpress.com/2015/09/03/beyond-jupyter-whats-in-a-notebook
+  * https://owainkenwayucl.github.io/2017/10/03/WhyIDontLikeNotebooks.html
+
