@@ -79,6 +79,7 @@ Lectures
    lectures/06-conda-pip-environments.ipynb
    lectures/07-reading3-discussion.ipynb
    lectures/08-ligo-make.md
+   lectures/09-intro-numpy/intro-numpy.ipynb
 
 Labs
 ~~~~
