@@ -239,6 +239,8 @@ are available.</li>
 <li>The <a class="reference external" href="http://www.scipy-lectures.org">online SciPy Lectures</a>, and
 specifically for this topic, the <a class="reference external" href="http://www.scipy-lectures.org/intro/numpy/index.html">NumPy
 chapter</a>.</li>
+<li>The <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/index.html">official Numpy
+documentation</a>.</li>
 </ul>
 <div class="section" id="Scientific-Python:-a-collaboration-of-projects-built-by-scientists">
 <h2>Scientific Python: a collaboration of projects built by scientists<a class="headerlink" href="#Scientific-Python:-a-collaboration-of-projects-built-by-scientists" title="Permalink to this headline">¶</a></h2>
@@ -749,7 +751,7 @@ an empty array and then use the fill method to put the value we want
 into the array:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [21]:
+<span></span>In [72]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -761,7 +763,7 @@ into the array:</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[21]:
+<span></span>Out[72]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -769,6 +771,9 @@ into the array:</p>
 </pre></div>
 </div>
 </div>
+<p>This illustrates the internal structure of a Numpy array (taken from the
+<a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.html">official Numpy
+docs</a>:</p>
 <p>Numpy also offers the <code class="docutils literal"><span class="pre">arange</span></code> function, which works like the builtin
 <code class="docutils literal"><span class="pre">range</span></code> but returns an array instead of a list:</p>
 <div class="nbinput docutils container">
@@ -862,6 +867,11 @@ with a mean of 10 and a variance of 3:</p>
 </pre></div>
 </div>
 </div>
+<p><strong>Exercise: Simple arrays</strong></p>
+<p>Create a simple two dimensional array: how about odd numbers counting
+backwards on the first row, and even numbers on the second?</p>
+<p>Use the functions len(), numpy.shape() on these arrays. How do they
+relate to each other? And to the ndim attribute of the arrays?</p>
 </div>
 <div class="section" id="Indexing-with-other-arrays">
 <h2>Indexing with other arrays<a class="headerlink" href="#Indexing-with-other-arrays" title="Permalink to this headline">¶</a></h2>
@@ -1891,7 +1901,7 @@ unnecessary right now):</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_133_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_133_0.png" />
+<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_134_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_134_0.png" />
 </div>
 </div>
 <p>You can control the style, color and other properties of the markers,
@@ -1910,7 +1920,7 @@ for example:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_135_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_135_0.png" />
+<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_136_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_136_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1927,7 +1937,7 @@ for example:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_136_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_136_0.png" />
+<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_137_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_137_0.png" />
 </div>
 </div>
 <p>We will now see how to create a few other common plot types, such as a
@@ -1957,7 +1967,7 @@ simple error plot:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_138_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_138_0.png" />
+<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_139_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_139_0.png" />
 </div>
 </div>
 <p>A simple log plot</p>
@@ -1977,7 +1987,7 @@ simple error plot:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_140_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_140_0.png" />
+<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_141_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_141_0.png" />
 </div>
 </div>
 <p>A histogram annotated with text inside the plot, using the <code class="docutils literal"><span class="pre">text</span></code>
@@ -2008,7 +2018,7 @@ function:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_142_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_142_0.png" />
+<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_143_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_143_0.png" />
 </div>
 </div>
 <div class="section" id="Image-display">
@@ -2031,7 +2041,7 @@ simple array of random numbers, plotted in grayscale:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_145_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_145_0.png" />
+<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_146_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_146_0.png" />
 </div>
 </div>
 <p>A real photograph is a multichannel image, <code class="docutils literal"><span class="pre">imshow</span></code> interprets it
@@ -2060,7 +2070,7 @@ Dimensions of the array img: (375, 500, 3)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_147_1.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_147_1.png" />
+<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_148_1.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_148_1.png" />
 </div>
 </div>
 </div>
@@ -2110,7 +2120,7 @@ Dimensions of the array img: (375, 500, 3)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_153_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_153_0.png" />
+<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_154_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_154_0.png" />
 </div>
 </div>
 </div>
