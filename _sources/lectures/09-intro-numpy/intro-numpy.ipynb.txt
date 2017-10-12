@@ -13,7 +13,15 @@
    "source": [
     "While the Python language is an excellent tool for general-purpose programming, with a highly readable syntax, rich and powerful data types (strings, lists, sets, dictionaries, arbitrary length integers, etc) and a very comprehensive standard library, it was not designed specifically for mathematical and scientific computing.  Neither the language nor its standard library have facilities for the efficient representation of multidimensional datasets, tools for linear algebra and general matrix manipulations (an essential building block of virtually all technical computing), nor any data visualization facilities.\n",
     "\n",
-    "In particular, Python lists are very flexible containers that can be nested arbitrarily deep and which can hold any Python object in them, but they are poorly suited to represent efficiently common mathematical constructs like vectors and matrices.  In contrast, much of our modern heritage of scientific computing has been built on top of libraries written in the Fortran language, which has native support for vectors and matrices as well as a library of mathematical functions that can efficiently operate on entire arrays at once."
+    "In particular, Python lists are very flexible containers that can be nested arbitrarily deep and which can hold any Python object in them, but they are poorly suited to represent efficiently common mathematical constructs like vectors and matrices.  In contrast, much of our modern heritage of scientific computing has been built on top of libraries written in the Fortran language, which has native support for vectors and matrices as well as a library of mathematical functions that can efficiently operate on entire arrays at once.\n",
+    "\n",
+    "**Resources**\n",
+    "\n",
+    "For Numpy, Matplotlib, SciPy and related tools, these two resources will be particularly useful:\n",
+    "\n",
+    "* [Elegant SciPy](http://proquest.safaribooksonline.com/9781491922927), a collection of example-oriented lessons on how to best use the scientific Python toolkit, by the creator of Scikit-Image and BIDS researcher [Stefan van der Walt](https://bids.berkeley.edu/people/st%C3%A9fan-van-der-walt). In addition to the previous O'Reilly reader, the [full book](https://github.com/elegant-scipy/elegant-scipy) as well as all the [notebooks](https://github.com/elegant-scipy/notebooks) are available.\n",
+    "\n",
+    "* The [online SciPy Lectures](http://www.scipy-lectures.org), and specifically for this topic, the [NumPy chapter](http://www.scipy-lectures.org/intro/numpy/index.html)."
    ]
   },
   {
