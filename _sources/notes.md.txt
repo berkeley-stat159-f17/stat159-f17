@@ -1,7 +1,34 @@
+# Notes
 
-Future readings
+- Grad project: estimate the probability that a senator or congress representative has Alzheimer's
 
-- floating point accuracy - 'what every cs...'
+Remaining topic list
+
+* numpy, scipy
+* nbdime
+* Testing, coverage
+* CI
+* Documentation - sphinx (class website)
+* Advanced Python, OO
+* Matplotlib
+* Pandas
+* Statsmodels
+* Sklearn
+* Data sharing tools and open science
+  - Figshare and Zenodo
+  - ORCID
+
+
+Later/other year
+* Skimage
+* Web scraping, databases
+
+
+## Future readings
+
+* Garden of forking paths and p-hakcing
+
+- floating point accuracy - 'what every cs...': way too long, technical.  Matthew's alternative? 
 - rngs?
 - Lorena Barba's manifesto and CISE paper
 
