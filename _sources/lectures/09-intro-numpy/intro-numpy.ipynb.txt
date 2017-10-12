@@ -78,40 +78,6 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## A note about the examples below"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "In all subsequent examples, you will see blocks of input code, followed by the results of the code if the code generated output.  This output may include text, graphics and other result objects.  These blocks of input can be pasted into your interactive IPython session or notebook for you to execute.  In the print version of this document, a thin vertical bar on the left of the blocks of input and output shows which blocks go together.\n",
-    "\n",
-    "If you are reading this text as an actual IPython notebook, you can press `Shift-Enter` or use the 'play' button on the toolbar (right-pointing triangle) to execute each block of code, known as a 'cell' in IPython:"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 1,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Welcome to the world of scientific computing with Python!\n"
-     ]
-    }
-   ],
-   "source": [
-    "# This is a block of code, below you'll see its output\n",
-    "print(\"Welcome to the world of scientific computing with Python!\")"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
     "# Motivation: the trapezoidal rule"
    ]
   },
