@@ -531,16 +531,6 @@ a single line.</p>
 </pre></div></div>
 </div>
 <p>Write the same program but this time use while loop instead of for loop</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="Double-trouble">
 <h2>Double trouble<a class="headerlink" href="#Double-trouble" title="Permalink to this headline">¶</a></h2>
@@ -554,11 +544,97 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>
+<span></span><span class="k">def</span> <span class="nf">counter</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a dict with the number of n-count occurrences of val.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">n_consec_vals</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">val</span><span class="p">:</span>
+            <span class="n">n_consec_vals</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">n_consec_vals</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">counts</span><span class="p">[</span><span class="n">n_consec_vals</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">n_consec_vals</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">n_consec_vals</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">n_consec_vals</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">counts</span><span class="p">[</span><span class="n">n_consec_vals</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">n_consec_vals</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">counts</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">tests</span> <span class="o">=</span> <span class="p">[</span> <span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span> <span class="p">),</span>
+          <span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span> <span class="p">,</span>
+          <span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="mi">1</span><span class="p">}),</span>
+          <span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span> <span class="p">),</span>
+         <span class="p">([],</span> <span class="p">{})</span>
+
+        <span class="p">]</span>
+
+<span class="k">for</span> <span class="n">lst</span><span class="p">,</span> <span class="n">ans</span> <span class="ow">in</span> <span class="n">tests</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">counter</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="n">ans</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">double100</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">counter</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">double100</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[20]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>True
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">double100</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[21]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>False
 </pre></div>
 </div>
 </div>
@@ -590,6 +666,11 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
 <li class="toctree-l1"><a class="reference internal" href="06-conda-pip-environments.html">Conda and pip - managing environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07-reading3-discussion.html">From September 25 reading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07-reading3-discussion.html#Make:-automating-tasks">Make: automating tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-ligo-make.html">LIGO, the 2017 Nobel prize in physics, and wrapping up Makefiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy.html">An Introduction to the Scientific Python Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy.html#Motivation:-the-trapezoidal-rule">Motivation: the trapezoidal rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy.html#NumPy-arrays:-the-right-data-structure-for-scientific-computing">NumPy arrays: the right data structure for scientific computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>
@@ -597,6 +678,7 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab3.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab4.html">Lab 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab5.html">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab6.html">Lab 6</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
