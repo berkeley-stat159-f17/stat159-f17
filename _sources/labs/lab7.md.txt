@@ -4,4 +4,4 @@
 
 * Finish Intro to Numpy notebook.
 
-* Start Visualization - beyond the basics.
+* Start Visualization: [matplotlib beyond the basics](../lectures/10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html)

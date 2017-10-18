@@ -80,6 +80,7 @@ Lectures
    lectures/07-reading3-discussion.ipynb
    lectures/08-ligo-make.md
    lectures/09-intro-numpy/intro-numpy.ipynb
+   lectures/10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.ipynb
 
 Labs
 ~~~~
