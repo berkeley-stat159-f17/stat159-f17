@@ -2,6 +2,13 @@
 
 - Grad project: estimate the probability that a senator or congress representative has Alzheimer's
 
+- Homework
+
+  * Fourier sound
+  * fourier denoising
+  * double trouble 05-class-practice-all.ipynb - intro to unit testing.
+
+
 Remaining topic list
 
 * numpy, scipy
