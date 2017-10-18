@@ -366,12 +366,12 @@ only a few points in that region to illustrate the error behavior of the
 trapezoid approximation:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [9]:
+<span></span>In [25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span>
-<span class="n">sampling</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">sampling</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">xint</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">x</span><span class="o">&gt;=</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="o">&lt;=</span><span class="n">b</span><span class="p">)][::</span><span class="n">sampling</span><span class="p">]</span>
 <span class="n">yint</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">x</span><span class="o">&gt;=</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="o">&lt;=</span><span class="n">b</span><span class="p">)][::</span><span class="n">sampling</span><span class="p">]</span>
 <span class="c1"># Fix end points of the interval</span>
@@ -384,7 +384,7 @@ trapezoid approximation:</p>
 approximation:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [11]:
+<span></span>In [26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -412,7 +412,7 @@ approximation:</p>
 approximation</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [19]:
+<span></span>In [27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -432,8 +432,8 @@ approximation</p>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 The integral is: 680 +/- 7.5e-12
-The trapezoid approximation with 16 points is: 623.008087272
-The absolute error is: 56.991912728
+The trapezoid approximation with 16 points is: 681.124797875
+The absolute error is: 1.1247978745
 </pre></div></div>
 </div>
 <p>This simple example showed us how, combining the numpy, scipy and
@@ -1074,7 +1074,7 @@ the total number of elements is unchanged. For example, if we want a 2x4
 array with numbers increasing from 0, the easiest way to create it is:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [67]:
+<span></span>In [12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1097,7 +1097,7 @@ and match slices and single indices in the different dimensions (using
 the same array as above):</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [68]:
+<span></span>In [13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1117,9 +1117,9 @@ All rows, third column   : [2 6]
 </div>
 <p>If you only provide one index, then you will get an array with one less
 dimension containing that row:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1128,6 +1128,15 @@ dimension containing that row:</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+First row:   [0 1 2 3]
+Second row:  [4 5 6 7]
+</pre></div></div>
+</div>
 <p>The following provides a visual overview of indexing in Numpy:</p>
 <p>Now that we have seen how to create arrays with more than one dimension,
 it’s a good idea to look at some of the most useful properties and
@@ -1135,7 +1144,7 @@ methods that arrays have. The following provide basic information about
 the size, shape and data in the array:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [69]:
+<span></span>In [15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1162,7 +1171,7 @@ Memory used (in bytes)   : 64
 <p>Arrays also have many useful methods, some especially useful ones are:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [70]:
+<span></span>In [16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1188,7 +1197,7 @@ to do the computation along a single dimension, by passing the <code class="docu
 parameter; for example:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [71]:
+<span></span>In [17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1324,16 +1333,6 @@ and computes the equation above.</p>
 integrals you can compute analytically or compare your answers against
 <code class="docutils literal"><span class="pre">scipy.integrate.trapz</span></code> as above, using our test function
 <span class="math">\(f(x)\)</span>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Your code here</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="Operating-with-arrays">
 <h2>Operating with arrays<a class="headerlink" href="#Operating-with-arrays" title="Permalink to this headline">¶</a></h2>
@@ -1342,9 +1341,9 @@ also contains a complete collection of basic mathematical functions that
 operate on arrays. It is important to remember that in general, all
 operations with arrays are applied <em>element-wise</em>, i.e., are applied to
 all the elements of the array at the same time. Consider for example:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [65]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1354,12 +1353,20 @@ all the elements of the array at the same time. Consider for example:</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0 1 2 3] + [10 11 12 13] = [10 12 14 16]
+</pre></div></div>
+</div>
 <p>Importantly, you must remember that even the multiplication operator is
 by default applied element-wise, it is <em>not</em> the matrix multiplication
 from linear algebra (as is the case in Matlab, for example):</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [66]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1367,14 +1374,22 @@ from linear algebra (as is the case in Matlab, for example):</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0 1 2 3] * [10 11 12 13] = [ 0 11 24 39]
+</pre></div></div>
+</div>
 <p>While this means that in principle arrays must always match in their
 dimensionality in order for an operation to be valid, numpy will
 <em>broadcast</em> dimensions when possible. For example, suppose that you want
 to add the number 1.5 to <code class="docutils literal"><span class="pre">arr1</span></code>; the following would be a valid way to
 do it:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [68]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1382,15 +1397,35 @@ do it:</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[68]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([ 1.5,  2.5,  3.5,  4.5])
+</pre></div>
+</div>
+</div>
 <p>But thanks to numpy’s broadcasting rules, the following is equally
 valid:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [69]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">arr1</span> <span class="o">+</span> <span class="mf">1.5</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[69]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([ 1.5,  2.5,  3.5,  4.5])
 </pre></div>
 </div>
 </div>
@@ -1429,13 +1464,14 @@ dimensions are considered compatible when</p>
 them equal.</li>
 </ul>
 <p>If these conditions are not met, a
-<code class="docutils literal"><span class="pre">ValueError:</span> <span class="pre">frames</span> <span class="pre">are</span> <span class="pre">not</span> <span class="pre">aligned</span></code> exception is thrown, indicating
-that the arrays have incompatible shapes. The size of the resulting
-array is the maximum size along each dimension of the input arrays.</p>
+<code class="docutils literal"><span class="pre">ValueError:</span> <span class="pre">operands</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">broadcast</span> <span class="pre">together</span> <span class="pre">with</span> <span class="pre">shapes</span> <span class="pre">...</span></code>
+exception is thrown, indicating that the arrays have incompatible
+shapes. The size of the resulting array is the maximum size along each
+dimension of the input arrays.</p>
 <p>This shows how the broadcasting rules work in several dimensions:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [70]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1444,12 +1480,26 @@ array is the maximum size along each dimension of the input arrays.</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[0 1 2 3]
+ [4 5 6 7]]
+
++ [2 3 4 5]
+----------------
+ [[ 2  4  6  8]
+ [ 6  8 10 12]]
+</pre></div></div>
+</div>
 <p>Now, how could you use broadcasting to say add <code class="docutils literal"><span class="pre">[4,</span> <span class="pre">6]</span></code> along the rows
 to <code class="docutils literal"><span class="pre">arr</span></code> above? Simply performing the direct addition will produce the
 error we previously mentioned:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [71]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1458,13 +1508,27 @@ error we previously mentioned:</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-71-62aa20ac1980&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> c <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>arr <span class="ansi-blue-fg">+</span> c
+
+<span class="ansi-red-fg">ValueError</span>: operands could not be broadcast together with shapes (2,4) (2,)
+</pre></div></div>
+</div>
 <p>According to the rules above, the array <code class="docutils literal"><span class="pre">c</span></code> would need to have a
 <em>trailing</em> dimension of 1 for the broadcasting to work. It turns out
 that numpy allows you to ‘inject’ new dimensions anywhere into an array
 on the fly, by indexing it with the special object <code class="docutils literal"><span class="pre">np.newaxis</span></code>:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [72]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1472,14 +1536,35 @@ on the fly, by indexing it with the special object <code class="docutils literal
 </pre></div>
 </div>
 </div>
-<p>This is exactly what we need, and indeed it works:</p>
-<div class="nbinput nblast docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>Out[72]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(2, 1)
+</pre></div>
+</div>
+</div>
+<p>This is exactly what we need, and indeed it works:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [73]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">arr</span> <span class="o">+</span> <span class="n">c</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[73]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([[ 4,  5,  6,  7],
+       [10, 11, 12, 13]])
 </pre></div>
 </div>
 </div>
@@ -1495,7 +1580,7 @@ function at 100 points between <span class="math">\(0\)</span> and <span class="
 as:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [74]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1512,9 +1597,9 @@ as:</p>
 arguments are vectors (one-dimensional arrays) and the traditional
 matrix multiplication when one or both of its arguments are
 two-dimensional arrays:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [75]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1524,15 +1609,23 @@ two-dimensional arrays:</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[2 3 4] . [1 0 1] = 6
+</pre></div></div>
+</div>
 <p>In Python 3.5, the new <code class="docutils literal"><span class="pre">&#64;</span></code> operator was introduced to represent
 <a class="reference external" href="http://legacy.python.org/dev/peps/pep-0465">matrix multiplication</a>,
 at the request of the scientific community. While <code class="docutils literal"><span class="pre">np.dot</span></code> and the
 <code class="docutils literal"><span class="pre">.dot</span></code> method of arrays continue to exist, using <code class="docutils literal"><span class="pre">&#64;</span></code> tends to
 produce much more readable code. We will use <code class="docutils literal"><span class="pre">&#64;</span></code> henceforth in this
 tutorial. The above line would now read:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [76]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1540,15 +1633,23 @@ tutorial. The above line would now read:</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[2 3 4] . [1 0 1] = 6
+</pre></div></div>
+</div>
 <p>Here is a regular matrix-vector multiplication, note that the array
 <code class="docutils literal"><span class="pre">v1</span></code> should be viewed as a <em>column</em> vector in traditional linear
 algebra notation; numpy makes no distinction between row and column
 vectors and simply verifies that the dimensions match the required rules
 of matrix multiplication, in this case we have a <span class="math">\(2 \times 3\)</span>
 matrix multiplied by a 3-vector, which produces a 2-vector:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [77]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1557,11 +1658,20 @@ matrix multiplied by a 3-vector, which produces a 2-vector:</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[0 1 2]
+ [3 4 5]] x [2 3 4] = [11 38]
+</pre></div></div>
+</div>
 <p>For matrix-matrix multiplication, the same dimension-matching rules must
 be satisfied, e.g. consider the difference between <span class="math">\(A \times A^T\)</span>:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [78]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1569,16 +1679,35 @@ be satisfied, e.g. consider the difference between <span class="math">\(A \times
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[ 5 14]
+ [14 50]]
+</pre></div></div>
+</div>
 <p>and <span class="math">\(A^T \times A\)</span>:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [79]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[ 9 12 15]
+ [12 17 22]
+ [15 22 29]]
+</pre></div></div>
 </div>
 <p>Furthermore, the <code class="docutils literal"><span class="pre">numpy.linalg</span></code> module includes additional
 functionality such as determinants, matrix norms, Cholesky, eigenvalue
@@ -1612,9 +1741,9 @@ dimensionality can be saved and read without loss of information.</li>
 <p>First, let’s see how to read and write arrays in text mode. The
 <code class="docutils literal"><span class="pre">np.savetxt</span></code> function saves an array to a text file, with options to
 control the precision, separators and even adding a header:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [80]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1624,11 +1753,21 @@ control the precision, separators and even adding a header:</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+# My dataset
+0.00e+00 1.00e+00 2.00e+00 3.00e+00 4.00e+00
+5.00e+00 6.00e+00 7.00e+00 8.00e+00 9.00e+00
+</pre></div></div>
+</div>
 <p>And this same type of file can then be read with the matching
 <code class="docutils literal"><span class="pre">np.loadtxt</span></code> function:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [81]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1637,6 +1776,15 @@ control the precision, separators and even adding a header:</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[ 0.  1.  2.  3.  4.]
+ [ 5.  6.  7.  8.  9.]]
+</pre></div></div>
+</div>
 <p>For binary data, Numpy provides the <code class="docutils literal"><span class="pre">np.save</span></code> and <code class="docutils literal"><span class="pre">np.savez</span></code>
 routines. The first saves a single array to a file with <code class="docutils literal"><span class="pre">.npy</span></code>
 extension, while the latter can be used to save a <em>group</em> of arrays into
@@ -1644,9 +1792,9 @@ a single file with <code class="docutils literal"><span class="pre">.npz</span><
 routines can then be read with the <code class="docutils literal"><span class="pre">np.load</span></code> function.</p>
 <p>Let us first see how to use the simpler <code class="docutils literal"><span class="pre">np.save</span></code> function to save a
 single array:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [82]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1659,13 +1807,21 @@ single array:</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Any differences? False
+</pre></div></div>
+</div>
 <p>Now let us see how the <code class="docutils literal"><span class="pre">np.savez</span></code> function works. You give it a
 filename and either a sequence of arrays or a set of keywords. In the
 first mode, the function will auotmatically name the saved arrays in the
 archive as <code class="docutils literal"><span class="pre">arr_0</span></code>, <code class="docutils literal"><span class="pre">arr_1</span></code>, etc:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [83]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1675,10 +1831,20 @@ archive as <code class="docutils literal"><span class="pre">arr_0</span></code>,
 </pre></div>
 </div>
 </div>
-<p>Alternatively, we can explicitly choose how to name the arrays we save:</p>
-<div class="nbinput nblast docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>Out[83]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&#39;arr_0&#39;, &#39;arr_1&#39;]
+</pre></div>
+</div>
+</div>
+<p>Alternatively, we can explicitly choose how to name the arrays we save:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [84]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1688,13 +1854,23 @@ archive as <code class="docutils literal"><span class="pre">arr_0</span></code>,
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[84]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&#39;array1&#39;, &#39;array2&#39;]
+</pre></div>
+</div>
+</div>
 <p>The object returned by <code class="docutils literal"><span class="pre">np.load</span></code> from an <code class="docutils literal"><span class="pre">.npz</span></code> file works like a
 dictionary, though you can also access its constituent files by
 attribute using its special <code class="docutils literal"><span class="pre">.f</span></code> field; this is best illustrated with
 an example with the <code class="docutils literal"><span class="pre">arrays</span></code> object from above:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [85]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1703,6 +1879,15 @@ an example with the <code class="docutils literal"><span class="pre">arrays</spa
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First row of first array:&#39;</span><span class="p">,</span> <span class="n">arrays</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">array1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+First row of first array: [0 1 2 3 4]
+First row of first array: [0 1 2 3 4]
+</pre></div></div>
 </div>
 <p>This <code class="docutils literal"><span class="pre">.npz</span></code> format is a very convenient way to package compactly and
 without loss of information, into a single file, a group of related
@@ -1744,7 +1929,7 @@ plotting functions reside (the library contains a rich object-oriented
 architecture that we don’t have the space to discuss here):</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [86]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1757,9 +1942,9 @@ you can make a simple plot of <span class="math">\(\sin(x)\)</span> for
 <span class="math">\(x \in [0, 2\pi]\)</span> with labels and a grid (we use the semicolon in
 the last line to suppress the display of some information that is
 unnecessary right now):</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [87]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1775,11 +1960,18 @@ unnecessary right now):</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_136_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_136_0.png" />
+</div>
+</div>
 <p>You can control the style, color and other properties of the markers,
 for example:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [88]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1787,9 +1979,16 @@ for example:</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_138_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_138_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [89]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1797,11 +1996,18 @@ for example:</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_139_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_139_0.png" />
+</div>
+</div>
 <p>We will now see how to create a few other common plot types, such as a
 simple error plot:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [90]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1820,10 +2026,17 @@ simple error plot:</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_141_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_141_0.png" />
+</div>
+</div>
 <p>A simple log plot</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [91]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1831,6 +2044,13 @@ simple error plot:</p>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
 </pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_143_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_143_0.png" />
 </div>
 </div>
 <p>A histogram annotated with text inside the plot, using the <code class="docutils literal"><span class="pre">text</span></code>
