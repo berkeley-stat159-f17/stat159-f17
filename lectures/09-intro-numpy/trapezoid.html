@@ -256,8 +256,7 @@ integrals you can compute analytically or compare your answers against
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reference:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sint</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reference value (trapezoid):&quot;</span><span class="p">,</span> <span class="n">sint</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -266,8 +265,7 @@ integrals you can compute analytically or compare your answers against
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Reference:
-680.0
+Reference value (trapezoid): 680.0
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -318,6 +316,7 @@ computation with a pure Python loop.</p>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">trapzl</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="s2">&quot;Pure python version of trapezoid rule.&quot;</span>
     <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
         <span class="n">s</span> <span class="o">+=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
@@ -359,17 +358,20 @@ difference</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-37 µs ± 1.32 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-10.8 ms ± 67.2 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+35.2 µs ± 2.61 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+10.8 ms ± 444 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div></div>
 </div>
+<p>The output of <code class="docutils literal"><span class="pre">%timeit</span></code> is a special <code class="docutils literal"><span class="pre">TimeitResult</span></code> object that
+contains all the information about the timing run in a set of
+attributes. Try typing <code class="docutils literal"><span class="pre">tv.&lt;TAB&gt;</span></code> to see some of its attributes.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">tl</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">tv</span><span class="o">.</span><span class="n">average</span>
+<span></span><span class="n">tv</span>
 </pre></div>
 </div>
 </div>
@@ -379,32 +381,93 @@ difference</p>
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>292.8693269399393
+<span></span>&lt;TimeitResult : 35.2 µs ± 2.61 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)&gt;
 </pre></div>
 </div>
 </div>
-<p>Let’s see what the performance difference is across a range of sizes
-(note this will take a while to run):</p>
+<p>In particular, we can look at the average run time, which as we can see,
+is in seconds:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">tv</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[7]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>3.5238153685661796e-05
+</pre></div>
+</div>
+</div>
+<p>With this, we can now see how much faster the Numpy version was at
+20,000 sample points:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">tl</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">tv</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[8]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>306.7110725043031
+</pre></div>
+</div>
+</div>
+<p>Let’s see what the performance difference is across a range of sizes
+(note this will take a while to run). We’re actually going to need the
+same computation of <span class="math">\(x\)</span> and <span class="math">\(f(x)\)</span> over and over, so let’s
+do it once and retrieve them later on:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span>
 
-<span class="n">tv</span><span class="p">,</span> <span class="n">tl</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="n">xy</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">sizes</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">xy</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">tv</span><span class="p">,</span> <span class="n">tl</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="n">tve</span><span class="p">,</span> <span class="n">tle</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">xy</span><span class="p">:</span>
     <span class="n">t1</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -o trapz(y, x)
     <span class="n">tv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t1</span><span class="o">.</span><span class="n">average</span><span class="p">)</span>
+    <span class="n">tve</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t1</span><span class="o">.</span><span class="n">stdev</span><span class="p">)</span>
     <span class="n">t2</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -o trapzl(y, x)
     <span class="n">tl</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t2</span><span class="o">.</span><span class="n">average</span><span class="p">)</span>
+    <span class="n">tle</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t2</span><span class="o">.</span><span class="n">stdev</span><span class="p">)</span>
 
-<span class="n">tva</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
-<span class="n">tla</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tl</span><span class="p">)</span>
+<span class="n">tva</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tv</span><span class="p">);</span> <span class="n">tvea</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tve</span><span class="p">)</span>
+<span class="n">tla</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tl</span><span class="p">);</span> <span class="n">tlea</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tle</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -413,29 +476,49 @@ difference</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-3.56 µs ± 90.1 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-5.5 µs ± 73.9 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-3.58 µs ± 58.6 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-52.8 µs ± 908 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-5.92 µs ± 145 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-535 µs ± 7.29 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
-18.6 µs ± 229 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-5.39 ms ± 121 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
-152 µs ± 3.2 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-53.8 ms ± 1.82 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
-3.46 ms ± 88.7 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
-537 ms ± 6.31 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-70.7 ms ± 414 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
-5.34 s ± 69 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+3.43 µs ± 147 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+5.46 µs ± 136 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+3.72 µs ± 219 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+52.4 µs ± 1.63 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+5.49 µs ± 89 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+514 µs ± 11.6 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+17.3 µs ± 338 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+5.29 ms ± 143 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+144 µs ± 3.32 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+51.7 ms ± 1.03 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+3.56 ms ± 225 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+548 ms ± 10.5 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+71.7 ms ± 672 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+5.18 s ± 50.6 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div></div>
 </div>
-<div class="nbinput docutils container">
+<p>Now let’s plot these, along with proper error bars (remember your error
+propagation formulas, assuming here that the measurements are normal IID
+for simplicity):</p>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [8]:
+<span></span>In [11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">tla</span><span class="o">/</span><span class="n">tva</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>
+<span></span><span class="k">def</span> <span class="nf">rat_err</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">dp</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">dq</span><span class="p">):</span>
+    <span class="n">ratio</span> <span class="o">=</span> <span class="n">p</span><span class="o">/</span><span class="n">q</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="n">ratio</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">dp</span><span class="o">/</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">dq</span><span class="o">/</span><span class="n">q</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ratio</span><span class="p">,</span> <span class="n">err</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">ratio</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">rat_err</span><span class="p">(</span><span class="n">tla</span><span class="p">,</span> <span class="n">tlea</span><span class="p">,</span> <span class="n">tva</span><span class="p">,</span> <span class="n">tvea</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">ratio</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">err</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Input size&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Timing ratio Python/Numpy&quot;</span><span class="p">)</span>
@@ -447,7 +530,7 @@ difference</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/lectures_09-intro-numpy_trapezoid_11_0.png" src="../../_images/lectures_09-intro-numpy_trapezoid_11_0.png" />
+<img alt="../../_images/lectures_09-intro-numpy_trapezoid_19_0.png" src="../../_images/lectures_09-intro-numpy_trapezoid_19_0.png" />
 </div>
 </div>
 <p>A few observations:</p>
@@ -458,6 +541,9 @@ of the Python function call and basic arithmetic dominates.</li>
 the vectorized version can be ~ 100x to ~300x fastr than the pure
 Python loop. This is not uncommon in real-world applications.</li>
 <li>At very large sizes (at a million) the performance profile changes.</li>
+<li>There’s significant uncertainty for one of the values but little for
+the others, and even accounting for that uncertainty, the conclusion
+doesn’t fundamentally change.</li>
 </ul>
 <p>In general it’s extremely hard to predict exact performance ratios,
 which often vary in hard to understand ways with problem size, as
@@ -476,7 +562,7 @@ Numpy”</a>.</p>
 in this type of loop-intensive code.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [9]:
+<span></span>In [13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -484,8 +570,7 @@ in this type of loop-intensive code.</p>
 
 <span class="n">trapzn</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">trapzl</span><span class="p">)</span>
 
-<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="n">trapzn</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
@@ -494,7 +579,7 @@ in this type of loop-intensive code.</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[9]:
+<span></span>Out[13]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -504,16 +589,15 @@ in this type of loop-intensive code.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [10]:
+<span></span>In [14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">20</span><span class="n">_000</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">20</span><span class="n">_000</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="n">tv</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -o trapz(y, x)
-<span class="n">tn</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -o trapzn(y, x)
+<span class="o">%</span><span class="k">timeit</span> trapz(y, x)
+<span class="o">%</span><span class="k">timeit</span> trapzn(y, x)
 </pre></div>
 </div>
 </div>
@@ -522,8 +606,8 @@ in this type of loop-intensive code.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-36.6 µs ± 516 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-23.5 µs ± 508 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+34.6 µs ± 1.39 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+22.5 µs ± 732 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 </pre></div></div>
 </div>
 <p>That’s pretty impressive! By simply <em>compiling</em> our slow, Python code,
@@ -532,20 +616,18 @@ we get it to beat the Numpy version at a size of 200.</p>
 make a plot comparing Numba to Numpy at the same sizes:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [11]:
+<span></span>In [15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span>
-
-<span class="n">tn</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">sizes</span><span class="p">:</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">t1</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -o trapzn(y, x)
-    <span class="n">tn</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t1</span><span class="o">.</span><span class="n">average</span><span class="p">)</span>
+<span></span><span class="n">tn</span><span class="p">,</span> <span class="n">tne</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">xy</span><span class="p">:</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -o trapzn(y, x)
+    <span class="n">tn</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">average</span><span class="p">)</span>
+    <span class="n">tne</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">stdev</span><span class="p">)</span>
 
 <span class="n">tna</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tn</span><span class="p">)</span>
+<span class="n">tnea</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tne</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -554,25 +636,32 @@ make a plot comparing Numba to Numpy at the same sizes:</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-434 ns ± 9.27 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
-537 ns ± 10.6 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
-1.61 µs ± 15 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
-11.9 µs ± 122 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-114 µs ± 1.86 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
-1.2 ms ± 9.35 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
-13 ms ± 133 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+413 ns ± 4.92 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+512 ns ± 11.7 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+1.56 µs ± 25.3 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+11.3 µs ± 150 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+110 µs ± 1.3 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+1.16 ms ± 14.6 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+13 ms ± 948 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div></div>
 </div>
 <p>Let’s look at the Numba data alongside the Python one:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [12]:
+<span></span>In [16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">tla</span><span class="o">/</span><span class="n">tva</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Python&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">tna</span><span class="o">/</span><span class="n">tva</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Numba&quot;</span><span class="p">)</span>
+<span></span><span class="n">rp</span><span class="p">,</span> <span class="n">ep</span> <span class="o">=</span> <span class="n">rat_err</span><span class="p">(</span><span class="n">tla</span><span class="p">,</span> <span class="n">tlea</span><span class="p">,</span> <span class="n">tva</span><span class="p">,</span> <span class="n">tvea</span><span class="p">)</span>
+<span class="n">rn</span><span class="p">,</span> <span class="n">en</span> <span class="o">=</span> <span class="n">rat_err</span><span class="p">(</span><span class="n">tna</span><span class="p">,</span> <span class="n">tnea</span><span class="p">,</span> <span class="n">tva</span><span class="p">,</span> <span class="n">tvea</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">rp</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">ep</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Python&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">rn</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">en</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Numba&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Input size&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Timing ratios&quot;</span><span class="p">)</span>
@@ -584,13 +673,13 @@ make a plot comparing Numba to Numpy at the same sizes:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/lectures_09-intro-numpy_trapezoid_19_0.png" src="../../_images/lectures_09-intro-numpy_trapezoid_19_0.png" />
+<img alt="../../_images/lectures_09-intro-numpy_trapezoid_27_0.png" src="../../_images/lectures_09-intro-numpy_trapezoid_27_0.png" />
 </div>
 </div>
 <p>Let’s quickly see the Numba/Numpy ratios (the raw numbers):</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [13]:
+<span></span>In [17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -604,10 +693,10 @@ make a plot comparing Numba to Numpy at the same sizes:</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 0.1220925   0.14990992  0.2724308   0.63829727  0.75062583  0.34658816
-  0.18327677]
-[ 8.19051152  6.67067248  3.67065689  1.56666814  1.33222167  2.88526879
-  5.45622877]
+[ 0.12029788  0.13762593  0.28367041  0.65578777  0.76074653  0.32554678
+  0.18141704]
+[ 8.31269874  7.26607237  3.52521785  1.52488357  1.31449828  3.07175515
+  5.51216148]
 </pre></div></div>
 </div>
 <p>Some quick thoughts:</p>
@@ -628,12 +717,15 @@ nearly optimal in that range.</li>
 informative:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [14]:
+<span></span>In [18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">tva</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Numpy&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">tna</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Numba&quot;</span><span class="p">)</span>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">tva</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">tvea</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Numpy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">tna</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">tnea</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Numba&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Input size&quot;</span><span class="p">)</span>
@@ -646,13 +738,126 @@ informative:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/lectures_09-intro-numpy_trapezoid_23_0.png" src="../../_images/lectures_09-intro-numpy_trapezoid_23_0.png" />
+<img alt="../../_images/lectures_09-intro-numpy_trapezoid_31_0.png" src="../../_images/lectures_09-intro-numpy_trapezoid_31_0.png" />
 </div>
 </div>
 <p>We see that the runtime profile is more smoothly linear (as it should
 be) for the Numba code.</p>
+</div>
+<div class="section" id="Exercise:-Numba-atop-Numpy?">
+<h2>Exercise: Numba atop Numpy?<a class="headerlink" href="#Exercise:-Numba-atop-Numpy?" title="Permalink to this headline">¶</a></h2>
+<p>Let’s make <code class="docutils literal"><span class="pre">trapznv</span></code> which is a Numba-fied version of <code class="docutils literal"><span class="pre">trapz</span></code>, the
+Numpy version. The question is: can Numba be of any benefit on a
+function that is already a single Numpy expression? Let’s see…</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">trapznv</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">trapz</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">trapznv</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[19]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>680.0000000000001
+</pre></div>
+</div>
+</div>
+<p>Now that we see it’s correct, let’s look at performance in just one
+case:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">timeit</span> trapz(y, x)
+<span class="o">%</span><span class="k">timeit</span> trapznv(y, x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+4.19 µs ± 97.7 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+1.04 µs ± 22.1 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">tnv</span><span class="p">,</span> <span class="n">tnve</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">xy</span><span class="p">:</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -o trapznv(y, x)
+    <span class="n">tnv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">average</span><span class="p">)</span>
+    <span class="n">tnve</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">stdev</span><span class="p">)</span>
+
+<span class="n">tnva</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tnv</span><span class="p">)</span>
+<span class="n">tnvea</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tnve</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+631 ns ± 3.56 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+839 ns ± 13.1 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+2.84 µs ± 30.6 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+23.5 µs ± 287 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+228 µs ± 3.59 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+3.49 ms ± 125 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+43.7 ms ± 842 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">r</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">rat_err</span><span class="p">(</span><span class="n">tnva</span><span class="p">,</span> <span class="n">tnvea</span><span class="p">,</span> <span class="n">tva</span><span class="p">,</span> <span class="n">tvea</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">e</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Python&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Input size&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Timing ratio&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Numbifyed Numpy vs regular Numpy&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_09-intro-numpy_trapezoid_38_0.png" src="../../_images/lectures_09-intro-numpy_trapezoid_38_0.png" />
+</div>
+</div>
+</div>
 <div class="section" id="Numerical-accuracy">
-<h3>Numerical accuracy<a class="headerlink" href="#Numerical-accuracy" title="Permalink to this headline">¶</a></h3>
+<h2>Numerical accuracy<a class="headerlink" href="#Numerical-accuracy" title="Permalink to this headline">¶</a></h2>
 <p>We should finally take a quick look at accuracy considerations. In this
 case we know the exact answer (680), so we can see how each method
 compares. As <span class="math">\(n \rightarrow \infty\)</span> we expect them all to converge
@@ -662,7 +867,7 @@ the Python code, any differences between Python and Numba would be due
 to Numba’s compilation/optimizations:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [15]:
+<span></span>In [23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -674,9 +879,7 @@ to Numba’s compilation/optimizations:</p>
 <span class="n">enpy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">sizes</span><span class="p">)</span>
 <span class="n">enba</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">sizes</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sizes</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">xy</span><span class="p">):</span>
     <span class="n">epy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">err</span><span class="p">(</span><span class="n">trapzl</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
     <span class="n">enpy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">err</span><span class="p">(</span><span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
     <span class="n">enba</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">err</span><span class="p">(</span><span class="n">trapzn</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
@@ -685,7 +888,7 @@ to Numba’s compilation/optimizations:</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [16]:
+<span></span>In [24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -703,7 +906,7 @@ to Numba’s compilation/optimizations:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/lectures_09-intro-numpy_trapezoid_27_0.png" src="../../_images/lectures_09-intro-numpy_trapezoid_27_0.png" />
+<img alt="../../_images/lectures_09-intro-numpy_trapezoid_41_0.png" src="../../_images/lectures_09-intro-numpy_trapezoid_41_0.png" />
 </div>
 </div>
 <p>Fortunately, we see that Numba produces identical results to Pure Python
@@ -712,7 +915,6 @@ while we see a small loss of accuracy relative to Numpy’s <a class="reference 
 summation algorithm</a>, the
 error is <span class="math">\(\cal{O}(10^{-14})\)</span>, which is still close to
 floating-point precision.</p>
-</div>
 </div>
 </div>
 
@@ -746,6 +948,7 @@ floating-point precision.</p>
 <li class="toctree-l1"><a class="reference internal" href="intro-numpy.html#Motivation:-the-trapezoidal-rule">Motivation: the trapezoidal rule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-numpy.html#NumPy-arrays:-the-right-data-structure-for-scientific-computing">NumPy arrays: the right data structure for scientific computing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
@@ -754,6 +957,7 @@ floating-point precision.</p>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab4.html">Lab 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab5.html">Lab 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab6.html">Lab 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab7.html">Lab 7</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Course resources</a></li>

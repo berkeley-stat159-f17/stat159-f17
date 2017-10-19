@@ -41,169 +41,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
-    background: none;
-    border: none;
-    padding: 0 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-/* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput,
-div.nboutput {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput div.prompt pre {
-    color: #303F9F;
-}
-
-/* output prompt */
-div.nboutput div.prompt pre {
-    color: #D84315;
-}
-
-/* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
-    min-width: 8ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
-    text-align: right;
-    flex: 0;
-}
-@media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput div.prompt.empty {
-        padding: 0;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
-    padding: 0.4em;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput div.input_area {
-    border: 1px solid #cfcfcf;
-    border-radius: 2px;
-    background: #f7f7f7;
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.pngmath center alignment in output cells */
-div.nboutput div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-</style>
-<div class="section" id="A-quick-overview-of-the-Jupyter-Notebook-and-IPython">
+  <div class="section" id="A-quick-overview-of-the-Jupyter-Notebook-and-IPython">
 <h1>A quick overview of the Jupyter Notebook and IPython<a class="headerlink" href="#A-quick-overview-of-the-Jupyter-Notebook-and-IPython" title="Permalink to this headline">¶</a></h1>
 <p>Today, we’ll cover the basics of using the Jupyter Notebook effectively
 as an everyday tool, as well as using IPython as an improved Python
@@ -245,16 +83,6 @@ them modifying them at your heart’s content.</p>
 official <a class="reference external" href="https://github.com/ipython/ipython-in-depth">IPython in-depth
 tutorial</a>, which you can
 clone from github and study in more depth.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 
@@ -283,6 +111,12 @@ clone from github and study in more depth.</p>
 <li class="toctree-l1"><a class="reference internal" href="../06-conda-pip-environments.html">Conda and pip - managing environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07-reading3-discussion.html">From September 25 reading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07-reading3-discussion.html#Make:-automating-tasks">Make: automating tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-ligo-make.html">LIGO, the 2017 Nobel prize in physics, and wrapping up Makefiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-intro-numpy/intro-numpy.html">An Introduction to the Scientific Python Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-intro-numpy/intro-numpy.html#Motivation:-the-trapezoidal-rule">Motivation: the trapezoidal rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-intro-numpy/intro-numpy.html#NumPy-arrays:-the-right-data-structure-for-scientific-computing">NumPy arrays: the right data structure for scientific computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-intro-numpy/intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
@@ -290,6 +124,8 @@ clone from github and study in more depth.</p>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab3.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab4.html">Lab 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab5.html">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab6.html">Lab 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab7.html">Lab 7</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Course resources</a></li>
