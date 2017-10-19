@@ -24,7 +24,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Matplotlib: Beyond the basics" href="../10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html" />
+    <link rel="next" title="The trapezoidal rule: vectorization and perormance" href="trapezoid.html" />
     <link rel="prev" title="LIGO, the 2017 Nobel prize in physics, and wrapping up Makefiles" href="../08-ligo-make.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -2184,6 +2184,16 @@ simple array of random numbers, plotted in grayscale:</p>
 <img alt="../../_images/lectures_09-intro-numpy_intro-numpy_151_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_151_0.png" />
 </div>
 </div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
 <p>A real photograph is a multichannel image, <code class="docutils literal"><span class="pre">imshow</span></code> interprets it
 correctly:</p>
 <div class="nbinput docutils container">
@@ -2210,7 +2220,7 @@ Dimensions of the array img: (375, 500, 3)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_153_1.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_153_1.png" />
+<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_154_1.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_154_1.png" />
 </div>
 </div>
 </div>
@@ -2260,7 +2270,7 @@ Dimensions of the array img: (375, 500, 3)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_159_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_159_0.png" />
+<img alt="../../_images/lectures_09-intro-numpy_intro-numpy_160_0.png" src="../../_images/lectures_09-intro-numpy_intro-numpy_160_0.png" />
 </div>
 </div>
 </div>
@@ -2296,6 +2306,7 @@ Dimensions of the array img: (375, 500, 3)
 <li class="toctree-l1"><a class="reference internal" href="#Motivation:-the-trapezoidal-rule">Motivation: the trapezoidal rule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#NumPy-arrays:-the-right-data-structure-for-scientific-computing">NumPy arrays: the right data structure for scientific computing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trapezoid.html">The trapezoidal rule: vectorization and perormance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
 </ul>
 <ul>
@@ -2316,7 +2327,7 @@ Dimensions of the array img: (375, 500, 3)
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="../08-ligo-make.html" title="previous chapter">LIGO, the 2017 Nobel prize in physics, and wrapping up Makefiles</a></li>
-      <li>Next: <a href="../10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html" title="next chapter">Matplotlib: Beyond the basics</a></li>
+      <li>Next: <a href="trapezoid.html" title="next chapter">The trapezoidal rule: vectorization and perormance</a></li>
   </ul></li>
 </ul>
 </div>

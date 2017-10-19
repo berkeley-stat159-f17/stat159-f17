@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>The trapezoidal rule for numerical integration &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    <title>The trapezoidal rule: vectorization and perormance &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,6 +24,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Matplotlib: Beyond the basics" href="../10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html" />
+    <link rel="prev" title="An Introduction to the Scientific Python Ecosystem" href="intro-numpy.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -201,11 +203,11 @@ div.nboutput div.output_area.stderr {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="section" id="The-trapezoidal-rule-for-numerical-integration">
-<h1>The trapezoidal rule for numerical integration<a class="headerlink" href="#The-trapezoidal-rule-for-numerical-integration" title="Permalink to this headline">¶</a></h1>
-<p><strong>Illustrates</strong>: basic array slicing, functions as first class objects.</p>
-<p>In this exercise, you are tasked with implementing the simple trapezoid
-rule formula for numerical integration that we illustrated above.</p>
+<div class="section" id="The-trapezoidal-rule:-vectorization-and-perormance">
+<h1>The trapezoidal rule: vectorization and perormance<a class="headerlink" href="#The-trapezoidal-rule:-vectorization-and-perormance" title="Permalink to this headline">¶</a></h1>
+<p>Here we discuss in detail the performance profile of various solutions
+to the exercise from our Numpy introduction, the trapezoidal rule for
+the numerical approximation of definite integrals.</p>
 <p>If we denote by <span class="math">\(x_{i}\)</span> (<span class="math">\(i=0,\ldots,n,\)</span> with
 <span class="math">\(x_{0}=a\)</span> and <span class="math">\(x_{n}=b\)</span>) the abscissas where the function is
 sampled, then</p>
@@ -934,7 +936,7 @@ floating-point precision.</p>
 
 
 <h3>Navigation</h3>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
@@ -948,6 +950,7 @@ floating-point precision.</p>
 <li class="toctree-l1"><a class="reference internal" href="intro-numpy.html#Motivation:-the-trapezoidal-rule">Motivation: the trapezoidal rule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-numpy.html#NumPy-arrays:-the-right-data-structure-for-scientific-computing">NumPy arrays: the right data structure for scientific computing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The trapezoidal rule: vectorization and perormance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
 </ul>
 <ul>
@@ -967,6 +970,8 @@ floating-point precision.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="intro-numpy.html" title="previous chapter">An Introduction to the Scientific Python Ecosystem</a></li>
+      <li>Next: <a href="../10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html" title="next chapter">Matplotlib: Beyond the basics</a></li>
   </ul></li>
 </ul>
 </div>
