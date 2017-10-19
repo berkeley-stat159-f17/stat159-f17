@@ -264,9 +264,8 @@ calls for the common case.</li>
 <li>Sufficient for simple and moderately complex plots.</li>
 <li>Does not offer complete control over all details.</li>
 </ul>
-<p>Before we look at our first simple example, we must activate pylab
-support in the notebook, leave only one option below uncommented and
-execute the cell:</p>
+<p>Before we look at our first simple example, we must activate matplotlib
+support in the notebook:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [1]:
@@ -477,7 +476,7 @@ directly in the call:</p>
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>[&lt;matplotlib.lines.Line2D at 0x1166afa58&gt;]
+<span></span>[&lt;matplotlib.lines.Line2D at 0x1118b1438&gt;]
 </pre></div>
 </div>
 </div>
@@ -630,7 +629,7 @@ object, a plain <code class="docutils literal"><span class="pre">set</span></cod
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>[&lt;matplotlib.lines.Line2D at 0x1163a6390&gt;]
+<span></span>[&lt;matplotlib.lines.Line2D at 0x111593d30&gt;]
 </pre></div>
 </div>
 </div>
@@ -937,7 +936,7 @@ features.</p>
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>[&lt;matplotlib.lines.Line2D at 0x116285f98&gt;]
+<span></span>[&lt;matplotlib.lines.Line2D at 0x11113a438&gt;]
 </pre></div>
 </div>
 </div>
@@ -1047,7 +1046,7 @@ values:</p>
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.legend.Legend at 0x116deb5c0&gt;
+<span></span>&lt;matplotlib.legend.Legend at 0x111fda1d0&gt;
 </pre></div>
 </div>
 </div>
@@ -1088,7 +1087,7 @@ values:</p>
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.lines.Line2D at 0x116f22780&gt;
+<span></span>&lt;matplotlib.lines.Line2D at 0x1120b8f60&gt;
 </pre></div>
 </div>
 </div>
@@ -1309,6 +1308,197 @@ adding share calls to those, but in most cases the functionality from
 </div>
 </div>
 </div>
+<div class="section" id="Image-display">
+<h2>Image display<a class="headerlink" href="#Image-display" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">imshow</span></code> command can display single or multi-channel images. A
+simple array of random numbers, plotted in grayscale:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">cm</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[22]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;matplotlib.image.AxesImage at 0x112687cc0&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_47_1.png" src="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_47_1.png" />
+</div>
+</div>
+<p>A real photograph is a multichannel image, <code class="docutils literal"><span class="pre">imshow</span></code> interprets it
+correctly:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">img</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;data/stained_glass_barcelona.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[23]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;matplotlib.image.AxesImage at 0x1126ee1d0&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_49_1.png" src="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_49_1.png" />
+</div>
+</div>
+<div class="section" id="Exercise">
+<h3>Exercise<a class="headerlink" href="#Exercise" title="Permalink to this headline">¶</a></h3>
+<p>Write a notebook where you can load an image and then perform the
+following operations on it:</p>
+<ol class="arabic simple">
+<li>Create a figure with four plots that show both the full-color image
+and color channel of the image with the right colormap for that
+color. Ensure that the axes are linked so zooming in one image zooms
+the same region in the others.</li>
+<li>Compute a luminosity and per-channel histogram and display all four
+histograms in one figure, giving each a separate plot (hint: a 4x1
+plot works best for this). Link the appropriate axes together.</li>
+<li>Create a black-and-white (or more precisely, grayscale) version of
+the image. Compare the results from a naive average of all three
+channels with that of a model that uses 30% red, 59% green and 11%
+blue, by displaying all three (full color and both grayscales) side
+by side with linked axes for zooming.</li>
+</ol>
+<p>Hint: look for the matplotlib image tutorial.</p>
+</div>
+</div>
+<div class="section" id="Simple-3d-plotting-with-matplotlib">
+<h2>Simple 3d plotting with matplotlib<a class="headerlink" href="#Simple-3d-plotting-with-matplotlib" title="Permalink to this headline">¶</a></h2>
+<p>Note that you must execute at least once in your session:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">nbinput</span><span class="p">::</span> <span class="n">ipython3</span>
+</pre></div>
+</div>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">execution-count:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">24</td>
+</tr>
+<tr class="field-even field"><th class="field-name">no-output:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>from mpl_toolkits.mplot3d import Axes3D</p>
+</div></blockquote>
+<p>One this has been done, you can create 3d axes with the
+<code class="docutils literal"><span class="pre">projection='3d'</span></code> keyword to <code class="docutils literal"><span class="pre">add_subplot</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">::</span>
+</pre></div>
+</div>
+<blockquote>
+<div>fig = plt.figure()
+fig.add_subplot(&lt;other arguments here&gt;, projection=‘3d’)</div></blockquote>
+<p>A simple surface plot:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d.axes3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">cm</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+<span class="n">surf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span>
+        <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">antialiased</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlim3d</span><span class="p">(</span><span class="o">-</span><span class="mf">1.01</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[25]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(-1.01, 1.01)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_55_1.png" src="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_55_1.png" />
+</div>
+</div>
+<p>And a parametric surface specified in cylindrical coordinates:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;legend.fontsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;parametric curve&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[26]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;matplotlib.legend.Legend at 0x111f16828&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_57_1.png" src="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_57_1.png" />
+</div>
+</div>
+</div>
 <div class="section" id="Basic-event-handling">
 <h2>Basic event handling<a class="headerlink" href="#Basic-event-handling" title="Permalink to this headline">¶</a></h2>
 <p>Matplotlib has a builtin, toolkit-independent event model that is fairly
@@ -1335,14 +1525,20 @@ relevant information that goes with it, such as which key or button was
 pressed) to your function, which can act on it. These functions are
 referred to as <em>callbacks</em>, because they are meant to be ‘called back’
 not by you, but by the windowing toolkit when the right event goes by.</p>
-<p>Here is the simplest possible matplotlib event handler:</p>
+<p>Below is the simplest possible matplotlib event handler.</p>
+<p><strong>Note:</strong> to run this code, you need to restart your kernel, so that
+IPython can switch to a GUI matplotlib backend (qt5 in this case).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [22]:
+<span></span>In [1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span></span><span class="o">%</span><span class="k">matplotlib</span> qt5
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">onclick</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
@@ -1357,8 +1553,14 @@ not by you, but by the windowing toolkit when the right event goes by.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_47_0.png" src="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_47_0.png" />
-</div>
+<div class="highlight"><pre>
+button=1, x=215, y=269, xdata=2.244556, ydata=0.562222
+button=1, x=258, y=196, xdata=3.102823, ydata=0.357073
+button=1, x=395, y=299, xdata=5.837298, ydata=0.646531
+button=1, x=430, y=202, xdata=6.535887, ydata=0.373934
+button=1, x=436, y=107, xdata=6.655645, ydata=0.106958
+button=1, x=325, y=152, xdata=4.440121, ydata=0.233421
+</pre></div></div>
 </div>
 <p>The <code class="docutils literal"><span class="pre">FigureCanvas</span></code> method <code class="docutils literal"><span class="pre">mpl_connect</span></code> returns a connection id
 which is simply an integer. When you want to disconnect the callback,
@@ -1403,197 +1605,6 @@ a threshold for distance, and discriminate between a click below
 threshold (considered to be ‘on’) vs a miss, in which case you should
 indicate what the closest station is, its coordinates and the distance
 to it from the click.</p>
-</div>
-</div>
-<div class="section" id="Image-display">
-<h2>Image display<a class="headerlink" href="#Image-display" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal"><span class="pre">imshow</span></code> command can display single or multi-channel images. A
-simple array of random numbers, plotted in grayscale:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [23]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">cm</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[23]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.image.AxesImage at 0x1174eaa90&gt;
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_51_1.png" src="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_51_1.png" />
-</div>
-</div>
-<p>A real photograph is a multichannel image, <code class="docutils literal"><span class="pre">imshow</span></code> interprets it
-correctly:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [24]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">img</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;data/stained_glass_barcelona.png&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[24]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.image.AxesImage at 0x11767afd0&gt;
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_53_1.png" src="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_53_1.png" />
-</div>
-</div>
-<div class="section" id="Exercise">
-<h3>Exercise<a class="headerlink" href="#Exercise" title="Permalink to this headline">¶</a></h3>
-<p>Write a notebook where you can load an image and then perform the
-following operations on it:</p>
-<ol class="arabic simple">
-<li>Create a figure with four plots that show both the full-color image
-and color channel of the image with the right colormap for that
-color. Ensure that the axes are linked so zooming in one image zooms
-the same region in the others.</li>
-<li>Compute a luminosity and per-channel histogram and display all four
-histograms in one figure, giving each a separate plot (hint: a 4x1
-plot works best for this). Link the appropriate axes together.</li>
-<li>Create a black-and-white (or more precisely, grayscale) version of
-the image. Compare the results from a naive average of all three
-channels with that of a model that uses 30% red, 59% green and 11%
-blue, by displaying all three (full color and both grayscales) side
-by side with linked axes for zooming.</li>
-</ol>
-<p>Hint: look for the matplotlib image tutorial.</p>
-</div>
-</div>
-<div class="section" id="Simple-3d-plotting-with-matplotlib">
-<h2>Simple 3d plotting with matplotlib<a class="headerlink" href="#Simple-3d-plotting-with-matplotlib" title="Permalink to this headline">¶</a></h2>
-<p>Note that you must execute at least once in your session:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">nbinput</span><span class="p">::</span> <span class="n">ipython3</span>
-</pre></div>
-</div>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">execution-count:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">25</td>
-</tr>
-<tr class="field-even field"><th class="field-name">no-output:</th><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-<p>from mpl_toolkits.mplot3d import Axes3D</p>
-</div></blockquote>
-<p>One this has been done, you can create 3d axes with the
-<code class="docutils literal"><span class="pre">projection='3d'</span></code> keyword to <code class="docutils literal"><span class="pre">add_subplot</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">::</span>
-</pre></div>
-</div>
-<blockquote>
-<div>fig = plt.figure()
-fig.add_subplot(&lt;other arguments here&gt;, projection=‘3d’)</div></blockquote>
-<p>A simple surface plot:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [26]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d.axes3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">cm</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
-<span class="n">surf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span>
-        <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">antialiased</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlim3d</span><span class="p">(</span><span class="o">-</span><span class="mf">1.01</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[26]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>(-1.01, 1.01)
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_59_1.png" src="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_59_1.png" />
-</div>
-</div>
-<p>And a parametric surface specified in cylindrical coordinates:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [27]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;legend.fontsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">theta</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;parametric curve&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[27]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.legend.Legend at 0x11702fef0&gt;
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_61_1.png" src="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_61_1.png" />
-</div>
 </div>
 </div>
 </div>
