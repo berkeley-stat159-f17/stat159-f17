@@ -1,5 +1,7 @@
 # Notes
 
+- Viz beyond plain mpl - seaborn, bokeh, plotly, altair.
+
 - Grad project: estimate the probability that a senator or congress representative has Alzheimer's
 
 - Homework
