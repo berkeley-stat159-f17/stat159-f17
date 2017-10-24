@@ -24,10 +24,8 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
-   "metadata": {
-    "collapsed": true
-   },
+   "execution_count": 3,
+   "metadata": {},
    "outputs": [],
    "source": [
     "import requests\n",
@@ -53,7 +51,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 4,
    "metadata": {
     "collapsed": true
    },
@@ -64,16 +62,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "\"JABBERWOCKY\\n\\n     'Twas brillig, and the slithy toves\\n      Did gyre and gimble in the wabe;\\n     All mimsy were the borogoves,\\n      And the mome raths outgrabe.\\n\\n     'Beware the Jabberwock, my son!\\n      The jaws that bite, the claws that catch!\\n     Beware the Jubjub bird, and shun\\n      The frumious Bandersnatch!'\\n\\n     He took his vorpal sword in hand:\\n      Long time the manxome foe he sought--\\n     So rested he by the Tumtum tree,\\n      And stood awhile in thought.\\n\\n     And as in uffish thought he stood,\\n      The Jabberwock, with eyes of flame,\\n     Came whiffling through the tulgey wood,\\n      And burbled as it came!\\n\\n     One, two! One, two! And through and through\\n      The vorpal blade went snicker-snack!\\n     He left it dead, and with its head\\n      He went galumphing back.\\n\\n     'And hast thou slain the Jabberwock?\\n      Come to my arms, my beamish boy!\\n     O frabjous day! Callooh! Callay!'\\n      He chortled in his joy.\\n\\n     'Twas brillig, and the slithy toves\\n      Did gyre and gimble in the wabe;\\n     All mimsy were the borogoves,\\n      And the mome raths outgrabe.\\n\\n\\n'It seems very pretty,' she said when she had finished it, 'but it's\\nRATHER hard to understand!' (You see she didn't like to confess, even\\nto herself, that she couldn't make it out at all.) 'Somehow it seems\\nto fill my head with ideas--only I don't exactly know what they are!\\nHowever, SOMEBODY killed SOMETHING: that's clear, at any rate--'\\n\\n'But oh!' thought Alice, suddenly jumping up, 'if I don't make haste I\\nshall have to go back through the Looking-glass, before I've seen what\\nthe rest of the house is like! Let's have a look at the garden first!'\\nShe was out of the room in a moment, and ran down stairs--or, at least,\\nit wasn't exactly running, but a new invention of hers for getting down\\nstairs quickly and easily, as Alice said to herself. She just kept the\\ntips of her fingers on the hand-rail, and floated gently down without\\neven touching the stairs with her feet; then she floate\""
+       "\"JABBERWOCKY\\r\\n\\r\\n     'Twas brillig, and the slithy toves\\r\\n      Did gyre and gimble in the wabe;\\r\\n     All mimsy were the borogoves,\\r\\n      And the mome raths outgrabe.\\r\\n\\r\\n     'Beware the Jabberwock, my son!\\r\\n      The jaws that bite, the claws that catch!\\r\\n     Beware the Jubjub bird, and shun\\r\\n      The frumious Bandersnatch!'\\r\\n\\r\\n     He took his vorpal sword in hand:\\r\\n      Long time the manxome foe he sought--\\r\\n     So rested he by the Tumtum tree,\\r\\n      And stood awhile in thought.\\r\\n\\r\\n     And as in uffish thought he stood,\\r\\n      The Jabberwock, with eyes of flame,\\r\\n     Came whiffling through the tulgey wood,\\r\\n      And burbled as it came!\\r\\n\\r\\n     One, two! One, two! And through and through\\r\\n      The vorpal blade went snicker-snack!\\r\\n     He left it dead, and with its head\\r\\n      He went galumphing back.\\r\\n\\r\\n     'And hast thou slain the Jabberwock?\\r\\n      Come to my arms, my beamish boy!\\r\\n     O frabjous day! Callooh! Callay!'\\r\\n      He chortled in his joy.\\r\\n\\r\\n     'Twas brillig, and the slithy toves\\r\\n      Did gyre and gimble in the wabe;\\r\\n     All mimsy were the borogoves,\\r\\n      And the mome raths outgrabe.\\r\\n\\r\\n\\r\\n'It seems very pretty,' she said when she had finished it, 'but it's\\r\\nRATHER hard to understand!' (You see she didn't like to confess, even\\r\\nto herself, that she couldn't make it out at all.) 'Somehow it seems\\r\\nto fill my head with ideas--only I don't exactly know what they are!\\r\\nHowever, SOMEBODY killed SOMETHING: that's clear, at any rate--'\\r\\n\\r\\n'But oh!' thought Alice, suddenly jumping up, 'if I don't make haste I\\r\\nshall have to go back through the Looking-glass, before I've seen what\\r\\nthe rest of the house is like! Let's have a look at the garden first!'\\r\\nShe was out of the room in a moment, and ran down stairs--or, at least,\\r\\nit wasn't exactly running, but a new invention of hers for getting down\\r\\nstairs quickly and easily, as Alice said to herself. She just kept the\\r\\ntips of her fingers on the hand-rail, and floated gently down without\\r\\neven\""
       ]
      },
-     "execution_count": 3,
+     "execution_count": 5,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -84,10 +82,8 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
-   "metadata": {
-    "collapsed": true
-   },
+   "execution_count": 24,
+   "metadata": {},
    "outputs": [],
    "source": [
     "end = text.find('It seems very pretty', start)"
@@ -95,16 +91,18 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
-   "metadata": {},
+   "execution_count": 25,
+   "metadata": {
+    "scrolled": false
+   },
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "\"JABBERWOCKY\\n\\n     'Twas brillig, and the slithy toves\\n      Did gyre and gimble in the wabe;\\n     All mimsy were the borogoves,\\n      And the mome raths outgrabe.\\n\\n     'Beware the Jabberwock, my son!\\n      The jaws that bite, the claws that catch!\\n     Beware the Jubjub bird, and shun\\n      The frumious Bandersnatch!'\\n\\n     He took his vorpal sword in hand:\\n      Long time the manxome foe he sought--\\n     So rested he by the Tumtum tree,\\n      And stood awhile in thought.\\n\\n     And as in uffish thought he stood,\\n      The Jabberwock, with eyes of flame,\\n     Came whiffling through the tulgey wood,\\n      And burbled as it came!\\n\\n     One, two! One, two! And through and through\\n      The vorpal blade went snicker-snack!\\n     He left it dead, and with its head\\n      He went galumphing back.\\n\\n     'And hast thou slain the Jabberwock?\\n      Come to my arms, my beamish boy!\\n     O frabjous day! Callooh! Callay!'\\n      He chortled in his joy.\\n\\n     'Twas brillig, and the slithy toves\\n      Did gyre and gimble in the wabe;\\n     All mimsy were the borogoves,\\n      And the mome raths outgrabe.\\n\\n\\n'\""
+       "\"JABBERWOCKY\\r\\n\\r\\n     'Twas brillig, and the slithy toves\\r\\n      Did gyre and gimble in the wabe;\\r\\n     All mimsy were the borogoves,\\r\\n      And the mome raths outgrabe.\\r\\n\\r\\n     'Beware the Jabberwock, my son!\\r\\n      The jaws that bite, the claws that catch!\\r\\n     Beware the Jubjub bird, and shun\\r\\n      The frumious Bandersnatch!'\\r\\n\\r\\n     He took his vorpal sword in hand:\\r\\n      Long time the manxome foe he sought--\\r\\n     So rested he by the Tumtum tree,\\r\\n      And stood awhile in thought.\\r\\n\\r\\n     And as in uffish thought he stood,\\r\\n      The Jabberwock, with eyes of flame,\\r\\n     Came whiffling through the tulgey wood,\\r\\n      And burbled as it came!\\r\\n\\r\\n     One, two! One, two! And through and through\\r\\n      The vorpal blade went snicker-snack!\\r\\n     He left it dead, and with its head\\r\\n      He went galumphing back.\\r\\n\\r\\n     'And hast thou slain the Jabberwock?\\r\\n      Come to my arms, my beamish boy!\\r\\n     O frabjous day! Callooh! Callay!'\\r\\n      He chortled in his joy.\\r\\n\\r\\n     'Twas brillig, and the slithy toves\\r\\n      Did gyre and gimble in the wabe;\\r\\n     All mimsy were the borogoves,\\r\\n      And the mome raths outgrabe.\\r\\n\\r\\n\\r\\n'\""
       ]
      },
-     "execution_count": 5,
+     "execution_count": 25,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -116,51 +114,53 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
-   "metadata": {},
+   "execution_count": 26,
+   "metadata": {
+    "scrolled": false
+   },
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "JABBERWOCKY\n",
-      "\n",
-      "     'Twas brillig, and the slithy toves\n",
-      "      Did gyre and gimble in the wabe;\n",
-      "     All mimsy were the borogoves,\n",
-      "      And the mome raths outgrabe.\n",
-      "\n",
-      "     'Beware the Jabberwock, my son!\n",
-      "      The jaws that bite, the claws that catch!\n",
-      "     Beware the Jubjub bird, and shun\n",
-      "      The frumious Bandersnatch!'\n",
-      "\n",
-      "     He took his vorpal sword in hand:\n",
-      "      Long time the manxome foe he sought--\n",
-      "     So rested he by the Tumtum tree,\n",
-      "      And stood awhile in thought.\n",
-      "\n",
-      "     And as in uffish thought he stood,\n",
-      "      The Jabberwock, with eyes of flame,\n",
-      "     Came whiffling through the tulgey wood,\n",
-      "      And burbled as it came!\n",
-      "\n",
-      "     One, two! One, two! And through and through\n",
-      "      The vorpal blade went snicker-snack!\n",
-      "     He left it dead, and with its head\n",
-      "      He went galumphing back.\n",
-      "\n",
-      "     'And hast thou slain the Jabberwock?\n",
-      "      Come to my arms, my beamish boy!\n",
-      "     O frabjous day! Callooh! Callay!'\n",
-      "      He chortled in his joy.\n",
-      "\n",
-      "     'Twas brillig, and the slithy toves\n",
-      "      Did gyre and gimble in the wabe;\n",
-      "     All mimsy were the borogoves,\n",
-      "      And the mome raths outgrabe.\n",
-      "\n",
-      "\n",
+      "JABBERWOCKY\r\n",
+      "\r\n",
+      "     'Twas brillig, and the slithy toves\r\n",
+      "      Did gyre and gimble in the wabe;\r\n",
+      "     All mimsy were the borogoves,\r\n",
+      "      And the mome raths outgrabe.\r\n",
+      "\r\n",
+      "     'Beware the Jabberwock, my son!\r\n",
+      "      The jaws that bite, the claws that catch!\r\n",
+      "     Beware the Jubjub bird, and shun\r\n",
+      "      The frumious Bandersnatch!'\r\n",
+      "\r\n",
+      "     He took his vorpal sword in hand:\r\n",
+      "      Long time the manxome foe he sought--\r\n",
+      "     So rested he by the Tumtum tree,\r\n",
+      "      And stood awhile in thought.\r\n",
+      "\r\n",
+      "     And as in uffish thought he stood,\r\n",
+      "      The Jabberwock, with eyes of flame,\r\n",
+      "     Came whiffling through the tulgey wood,\r\n",
+      "      And burbled as it came!\r\n",
+      "\r\n",
+      "     One, two! One, two! And through and through\r\n",
+      "      The vorpal blade went snicker-snack!\r\n",
+      "     He left it dead, and with its head\r\n",
+      "      He went galumphing back.\r\n",
+      "\r\n",
+      "     'And hast thou slain the Jabberwock?\r\n",
+      "      Come to my arms, my beamish boy!\r\n",
+      "     O frabjous day! Callooh! Callay!'\r\n",
+      "      He chortled in his joy.\r\n",
+      "\r\n",
+      "     'Twas brillig, and the slithy toves\r\n",
+      "      Did gyre and gimble in the wabe;\r\n",
+      "     All mimsy were the borogoves,\r\n",
+      "      And the mome raths outgrabe.\r\n",
+      "\r\n",
+      "\r\n",
       "'\n"
      ]
     }
@@ -893,7 +893,9 @@
   {
    "cell_type": "code",
    "execution_count": 33,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true
+   },
    "outputs": [],
    "source": [
     "import nltk"
@@ -902,7 +904,9 @@
   {
    "cell_type": "code",
    "execution_count": 34,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true
+   },
    "outputs": [],
    "source": [
     "ss_nltk = nltk.sent_tokenize(para)"
