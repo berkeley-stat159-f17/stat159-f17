@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Strings &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
-    
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -24,7 +21,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Lab 1" href="../../labs/lab1.html" />
@@ -36,7 +33,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -222,10 +219,10 @@ analysis - for example, by converting to a bag of words.</p>
 text data using string methods and regular expressions. Finally, we will
 see how to format text data for reporting.</p>
 <div class="section" id="Get-&quot;Through-the-Looking-Glass&quot;">
-<h2>Get &#8220;Through the Looking Glass&#8221;<a class="headerlink" href="#Get-"Through-the-Looking-Glass"" title="Permalink to this headline">¶</a></h2>
+<h2>Get “Through the Looking Glass”<a class="headerlink" href="#Get-"Through-the-Looking-Glass"" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [1]:
+<span></span>In [72]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -248,7 +245,7 @@ see how to format text data for reporting.</p>
 <h2>Slice to get Jabberwocky<a class="headerlink" href="#Slice-to-get-Jabberwocky" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [2]:
+<span></span>In [73]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -258,7 +255,7 @@ see how to format text data for reporting.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [3]:
+<span></span>In [74]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -268,7 +265,7 @@ see how to format text data for reporting.</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[3]:
+<span></span>Out[74]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -278,7 +275,7 @@ see how to format text data for reporting.</p>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [4]:
+<span></span>In [75]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -288,7 +285,7 @@ see how to format text data for reporting.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [5]:
+<span></span>In [76]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -299,7 +296,7 @@ see how to format text data for reporting.</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[5]:
+<span></span>Out[76]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -309,7 +306,7 @@ see how to format text data for reporting.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [6]:
+<span></span>In [77]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -365,7 +362,7 @@ JABBERWOCKY
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [7]:
+<span></span>In [78]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -421,7 +418,7 @@ Jabberwocky
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [8]:
+<span></span>In [79]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -431,7 +428,7 @@ Jabberwocky
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[8]:
+<span></span>Out[79]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -441,7 +438,7 @@ Jabberwocky
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [9]:
+<span></span>In [80]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -500,7 +497,7 @@ JABBERWOCKY
 <h2>Find palindromic words in poem if any<a class="headerlink" href="#Find-palindromic-words-in-poem-if-any" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [10]:
+<span></span>In [81]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -511,7 +508,7 @@ JABBERWOCKY
 <p>We need to remove the punctuation characters to only leave plain text:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [11]:
+<span></span>In [82]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -522,7 +519,7 @@ JABBERWOCKY
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[11]:
+<span></span>Out[82]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -532,28 +529,252 @@ JABBERWOCKY
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [12]:
+<span></span>In [63]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">poem</span>  <span class="o">=</span> <span class="n">poem</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">)))</span>
-<span class="n">poem</span>
+<span></span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[12]:
+<span></span>Out[63]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&#39;jabberwocky\n\n     twas brillig and the slithy toves\n      did gyre and gimble in the wabe\n     all mimsy were the borogoves\n      and the mome raths outgrabe\n\n     beware the jabberwock my son\n      the jaws that bite the claws that catch\n     beware the jubjub bird and shun\n      the frumious bandersnatch\n\n     he took his vorpal sword in hand\n      long time the manxome foe he sought\n     so rested he by the tumtum tree\n      and stood awhile in thought\n\n     and as in uffish thought he stood\n      the jabberwock with eyes of flame\n     came whiffling through the tulgey wood\n      and burbled as it came\n\n     one two one two and through and through\n      the vorpal blade went snickersnack\n     he left it dead and with its head\n      he went galumphing back\n\n     and hast thou slain the jabberwock\n      come to my arms my beamish boy\n     o frabjous day callooh callay\n      he chortled in his joy\n\n     twas brillig and the slithy toves\n      did gyre and gimble in the wabe\n     all mimsy were the borogoves\n      and the mome raths outgrabe\n\n\n&#39;
+<span></span>[33,
+ 34,
+ 35,
+ 36,
+ 37,
+ 38,
+ 39,
+ 40,
+ 41,
+ 42,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 58,
+ 59,
+ 60,
+ 61,
+ 62,
+ 63,
+ 64,
+ 91,
+ 92,
+ 93,
+ 94,
+ 95,
+ 96,
+ 123,
+ 124,
+ 125,
+ 126]
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [13]:
+<span></span>In [71]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="s1">&#39;abc&#39;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[71]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&#39;ac&#39;
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [65]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">itertools</span> <span class="k">as</span> <span class="nn">it</span>
+<span class="n">it</span><span class="o">.</span><span class="n">cycle</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [68]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[68]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>{33: None,
+ 34: None,
+ 35: None,
+ 36: None,
+ 37: None,
+ 38: None,
+ 39: None,
+ 40: None,
+ 41: None,
+ 42: None,
+ 43: None,
+ 44: None,
+ 45: None,
+ 46: None,
+ 47: None,
+ 58: None,
+ 59: None,
+ 60: None,
+ 61: None,
+ 62: None,
+ 63: None,
+ 64: None,
+ 91: None,
+ 92: None,
+ 93: None,
+ 94: None,
+ 95: None,
+ 96: None,
+ 123: None,
+ 124: None,
+ 125: None,
+ 126: None}
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [66]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+
+<span></span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">),</span> <span class="n">it</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s1">&#39;X&#39;</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[66]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>{33: &#39;X&#39;,
+ 34: &#39;X&#39;,
+ 35: &#39;X&#39;,
+ 36: &#39;X&#39;,
+ 37: &#39;X&#39;,
+ 38: &#39;X&#39;,
+ 39: &#39;X&#39;,
+ 40: &#39;X&#39;,
+ 41: &#39;X&#39;,
+ 42: &#39;X&#39;,
+ 43: &#39;X&#39;,
+ 44: &#39;X&#39;,
+ 45: &#39;X&#39;,
+ 46: &#39;X&#39;,
+ 47: &#39;X&#39;,
+ 58: &#39;X&#39;,
+ 59: &#39;X&#39;,
+ 60: &#39;X&#39;,
+ 61: &#39;X&#39;,
+ 62: &#39;X&#39;,
+ 63: &#39;X&#39;,
+ 64: &#39;X&#39;,
+ 91: &#39;X&#39;,
+ 92: &#39;X&#39;,
+ 93: &#39;X&#39;,
+ 94: &#39;X&#39;,
+ 95: &#39;X&#39;,
+ 96: &#39;X&#39;,
+ 123: &#39;X&#39;,
+ 124: &#39;X&#39;,
+ 125: &#39;X&#39;,
+ 126: &#39;X&#39;}
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [83]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1">#poem  = poem.translate(dict.fromkeys(map(ord, string.punctuation)))</span>
+
+<span class="n">poem</span> <span class="o">=</span> <span class="n">poem</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">),</span> <span class="n">it</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s1">&#39;&#39;</span><span class="p">]))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">poem</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+jabberwocky
+
+     twas brillig and the slithy toves
+      did gyre and gimble in the wabe
+     all mimsy were the borogoves
+      and the mome raths outgrabe
+
+     beware the jabberwock my son
+      the jaws that bite the claws that catch
+     beware the jubjub bird and shun
+      the frumious bandersnatch
+
+     he took his vorpal sword in hand
+      long time the manxome foe he sought
+     so rested he by the tumtum tree
+      and stood awhile in thought
+
+     and as in uffish thought he stood
+      the jabberwock with eyes of flame
+     came whiffling through the tulgey wood
+      and burbled as it came
+
+     one two one two and through and through
+      the vorpal blade went snickersnack
+     he left it dead and with its head
+      he went galumphing back
+
+     and hast thou slain the jabberwock
+      come to my arms my beamish boy
+     o frabjous day callooh callay
+      he chortled in his joy
+
+     twas brillig and the slithy toves
+      did gyre and gimble in the wabe
+     all mimsy were the borogoves
+      and the mome raths outgrabe
+
+
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -564,7 +785,7 @@ JABBERWOCKY
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[13]:
+<span></span>Out[46]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -583,18 +804,18 @@ JABBERWOCKY
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [14]:
+<span></span>In [49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">is_palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">word</span> <span class="o">==</span> <span class="n">word</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">word</span> <span class="o">==</span> <span class="n">word</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [15]:
+<span></span>In [50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -604,11 +825,11 @@ JABBERWOCKY
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[15]:
+<span></span>Out[50]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>{&#39;did&#39;, &#39;o&#39;}
+<span></span>{&#39;did&#39;}
 </pre></div>
 </div>
 </div>
@@ -617,7 +838,7 @@ JABBERWOCKY
 <h2>Top 10 most frequent words<a class="headerlink" href="#Top-10-most-frequent-words" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [16]:
+<span></span>In [86]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -627,7 +848,7 @@ JABBERWOCKY
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [17]:
+<span></span>In [87]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -637,36 +858,27 @@ JABBERWOCKY
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [18]:
+<span></span>In [89]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">poem_counter</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span></span><span class="n">poem_counter</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[18]:
+<span></span>Out[89]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>[(&#39;the&#39;, 19),
- (&#39;and&#39;, 14),
- (&#39;he&#39;, 7),
- (&#39;in&#39;, 6),
- (&#39;jabberwock&#39;, 3),
- (&#39;my&#39;, 3),
- (&#39;through&#39;, 3),
- (&#39;twas&#39;, 2),
- (&#39;brillig&#39;, 2),
- (&#39;slithy&#39;, 2)]
+<span></span>[(&#39;the&#39;, 19), (&#39;and&#39;, 14), (&#39;he&#39;, 7), (&#39;in&#39;, 6), (&#39;jabberwock&#39;, 3)]
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [19]:
+<span></span>In [90]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -676,7 +888,7 @@ JABBERWOCKY
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[19]:
+<span></span>Out[90]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -687,9 +899,9 @@ JABBERWOCKY
 </div>
 <div class="section" id="Words-that-appear-exactly-twice.">
 <h2>Words that appear exactly twice.<a class="headerlink" href="#Words-that-appear-exactly-twice." title="Permalink to this headline">¶</a></h2>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [20]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -697,50 +909,13 @@ JABBERWOCKY
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[20]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>[(&#39;twas&#39;, 2),
- (&#39;brillig&#39;, 2),
- (&#39;slithy&#39;, 2),
- (&#39;toves&#39;, 2),
- (&#39;did&#39;, 2),
- (&#39;gyre&#39;, 2),
- (&#39;gimble&#39;, 2),
- (&#39;wabe&#39;, 2),
- (&#39;all&#39;, 2),
- (&#39;mimsy&#39;, 2),
- (&#39;were&#39;, 2),
- (&#39;borogoves&#39;, 2),
- (&#39;mome&#39;, 2),
- (&#39;raths&#39;, 2),
- (&#39;outgrabe&#39;, 2),
- (&#39;beware&#39;, 2),
- (&#39;that&#39;, 2),
- (&#39;his&#39;, 2),
- (&#39;vorpal&#39;, 2),
- (&#39;stood&#39;, 2),
- (&#39;thought&#39;, 2),
- (&#39;as&#39;, 2),
- (&#39;with&#39;, 2),
- (&#39;came&#39;, 2),
- (&#39;it&#39;, 2),
- (&#39;one&#39;, 2),
- (&#39;two&#39;, 2),
- (&#39;went&#39;, 2)]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="Trigrams">
 <h2>Trigrams<a class="headerlink" href="#Trigrams" title="Permalink to this headline">¶</a></h2>
 <p>All possible sequences of 3 words in the poem.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [21]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -748,28 +923,9 @@ JABBERWOCKY
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[21]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>[(&#39;jabberwocky&#39;, &#39;twas&#39;, &#39;brillig&#39;),
- (&#39;twas&#39;, &#39;brillig&#39;, &#39;and&#39;),
- (&#39;brillig&#39;, &#39;and&#39;, &#39;the&#39;),
- (&#39;and&#39;, &#39;the&#39;, &#39;slithy&#39;),
- (&#39;the&#39;, &#39;slithy&#39;, &#39;toves&#39;),
- (&#39;slithy&#39;, &#39;toves&#39;, &#39;did&#39;),
- (&#39;toves&#39;, &#39;did&#39;, &#39;gyre&#39;),
- (&#39;did&#39;, &#39;gyre&#39;, &#39;and&#39;),
- (&#39;gyre&#39;, &#39;and&#39;, &#39;gimble&#39;),
- (&#39;and&#39;, &#39;gimble&#39;, &#39;in&#39;)]
-</pre></div>
-</div>
-</div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [22]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -779,7 +935,7 @@ JABBERWOCKY
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [23]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -790,32 +946,13 @@ JABBERWOCKY
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [24]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="nb">list</span><span class="p">(</span><span class="n">window</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="mi">3</span><span class="p">))[:</span><span class="mi">10</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[24]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>[(&#39;jabberwocky&#39;, &#39;twas&#39;, &#39;brillig&#39;),
- (&#39;twas&#39;, &#39;brillig&#39;, &#39;and&#39;),
- (&#39;brillig&#39;, &#39;and&#39;, &#39;the&#39;),
- (&#39;and&#39;, &#39;the&#39;, &#39;slithy&#39;),
- (&#39;the&#39;, &#39;slithy&#39;, &#39;toves&#39;),
- (&#39;slithy&#39;, &#39;toves&#39;, &#39;did&#39;),
- (&#39;toves&#39;, &#39;did&#39;, &#39;gyre&#39;),
- (&#39;did&#39;, &#39;gyre&#39;, &#39;and&#39;),
- (&#39;gyre&#39;, &#39;and&#39;, &#39;gimble&#39;),
- (&#39;and&#39;, &#39;gimble&#39;, &#39;in&#39;)]
 </pre></div>
 </div>
 </div>
@@ -828,10 +965,10 @@ HOWTO</a></li>
 <li><a class="reference external" href="http://pythex.org/">Test your Python regular expressions</a></li>
 </ul>
 <div class="section" id="Find-all-words-with-a-sequence-of-two-or-more-identical-letters-e.g.-&quot;look&quot;">
-<h3>Find all words with a sequence of two or more identical letters e.g. &#8220;look&#8221;<a class="headerlink" href="#Find-all-words-with-a-sequence-of-two-or-more-identical-letters-e.g.-"look"" title="Permalink to this headline">¶</a></h3>
+<h3>Find all words with a sequence of two or more identical letters e.g. “look”<a class="headerlink" href="#Find-all-words-with-a-sequence-of-two-or-more-identical-letters-e.g.-"look"" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [25]:
+<span></span>In [92]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -841,7 +978,7 @@ HOWTO</a></li>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [26]:
+<span></span>In [93]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -851,7 +988,7 @@ HOWTO</a></li>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [27]:
+<span></span>In [94]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -887,9 +1024,9 @@ l all
 </div>
 <div class="section" id="Convert-the-identical-sequences-to-uppercase">
 <h3>Convert the identical sequences to uppercase<a class="headerlink" href="#Convert-the-identical-sequences-to-uppercase" title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [28]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -901,52 +1038,6 @@ l all
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-jaBBerwocky
-
-     twas briLLig and the slithy toves
-      did gyre and gimble in the wabe
-     aLL mimsy were the borogoves
-      and the mome raths outgrabe
-
-     beware the jaBBerwock my son
-      the jaws that bite the claws that catch
-     beware the jubjub bird and shun
-      the frumious bandersnatch
-
-     he tOOk his vorpal sword in hand
-      long time the manxome foe he sought
-     so rested he by the tumtum trEE
-      and stOOd awhile in thought
-
-     and as in uFFish thought he stOOd
-      the jaBBerwock with eyes of flame
-     came whiFFling through the tulgey wOOd
-      and burbled as it came
-
-     one two one two and through and through
-      the vorpal blade went snickersnack
-     he left it dead and with its head
-      he went galumphing back
-
-     and hast thou slain the jaBBerwock
-      come to my arms my beamish boy
-     o frabjous day callOOh caLLay
-      he chortled in his joy
-
-     twas briLLig and the slithy toves
-      did gyre and gimble in the wabe
-     aLL mimsy were the borogoves
-      and the mome raths outgrabe
-
-
-
-</pre></div></div>
-</div>
 </div>
 </div>
 <div class="section" id="Natural-language-processing">
@@ -957,21 +1048,30 @@ methods and regular expressions. For example, a simple challenge is to
 first parse the paragraph below into sentences, then parse each sentence
 into words.</p>
 <p>Paragraph from random Pubmed abstract.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [29]:
+<span></span>In [99]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">para</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;When compared with the control group no significant associations were found for the NS-PEecl group after adjustment of confounding variables. For the S-PEecl group, antiβ2GP1 IgG (OR 16.91, 95% CI 3.71-77.06) was associated, as well as age, obesity, smoking and multiparity. Antiβ2GP1-domain I IgG were associated with aCL, antiβ2GP1 and aPS/PT IgG in the three groups. aPS/PT IgG were associated with aCL IgG, and aPS/PT IgM were associated with aCL and antiβ2GP1 IgM in the three groups CONCLUSION: S-PEecl is a distinct entity from NS-PEecl and is mainly associated with the presence of antiβ2GP1 IgG. Antiβ2GP1 domain I correlate with other aPL IgG tests, and aPS/PT may be promising in patients in which LA tests cannot be interpreted.&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">para</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+When compared with the control group no significant associations were found for the NS-PEecl group after adjustment of confounding variables. For the S-PEecl group, antiβ2GP1 IgG (OR 16.91, 95% CI 3.71-77.06) was associated, as well as age, obesity, smoking and multiparity. Antiβ2GP1-domain I IgG were associated with aCL, antiβ2GP1 and aPS/PT IgG in the three groups. aPS/PT IgG were associated with aCL IgG, and aPS/PT IgM were associated with aCL and antiβ2GP1 IgM in the three groups CONCLUSION: S-PEecl is a distinct entity from NS-PEecl and is mainly associated with the presence of antiβ2GP1 IgG. Antiβ2GP1 domain I correlate with other aPL IgG tests, and aPS/PT may be promising in patients in which LA tests cannot be interpreted.
+</pre></div></div>
 </div>
 <div class="section" id="Naive-splitting-of-sentences-as-anything-separated-by-.,-!-or-?">
 <h3>Naive splitting of sentences as anything separated by ., ! or ?<a class="headerlink" href="#Naive-splitting-of-sentences-as-anything-separated-by-.,-!-or-?" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [30]:
+<span></span>In [100]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -981,7 +1081,7 @@ into words.</p>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [31]:
+<span></span>In [101]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -991,7 +1091,7 @@ into words.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [32]:
+<span></span>In [102]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1030,7 +1130,7 @@ into words.</p>
 <h3>Using NLTK<a class="headerlink" href="#Using-NLTK" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [33]:
+<span></span>In [103]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1040,7 +1140,7 @@ into words.</p>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [34]:
+<span></span>In [104]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1050,7 +1150,7 @@ into words.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [35]:
+<span></span>In [105]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1079,9 +1179,9 @@ into words.</p>
 </div>
 <div class="section" id="Naive-parsing-of-the-second-sentence-into-words">
 <h3>Naive parsing of the second sentence into words<a class="headerlink" href="#Naive-parsing-of-the-second-sentence-into-words" title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [36]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1090,19 +1190,9 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[36]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&#39;For the S-PEecl group, antiβ2GP1 IgG (OR 16.91, 95% CI 3.71-77.06) was associated, as well as age, obesity, smoking and multiparity.&#39;
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [37]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1112,86 +1202,17 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[37]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>[&#39;For&#39;,
- &#39;the&#39;,
- &#39;SPEecl&#39;,
- &#39;group&#39;,
- &#39;antiβ2GP1&#39;,
- &#39;IgG&#39;,
- &#39;OR&#39;,
- &#39;1691&#39;,
- &#39;95&#39;,
- &#39;CI&#39;,
- &#39;3717706&#39;,
- &#39;was&#39;,
- &#39;associated&#39;,
- &#39;as&#39;,
- &#39;well&#39;,
- &#39;as&#39;,
- &#39;age&#39;,
- &#39;obesity&#39;,
- &#39;smoking&#39;,
- &#39;and&#39;,
- &#39;multiparity&#39;]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="Using-NLTK">
 <h3>Using NLTK<a class="headerlink" href="#Using-NLTK" title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [38]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">text</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="n">text</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[38]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>[&#39;For&#39;,
- &#39;the&#39;,
- &#39;S-PEecl&#39;,
- &#39;group&#39;,
- &#39;,&#39;,
- &#39;antiβ2GP1&#39;,
- &#39;IgG&#39;,
- &#39;(&#39;,
- &#39;OR&#39;,
- &#39;16.91&#39;,
- &#39;,&#39;,
- &#39;95&#39;,
- &#39;%&#39;,
- &#39;CI&#39;,
- &#39;3.71-77.06&#39;,
- &#39;)&#39;,
- &#39;was&#39;,
- &#39;associated&#39;,
- &#39;,&#39;,
- &#39;as&#39;,
- &#39;well&#39;,
- &#39;as&#39;,
- &#39;age&#39;,
- &#39;,&#39;,
- &#39;obesity&#39;,
- &#39;,&#39;,
- &#39;smoking&#39;,
- &#39;and&#39;,
- &#39;multiparity&#39;,
- &#39;.&#39;]
 </pre></div>
 </div>
 </div>
@@ -1201,9 +1222,9 @@ into words.</p>
 <p>See <a class="reference external" href="http://www.nltk.org">http://www.nltk.org</a> for details.</p>
 <div class="section" id="Tag-tokens-with-part-of-speech-labels">
 <h4>Tag tokens with part-of-speech labels<a class="headerlink" href="#Tag-tokens-with-part-of-speech-labels" title="Permalink to this headline">¶</a></h4>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [39]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1212,48 +1233,9 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[39]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>[(&#39;For&#39;, &#39;IN&#39;),
- (&#39;the&#39;, &#39;DT&#39;),
- (&#39;S-PEecl&#39;, &#39;NNP&#39;),
- (&#39;group&#39;, &#39;NN&#39;),
- (&#39;,&#39;, &#39;,&#39;),
- (&#39;antiβ2GP1&#39;, &#39;RB&#39;),
- (&#39;IgG&#39;, &#39;NNP&#39;),
- (&#39;(&#39;, &#39;(&#39;),
- (&#39;OR&#39;, &#39;NNP&#39;),
- (&#39;16.91&#39;, &#39;CD&#39;),
- (&#39;,&#39;, &#39;,&#39;),
- (&#39;95&#39;, &#39;CD&#39;),
- (&#39;%&#39;, &#39;NN&#39;),
- (&#39;CI&#39;, &#39;NNP&#39;),
- (&#39;3.71-77.06&#39;, &#39;CD&#39;),
- (&#39;)&#39;, &#39;)&#39;),
- (&#39;was&#39;, &#39;VBD&#39;),
- (&#39;associated&#39;, &#39;VBN&#39;),
- (&#39;,&#39;, &#39;,&#39;),
- (&#39;as&#39;, &#39;RB&#39;),
- (&#39;well&#39;, &#39;RB&#39;),
- (&#39;as&#39;, &#39;IN&#39;),
- (&#39;age&#39;, &#39;NN&#39;),
- (&#39;,&#39;, &#39;,&#39;),
- (&#39;obesity&#39;, &#39;NN&#39;),
- (&#39;,&#39;, &#39;,&#39;),
- (&#39;smoking&#39;, &#39;NN&#39;),
- (&#39;and&#39;, &#39;CC&#39;),
- (&#39;multiparity&#39;, &#39;NN&#39;),
- (&#39;.&#39;, &#39;.&#39;)]
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [40]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1261,46 +1243,17 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[40]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&#39;For the S-PEecl group, antiβ2GP1 IgG (OR 16.91, 95% CI 3.71-77.06) was associated, as well as age, obesity, smoking and multiparity.&#39;
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="A-simplistic-way-to-pick-up-nouns">
 <h3>A simplistic way to pick up nouns<a class="headerlink" href="#A-simplistic-way-to-pick-up-nouns" title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [41]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tagged_text</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[41]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>[&#39;S-PEecl&#39;,
- &#39;group&#39;,
- &#39;IgG&#39;,
- &#39;OR&#39;,
- &#39;%&#39;,
- &#39;CI&#39;,
- &#39;age&#39;,
- &#39;obesity&#39;,
- &#39;smoking&#39;,
- &#39;multiparity&#39;]
 </pre></div>
 </div>
 </div>
@@ -1312,7 +1265,7 @@ into words.</p>
 <h3>Selection<a class="headerlink" href="#Selection" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [42]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1322,7 +1275,7 @@ into words.</p>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [43]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1330,9 +1283,9 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [44]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1340,19 +1293,9 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[44]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&#39;One: bun, Two shoe&#39;
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [45]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1360,19 +1303,9 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[45]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&#39;One: bun, Two shoe&#39;
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [46]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1380,19 +1313,9 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[46]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&#39;One: shoe, Two shoe&#39;
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [47]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1400,22 +1323,12 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[47]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&#39;One: bun, Two door&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="Formatting">
 <h3>Formatting<a class="headerlink" href="#Formatting" title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [48]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1423,19 +1336,9 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[48]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&#39;One:    bun    , Two ___________shoe&#39;
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [49]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1443,19 +1346,9 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[49]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&#39;One: 2, Two 3.141592653589793&#39;
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [50]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1463,19 +1356,9 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[50]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&#39;One:         +2, Two 3.1416&#39;
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [51]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1483,19 +1366,9 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[51]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&#39;One: 0002, Two 3.142&#39;
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [52]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1503,19 +1376,9 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[52]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&#39;One: 2.0000e+00, Two 3.1416e+00&#39;
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [53]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1523,36 +1386,16 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[53]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&#39;One: 5.00%, Two 0.050000&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="Old-style-formatting">
 <h3>Old style formatting<a class="headerlink" href="#Old-style-formatting" title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [54]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, %a, </span><span class="si">%d</span><span class="s1">, </span><span class="si">%.4f</span><span class="s1">, </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">stuff</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[54]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&quot;bun, shoe, [&#39;bee&#39;, &#39;door&#39;], 2, 3.1416, 0.05&quot;
 </pre></div>
 </div>
 </div>
@@ -1561,7 +1404,7 @@ into words.</p>
 <h3>Formatting numpy arrays<a class="headerlink" href="#Formatting-numpy-arrays" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [55]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1569,9 +1412,9 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [56]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1580,21 +1423,9 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[56]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>array([[ 1,  2,  3,  4],
-       [ 5,  6,  7,  8],
-       [ 9, 10, 11, 12]])
-</pre></div>
-</div>
-</div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [57]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1602,9 +1433,9 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [58]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1612,21 +1443,9 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[58]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>array([[    1.00,     2.00,     3.00,     4.00],
-       [    5.00,     6.00,     7.00,     8.00],
-       [    9.00,    10.00,    11.00,    12.00]])
-</pre></div>
-</div>
-</div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [59]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1634,25 +1453,13 @@ into words.</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [60]:
+<span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">x</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[60]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>array([[ 1,  2,  3,  4],
-       [ 5,  6,  7,  8],
-       [ 9, 10, 11, 12]])
 </pre></div>
 </div>
 </div>
@@ -1677,7 +1484,7 @@ into words.</p>
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -1706,7 +1513,7 @@ into words.</p>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab7.html">Lab 7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab8.html">Lab 8</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../labs/lab8_sol.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/mpl_tight_layout_bug.html">A bug in mpl’s <code class="docutils literal"><span class="pre">tight_layout</span></code>?</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Course resources</a></li>
@@ -1739,7 +1546,7 @@ into words.</p>
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

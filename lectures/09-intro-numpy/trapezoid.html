@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>The trapezoidal rule: vectorization and perormance &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
-    
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -24,7 +21,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Matplotlib: Beyond the basics" href="../10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html" />
@@ -36,7 +33,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -224,7 +221,7 @@ sampled, then</p>
 <span class="math">\(y_{i}=f(x_{i}),\)</span> so the formula becomes</p>
 <div class="math">
 \[\int_{a}^{b}f(x)dx\approx\frac{1}{2}\sum_{i=1}^{n}\left(x_{i}-x_{i-1}\right)\left(y_{i}+y_{i-1}\right).\]</div>
-<p>In this exercise, you&#8217;ll need to write two functions, <code class="docutils literal"><span class="pre">trapz</span></code> and
+<p>In this exercise, you’ll need to write two functions, <code class="docutils literal"><span class="pre">trapz</span></code> and
 <code class="docutils literal"><span class="pre">trapzf</span></code>. <code class="docutils literal"><span class="pre">trapz</span></code> applies the trapezoid formula to pre-computed
 values, implementing equation trapz, while <code class="docutils literal"><span class="pre">trapzf</span></code> takes a function
 <span class="math">\(f\)</span> as input, as well as the total number of samples to evaluate,
@@ -311,7 +308,7 @@ Our functions
 </div>
 <div class="section" id="Some-performance-notes">
 <h2>Some performance notes<a class="headerlink" href="#Some-performance-notes" title="Permalink to this headline">¶</a></h2>
-<p>Let&#8217;s compare the time it takes to compute the fully vectorized form in
+<p>Let’s compare the time it takes to compute the fully vectorized form in
 our <code class="docutils literal"><span class="pre">trapz</span></code> with a more manual implementation that does the
 computation with a pure Python loop.</p>
 <div class="nbinput docutils container">
@@ -341,7 +338,7 @@ computation with a pure Python loop.</p>
 </pre></div>
 </div>
 </div>
-<p>Let&#8217;s compute this over a much finer grid to really see the performance
+<p>Let’s compute this over a much finer grid to really see the performance
 difference</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -434,9 +431,9 @@ is in seconds:</p>
 </pre></div>
 </div>
 </div>
-<p>Let&#8217;s see what the performance difference is across a range of sizes
-(note this will take a while to run). We&#8217;re actually going to need the
-same computation of <span class="math">\(x\)</span> and <span class="math">\(f(x)\)</span> over and over, so let&#8217;s
+<p>Let’s see what the performance difference is across a range of sizes
+(note this will take a while to run). We’re actually going to need the
+same computation of <span class="math">\(x\)</span> and <span class="math">\(f(x)\)</span> over and over, so let’s
 do it once and retrieve them later on:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -497,7 +494,7 @@ do it once and retrieve them later on:</p>
 5.18 s ± 50.6 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div></div>
 </div>
-<p>Now let&#8217;s plot these, along with proper error bars (remember your error
+<p>Now let’s plot these, along with proper error bars (remember your error
 propagation formulas, assuming here that the measurements are normal IID
 for simplicity):</p>
 <div class="nbinput nblast docutils container">
@@ -540,30 +537,30 @@ for simplicity):</p>
 </div>
 <p>A few observations:</p>
 <ul class="simple">
-<li>At very small sizes the difference isn&#8217;t very dramatic. The overhead
+<li>At very small sizes the difference isn’t very dramatic. The overhead
 of the Python function call and basic arithmetic dominates.</li>
 <li>For input sizes ranging from the thousands to the million elements,
 the vectorized version can be ~ 100x to ~300x fastr than the pure
 Python loop. This is not uncommon in real-world applications.</li>
 <li>At very large sizes (at a million) the performance profile changes.</li>
-<li>There&#8217;s significant uncertainty for one of the values but little for
+<li>There’s significant uncertainty for one of the values but little for
 the others, and even accounting for that uncertainty, the conclusion
-doesn&#8217;t fundamentally change.</li>
+doesn’t fundamentally change.</li>
 </ul>
-<p>In general it&#8217;s extremely hard to predict exact performance ratios,
+<p>In general it’s extremely hard to predict exact performance ratios,
 which often vary in hard to understand ways with problem size, as
 hardware, cache and algorithm specifics intersect. But the results of
-this example aren&#8217;t suprising: whether exactly 100x or 350x slower, the
+this example aren’t suprising: whether exactly 100x or 350x slower, the
 fact remains that the vectorized solution vastly outperforms a pure
 Python loop. This is a key aspect of Numpy as a key piece of
 high-performance Python.</p>
-<p>For an in-depth look at the &#8220;vectorized mindset&#8221; for Numpy, Nicolas
-Rougier has written the excellent (and free!) book <a class="reference external" href="http://www.labri.fr/perso/nrougier/from-python-to-numpy">&#8220;From Python to
-Numpy&#8221;</a>.</p>
+<p>For an in-depth look at the “vectorized mindset” for Numpy, Nicolas
+Rougier has written the excellent (and free!) book <a class="reference external" href="http://www.labri.fr/perso/nrougier/from-python-to-numpy">“From Python to
+Numpy”</a>.</p>
 </div>
 <div class="section" id="Numba">
 <h2>Numba<a class="headerlink" href="#Numba" title="Permalink to this headline">¶</a></h2>
-<p>Let&#8217;s have a look at how <a class="reference external" href="https://numba.pydata.org">Numba</a> can help
+<p>Let’s have a look at how <a class="reference external" href="https://numba.pydata.org">Numba</a> can help
 in this type of loop-intensive code.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -615,9 +612,9 @@ in this type of loop-intensive code.</p>
 22.5 µs ± 732 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 </pre></div></div>
 </div>
-<p>That&#8217;s pretty impressive! By simply <em>compiling</em> our slow, Python code,
+<p>That’s pretty impressive! By simply <em>compiling</em> our slow, Python code,
 we get it to beat the Numpy version at a size of 200.</p>
-<p>Let&#8217;s collect Numba performance numbers similarly to the code above, and
+<p>Let’s collect Numba performance numbers similarly to the code above, and
 make a plot comparing Numba to Numpy at the same sizes:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -650,7 +647,7 @@ make a plot comparing Numba to Numpy at the same sizes:</p>
 13 ms ± 948 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div></div>
 </div>
-<p>Let&#8217;s look at the Numba data alongside the Python one:</p>
+<p>Let’s look at the Numba data alongside the Python one:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [16]:
@@ -681,7 +678,7 @@ make a plot comparing Numba to Numpy at the same sizes:</p>
 <img alt="../../_images/lectures_09-intro-numpy_trapezoid_27_0.png" src="../../_images/lectures_09-intro-numpy_trapezoid_27_0.png" />
 </div>
 </div>
-<p>Let&#8217;s quickly see the Numba/Numpy ratios (the raw numbers):</p>
+<p>Let’s quickly see the Numba/Numpy ratios (the raw numbers):</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [17]:
@@ -708,7 +705,7 @@ make a plot comparing Numba to Numpy at the same sizes:</p>
 <ul class="simple">
 <li>The Numba performance is <em>always</em> better than Numpy. Note that this
 is a pretty ideal case for Numpy, and we did exactly <em>nothing</em> to the
-Python code other than compile it with <code class="docutils literal"><span class="pre">numba.jit</span></code>. We&#8217;re basically
+Python code other than compile it with <code class="docutils literal"><span class="pre">numba.jit</span></code>. We’re basically
 getting better-than-numpy performance for free. Nubma can be a bit
 like magic (<a class="reference external" href="https://jakevdp.github.io/blog/2015/02/24/optimizing-python-with-numpy-and-numba/">this blog
 post</a>
@@ -718,7 +715,7 @@ where Numpy performs best comapred to raw Python, Numba still beats
 it but not by too much. This probably indicates Numpy is already
 nearly optimal in that range.</li>
 </ul>
-<p>Let&#8217;s look at the actual times instead, which in this case can be
+<p>Let’s look at the actual times instead, which in this case can be
 informative:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -751,9 +748,9 @@ be) for the Numba code.</p>
 </div>
 <div class="section" id="Exercise:-Numba-atop-Numpy?">
 <h2>Exercise: Numba atop Numpy?<a class="headerlink" href="#Exercise:-Numba-atop-Numpy?" title="Permalink to this headline">¶</a></h2>
-<p>Let&#8217;s make <code class="docutils literal"><span class="pre">trapznv</span></code> which is a Numba-fied version of <code class="docutils literal"><span class="pre">trapz</span></code>, the
+<p>Let’s make <code class="docutils literal"><span class="pre">trapznv</span></code> which is a Numba-fied version of <code class="docutils literal"><span class="pre">trapz</span></code>, the
 Numpy version. The question is: can Numba be of any benefit on a
-function that is already a single Numpy expression? Let&#8217;s see...</p>
+function that is already a single Numpy expression? Let’s see…</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [19]:
@@ -779,7 +776,7 @@ function that is already a single Numpy expression? Let&#8217;s see...</p>
 </pre></div>
 </div>
 </div>
-<p>Now that we see it&#8217;s correct, let&#8217;s look at performance in just one
+<p>Now that we see it’s correct, let’s look at performance in just one
 case:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -866,10 +863,10 @@ case:</p>
 <p>We should finally take a quick look at accuracy considerations. In this
 case we know the exact answer (680), so we can see how each method
 compares. As <span class="math">\(n \rightarrow \infty\)</span> we expect them all to converge
-to 680, but let&#8217;s see if any of them accumulates error worse than the
+to 680, but let’s see if any of them accumulates error worse than the
 others. Remember, since the Numba version is algorithmically nothing but
 the Python code, any differences between Python and Numba would be due
-to Numba&#8217;s compilation/optimizations:</p>
+to Numba’s compilation/optimizations:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [23]:
@@ -915,8 +912,8 @@ to Numba&#8217;s compilation/optimizations:</p>
 </div>
 </div>
 <p>Fortunately, we see that Numba produces identical results to Pure Python
-(good news: its optimizations don&#8217;t change the results). Furthermore,
-while we see a small loss of accuracy relative to Numpy&#8217;s <a class="reference external" href="https://github.com/numpy/numpy/pull/3685">high accuracy
+(good news: its optimizations don’t change the results). Furthermore,
+while we see a small loss of accuracy relative to Numpy’s <a class="reference external" href="https://github.com/numpy/numpy/pull/3685">high accuracy
 summation algorithm</a>, the
 error is <span class="math">\(\cal{O}(10^{-14})\)</span>, which is still close to
 floating-point precision.</p>
@@ -940,7 +937,7 @@ floating-point precision.</p>
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -955,10 +952,9 @@ floating-point precision.</p>
 <li class="toctree-l1"><a class="reference internal" href="intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">The trapezoidal rule: vectorization and perormance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Live plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Beyond the basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/image_tutorial.html">Matplotlib image tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/image_tutorial.html#Multichannel-images">Multichannel images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../11-strings/11-strings.html">Strings</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
@@ -968,8 +964,6 @@ floating-point precision.</p>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab5.html">Lab 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab7.html">Lab 7</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../labs/lab8.html">Lab 8</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../labs/lab8_sol.html">Lab 8</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Course resources</a></li>
@@ -1002,7 +996,7 @@ floating-point precision.</p>
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
