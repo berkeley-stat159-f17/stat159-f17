@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Strings &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Lab 1" href="../../labs/lab1.html" />
@@ -33,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -219,10 +222,10 @@ analysis - for example, by converting to a bag of words.</p>
 text data using string methods and regular expressions. Finally, we will
 see how to format text data for reporting.</p>
 <div class="section" id="Get-&quot;Through-the-Looking-Glass&quot;">
-<h2>Get “Through the Looking Glass”<a class="headerlink" href="#Get-"Through-the-Looking-Glass"" title="Permalink to this headline">¶</a></h2>
+<h2>Get &#8220;Through the Looking Glass&#8221;<a class="headerlink" href="#Get-"Through-the-Looking-Glass"" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [3]:
+<span></span>In [1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -245,7 +248,7 @@ see how to format text data for reporting.</p>
 <h2>Slice to get Jabberwocky<a class="headerlink" href="#Slice-to-get-Jabberwocky" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [4]:
+<span></span>In [2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -255,7 +258,7 @@ see how to format text data for reporting.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [5]:
+<span></span>In [3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -265,17 +268,17 @@ see how to format text data for reporting.</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[5]:
+<span></span>Out[3]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&quot;JABBERWOCKY\r\n\r\n     &#39;Twas brillig, and the slithy toves\r\n      Did gyre and gimble in the wabe;\r\n     All mimsy were the borogoves,\r\n      And the mome raths outgrabe.\r\n\r\n     &#39;Beware the Jabberwock, my son!\r\n      The jaws that bite, the claws that catch!\r\n     Beware the Jubjub bird, and shun\r\n      The frumious Bandersnatch!&#39;\r\n\r\n     He took his vorpal sword in hand:\r\n      Long time the manxome foe he sought--\r\n     So rested he by the Tumtum tree,\r\n      And stood awhile in thought.\r\n\r\n     And as in uffish thought he stood,\r\n      The Jabberwock, with eyes of flame,\r\n     Came whiffling through the tulgey wood,\r\n      And burbled as it came!\r\n\r\n     One, two! One, two! And through and through\r\n      The vorpal blade went snicker-snack!\r\n     He left it dead, and with its head\r\n      He went galumphing back.\r\n\r\n     &#39;And hast thou slain the Jabberwock?\r\n      Come to my arms, my beamish boy!\r\n     O frabjous day! Callooh! Callay!&#39;\r\n      He chortled in his joy.\r\n\r\n     &#39;Twas brillig, and the slithy toves\r\n      Did gyre and gimble in the wabe;\r\n     All mimsy were the borogoves,\r\n      And the mome raths outgrabe.\r\n\r\n\r\n&#39;It seems very pretty,&#39; she said when she had finished it, &#39;but it&#39;s\r\nRATHER hard to understand!&#39; (You see she didn&#39;t like to confess, even\r\nto herself, that she couldn&#39;t make it out at all.) &#39;Somehow it seems\r\nto fill my head with ideas--only I don&#39;t exactly know what they are!\r\nHowever, SOMEBODY killed SOMETHING: that&#39;s clear, at any rate--&#39;\r\n\r\n&#39;But oh!&#39; thought Alice, suddenly jumping up, &#39;if I don&#39;t make haste I\r\nshall have to go back through the Looking-glass, before I&#39;ve seen what\r\nthe rest of the house is like! Let&#39;s have a look at the garden first!&#39;\r\nShe was out of the room in a moment, and ran down stairs--or, at least,\r\nit wasn&#39;t exactly running, but a new invention of hers for getting down\r\nstairs quickly and easily, as Alice said to herself. She just kept the\r\ntips of her fingers on the hand-rail, and floated gently down without\r\neven&quot;
+<span></span>&quot;JABBERWOCKY\n\n     &#39;Twas brillig, and the slithy toves\n      Did gyre and gimble in the wabe;\n     All mimsy were the borogoves,\n      And the mome raths outgrabe.\n\n     &#39;Beware the Jabberwock, my son!\n      The jaws that bite, the claws that catch!\n     Beware the Jubjub bird, and shun\n      The frumious Bandersnatch!&#39;\n\n     He took his vorpal sword in hand:\n      Long time the manxome foe he sought--\n     So rested he by the Tumtum tree,\n      And stood awhile in thought.\n\n     And as in uffish thought he stood,\n      The Jabberwock, with eyes of flame,\n     Came whiffling through the tulgey wood,\n      And burbled as it came!\n\n     One, two! One, two! And through and through\n      The vorpal blade went snicker-snack!\n     He left it dead, and with its head\n      He went galumphing back.\n\n     &#39;And hast thou slain the Jabberwock?\n      Come to my arms, my beamish boy!\n     O frabjous day! Callooh! Callay!&#39;\n      He chortled in his joy.\n\n     &#39;Twas brillig, and the slithy toves\n      Did gyre and gimble in the wabe;\n     All mimsy were the borogoves,\n      And the mome raths outgrabe.\n\n\n&#39;It seems very pretty,&#39; she said when she had finished it, &#39;but it&#39;s\nRATHER hard to understand!&#39; (You see she didn&#39;t like to confess, even\nto herself, that she couldn&#39;t make it out at all.) &#39;Somehow it seems\nto fill my head with ideas--only I don&#39;t exactly know what they are!\nHowever, SOMEBODY killed SOMETHING: that&#39;s clear, at any rate--&#39;\n\n&#39;But oh!&#39; thought Alice, suddenly jumping up, &#39;if I don&#39;t make haste I\nshall have to go back through the Looking-glass, before I&#39;ve seen what\nthe rest of the house is like! Let&#39;s have a look at the garden first!&#39;\nShe was out of the room in a moment, and ran down stairs--or, at least,\nit wasn&#39;t exactly running, but a new invention of hers for getting down\nstairs quickly and easily, as Alice said to herself. She just kept the\ntips of her fingers on the hand-rail, and floated gently down without\neven touching the stairs with her feet; then she floate&quot;
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [24]:
+<span></span>In [4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -285,7 +288,7 @@ see how to format text data for reporting.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [25]:
+<span></span>In [5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -296,17 +299,17 @@ see how to format text data for reporting.</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[25]:
+<span></span>Out[5]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&quot;JABBERWOCKY\r\n\r\n     &#39;Twas brillig, and the slithy toves\r\n      Did gyre and gimble in the wabe;\r\n     All mimsy were the borogoves,\r\n      And the mome raths outgrabe.\r\n\r\n     &#39;Beware the Jabberwock, my son!\r\n      The jaws that bite, the claws that catch!\r\n     Beware the Jubjub bird, and shun\r\n      The frumious Bandersnatch!&#39;\r\n\r\n     He took his vorpal sword in hand:\r\n      Long time the manxome foe he sought--\r\n     So rested he by the Tumtum tree,\r\n      And stood awhile in thought.\r\n\r\n     And as in uffish thought he stood,\r\n      The Jabberwock, with eyes of flame,\r\n     Came whiffling through the tulgey wood,\r\n      And burbled as it came!\r\n\r\n     One, two! One, two! And through and through\r\n      The vorpal blade went snicker-snack!\r\n     He left it dead, and with its head\r\n      He went galumphing back.\r\n\r\n     &#39;And hast thou slain the Jabberwock?\r\n      Come to my arms, my beamish boy!\r\n     O frabjous day! Callooh! Callay!&#39;\r\n      He chortled in his joy.\r\n\r\n     &#39;Twas brillig, and the slithy toves\r\n      Did gyre and gimble in the wabe;\r\n     All mimsy were the borogoves,\r\n      And the mome raths outgrabe.\r\n\r\n\r\n&#39;&quot;
+<span></span>&quot;JABBERWOCKY\n\n     &#39;Twas brillig, and the slithy toves\n      Did gyre and gimble in the wabe;\n     All mimsy were the borogoves,\n      And the mome raths outgrabe.\n\n     &#39;Beware the Jabberwock, my son!\n      The jaws that bite, the claws that catch!\n     Beware the Jubjub bird, and shun\n      The frumious Bandersnatch!&#39;\n\n     He took his vorpal sword in hand:\n      Long time the manxome foe he sought--\n     So rested he by the Tumtum tree,\n      And stood awhile in thought.\n\n     And as in uffish thought he stood,\n      The Jabberwock, with eyes of flame,\n     Came whiffling through the tulgey wood,\n      And burbled as it came!\n\n     One, two! One, two! And through and through\n      The vorpal blade went snicker-snack!\n     He left it dead, and with its head\n      He went galumphing back.\n\n     &#39;And hast thou slain the Jabberwock?\n      Come to my arms, my beamish boy!\n     O frabjous day! Callooh! Callay!&#39;\n      He chortled in his joy.\n\n     &#39;Twas brillig, and the slithy toves\n      Did gyre and gimble in the wabe;\n     All mimsy were the borogoves,\n      And the mome raths outgrabe.\n\n\n&#39;&quot;
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [26]:
+<span></span>In [6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -825,7 +828,7 @@ HOWTO</a></li>
 <li><a class="reference external" href="http://pythex.org/">Test your Python regular expressions</a></li>
 </ul>
 <div class="section" id="Find-all-words-with-a-sequence-of-two-or-more-identical-letters-e.g.-&quot;look&quot;">
-<h3>Find all words with a sequence of two or more identical letters e.g. “look”<a class="headerlink" href="#Find-all-words-with-a-sequence-of-two-or-more-identical-letters-e.g.-"look"" title="Permalink to this headline">¶</a></h3>
+<h3>Find all words with a sequence of two or more identical letters e.g. &#8220;look&#8221;<a class="headerlink" href="#Find-all-words-with-a-sequence-of-two-or-more-identical-letters-e.g.-"look"" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [25]:
@@ -1674,7 +1677,7 @@ into words.</p>
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -1702,6 +1705,8 @@ into words.</p>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab5.html">Lab 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab8.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab8_sol.html">Lab 8</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Course resources</a></li>
@@ -1734,7 +1739,7 @@ into words.</p>
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

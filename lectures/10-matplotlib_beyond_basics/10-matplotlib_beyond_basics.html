@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Matplotlib: Beyond the basics &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -21,10 +24,10 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Matplotlib: Beyond the basics" href="10-matplotlib_live_plots.html" />
+    <link rel="next" title="Matplotlib: Live plots" href="10-matplotlib_live_plots.html" />
     <link rel="prev" title="The trapezoidal rule: vectorization and perormance" href="../09-intro-numpy/trapezoid.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -33,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -217,7 +220,7 @@ exploratory work.</li>
 <ul class="simple">
 <li>Know how to polish those figures to the point where they can go to a
 journal.</li>
-<li>Understand matplotlib’s internal model enough to:</li>
+<li>Understand matplotlib&#8217;s internal model enough to:</li>
 <li>know where to look for knobs to fine-tune</li>
 <li>better understand the help and examples online</li>
 <li>use it as a development platform for complex visualization</li>
@@ -241,14 +244,14 @@ by Nicolas Rougier, similar in style to the ones we saw for Numpy.</li>
 Gallery</a>, which provides a large
 collection of plots with emphasis on statistical visualizations. It
 uses <a class="reference external" href="https://seaborn.pydata.org">Seaborn</a> extensively.</li>
-<li>In this tutorial we’ll focus on “raw” matplotlib, but for a wide
+<li>In this tutorial we&#8217;ll focus on &#8220;raw&#8221; matplotlib, but for a wide
 variety of statistical visualization tasks, using Seaborn makes life
-much easier. We’ll dive into its
+much easier. We&#8217;ll dive into its
 <a class="reference external" href="https://seaborn.pydata.org/tutorial.html">tutorial</a> later on.</li>
 </ul>
 </div>
 <div class="section" id="Matplotlib's-main-APIs:-pyplot-and-object-oriented">
-<h2>Matplotlib’s main APIs: <code class="docutils literal"><span class="pre">pyplot</span></code> and object-oriented<a class="headerlink" href="#Matplotlib's-main-APIs:-pyplot-and-object-oriented" title="Permalink to this headline">¶</a></h2>
+<h2>Matplotlib&#8217;s main APIs: <code class="docutils literal"><span class="pre">pyplot</span></code> and object-oriented<a class="headerlink" href="#Matplotlib's-main-APIs:-pyplot-and-object-oriented" title="Permalink to this headline">¶</a></h2>
 <p>Matplotlib is a library that can be thought of as having two main ways
 of being used:</p>
 <ul class="simple">
@@ -527,19 +530,19 @@ support, so you can learn about the valid calls as you work:</p>
 <blockquote>
 <div><p>In [7]: line, = plot([1,2,3])</p>
 <dl class="docutils">
-<dt>In [8]: setp(line, ‘linestyle’)</dt>
+<dt>In [8]: setp(line, &#8216;linestyle&#8217;)</dt>
 <dd>linestyle: [ <code class="docutils literal"><span class="pre">'-'</span></code> | <code class="docutils literal"><span class="pre">'--'</span></code> | <code class="docutils literal"><span class="pre">'-.'</span></code> | <code class="docutils literal"><span class="pre">':'</span></code> | <code class="docutils literal"><span class="pre">'None'</span></code> | <code class="docutils literal"><span class="pre">'</span> <span class="pre">'</span></code> | <code class="docutils literal"><span class="pre">''</span></code> ]         and any drawstyle in combination with a linestyle, e.g. <code class="docutils literal"><span class="pre">'steps--'</span></code>.</dd>
 <dt>In [9]: setp(line)</dt>
 <dd>agg_filter: unknown
 alpha: float (0.0 transparent through 1.0 opaque)
 animated: [True | False]
 antialiased or aa: [True | False]
-…
-… much more output elided
-…</dd>
+...
+... much more output elided
+...</dd>
 </dl>
 </div></blockquote>
-<p>In the first form, it shows you the valid values for the ‘linestyle’
+<p>In the first form, it shows you the valid values for the &#8216;linestyle&#8217;
 property, and in the second it shows you all the acceptable properties
 you can set on the line object. This makes it very easy to discover how
 to customize your figures to get the visual results you need.</p>
@@ -641,7 +644,7 @@ object, a plain <code class="docutils literal"><span class="pre">set</span></cod
 </div>
 </div>
 <p>The return value of the plot call is a list of lines, which can be
-manipulated further. If you capture the line object (in this case it’s a
+manipulated further. If you capture the line object (in this case it&#8217;s a
 single line so we use a one-element tuple):</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -724,11 +727,11 @@ ax.add_callback                          ax.hold
 ax.add_collection                        ax.ignore_existing_data_limits
 ax.add_line                              ax.images
 ax.add_patch                             ax.imshow</p>
-<p>… etc.</p>
+<p>... etc.</p>
 </div></blockquote>
 <p>Many of the commands in <code class="docutils literal"><span class="pre">plt.&lt;command&gt;</span></code> are nothing but wrappers
 around axis calls, with machinery to automatically create a figure and
-add an axis to it if there wasn’t one to begin with. The output of most
+add an axis to it if there wasn&#8217;t one to begin with. The output of most
 axis actions that draw something is a collection of lines (or other more
 complex geometric objects).</p>
 </div>
@@ -761,7 +764,7 @@ tutorial</a>.</p>
 </div>
 <div class="section" id="Anatomy-of-a-common-plot">
 <h2>Anatomy of a common plot<a class="headerlink" href="#Anatomy-of-a-common-plot" title="Permalink to this headline">¶</a></h2>
-<p>Let’s make a simple plot that contains a few commonly used decorations</p>
+<p>Let&#8217;s make a simple plot that contains a few commonly used decorations</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [12]:
@@ -947,7 +950,7 @@ features.</p>
 <img alt="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_32_1.png" src="../../_images/lectures_10-matplotlib_beyond_basics_10-matplotlib_beyond_basics_32_1.png" />
 </div>
 </div>
-<p>A more elaborate log plot using ‘symlog’, that treats a specified range
+<p>A more elaborate log plot using &#8216;symlog&#8217;, that treats a specified range
 as linear (thus handling values near zero) and symmetrizes negative
 values:</p>
 <div class="nbinput docutils container">
@@ -1132,7 +1135,7 @@ NASA BlueMarble image of Earth. You can install it with
 <li><p class="first">For the basemap part, choose a text label color that provides
 adequate reading contrast over the image background.</p>
 </li>
-<li><p class="first">Create your Basemap with ‘i’ resolution, otherwise it will take
+<li><p class="first">Create your Basemap with &#8216;i&#8217; resolution, otherwise it will take
 forever to draw.</p>
 </li>
 </ul>
@@ -1347,7 +1350,7 @@ by side with linked axes for zooming.</li>
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -1362,9 +1365,10 @@ by side with linked axes for zooming.</li>
 <li class="toctree-l1"><a class="reference internal" href="../09-intro-numpy/intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../09-intro-numpy/trapezoid.html">The trapezoidal rule: vectorization and perormance</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Matplotlib: Beyond the basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_live_plots.html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_live_plots.html">Matplotlib: Live plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="image_tutorial.html">Matplotlib image tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="image_tutorial.html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11-strings/11-strings.html">Strings</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
@@ -1374,6 +1378,8 @@ by side with linked axes for zooming.</li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab5.html">Lab 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab8.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab8_sol.html">Lab 8</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Course resources</a></li>
@@ -1384,7 +1390,7 @@ by side with linked axes for zooming.</li>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="../09-intro-numpy/trapezoid.html" title="previous chapter">The trapezoidal rule: vectorization and perormance</a></li>
-      <li>Next: <a href="10-matplotlib_live_plots.html" title="next chapter">Matplotlib: Beyond the basics</a></li>
+      <li>Next: <a href="10-matplotlib_live_plots.html" title="next chapter">Matplotlib: Live plots</a></li>
   </ul></li>
 </ul>
 </div>
@@ -1406,7 +1412,7 @@ by side with linked axes for zooming.</li>
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
