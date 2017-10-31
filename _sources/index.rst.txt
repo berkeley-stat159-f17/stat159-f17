@@ -86,6 +86,8 @@ Lectures
    lectures/10-matplotlib_beyond_basics/image_tutorial.ipynb
    lectures/11-strings/11-strings.ipynb
    lectures/11-strings/11-nltk.ipynb
+   lectures/12-data-intro.ipynb
+
 
 Labs
 ~~~~

@@ -893,9 +893,7 @@
   {
    "cell_type": "code",
    "execution_count": 33,
-   "metadata": {
-    "collapsed": true
-   },
+   "metadata": {},
    "outputs": [],
    "source": [
     "import nltk"
@@ -904,9 +902,7 @@
   {
    "cell_type": "code",
    "execution_count": 34,
-   "metadata": {
-    "collapsed": true
-   },
+   "metadata": {},
    "outputs": [],
    "source": [
     "ss_nltk = nltk.sent_tokenize(para)"
@@ -1583,7 +1579,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.1"
+   "version": "3.6.3"
   }
  },
  "nbformat": 4,

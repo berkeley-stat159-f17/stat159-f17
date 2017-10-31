@@ -1,0 +1,525 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Class practice: strings, lists & numbers\n",
+    "\n",
+    "These were copied and slightly modified from [Paul Waddell's Urban Informatics and Visualization](https://github.com/waddell/urban-informatics-and-visualization). All credit goes to him, all mistakes are mine."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Exercises | String & List"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Reversing numbers"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Write code that reverses even numbers from 0 to 100 (including 100) and print the result. \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Type your code here "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[100, 98, 96, 94, 92, 90, 88, 86, 84, 82, 80, 78, 76, 74, 72, 70, 68, 66, 64, 62, 60, 58, 56, 54, 52, 50, 48, 46, 44, 42, 40, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20, 18, 16, 14, 12, 10, 8, 6, 4, 2, 0]\n",
+      "[100, 98, 96, 94, 92, 90, 88, 86, 84, 82, 80, 78, 76, 74, 72, 70, 68, 66, 64, 62, 60, 58, 56, 54, 52, 50, 48, 46, 44, 42, 40, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20, 18, 16, 14, 12, 10, 8, 6, 4, 2, 0]\n",
+      "[100, 98, 96, 94, 92, 90, 88, 86, 84, 82, 80, 78, 76, 74, 72, 70, 68, 66, 64, 62, 60, 58, 56, 54, 52, 50, 48, 46, 44, 42, 40, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20, 18, 16, 14, 12, 10, 8, 6, 4, 2, 0]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Solution 1\n",
+    "\n",
+    "print(list(range(100,-1,-2)))\n",
+    "\n",
+    "# Solution 2\n",
+    "\n",
+    "a=list(range(0,101,2))\n",
+    "a.reverse()\n",
+    "print(a)\n",
+    "\n",
+    "# Solution 3\n",
+    "\n",
+    "a=list(range(0,101,2))\n",
+    "print(a[::-1])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### List manipulations"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### We have two lists, a and b, a=[10,20,30] b=[30,60,90]. Write code that give us the following outputs: [LIST]\n",
+    "\n",
+    "a. [[10,20,30],[30,60,90]]\n",
+    "\n",
+    "b. [10,20,30,30,60,90]\n",
+    "\n",
+    "c. [10,20,60,90] (first two of a, last two of b)\n",
+    "\n",
+    "d. [20,40,60] (the element-wise differences between b and a)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Type your code here"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[10, 20, 30], [30, 60, 90]]\n",
+      "[10, 20, 30, 30, 60, 90]\n",
+      "[10, 20, 60, 90]\n",
+      "[20, 40, 60]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# solution\n",
+    "\n",
+    "a=[10,20,30]\n",
+    "b=[30,60,90]\n",
+    "\n",
+    "\n",
+    "A= [a,b]\n",
+    "B= a+b\n",
+    "C= a[:2]+b[-2:]\n",
+    "D=[y-x for x,y in zip(a, b)]\n",
+    "\n",
+    "print(f'{A}\\n{B}\\n{C}\\n{D}')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### List insertions\n",
+    "\n",
+    "**Write code that add the name \"Norah\" to the following list, after the name \"Michael\".**\n",
+    "\n",
+    "Make sure your code continues to do the right thing if more names are added to the list, or if the list is reordered, or if you need to find Jessica instead of Michael (or anyone else on the list).\n",
+    "\n",
+    "names: Akshara, Anna, Aqshems, Chester, Echo, James, Jessica, Matthew, Michael, Philip, Sarah"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Type your code here"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['Akshara', 'Anna', 'Aqshems', 'Chester', 'Echo', 'James', 'Jessica', 'Matthew', 'Michael', 'Norah', 'Philip', 'Sarah']\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Solution\n",
+    "\n",
+    "who = 'Michael'\n",
+    "names= ['Akshara','Anna','Aqshems','Chester','Echo','James','Jessica','Matthew','Michael','Philip','Sarah'] \n",
+    "who_idx = names.index(who)\n",
+    "names.insert(who_idx+1, 'Norah')\n",
+    "\n",
+    "print(names)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Maximizing a sum"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "** Find a list in the following list (G) whose sum of its elements is the highest.**\n",
+    "\n",
+    "G = [[13,9,8], [14,6,12], [10,13,11], [7,18,9]]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Type your code here"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[10, 13, 11]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Solution\n",
+    "\n",
+    "G = [[13,9,8], [14,6,12], [10,13,11], [7,18,9]]\n",
+    "print(max(G, key=sum))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "max?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Cars and brown trucks\n",
+    "\n",
+    "Write code that prints all colors in the list and the word 'car', one per line, **unless** the color is brown, when you should print 'truck' instead:\n",
+    "\n",
+    "```python\n",
+    "colors = ['red', 'black', 'gray', 'brown', 'blue', 'white']\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Type your code here"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "RED car\n",
+      "BLACK car\n",
+      "GRAY car\n",
+      "BROWN truck\n",
+      "BLUE car\n",
+      "WHITE car\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Solution\n",
+    "colors = ['red', 'black', 'gray', 'brown', 'blue', 'white']\n",
+    "for color in colors:\n",
+    "    kind = 'truck' if color == 'brown' else 'car'\n",
+    "    print(f'{color.upper()+} {kind}')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Numbers\n",
+    "\n",
+    "## Reversing numbers\n",
+    "\n",
+    "Write a function nums_reversed that takes in an integer `n` and returns a string containing the numbers 1 through `n` including `n` in reverse order, separated\n",
+    "by spaces. For example:\n",
+    "\n",
+    "    >>> nums_reversed(5)\n",
+    "    '5 4 3 2 1'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'5 4 3 2 1'"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Solution\n",
+    "\n",
+    "def nums_reversed(n):\n",
+    "    nums = map(str, range(n, 0, -1))\n",
+    "    return ' '.join(nums)\n",
+    "    \n",
+    "nums_reversed(5)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Divisibility\n",
+    "\n",
+    "Write a program which will find all such numbers which are divisible by 7 but are not a multiple of 5,\n",
+    "between 1000 and 1200 (both included).\n",
+    "The numbers obtained should be printed in a comma-separated sequence on a single line.\n",
+    "\n",
+    "*Hint: * Consider using `range(#begin, #end)`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1001, 1008, 1022, 1029, 1036, 1043, 1057, 1064, 1071, 1078, 1092, 1099, 1106, 1113, 1127, 1134, 1141, 1148, 1162, 1169, 1176, 1183, 1197, "
+     ]
+    }
+   ],
+   "source": [
+    "# Solution\n",
+    "\n",
+    "start, stop  = 1000, 1200\n",
+    "nums = range(start, stop+1)\n",
+    "for n in nums:\n",
+    "    if n % 7 == 0 and n % 5 != 0:\n",
+    "        print(f'{n},', end=' ')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Write the same program but this time use while loop instead of for loop"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Double trouble\n",
+    "\n",
+    "Write a function `double100` that takes in a list of integers\n",
+    "and returns `True` only if the list has two `100`s next to each other.\n",
+    "\n",
+    "    >>> double100([100, 2, 3, 100])\n",
+    "    False\n",
+    "    >>> double100([2, 3, 100, 100, 5])\n",
+    "    True"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "def counter(lst, val=100):\n",
+    "    \"\"\"Return a dict with the number of n-count occurrences of val.\n",
+    "    \"\"\"\n",
+    "    \n",
+    "    counts = {}\n",
+    "    n_consec_vals = 0\n",
+    "    for x in lst:\n",
+    "        if x == val:\n",
+    "            n_consec_vals += 1\n",
+    "        else:\n",
+    "            if n_consec_vals > 0:\n",
+    "                counts[n_consec_vals] = counts.get(n_consec_vals, 0) + 1\n",
+    "                n_consec_vals = 0\n",
+    "    if n_consec_vals > 0:\n",
+    "        counts[n_consec_vals] = counts.get(n_consec_vals, 0) + 1\n",
+    "    \n",
+    "    return counts"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "tests = [ ([100, 200], {1: 1} ),\n",
+    "          ([100, 100, 100, 1, 100, 1, 100], {1: 2, 3: 1}) ,\n",
+    "          ([5, 4, 1, 100, 100, 5, 1, 9], {2: 1}),\n",
+    "          ([5, 4, 1, 100, 100, 5, 1, 9, 100], {1: 1, 2: 1} ),\n",
+    "         ([], {})\n",
+    "         \n",
+    "        ]\n",
+    "\n",
+    "for lst, ans in tests:\n",
+    "    assert counter(lst, val=100) == ans"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "def double100(lst):\n",
+    "    return counter(lst, 100) == {2: 1}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "double100([5, 4, 1, 100, 100, 5, 1, 9])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "False"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "double100([5, 4, 1, 100, 100, 5, 1, 9, 100])"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
