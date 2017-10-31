@@ -932,10 +932,15 @@ Freq: W-SUN, dtype: float64
 </div>
 </div>
 </div>
+<div class="section" id="DataFrames">
+<h3>DataFrames<a class="headerlink" href="#DataFrames" title="Permalink to this headline">¶</a></h3>
+<p>Inevitably, we want to be able to store, view and manipulate data that
+is <em>multivariate</em>, where for every index there are multiple fields or
+columns of data, often of varying data type.</p>
+<p>A <code class="docutils literal"><span class="pre">DataFrame</span></code> is a tabular data structure, encapsulating multiple
+series like columns in a spreadsheet. It is directly inspired by the R
+DataFrame.</p>
 </div>
-<div class="section" id="DataFrame">
-<h2>DataFrame<a class="headerlink" href="#DataFrame" title="Permalink to this headline">¶</a></h2>
-<p>Similar to R.</p>
 <div class="section" id="Titanic-data">
 <h3>Titanic data<a class="headerlink" href="#Titanic-data" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
@@ -1042,24 +1047,9 @@ dtype: object
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">titanic</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span></span><span class="n">titanic</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="stderr output_area docutils container">
-<div class="highlight"><pre>
-/Users/fperez/usr/conda/envs/s159/lib/python3.6/site-packages/ipykernel_launcher.py:1: DeprecationWarning:
-.ix is deprecated. Please use
-.loc for label based indexing or
-.iloc for positional indexing
-
-See the documentation here:
-http://pandas.pydata.org/pandas-docs/stable/indexing.html#ix-indexer-is-deprecated
-  &#34;&#34;&#34;Entry point for launching an IPython kernel.
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -1621,15 +1611,15 @@ Name: 0, dtype: object
 </table>
 </div></div>
 </div>
-<div class="section" id="Using-the-ix-helper-for-indexing">
-<h4>Using the <code class="docutils literal"><span class="pre">ix</span></code> helper for indexing<a class="headerlink" href="#Using-the-ix-helper-for-indexing" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="Using-the-loc-and-iloc-helpers-for-indexing">
+<h4>Using the <code class="docutils literal"><span class="pre">loc</span></code> and <code class="docutils literal"><span class="pre">iloc</span></code> helpers for indexing<a class="headerlink" href="#Using-the-loc-and-iloc-helpers-for-indexing" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">titanic</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="s1">&#39;fare&#39;</span><span class="p">]</span>
+<span></span><span class="n">titanic</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">15</span><span class="p">][[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;fare&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -1687,11 +1677,6 @@ Name: 0, dtype: object
       <td>14.0</td>
       <td>7.8542</td>
     </tr>
-    <tr>
-      <th>15</th>
-      <td>55.0</td>
-      <td>16.0000</td>
-    </tr>
   </tbody>
 </table>
 </div></div>
@@ -1702,93 +1687,13 @@ Name: 0, dtype: object
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">titanic</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[41]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sex</th>
-      <th>fare</th>
-      <th>class</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>10</th>
-      <td>female</td>
-      <td>16.7000</td>
-      <td>Third</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>female</td>
-      <td>26.5500</td>
-      <td>First</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>male</td>
-      <td>8.0500</td>
-      <td>Third</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>male</td>
-      <td>31.2750</td>
-      <td>Third</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>female</td>
-      <td>7.8542</td>
-      <td>Third</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>female</td>
-      <td>16.0000</td>
-      <td>Second</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [42]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="o">.</span><span class="n">age</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[42]:
+<span></span>Out[41]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1999,7 +1904,7 @@ Name: 0, dtype: object
 <h4>Sorting and ordering data<a class="headerlink" href="#Sorting-and-ordering-data" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [43]:
+<span></span>In [42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2009,7 +1914,7 @@ Name: 0, dtype: object
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[43]:
+<span></span>Out[42]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2109,7 +2014,7 @@ Name: 0, dtype: object
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [44]:
+<span></span>In [43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2119,7 +2024,7 @@ Name: 0, dtype: object
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[44]:
+<span></span>Out[43]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2219,7 +2124,7 @@ Name: 0, dtype: object
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [45]:
+<span></span>In [44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2229,7 +2134,7 @@ Name: 0, dtype: object
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[45]:
+<span></span>Out[44]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2332,7 +2237,7 @@ Name: 0, dtype: object
 <h4>Grouping data<a class="headerlink" href="#Grouping-data" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [46]:
+<span></span>In [45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2342,7 +2247,7 @@ Name: 0, dtype: object
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [47]:
+<span></span>In [46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2352,7 +2257,7 @@ Name: 0, dtype: object
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[47]:
+<span></span>Out[46]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2467,7 +2372,7 @@ Name: 0, dtype: object
 <h4>Why Kate Winslett survived and Leonardo DiCaprio didn’t<a class="headerlink" href="#Why-Kate-Winslett-survived-and-Leonardo-DiCaprio-didn't" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [48]:
+<span></span>In [47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2478,7 +2383,7 @@ Name: 0, dtype: object
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[48]:
+<span></span>Out[47]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -2498,7 +2403,7 @@ Name: survived, dtype: float64
 <h4>Of the females who were in first class, count the number from each embarking town<a class="headerlink" href="#Of-the-females-who-were-in-first-class,-count-the-number-from-each-embarking-town" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [49]:
+<span></span>In [48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2508,7 +2413,7 @@ Name: survived, dtype: float64
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[49]:
+<span></span>Out[48]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2594,7 +2499,7 @@ Name: survived, dtype: float64
 <h4>Cross-tabulation<a class="headerlink" href="#Cross-tabulation" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [50]:
+<span></span>In [49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2604,7 +2509,7 @@ Name: survived, dtype: float64
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[50]:
+<span></span>Out[49]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2659,7 +2564,7 @@ Name: survived, dtype: float64
 <h4>We can also get multiple summaries at the same time<a class="headerlink" href="#We-can-also-get-multiple-summaries-at-the-same-time" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [51]:
+<span></span>In [50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2670,7 +2575,7 @@ Name: survived, dtype: float64
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [52]:
+<span></span>In [51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2681,7 +2586,7 @@ Name: survived, dtype: float64
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[52]:
+<span></span>Out[51]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2755,7 +2660,7 @@ Name: survived, dtype: float64
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [53]:
+<span></span>In [52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2765,7 +2670,7 @@ Name: survived, dtype: float64
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[53]:
+<span></span>Out[52]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -2781,7 +2686,7 @@ Name: survived, dtype: float64
 <p>See more examples in the Graphics notebook.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [54]:
+<span></span>In [53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2795,7 +2700,7 @@ Name: survived, dtype: float64
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/lectures_12-data-intro_84_0.png" src="../_images/lectures_12-data-intro_84_0.png" />
+<img alt="../_images/lectures_12-data-intro_83_0.png" src="../_images/lectures_12-data-intro_83_0.png" />
 </div>
 </div>
 </div>
@@ -2809,7 +2714,7 @@ Name: survived, dtype: float64
 <p>to install the specialized readers.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [55]:
+<span></span>In [54]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2820,19 +2725,22 @@ Name: survived, dtype: float64
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [56]:
+<span></span>In [55]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">apple</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;AAPL&#39;</span><span class="p">,</span> <span class="s1">&#39;yahoo&#39;</span><span class="p">,</span>
-                        <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-                        <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">apple</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/apple.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">apple</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;AAPL&#39;</span><span class="p">,</span> <span class="s1">&#39;yahoo&#39;</span><span class="p">,</span>
+                            <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                            <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [57]:
+<span></span>In [56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2842,7 +2750,7 @@ Name: survived, dtype: float64
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[57]:
+<span></span>Out[56]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2933,7 +2841,7 @@ Name: survived, dtype: float64
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [58]:
+<span></span>In [57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2943,7 +2851,7 @@ Name: survived, dtype: float64
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[58]:
+<span></span>Out[57]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -3032,14 +2940,25 @@ Name: survived, dtype: float64
 </table>
 </div></div>
 </div>
+<p>Let’s save this data to a CSV file so we don’t need to re-download it on
+every run:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [58]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">apple</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data/apple.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">apple</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;Close&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="k">pass</span>
+<span></span><span class="n">apple</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;Close&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -3047,7 +2966,7 @@ Name: survived, dtype: float64
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/lectures_12-data-intro_90_0.png" src="../_images/lectures_12-data-intro_90_0.png" />
+<img alt="../_images/lectures_12-data-intro_91_0.png" src="../_images/lectures_12-data-intro_91_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -3066,7 +2985,7 @@ Name: survived, dtype: float64
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/lectures_12-data-intro_91_0.png" src="../_images/lectures_12-data-intro_91_0.png" />
+<img alt="../_images/lectures_12-data-intro_92_0.png" src="../_images/lectures_12-data-intro_92_0.png" />
 </div>
 </div>
 </div>
@@ -3567,6 +3486,244 @@ converting the <code class="docutils literal"><span class="pre">titanic</span></
       <td>woman</td>
       <td>C</td>
       <td>Cherbourg</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>You may need to install the
+<a class="reference external" href="https://blog.cloudera.com/blog/2016/03/feather-a-fast-on-disk-format-for-data-frames-for-r-and-python-powered-by-apache-arrow">Feather</a>
+support first:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">feather</span><span class="o">-</span><span class="nb">format</span>
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [71]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">t5</span> <span class="o">=</span> <span class="n">t4</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">t5</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[71]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>survived</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>fare</th>
+      <th>embarked</th>
+      <th>class</th>
+      <th>who</th>
+      <th>deck</th>
+      <th>embark_town</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>7.2500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>None</td>
+      <td>Southampton</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>71.2833</td>
+      <td>C</td>
+      <td>First</td>
+      <td>woman</td>
+      <td>C</td>
+      <td>Cherbourg</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>female</td>
+      <td>4.0</td>
+      <td>16.7000</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>child</td>
+      <td>G</td>
+      <td>Southampton</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>female</td>
+      <td>28.0</td>
+      <td>7.8958</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>woman</td>
+      <td>None</td>
+      <td>Southampton</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>7.8958</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>None</td>
+      <td>Southampton</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [72]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">t5</span><span class="o">.</span><span class="n">to_feather</span><span class="p">(</span><span class="s1">&#39;titanic.feather&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [73]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">t6</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_feather</span><span class="p">(</span><span class="s1">&#39;titanic.feather&#39;</span><span class="p">)</span>
+<span class="n">t6</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[73]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>survived</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>fare</th>
+      <th>embarked</th>
+      <th>class</th>
+      <th>who</th>
+      <th>deck</th>
+      <th>embark_town</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>7.2500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>None</td>
+      <td>Southampton</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>71.2833</td>
+      <td>C</td>
+      <td>First</td>
+      <td>woman</td>
+      <td>C</td>
+      <td>Cherbourg</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>female</td>
+      <td>4.0</td>
+      <td>16.7000</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>child</td>
+      <td>G</td>
+      <td>Southampton</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>female</td>
+      <td>28.0</td>
+      <td>7.8958</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>woman</td>
+      <td>None</td>
+      <td>Southampton</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>7.8958</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>None</td>
+      <td>Southampton</td>
     </tr>
   </tbody>
 </table>
