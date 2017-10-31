@@ -26,7 +26,7 @@
    "outputs": [],
    "source": [
     "import nltk\n",
-    "nltk.download()"
+    "#nltk.download()"
    ]
   },
   {
@@ -437,7 +437,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": 15,
    "metadata": {},
    "outputs": [
     {
@@ -465,7 +465,7 @@
        " 'hers']"
       ]
      },
-     "execution_count": 16,
+     "execution_count": 15,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -485,7 +485,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 16,
    "metadata": {
     "collapsed": true
    },
@@ -505,7 +505,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 17,
    "metadata": {
     "collapsed": true
    },
@@ -519,7 +519,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 18,
    "metadata": {},
    "outputs": [
     {
@@ -547,7 +547,7 @@
        " (\"it's\", 162)]"
       ]
      },
-     "execution_count": 19,
+     "execution_count": 18,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -558,7 +558,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 19,
    "metadata": {},
    "outputs": [
     {
@@ -586,7 +586,7 @@
        " ('much', 139)]"
       ]
      },
-     "execution_count": 20,
+     "execution_count": 19,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -607,7 +607,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 20,
    "metadata": {},
    "outputs": [
     {
@@ -616,7 +616,7 @@
        "'actual'"
       ]
      },
-     "execution_count": 21,
+     "execution_count": 20,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -637,7 +637,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 21,
    "metadata": {},
    "outputs": [
     {
@@ -661,7 +661,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 22,
    "metadata": {
     "collapsed": true
    },
@@ -687,7 +687,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 26,
+   "execution_count": 23,
    "metadata": {},
    "outputs": [
     {
@@ -715,7 +715,7 @@
        " ('new', 153)]"
       ]
      },
-     "execution_count": 26,
+     "execution_count": 23,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -726,7 +726,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 27,
+   "execution_count": 24,
    "metadata": {},
    "outputs": [
     {
@@ -754,7 +754,7 @@
        " ('love', 151)]"
       ]
      },
-     "execution_count": 27,
+     "execution_count": 24,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -773,7 +773,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 28,
+   "execution_count": 25,
    "metadata": {
     "collapsed": true
    },
@@ -784,15 +784,15 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 29,
+   "execution_count": 26,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "CPU times: user 469 ms, sys: 0 ns, total: 469 ms\n",
-      "Wall time: 565 ms\n"
+      "CPU times: user 344 ms, sys: 0 ns, total: 344 ms\n",
+      "Wall time: 340 ms\n"
      ]
     }
    ],
@@ -804,15 +804,15 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 30,
+   "execution_count": 27,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "CPU times: user 109 ms, sys: 0 ns, total: 109 ms\n",
-      "Wall time: 118 ms\n"
+      "CPU times: user 78.1 ms, sys: 15.6 ms, total: 93.8 ms\n",
+      "Wall time: 84.8 ms\n"
      ]
     }
    ],
@@ -824,15 +824,15 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 31,
+   "execution_count": 28,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "CPU times: user 188 ms, sys: 0 ns, total: 188 ms\n",
-      "Wall time: 199 ms\n"
+      "CPU times: user 141 ms, sys: 0 ns, total: 141 ms\n",
+      "Wall time: 131 ms\n"
      ]
     }
    ],
@@ -844,15 +844,15 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 32,
+   "execution_count": 29,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "CPU times: user 609 ms, sys: 15.6 ms, total: 625 ms\n",
-      "Wall time: 663 ms\n"
+      "CPU times: user 344 ms, sys: 15.6 ms, total: 359 ms\n",
+      "Wall time: 352 ms\n"
      ]
     }
    ],
@@ -877,7 +877,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 33,
+   "execution_count": 30,
    "metadata": {
     "collapsed": true
    },
@@ -898,7 +898,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 34,
+   "execution_count": 31,
    "metadata": {
     "collapsed": true
    },
@@ -910,15 +910,15 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 35,
+   "execution_count": 32,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "CPU times: user 781 ms, sys: 15.6 ms, total: 797 ms\n",
-      "Wall time: 830 ms\n"
+      "CPU times: user 500 ms, sys: 15.6 ms, total: 516 ms\n",
+      "Wall time: 507 ms\n"
      ]
     }
    ],
@@ -929,15 +929,15 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 36,
+   "execution_count": 33,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "CPU times: user 328 ms, sys: 31.2 ms, total: 359 ms\n",
-      "Wall time: 366 ms\n"
+      "CPU times: user 188 ms, sys: 15.6 ms, total: 203 ms\n",
+      "Wall time: 194 ms\n"
      ]
     }
    ],
@@ -948,7 +948,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 37,
+   "execution_count": 34,
    "metadata": {},
    "outputs": [
     {
@@ -956,7 +956,7 @@
      "output_type": "stream",
      "text": [
       "CPU times: user 31.2 ms, sys: 0 ns, total: 31.2 ms\n",
-      "Wall time: 32 ms\n"
+      "Wall time: 26.6 ms\n"
      ]
     }
    ],
@@ -974,7 +974,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 40,
+   "execution_count": 35,
    "metadata": {},
    "outputs": [
     {
@@ -1002,7 +1002,7 @@
        " ('follow', 308)]"
       ]
      },
-     "execution_count": 40,
+     "execution_count": 35,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1037,7 +1037,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 46,
+   "execution_count": 36,
    "metadata": {},
    "outputs": [
     {
@@ -1059,7 +1059,7 @@
        " ('community', 'NN')]"
       ]
      },
-     "execution_count": 46,
+     "execution_count": 36,
      "metadata": {},
      "output_type": "execute_result"
     }

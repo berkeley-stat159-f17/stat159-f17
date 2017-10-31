@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Lab 4 &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Lab 5" href="lab5.html" />
@@ -33,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -46,18 +49,18 @@
 <div class="section" id="first-quiz">
 <span id="first-quiz"></span><h2>First Quiz<a class="headerlink" href="#first-quiz" title="Permalink to this headline">¶</a></h2>
 <p>Today we have our first quiz.
-For this (and future) quizes we'll be using the SCF accounts we set up last time.
-On the SCF accounts we're using <code class="docutils literal"><span class="pre">nbgrader</span></code>, a system which allows for instructors to create assignments in Jupyter notebooks and for students to complete and submit assignments in those notebooks.</p>
+For this (and future) quizes we&#8217;ll be using the SCF accounts we set up last time.
+On the SCF accounts we&#8217;re using <code class="docutils literal"><span class="pre">nbgrader</span></code>, a system which allows for instructors to create assignments in Jupyter notebooks and for students to complete and submit assignments in those notebooks.</p>
 <p>To access the quiz, navigate to <a class="reference external" href="https://jupyter.stat.berkeley.edu:8443/hub/login">Jupyter Hub on the SCF servers</a> (shortened url: http://bit.ly/2wvKG7r.</p>
 <p><img alt="JupyterHub login" src="../_images/jupyter_hub_login.png" /></p>
 <p>Log in with your username (<code class="docutils literal"><span class="pre">s159-X</span></code> where <code class="docutils literal"><span class="pre">X</span></code> ranges from 1-100) and password that you set up last lab.</p>
-<p>To take the quiz, navigate to the &quot;Assignments&quot; tab. Under &quot;Released Assignments&quot; you should see <code class="docutils literal"><span class="pre">quiz1_lab1</span></code>. Click on <code class="docutils literal"><span class="pre">Fetch</span></code> next to download the assignment, <code class="docutils literal"><span class="pre">quiz1_lab1</span></code> will now move to &quot;Downloaded Assignments&quot;. Complete the questions by clicking on the drop down menu and selecting each problem (<code class="docutils literal"><span class="pre">p1</span></code>, <code class="docutils literal"><span class="pre">p2</span></code>, and <code class="docutils literal"><span class="pre">p3</span></code>). When finished with the assignment, click on &quot;Validate&quot; for each problem to ensure that you've completed it, then press &quot;Submit&quot;.</p>
+<p>To take the quiz, navigate to the &#8220;Assignments&#8221; tab. Under &#8220;Released Assignments&#8221; you should see <code class="docutils literal"><span class="pre">quiz1_lab1</span></code>. Click on <code class="docutils literal"><span class="pre">Fetch</span></code> next to download the assignment, <code class="docutils literal"><span class="pre">quiz1_lab1</span></code> will now move to &#8220;Downloaded Assignments&#8221;. Complete the questions by clicking on the drop down menu and selecting each problem (<code class="docutils literal"><span class="pre">p1</span></code>, <code class="docutils literal"><span class="pre">p2</span></code>, and <code class="docutils literal"><span class="pre">p3</span></code>). When finished with the assignment, click on &#8220;Validate&#8221; for each problem to ensure that you&#8217;ve completed it, then press &#8220;Submit&#8221;.</p>
 <p><img alt="Quiz Drop Down" src="../_images/quiz_drop_down.png" /></p>
 <p>You have 15 minutes to complete the quiz.</p>
 </div>
 <div class="section" id="whirlwind-tour-of-python">
 <span id="whirlwind-tour-of-python"></span><h2>Whirlwind Tour of Python<a class="headerlink" href="#whirlwind-tour-of-python" title="Permalink to this headline">¶</a></h2>
-<p>For the remainder of the lab we'll continue to go through the <a class="reference external" href="https://jakevdp.github.io/WhirlwindTourOfPython/index.html">Whirlwind Tour of Python</a>.</p>
+<p>For the remainder of the lab we&#8217;ll continue to go through the <a class="reference external" href="https://jakevdp.github.io/WhirlwindTourOfPython/index.html">Whirlwind Tour of Python</a>.</p>
 </div>
 </div>
 
@@ -78,7 +81,7 @@ On the SCF accounts we're using <code class="docutils literal"><span class="pre"
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -93,9 +96,12 @@ On the SCF accounts we're using <code class="docutils literal"><span class="pre"
 <li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/trapezoid.html">The trapezoidal rule: vectorization and perormance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Live plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/image_tutorial.html">Matplotlib image tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/image_tutorial.html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab 1</a></li>
@@ -105,6 +111,8 @@ On the SCF accounts we're using <code class="docutils literal"><span class="pre"
 <li class="toctree-l1"><a class="reference internal" href="lab5.html">Lab 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab8.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab9.html">Lab 9</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
@@ -137,7 +145,7 @@ On the SCF accounts we're using <code class="docutils literal"><span class="pre"
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

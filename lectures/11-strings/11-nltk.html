@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>NLTK: Natural Language Made Easy &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Data - an introduction to the world of Pandas" href="../12-data-intro.html" />
@@ -33,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -205,17 +208,17 @@ div.nboutput div.output_area.stderr {
 </style>
 <div class="section" id="NLTK:-Natural-Language-Made-Easy">
 <h1>NLTK: Natural Language Made Easy<a class="headerlink" href="#NLTK:-Natural-Language-Made-Easy" title="Permalink to this headline">¶</a></h1>
-<p>Dealing with text is hard! Thankfully, it’s hard for everyone, so tools
+<p>Dealing with text is hard! Thankfully, it&#8217;s hard for everyone, so tools
 exist to make it easier.</p>
-<p>NLTK, the Natural Language Toolkit, is a python package “for building
-Python programs to work with human language data”. It has many tools for
+<p>NLTK, the Natural Language Toolkit, is a python package &#8220;for building
+Python programs to work with human language data&#8221;. It has many tools for
 basic language processing (e.g. tokenization, <span class="math">\(n\)</span>-grams, etc.) as
 well as tools for more complicated language processing (e.g. part of
 speech tagging, parse trees, etc.).</p>
 <p>NLTK has an <a class="reference external" href="http://www.nltk.org/book/">associated book about NLP</a>
 that provides some context for the corpora and models.</p>
 <div class="section" id="Installing-NLTK,-or-&quot;why-do-I-need-to-download-so-much-data?&quot;">
-<h2>Installing NLTK, or “why do I need to download so much data?”<a class="headerlink" href="#Installing-NLTK,-or-"why-do-I-need-to-download-so-much-data?"" title="Permalink to this headline">¶</a></h2>
+<h2>Installing NLTK, or &#8220;why do I need to download so much data?&#8221;<a class="headerlink" href="#Installing-NLTK,-or-"why-do-I-need-to-download-so-much-data?"" title="Permalink to this headline">¶</a></h2>
 <p>We can <code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">nltk</span></code> to get the package. Then we need to do
 something somewhat strange: we have to download data.</p>
 <div class="nbinput nblast docutils container">
@@ -225,7 +228,7 @@ something somewhat strange: we have to download data.</p>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">nltk</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
+<span class="c1">#nltk.download()</span>
 </pre></div>
 </div>
 </div>
@@ -256,7 +259,7 @@ something somewhat strange: we have to download data.</p>
 <h2>Analyzing tweets<a class="headerlink" href="#Analyzing-tweets" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="First-pass">
 <h3>First pass<a class="headerlink" href="#First-pass" title="Permalink to this headline">¶</a></h3>
-<p>Let’s take a look at one corpus in particular: positive and negative
+<p>Let&#8217;s take a look at one corpus in particular: positive and negative
 tweets.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -332,7 +335,7 @@ tokenization.</p>
 </pre></div></div>
 </div>
 <p>We can look at the most common words (like in the first homework) using
-Python’s Counter class.</p>
+Python&#8217;s Counter class.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [6]:
@@ -424,18 +427,18 @@ Python’s Counter class.</p>
 </pre></div>
 </div>
 </div>
-<p>The two most common tokens for postiive tweets are “:” and “)” and the
-tweo most common tokens for negative tweets are “(” and “:”. These are
+<p>The two most common tokens for postiive tweets are &#8221;:&#8221; and &#8221;)&#8221; and the
+tweo most common tokens for negative tweets are &#8220;(&#8221; and &#8221;:&#8221;. These are
 smiley and frowny faces! The basic word tokenizer is treating these as
 separate tokens, which makes sense in most cases but not for text from
 social media.</p>
 </div>
 <div class="section" id="A-better-tokenizer">
 <h3>A better tokenizer<a class="headerlink" href="#A-better-tokenizer" title="Permalink to this headline">¶</a></h3>
-<p>We’re not the first people to see this problem, and NLTK actually has a
+<p>We&#8217;re not the first people to see this problem, and NLTK actually has a
 wide set of tokenizers in the <code class="docutils literal"><span class="pre">`nltk.tokenizer</span></code>
 module &lt;<a class="reference external" href="http://www.nltk.org/api/nltk.tokenize.html">http://www.nltk.org/api/nltk.tokenize.html</a>&gt;`__. In particular,
-there’s a <a class="reference external" href="http://www.nltk.org/api/nltk.tokenize.html#module-nltk.tokenize.casual">tokenizer that’s optimized for
+there&#8217;s a <a class="reference external" href="http://www.nltk.org/api/nltk.tokenize.html#module-nltk.tokenize.casual">tokenizer that&#8217;s optimized for
 tweets</a>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -543,13 +546,13 @@ tweets</a>.</p>
 </div>
 </div>
 <p>Much better! This tokenizer got rid of twitter handles for us, so no
-more “&#64;” tokens, and catches emoticons. However, there are still some
+more &#8220;&#64;&#8221; tokens, and catches emoticons. However, there are still some
 questions:</p>
 <ol class="arabic simple">
 <li>Should we count a capitalized word differently from a non-capitalized
-word? e.g. should “Thanks” be different from “thanks”?</li>
+word? e.g. should &#8220;Thanks&#8221; be different from &#8220;thanks&#8221;?</li>
 <li>Do we want to be counting punctuation?</li>
-<li>Do we want to count words like “I”, “me”, etc.?</li>
+<li>Do we want to count words like &#8220;I&#8221;, &#8220;me&#8221;, etc.?</li>
 </ol>
 <p>Using a combination of NLTK and basic Python string tools we can address
 these concerns.</p>
@@ -598,11 +601,11 @@ latin alphabet.</p>
 </pre></div>
 </div>
 </div>
-<p>NLTK has a collection of “stop words” for many languages, including
+<p>NLTK has a collection of &#8220;stop words&#8221; for many languages, including
 English. This is one of the corpora we downloaded.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [16]:
+<span></span>In [15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -614,7 +617,7 @@ English. This is one of the corpora we downloaded.</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[16]:
+<span></span>Out[15]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -644,7 +647,7 @@ English. This is one of the corpora we downloaded.</p>
 <p>We can combine all of these into our tokenizer</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [17]:
+<span></span>In [16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -663,7 +666,7 @@ English. This is one of the corpora we downloaded.</p>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [18]:
+<span></span>In [17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -676,7 +679,7 @@ English. This is one of the corpora we downloaded.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [19]:
+<span></span>In [18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -686,7 +689,7 @@ English. This is one of the corpora we downloaded.</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[19]:
+<span></span>Out[18]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -715,7 +718,7 @@ English. This is one of the corpora we downloaded.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [20]:
+<span></span>In [19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -725,7 +728,7 @@ English. This is one of the corpora we downloaded.</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[20]:
+<span></span>Out[19]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -758,10 +761,10 @@ English. This is one of the corpora we downloaded.</p>
 <p>How we pre-process text is very important. NLTK provides more tools for
 pre-processing.</p>
 <p>One popular method of pre-processing is <strong>stemming</strong>. The idea here is
-to find the “root” of each word.</p>
+to find the &#8220;root&#8221; of each word.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [21]:
+<span></span>In [20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -774,7 +777,7 @@ to find the “root” of each word.</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[21]:
+<span></span>Out[20]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -785,7 +788,7 @@ to find the “root” of each word.</p>
 <p>Does this always work how we want?</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [22]:
+<span></span>In [21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -801,10 +804,10 @@ to find the “root” of each word.</p>
 pleas pleas
 </pre></div></div>
 </div>
-<p>Let’s update the tokenizer</p>
+<p>Let&#8217;s update the tokenizer</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [23]:
+<span></span>In [22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -829,7 +832,7 @@ pleas pleas
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [26]:
+<span></span>In [23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -839,7 +842,7 @@ pleas pleas
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[26]:
+<span></span>Out[23]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -868,7 +871,7 @@ pleas pleas
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [27]:
+<span></span>In [24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -878,7 +881,7 @@ pleas pleas
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[27]:
+<span></span>Out[24]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -911,7 +914,7 @@ pleas pleas
 <p>How does the runtime change as we add all of these complications?</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [28]:
+<span></span>In [25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -921,7 +924,7 @@ pleas pleas
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [29]:
+<span></span>In [26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -936,13 +939,13 @@ _ = tokenize_tweets1(small_twt)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-CPU times: user 469 ms, sys: 0 ns, total: 469 ms
-Wall time: 565 ms
+CPU times: user 344 ms, sys: 0 ns, total: 344 ms
+Wall time: 340 ms
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [30]:
+<span></span>In [27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -957,13 +960,13 @@ _ = tokenize_tweets2(small_twt)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-CPU times: user 109 ms, sys: 0 ns, total: 109 ms
-Wall time: 118 ms
+CPU times: user 78.1 ms, sys: 15.6 ms, total: 93.8 ms
+Wall time: 84.8 ms
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [31]:
+<span></span>In [28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -978,13 +981,13 @@ _ = tokenize_tweets3(small_twt)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-CPU times: user 188 ms, sys: 0 ns, total: 188 ms
-Wall time: 199 ms
+CPU times: user 141 ms, sys: 0 ns, total: 141 ms
+Wall time: 131 ms
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [32]:
+<span></span>In [29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -999,19 +1002,19 @@ _ = tokenize_tweets4(small_twt)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-CPU times: user 609 ms, sys: 15.6 ms, total: 625 ms
-Wall time: 663 ms
+CPU times: user 344 ms, sys: 15.6 ms, total: 359 ms
+Wall time: 352 ms
 </pre></div></div>
 </div>
 <p>Takeaways: - The general NLTK word tokenizer works on many problems, but
 that generality makes it slow - Using a tokenizer optimized to your
 problem will be faster - Adding more and more complications adds more
 and more time - Sometimes need to work to optimize these also</p>
-<p>This optimization really does matter. Here’s a “fast” version of
+<p>This optimization really does matter. Here&#8217;s a &#8220;fast&#8221; version of
 tokenization made for a specific project.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [33]:
+<span></span>In [30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1031,7 +1034,7 @@ tokenization made for a specific project.</p>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [34]:
+<span></span>In [31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1042,7 +1045,7 @@ tokenization made for a specific project.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [35]:
+<span></span>In [32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1056,13 +1059,13 @@ _ = nltk.word_tokenize(small_twt)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-CPU times: user 781 ms, sys: 15.6 ms, total: 797 ms
-Wall time: 830 ms
+CPU times: user 500 ms, sys: 15.6 ms, total: 516 ms
+Wall time: 507 ms
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [36]:
+<span></span>In [33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1076,13 +1079,13 @@ _ = twt.tokenize(small_twt)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-CPU times: user 328 ms, sys: 31.2 ms, total: 359 ms
-Wall time: 366 ms
+CPU times: user 188 ms, sys: 15.6 ms, total: 203 ms
+Wall time: 194 ms
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [37]:
+<span></span>In [34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1097,15 +1100,15 @@ _ = word_tokenize(small_twt)
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 CPU times: user 31.2 ms, sys: 0 ns, total: 31.2 ms
-Wall time: 32 ms
+Wall time: 26.6 ms
 </pre></div></div>
 </div>
 <p>We can see that optimizing our tokenization can really help the speed.
-But this tokenizer isn’t optimized for this problem. For instance, it
-doesn’t pick up emoticons.</p>
+But this tokenizer isn&#8217;t optimized for this problem. For instance, it
+doesn&#8217;t pick up emoticons.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [40]:
+<span></span>In [35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1115,7 +1118,7 @@ doesn’t pick up emoticons.</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[40]:
+<span></span>Out[35]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -1154,7 +1157,7 @@ processsing.</p>
 <p>We can get the parts of speech for each word in a sentence</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [46]:
+<span></span>In [36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1165,7 +1168,7 @@ processsing.</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[46]:
+<span></span>Out[36]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -1207,7 +1210,7 @@ processsing.</p>
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -1238,7 +1241,7 @@ processsing.</p>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab7.html">Lab 7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab8.html">Lab 8</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../labs/mpl_tight_layout_bug.html">A bug in mpl’s <code class="docutils literal"><span class="pre">tight_layout</span></code>?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab9.html">Lab 9</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Course resources</a></li>
@@ -1271,7 +1274,7 @@ processsing.</p>
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
