@@ -12,6 +12,24 @@ The `class syllabus <_static/ref/syllabus.pdf>`_ will be updated over the course
 
 Readings
 ~~~~~~~~
+* Due **Monday Novemeber 13, 2017**:
+ - The official ASA statement on p-values (asastatementpvalues.pdf on Piazza)
+
+     - And two comments on the statement:
+
+       - It's not the p-values' fault, by Y. Benjamini (asacommybenjamini.pdf on Piazza)
+
+       - The value of p-values, by P. Stark (asacommpstark.pdf on Piazza)
+
+ - Redefine statistical significance (redefinestatsignat2017.pdf on Piazza)
+
+ - If you're interested you can also read:
+
+   - The Problems With P-Values are not Just With P-Values, by A. Gelman (asacommagelman.pdf on Piazza)
+
+   - Fit-for-Purpose Inferential Methods: Abandoning/Changing P-values Versus Abandoning/Changing Research, by J. Ioannidis (asacommjioannidis.pdf on Piazza)
+
+ Prof. Philip Stark will be giving a guest lecture on November 14th on the ASA statement, and it'll be an interesting discussion.
 
 * Due **Monday** October 9, 2017:
 
