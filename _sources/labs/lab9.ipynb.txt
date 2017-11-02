@@ -1228,9 +1228,7 @@
   {
    "cell_type": "code",
    "execution_count": 27,
-   "metadata": {
-    "collapsed": true
-   },
+   "metadata": {},
    "outputs": [],
    "source": [
     "### Your code here"
@@ -1503,9 +1501,7 @@
   {
    "cell_type": "code",
    "execution_count": 35,
-   "metadata": {
-    "collapsed": true
-   },
+   "metadata": {},
    "outputs": [],
    "source": [
     "### Your code here"
@@ -1521,9 +1517,7 @@
   {
    "cell_type": "code",
    "execution_count": 36,
-   "metadata": {
-    "collapsed": true
-   },
+   "metadata": {},
    "outputs": [],
    "source": [
     "### Your code here"
