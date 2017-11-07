@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Lab 5 &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Lab 6" href="lab6.html" />
@@ -33,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -255,13 +258,13 @@ will only be read, <code class="docutils literal"><span class="pre">'w'</span></
 same name will be erased), and <code class="docutils literal"><span class="pre">'a'</span></code> opens the file for appending; any
 data written to the file is automatically added to the end. <code class="docutils literal"><span class="pre">'r+'</span></code>
 opens the file for both reading and writing. The <em>mode</em> argument is
-optional; <code class="docutils literal"><span class="pre">'r'</span></code> will be assumed if it’s omitted.</p>
+optional; <code class="docutils literal"><span class="pre">'r'</span></code> will be assumed if it&#8217;s omitted.</p>
 <p>Normally, files are opened in text mode, that means, you read and write
 strings from and to the file, which are encoded in a specific encoding.
 If encoding is not specified, the default is platform dependent (see
 open). <code class="docutils literal"><span class="pre">'b'</span></code> appended to the mode opens the file in binary mode: now
 the data is read and written in the form of bytes objects. This mode
-should be used for all files that don’t contain text.</p>
+should be used for all files that don&#8217;t contain text.</p>
 <p>In text mode, the default when reading is to convert platform-specific
 line endings (<code class="docutils literal"><span class="pre">\n</span></code> on Unix, <code class="docutils literal"><span class="pre">\r\n</span></code> on Windows) to just <code class="docutils literal"><span class="pre">\n</span></code>. When
 writing in text mode, the default is to convert occurrences of <code class="docutils literal"><span class="pre">\n</span></code>
@@ -295,9 +298,9 @@ is also much shorter than writing equivalent try-finally blocks:</p>
 </pre></div>
 </div>
 </div>
-<p>If you’re not using the with keyword, then you should call <code class="docutils literal"><span class="pre">f.close()</span></code>
+<p>If you&#8217;re not using the with keyword, then you should call <code class="docutils literal"><span class="pre">f.close()</span></code>
 to close the file and immediately free up any system resources used by
-it. If you don’t explicitly close a file, Python’s garbage collector
+it. If you don&#8217;t explicitly close a file, Python&#8217;s garbage collector
 will eventually destroy the object and close the open file for you, but
 the file may stay open for a while. Another risk is that different
 Python implementations will do this clean-up at different times.</p>
@@ -330,7 +333,7 @@ try-finally blocks</p>
 </div>
 <div class="section" id="Methods-for-file-objects">
 <h3>Methods for file objects<a class="headerlink" href="#Methods-for-file-objects" title="Permalink to this headline">¶</a></h3>
-<p>First, let’s create a file object for <code class="docutils literal"><span class="pre">example.txt</span></code></p>
+<p>First, let&#8217;s create a file object for <code class="docutils literal"><span class="pre">example.txt</span></code></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [12]:
@@ -343,12 +346,12 @@ try-finally blocks</p>
 </div>
 <div class="section" id="Reading">
 <h4>Reading<a class="headerlink" href="#Reading" title="Permalink to this headline">¶</a></h4>
-<p>To read a file’s contents, call <code class="docutils literal"><span class="pre">f.read(size)</span></code>, which reads some
+<p>To read a file&#8217;s contents, call <code class="docutils literal"><span class="pre">f.read(size)</span></code>, which reads some
 quantity of data and returns it as a string (in text mode) or bytes
 object (in binary mode). <code class="docutils literal"><span class="pre">size</span></code> is an optional numeric argument. When
 <code class="docutils literal"><span class="pre">size</span></code> is omitted or negative, <strong>the entire contents of the file will
-be read and returned</strong>; it’s your problem if the file is twice as large
-as your machine’s memory. Otherwise, at most <em>size</em> bytes are read and
+be read and returned</strong>; it&#8217;s your problem if the file is twice as large
+as your machine&#8217;s memory. Otherwise, at most <em>size</em> bytes are read and
 returned. If the end of the file has been reached, <code class="docutils literal"><span class="pre">f.read()</span></code> will
 return an empty string (<code class="docutils literal"><span class="pre">''</span></code>). :</p>
 <div class="nbinput docutils container">
@@ -393,7 +396,7 @@ We&#39;ll parse this file.
 </div>
 <p><code class="docutils literal"><span class="pre">f.readline()</span></code> reads a single line from the file; a newline character
 (<code class="docutils literal"><span class="pre">\n</span></code>) is left at the end of the string, and is only omitted on the
-last line of the file if the file doesn’t end in a newline. This makes
+last line of the file if the file doesn&#8217;t end in a newline. This makes
 the return value unambiguous; if <code class="docutils literal"><span class="pre">f.readline()</span></code> returns an empty
 string, the end of the file has been reached, while a blank line is
 represented by <code class="docutils literal"><span class="pre">'\n'</span></code>, a string containing only a single newline. :</p>
@@ -487,7 +490,7 @@ We&#39;ll parse this file.
 </div>
 <div class="section" id="Writing">
 <h4>Writing<a class="headerlink" href="#Writing" title="Permalink to this headline">¶</a></h4>
-<p>Now let’s create a new file to write to</p>
+<p>Now let&#8217;s create a new file to write to</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [22]:
@@ -521,8 +524,8 @@ returning the number of characters written. :</p>
 </pre></div>
 </div>
 </div>
-<p>Other types of objects need to be converted – either to a string (in
-text mode) or a bytes object (in binary mode) – before writing them:</p>
+<p>Other types of objects need to be converted &#8211; either to a string (in
+text mode) or a bytes object (in binary mode) &#8211; before writing them:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [25]:
@@ -536,10 +539,10 @@ text mode) or a bytes object (in binary mode) – before writing them:</p>
 </pre></div>
 </div>
 </div>
-<p><code class="docutils literal"><span class="pre">f.tell()</span></code> returns an integer giving the file object’s current
+<p><code class="docutils literal"><span class="pre">f.tell()</span></code> returns an integer giving the file object&#8217;s current
 position in the file represented as number of bytes from the beginning
 of the file when in binary mode and an opaque number when in text mode.</p>
-<p>To change the file object’s position, use <code class="docutils literal"><span class="pre">f.seek(offset,</span> <span class="pre">from_what)</span></code>.
+<p>To change the file object&#8217;s position, use <code class="docutils literal"><span class="pre">f.seek(offset,</span> <span class="pre">from_what)</span></code>.
 The position is computed from adding <em>offset</em> to a reference point; the
 reference point is selected by the <em>from_what</em> argument. A <em>from_what</em>
 value of 0 measures from the beginning of the file, 1 uses the current
@@ -658,9 +661,9 @@ Any other <em>offset</em> value produces undefined behaviour.</p>
 </div>
 <div class="section" id="Other-file-types">
 <h4>Other file types<a class="headerlink" href="#Other-file-types" title="Permalink to this headline">¶</a></h4>
-<p>Many times you’ll encounter data not stored in text files. In
+<p>Many times you&#8217;ll encounter data not stored in text files. In
 particular, data is oftentimes compressed. For the second homework
-you’ll need to read a file which has been compressed with <a class="reference external" href="https://www.gnu.org/software/gzip/">GNU
+you&#8217;ll need to read a file which has been compressed with <a class="reference external" href="https://www.gnu.org/software/gzip/">GNU
 Gzip</a>. You can open files like
 this in python in similar ways as ordinary text files.</p>
 </div>
@@ -754,7 +757,7 @@ negative number.</p>
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -769,18 +772,25 @@ negative number.</p>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/trapezoid.html">The trapezoidal rule: vectorization and perormance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Live plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/image_tutorial.html">Matplotlib image tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/image_tutorial.html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/13-data-frames.html">Data Manipulation</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab10.html">Lab 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab2.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab3.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab4.html">Lab 4</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Lab 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab8.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab9.html">Lab 9</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
@@ -813,7 +823,7 @@ negative number.</p>
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

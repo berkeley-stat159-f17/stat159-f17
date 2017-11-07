@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Data - an introduction to the world of Pandas &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -21,10 +24,10 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lab 1" href="../labs/lab1.html" />
+    <link rel="next" title="Data Manipulation" href="13-data-frames.html" />
     <link rel="prev" title="NLTK: Natural Language Made Easy" href="11-strings/11-nltk.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -33,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -206,15 +209,15 @@ div.nboutput div.output_area.stderr {
 <div class="section" id="Data---an-introduction-to-the-world-of-Pandas">
 <h1>Data - an introduction to the world of Pandas<a class="headerlink" href="#Data---an-introduction-to-the-world-of-Pandas" title="Permalink to this headline">¶</a></h1>
 <p><strong>Note:</strong> This is an edited version of <a class="reference external" href="http://people.duke.edu/~ccc14/sta-663-2017/07_Data.html">Cliburn
-Chan’s</a>
+Chan&#8217;s</a>
 original tutorial, as part of his Stat-663 course at Duke. All changes
 remain licensed as the original, under the terms of the MIT license.</p>
-<p>Additionally, sections have been merged from <a class="reference external" href="https://github.com/fonnesbeck/ngcm_pandas_2017/blob/master/notebooks/1.%20Introduction%20to%20NumPy%20and%20Pandas.ipynb">Chris Fonnesbeck’s Pandas
+<p>Additionally, sections have been merged from <a class="reference external" href="https://github.com/fonnesbeck/ngcm_pandas_2017/blob/master/notebooks/1.%20Introduction%20to%20NumPy%20and%20Pandas.ipynb">Chris Fonnesbeck&#8217;s Pandas
 tutorial from the NGCM Summer
 Academy</a>,
 which are licensed under <a class="reference external" href="https://creativecommons.org/share-your-work/public-domain/cc0">CC0
 terms</a>
-(aka ‘public domain’).</p>
+(aka &#8216;public domain&#8217;).</p>
 <div class="section" id="Resources">
 <h2>Resources<a class="headerlink" href="#Resources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -1766,7 +1769,7 @@ dtype: object
 <div class="section" id="Indexing">
 <h3>Indexing<a class="headerlink" href="#Indexing" title="Permalink to this headline">¶</a></h3>
 <p>The default indexing mode for dataframes with <code class="docutils literal"><span class="pre">df[X]</span></code> is to access the
-DataFrame’s <em>columns</em>:</p>
+DataFrame&#8217;s <em>columns</em>:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [39]:
@@ -2692,7 +2695,7 @@ index or its columns:</p>
 </table>
 </div></div>
 </div>
-<p>Since the Titanic index is already sorted, it’s easier to illustrate how
+<p>Since the Titanic index is already sorted, it&#8217;s easier to illustrate how
 to use it for the index with a small test DF:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -3773,7 +3776,7 @@ compute summary statistics over the group members, e.g.:</p>
 </div>
 </div>
 <div class="section" id="Why-Kate-Winslett-survived-and-Leonardo-DiCaprio-didn't">
-<h4>Why Kate Winslett survived and Leonardo DiCaprio didn’t<a class="headerlink" href="#Why-Kate-Winslett-survived-and-Leonardo-DiCaprio-didn't" title="Permalink to this headline">¶</a></h4>
+<h4>Why Kate Winslett survived and Leonardo DiCaprio didn&#8217;t<a class="headerlink" href="#Why-Kate-Winslett-survived-and-Leonardo-DiCaprio-didn't" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [60]:
@@ -3944,7 +3947,7 @@ compute summary statistics over the group members, e.g.:</p>
 </table>
 </div></div>
 </div>
-<p>Since <code class="docutils literal"><span class="pre">count</span></code> counts non-missing data, we’re really interested in the
+<p>Since <code class="docutils literal"><span class="pre">count</span></code> counts non-missing data, we&#8217;re really interested in the
 maximum value for each row, which we can obtain directly:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -4380,7 +4383,7 @@ directly which functions we want to call, and where:</p>
 </table>
 </div></div>
 </div>
-<p>Let’s save this data to a CSV file so we don’t need to re-download it on
+<p>Let&#8217;s save this data to a CSV file so we don&#8217;t need to re-download it on
 every run:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -4971,7 +4974,7 @@ converting the <code class="docutils literal"><span class="pre">titanic</span></
 <p>The <a class="reference external" href="http://proquest.safaribooksonline.com/book/physics/9781491901564/10dot-storing-data-files-and-hdf5/chp_storing_data_html">HDF5
 format</a>
 was designed in the Earth Sciences community but it can be an excellent
-general purpose tool. It’s efficient and type-safe, so you can store
+general purpose tool. It&#8217;s efficient and type-safe, so you can store
 complex dataframes in it and recover them back without information loss,
 using the <code class="docutils literal"><span class="pre">to_hdf</span></code> method:</p>
 <div class="nbinput docutils container">
@@ -5329,7 +5332,7 @@ support first:</p>
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -5350,9 +5353,11 @@ support first:</p>
 <li class="toctree-l1"><a class="reference internal" href="11-strings/11-strings.html">Strings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13-data-frames.html">Data Manipulation</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab10.html">Lab 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab2.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab3.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab4.html">Lab 4</a></li>
@@ -5361,7 +5366,6 @@ support first:</p>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab7.html">Lab 7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab8.html">Lab 8</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab9.html">Lab 9</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/mpl_tight_layout_bug.html">A bug in mpl’s <code class="docutils literal"><span class="pre">tight_layout</span></code>?</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
@@ -5372,7 +5376,7 @@ support first:</p>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="11-strings/11-nltk.html" title="previous chapter">NLTK: Natural Language Made Easy</a></li>
-      <li>Next: <a href="../labs/lab1.html" title="next chapter">Lab 1</a></li>
+      <li>Next: <a href="13-data-frames.html" title="next chapter">Data Manipulation</a></li>
   </ul></li>
 </ul>
 </div>
@@ -5394,7 +5398,7 @@ support first:</p>
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

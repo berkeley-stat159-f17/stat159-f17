@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Lab 3 &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Lab 4" href="lab4.html" />
@@ -33,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -61,15 +64,15 @@
 </div>
 <div class="section" id="first-homework">
 <span id="first-homework"></span><h2>First Homework<a class="headerlink" href="#first-homework" title="Permalink to this headline">¶</a></h2>
-<p>The first homework is a &quot;warm up&quot; for the first project. You'll be working in pairs to reproduce the figures in <a class="reference external" href="http://arxiv.org/abs/1502.00505">this paper</a>.
+<p>The first homework is a &#8220;warm up&#8221; for the first project. You&#8217;ll be working in pairs to reproduce the figures in <a class="reference external" href="http://arxiv.org/abs/1502.00505">this paper</a>.
 Working in pairs gives a feel for collaboration. How can we work together effectively?</p>
 <ol class="simple">
 <li>Start by selecting a work partner for this homework. This person will also be your work partner for the first project (but not the others).</li>
-<li>Select and write down the name of the team you will work as. The name of the team should be made from the first three letters of your Github usernames, in all lowercase. For example if your Github username is <code class="docutils literal"><span class="pre">Alice</span></code> and your partner's is <code class="docutils literal"><span class="pre">bobby</span></code>, your team name should be <code class="docutils literal"><span class="pre">ali-bob</span></code>.</li>
+<li>Select and write down the name of the team you will work as. The name of the team should be made from the first three letters of your Github usernames, in all lowercase. For example if your Github username is <code class="docutils literal"><span class="pre">Alice</span></code> and your partner&#8217;s is <code class="docutils literal"><span class="pre">bobby</span></code>, your team name should be <code class="docutils literal"><span class="pre">ali-bob</span></code>.</li>
 <li>When each of you visits the link from Piazza, after you accept your name from  the initial list, you will create your team with the appropriate team name (<code class="docutils literal"><span class="pre">ali-bob</span></code> in this case, make sure to use <strong>your actual team name!</strong>):</li>
 </ol>
 <p><img alt="ali-bob team creation" src="../_images/hw_team_signup.png" /></p>
-<p>Once you have accepted the assignment, you'll see a repository created for your team that you can both access. You should then clone that repository on your laptop and begin working, as indicated below.</p>
+<p>Once you have accepted the assignment, you&#8217;ll see a repository created for your team that you can both access. You should then clone that repository on your laptop and begin working, as indicated below.</p>
 <p>You may find it useful to watch this brief video with an introduction to how assignments work:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-52quDR2QSc" frameborder="0" allowfullscreen></iframe></div>
 <div class="section" id="working-together">
@@ -80,21 +83,21 @@ Working in pairs gives a feel for collaboration. How can we work together effect
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">my</span><span class="o">-</span><span class="n">awesome</span><span class="o">-</span><span class="n">work</span>
 </pre></div>
 </div>
-<p>After adding changes that you're happy with, you should push the branch to the shared repo</p>
+<p>After adding changes that you&#8217;re happy with, you should push the branch to the shared repo</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">my</span><span class="o">-</span><span class="n">awesome</span><span class="o">-</span><span class="n">work</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="creating-the-pull-request">
 <span id="creating-the-pull-request"></span><h3>Creating the pull request<a class="headerlink" href="#creating-the-pull-request" title="Permalink to this headline">¶</a></h3>
-<p>Once the branch is pushed, you can merge it into master with a pull request. Go to the repo on Github and click on the &quot;New pull request&quot; button</p>
+<p>Once the branch is pushed, you can merge it into master with a pull request. Go to the repo on Github and click on the &#8220;New pull request&#8221; button</p>
 <p><img alt="New pull request" src="../_images/pr.png" /></p>
-<p>You'll see a drop down menu for &quot;base&quot; and &quot;compare&quot; or &quot;head&quot;.
-The &quot;base&quot; drop down menu chooses the branch you want to merge on to.</p>
+<p>You&#8217;ll see a drop down menu for &#8220;base&#8221; and &#8220;compare&#8221; or &#8220;head&#8221;.
+The &#8220;base&#8221; drop down menu chooses the branch you want to merge on to.</p>
 <p><img alt="Choosing master as the base branch" src="../_images/base_master.png" /></p>
-<p>The &quot;compare&quot; or &quot;head&quot; drop down menu chooses the branch you want to merge</p>
+<p>The &#8220;compare&#8221; or &#8220;head&#8221; drop down menu chooses the branch you want to merge</p>
 <p><img alt="Choosing a head branch" src="../_images/compare_branch.png" /></p>
-<p>Now you can create the pull request and add general comments, comments on files, and comments on lines. If there isn't a merge error, Github will let you merge the branch.</p>
+<p>Now you can create the pull request and add general comments, comments on files, and comments on lines. If there isn&#8217;t a merge error, Github will let you merge the branch.</p>
 </div>
 </div>
 <div class="section" id="working-on-the-homework">
@@ -120,7 +123,7 @@ The &quot;base&quot; drop down menu chooses the branch you want to merge on to.<
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -135,18 +138,25 @@ The &quot;base&quot; drop down menu chooses the branch you want to merge on to.<
 <li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/trapezoid.html">The trapezoidal rule: vectorization and perormance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Live plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/image_tutorial.html">Matplotlib image tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/image_tutorial.html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/13-data-frames.html">Data Manipulation</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab10.html">Lab 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab2.html">Lab 2</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab4.html">Lab 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab5.html">Lab 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab8.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab9.html">Lab 9</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
@@ -179,7 +189,7 @@ The &quot;base&quot; drop down menu chooses the branch you want to merge on to.<
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Lab 2 &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -21,11 +24,11 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Lab 3" href="lab3.html" />
-    <link rel="prev" title="Lab 1" href="lab1.html" />
+    <link rel="prev" title="Lab 10" href="lab10.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -33,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -47,7 +50,7 @@
 <span id="some-useful-configuration"></span><h2>Some useful configuration<a class="headerlink" href="#some-useful-configuration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="setting-up-visual-studio-code-as-the-default-editor-for-git">
 <span id="setting-up-visual-studio-code-as-the-default-editor-for-git"></span><h3>Setting up Visual Studio Code as the default editor for git<a class="headerlink" href="#setting-up-visual-studio-code-as-the-default-editor-for-git" title="Permalink to this headline">¶</a></h3>
-<p>There are many times when git will pop open an editor, we'll set up that editor to be Visual Studio code.</p>
+<p>There are many times when git will pop open an editor, we&#8217;ll set up that editor to be Visual Studio code.</p>
 <p>Setting it up (<a class="reference external" href="https://stackoverflow.com/questions/30024353/how-to-use-visual-studio-code-as-default-editor-for-git">thanks to this stack overflow answer</a>)</p>
 <ul class="simple">
 <li>Run <code class="docutils literal"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;code</span> <span class="pre">--wait&quot;</span></code></li>
@@ -82,7 +85,7 @@ PS1=&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;
 <span id="reading"></span><h2>Reading<a class="headerlink" href="#reading" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="reading-assignment">
 <span id="reading-assignment"></span><h3>Reading Assignment<a class="headerlink" href="#reading-assignment" title="Permalink to this headline">¶</a></h3>
-<p>Be sure to do the assignment associated with <a class="reference external" href="https://berkeley-stat159-f17.github.io/stat159-f17/_static/ref/millman-perez.pdf">this week's reading</a>. It's up on bcourses now. After reading write two paragraph-length responses</p>
+<p>Be sure to do the assignment associated with <a class="reference external" href="https://berkeley-stat159-f17.github.io/stat159-f17/_static/ref/millman-perez.pdf">this week&#8217;s reading</a>. It&#8217;s up on bcourses now. After reading write two paragraph-length responses</p>
 <ol class="simple">
 <li>Summarizing the reading</li>
 <li>Exploring something that interests you (e.g. one aspect in particular, something you disagree with)</li>
@@ -90,7 +93,7 @@ PS1=&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;
 </div>
 <div class="section" id="programming-reading">
 <span id="programming-reading"></span><h3>Programming Reading<a class="headerlink" href="#programming-reading" title="Permalink to this headline">¶</a></h3>
-<p>Read chapter 1 of <a class="reference external" href="http://proquest.safaribooksonline.com/book/physics/9781491901564">Effective Computation in Physics</a> to brush up on/learn command line basics. We won't be going over those in class/lab.</p>
+<p>Read chapter 1 of <a class="reference external" href="http://proquest.safaribooksonline.com/book/physics/9781491901564">Effective Computation in Physics</a> to brush up on/learn command line basics. We won&#8217;t be going over those in class/lab.</p>
 </div>
 </div>
 </div>
@@ -112,7 +115,7 @@ PS1=&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -127,18 +130,25 @@ PS1=&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;
 <li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/trapezoid.html">The trapezoidal rule: vectorization and perormance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Live plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/image_tutorial.html">Matplotlib image tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/image_tutorial.html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/13-data-frames.html">Data Manipulation</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab10.html">Lab 10</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab3.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab4.html">Lab 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab5.html">Lab 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab8.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab9.html">Lab 9</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
@@ -148,7 +158,7 @@ PS1=&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="lab1.html" title="previous chapter">Lab 1</a></li>
+      <li>Previous: <a href="lab10.html" title="previous chapter">Lab 10</a></li>
       <li>Next: <a href="lab3.html" title="next chapter">Lab 3</a></li>
   </ul></li>
 </ul>
@@ -171,7 +181,7 @@ PS1=&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

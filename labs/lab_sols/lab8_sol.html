@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Lab 8 &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
    
@@ -31,7 +34,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -233,7 +236,7 @@ you? <code class="docutils literal"><span class="pre">git</span> <span class="pr
 <h2>Numpy and Matplotlib: A Basic Fourier Analysis Example<a class="headerlink" href="#Numpy-and-Matplotlib:-A-Basic-Fourier-Analysis-Example" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="Creating-a-Square-Wave">
 <h3>Creating a Square Wave<a class="headerlink" href="#Creating-a-Square-Wave" title="Permalink to this headline">¶</a></h3>
-<p>We’re going to look at reconstructing a square wave:</p>
+<p>We&#8217;re going to look at reconstructing a square wave:</p>
 <div class="math">
 \[y(t) = \text{sgn}(\sin(t))\]</div>
 <p>First, create a function which returns a square wave</p>
@@ -269,7 +272,7 @@ you? <code class="docutils literal"><span class="pre">git</span> <span class="pr
 </pre></div>
 </div>
 </div>
-<p>Now let’s plot it.</p>
+<p>Now let&#8217;s plot it.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [8]:
@@ -359,7 +362,7 @@ you? <code class="docutils literal"><span class="pre">git</span> <span class="pr
 </pre></div>
 </div>
 </div>
-<p>Again, let’s plot it</p>
+<p>Again, let&#8217;s plot it</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [11]:
@@ -410,7 +413,7 @@ you? <code class="docutils literal"><span class="pre">git</span> <span class="pr
 <img alt="../../_images/labs_lab_sols_lab8_sol_10_0.png" src="../../_images/labs_lab_sols_lab8_sol_10_0.png" />
 </div>
 </div>
-<p>And let’s overlay the true square wave on top</p>
+<p>And let&#8217;s overlay the true square wave on top</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [13]:
@@ -543,7 +546,7 @@ intuition</p>
 </div>
 <div class="section" id="The-Gibbs-Phenomenon">
 <h3>The Gibbs Phenomenon<a class="headerlink" href="#The-Gibbs-Phenomenon" title="Permalink to this headline">¶</a></h3>
-<p>Notice the weird jump we get even with a lot of terms. It’s almost
+<p>Notice the weird jump we get even with a lot of terms. It&#8217;s almost
 perfect except for at the discontinuity.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -668,7 +671,7 @@ waves.</p>
 </div>
 </div>
 <p>Similar to the square wave, we can approximate the signal by only
-keeping the frequencies with the highest magnitude. Let’s compute the
+keeping the frequencies with the highest magnitude. Let&#8217;s compute the
 FFT and plot the magnitudes.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -763,7 +766,7 @@ inverts the DFT to get a reconstructed signal.</p>
 </pre></div>
 </div>
 </div>
-<p>Now let’s plot the signal and the approximated signal side by side.</p>
+<p>Now let&#8217;s plot the signal and the approximated signal side by side.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [47]:
@@ -820,7 +823,7 @@ inverts the DFT to get a reconstructed signal.</p>
 <img alt="../../_images/labs_lab_sols_lab8_sol_34_0.png" src="../../_images/labs_lab_sols_lab8_sol_34_0.png" />
 </div>
 </div>
-<p>Now let’s convert into a wav file and take a listen.</p>
+<p>Now let&#8217;s convert into a wav file and take a listen.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [58]:
@@ -877,7 +880,7 @@ inverts the DFT to get a reconstructed signal.</p>
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -896,9 +899,13 @@ inverts the DFT to get a reconstructed signal.</p>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/10-matplotlib_beyond_basics/image_tutorial.html">Matplotlib image tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/10-matplotlib_beyond_basics/image_tutorial.html#Multichannel-images">Multichannel images</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/11-strings/11-strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/13-data-frames.html">Data Manipulation</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab10.html">Lab 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lab2.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lab3.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lab4.html">Lab 4</a></li>
@@ -906,7 +913,7 @@ inverts the DFT to get a reconstructed signal.</p>
 <li class="toctree-l1"><a class="reference internal" href="../lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lab7.html">Lab 7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lab8.html">Lab 8</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mpl_tight_layout_bug.html">A bug in mpl’s <code class="docutils literal"><span class="pre">tight_layout</span></code>?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab9.html">Lab 9</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Course resources</a></li>
@@ -937,7 +944,7 @@ inverts the DFT to get a reconstructed signal.</p>
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

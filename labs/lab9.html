@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Lab 9 &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -21,10 +24,10 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="A bug in mpl’s tight_layout?" href="mpl_tight_layout_bug.html" />
+    <link rel="next" title="Course resources" href="../resources.html" />
     <link rel="prev" title="Lab 8" href="lab8.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -33,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -207,11 +210,11 @@ div.nboutput div.output_area.stderr {
 <h1>Lab 9<a class="headerlink" href="#Lab-9" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="Seaborn:-Statistical-Graphics-in-Python">
 <h2>Seaborn: Statistical Graphics in Python<a class="headerlink" href="#Seaborn:-Statistical-Graphics-in-Python" title="Permalink to this headline">¶</a></h2>
-<p>So far we’ve learned how to create high quality charts with
+<p>So far we&#8217;ve learned how to create high quality charts with
 <code class="docutils literal"><span class="pre">matplotlib</span></code>. Using the object oriented API we can customize aspects
 of our plots and create anything. However, in statistics and data
 science there are some types of charts that we always make, and for
-those there’s <code class="docutils literal"><span class="pre">seaborn</span></code>.</p>
+those there&#8217;s <code class="docutils literal"><span class="pre">seaborn</span></code>.</p>
 <p><code class="docutils literal"><span class="pre">seaborn</span></code> is a statistical plotting package built on top of
 <code class="docutils literal"><span class="pre">mmatplotlib</span></code> which incorporates <code class="docutils literal"><span class="pre">pandas</span></code> in its design. Like
 <code class="docutils literal"><span class="pre">matplotlib</span></code>, <code class="docutils literal"><span class="pre">seaborn</span></code> has an <a class="reference external" href="https://seaborn.pydata.org/examples/index.html">example
@@ -219,12 +222,12 @@ gallery</a> with many
 great charts and the code to make them. The structure of this lab is
 based on the <code class="docutils literal"><span class="pre">`seaborn</span></code> tutorial in the
 documentation &lt;<a class="reference external" href="https://seaborn.pydata.org/tutorial.html">https://seaborn.pydata.org/tutorial.html</a>&gt;`__</p>
-<p>First, we need data. We’ll be using data from a <a class="reference external" href="https://fivethirtyeight.com/features/how-every-nfl-teams-fans-lean-politically/">Fivethirtyeight article
+<p>First, we need data. We&#8217;ll be using data from a <a class="reference external" href="https://fivethirtyeight.com/features/how-every-nfl-teams-fans-lean-politically/">Fivethirtyeight article
 on the political leanings of NFL
 fans</a>
 that you can find on
 <a class="reference external" href="https://github.com/fivethirtyeight/data/blob/master/nfl-fandom/NFL_fandom_data-surveymonkey.csv">Github</a>.
-I’ve renamed the files and put them under the <code class="docutils literal"><span class="pre">data</span></code> directory.</p>
+I&#8217;ve renamed the files and put them under the <code class="docutils literal"><span class="pre">data</span></code> directory.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [1]:
@@ -240,7 +243,7 @@ I’ve renamed the files and put them under the <code class="docutils literal"><
 </div>
 <p>The dataset in <code class="docutils literal"><span class="pre">data/fivethirtyeight-nfl-google.csv</span></code> has aggregated
 search interest data for various sports leagues in each market, as well
-as Trump’s share of the vote in that market.</p>
+as Trump&#8217;s share of the vote in that market.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [2]:
@@ -671,7 +674,7 @@ to see all of them.</p>
 <p>Notice that we passed in a dictionary called <code class="docutils literal"><span class="pre">kde_kws</span></code>. <code class="docutils literal"><span class="pre">seaborn</span></code>
 also has individual functions to plot a kernel density estimate or a rug
 plot, which the higher level <code class="docutils literal"><span class="pre">distplot</span></code> function uses. In general, to
-pass arguments into these lower level functions, you’ll need to pass in
+pass arguments into these lower level functions, you&#8217;ll need to pass in
 a dictionary of arguments for those functions.</p>
 </div>
 <div class="section" id="Bivariate-Distributions">
@@ -773,11 +776,11 @@ familiar.</p>
 </div>
 </div>
 <p>This plot lets us both visualize the distribution and see a summary
-statistic and it’s <span class="math">\(p\)</span>-value (question: what does this
+statistic and it&#8217;s <span class="math">\(p\)</span>-value (question: what does this
 <span class="math">\(p\)</span>-value mean?). With all this information, it looks like there
-isn’t much of a relationship between interest in the NFL and support for
+isn&#8217;t much of a relationship between interest in the NFL and support for
 Trump in 2016. This is evidence that the NFL is broadly popular among
-all Americans, and isn’t polarized.</p>
+all Americans, and isn&#8217;t polarized.</p>
 <p>We can also look at a kernel density estimate of the distribution.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -806,7 +809,7 @@ all Americans, and isn’t polarized.</p>
 <img alt="../_images/labs_lab9_29_1.png" src="../_images/labs_lab9_29_1.png" />
 </div>
 </div>
-<p>Note that it’s possible to grab the output of the function as a
+<p>Note that it&#8217;s possible to grab the output of the function as a
 <code class="docutils literal"><span class="pre">`JointGrid</span></code>
 object &lt;<a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.JointGrid.html#seaborn.JointGrid">https://seaborn.pydata.org/generated/seaborn.JointGrid.html#seaborn.JointGrid</a>&gt;`__
 and customize it further.</p>
@@ -880,12 +883,12 @@ together.</p>
 </div>
 <div class="section" id="Plotting-Categorical-Data">
 <h3>Plotting Categorical Data<a class="headerlink" href="#Plotting-Categorical-Data" title="Permalink to this headline">¶</a></h3>
-<p>We’ve looked at the distribution of NFL interest across markets. It’s
+<p>We&#8217;ve looked at the distribution of NFL interest across markets. It&#8217;s
 interesting to see if the distributions for the the other sports leagues
 are different. We could make a separate plot for each league, but
 <code class="docutils literal"><span class="pre">seaborn</span></code> gives us the tools to put all the distributions on one plot.</p>
-<p>To do this, we need to convert our data from a “wide” format where every
-league has its own column, to a “long” format where there are only 3
+<p>To do this, we need to convert our data from a &#8220;wide&#8221; format where every
+league has its own column, to a &#8220;long&#8221; format where there are only 3
 columns. The <code class="docutils literal"><span class="pre">melt</span></code> function in <code class="docutils literal"><span class="pre">pandas</span></code> provides a utility to
 convert to a long format.</p>
 <div class="nbinput docutils container">
@@ -995,7 +998,7 @@ distributions. A classic plot to compare distributions is a box plot</p>
 <img alt="../_images/labs_lab9_37_1.png" src="../_images/labs_lab9_37_1.png" />
 </div>
 </div>
-<p>A more modern plot is a “Violin” plot, which embeds a boxplot in a
+<p>A more modern plot is a &#8220;Violin&#8221; plot, which embeds a boxplot in a
 kernel density estimate plot.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -1142,10 +1145,10 @@ Trump did and did not win a majority.</p>
 <p>There are many more types of categorical plots you can make. A great
 resource is the <a class="reference external" href="https://seaborn.pydata.org/tutorial/categorical.html">tutorial in the
 documentation</a>.</p>
-<p>For exercises we’ll be using a different dataset, also from the same
+<p>For exercises we&#8217;ll be using a different dataset, also from the same
 article. <code class="docutils literal"><span class="pre">data/fiverthirtyeight-nfl-fan.csv</span></code> contains information on
 the number of fans who identify as as Republicans, Democrats, or
-Independents by race. We’ll just look at the aggregate numbers which
+Independents by race. We&#8217;ll just look at the aggregate numbers which
 show the percentage of Republicans, Democrats, and Independents, as well
 as the percentage of responders who identify as white and non-white.</p>
 <div class="nbinput docutils container">
@@ -1282,7 +1285,7 @@ than 75% of respondents identify as white</p>
 <p><code class="docutils literal"><span class="pre">seaborn</span></code> also provides functions to plot and fit relationships which
 generalize scatter plots in <code class="docutils literal"><span class="pre">matplotlib</span></code>.</p>
 <p>The <code class="docutils literal"><span class="pre">lmplot</span></code> function will plot a scatter plot of the data and fit and
-visualize a linear model on top of it. Let’s look again at the
+visualize a linear model on top of it. Let&#8217;s look again at the
 relationship between NFL interest and Trump support.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -1425,7 +1428,7 @@ LOWESS</p>
 <img alt="../_images/labs_lab9_57_1.png" src="../_images/labs_lab9_57_1.png" />
 </div>
 </div>
-<p>We can also fit a logistic regression. Note that it’s more computational
+<p>We can also fit a logistic regression. Note that it&#8217;s more computational
 expensive than fitting a linear regression.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -1455,8 +1458,8 @@ expensive than fitting a linear regression.</p>
 <img alt="../_images/labs_lab9_59_1.png" src="../_images/labs_lab9_59_1.png" />
 </div>
 </div>
-<p>So we see that there’s evidence that NASCAR interest is related to Trump
-support (why does that make sense?), and there isn’t evidence that NFL
+<p>So we see that there&#8217;s evidence that NASCAR interest is related to Trump
+support (why does that make sense?), and there isn&#8217;t evidence that NFL
 interest is related to Trump support. We can look at all the leagues
 simultaneously.</p>
 <div class="nbinput docutils container">
@@ -1520,9 +1523,9 @@ from GOP to Dem to Independent</p>
 <div class="section" id="Faceting-arbitrary-plots">
 <h3>Faceting arbitrary plots<a class="headerlink" href="#Faceting-arbitrary-plots" title="Permalink to this headline">¶</a></h3>
 <p>With <code class="docutils literal"><span class="pre">seaborn</span></code> we can created faceted plots out of any plot with the
-<code class="docutils literal"><span class="pre">FacetGrid</span></code> object. Many of the objects that the functions we’ve been
+<code class="docutils literal"><span class="pre">FacetGrid</span></code> object. Many of the objects that the functions we&#8217;ve been
 using return are of type <code class="docutils literal"><span class="pre">FacetGrid</span></code>. It creates a plot where the
-columns and rows are defined as “facets” of the data.</p>
+columns and rows are defined as &#8220;facets&#8221; of the data.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [37]:
@@ -1699,7 +1702,7 @@ map the plotting function.</p>
 <img alt="../_images/labs_lab9_73_1.png" src="../_images/labs_lab9_73_1.png" />
 </div>
 </div>
-<p>We can change each plot’s title, the name of the x and y axes, etc.</p>
+<p>We can change each plot&#8217;s title, the name of the x and y axes, etc.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [41]:
@@ -2187,7 +2190,7 @@ line</p>
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -2208,9 +2211,11 @@ line</p>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-strings.html">Strings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/13-data-frames.html">Data Manipulation</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab10.html">Lab 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab2.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab3.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab4.html">Lab 4</a></li>
@@ -2219,7 +2224,6 @@ line</p>
 <li class="toctree-l1"><a class="reference internal" href="lab7.html">Lab 7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab8.html">Lab 8</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Lab 9</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mpl_tight_layout_bug.html">A bug in mpl’s <code class="docutils literal"><span class="pre">tight_layout</span></code>?</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
@@ -2230,7 +2234,7 @@ line</p>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="lab8.html" title="previous chapter">Lab 8</a></li>
-      <li>Next: <a href="mpl_tight_layout_bug.html" title="next chapter">A bug in mpl’s <code class="docutils literal"><span class="pre">tight_layout</span></code>?</a></li>
+      <li>Next: <a href="../resources.html" title="next chapter">Course resources</a></li>
   </ul></li>
 </ul>
 </div>
@@ -2252,7 +2256,7 @@ line</p>
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

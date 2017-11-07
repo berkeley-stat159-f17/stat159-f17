@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Lab 10 &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab 2" href="lab2.html" />
+    <link rel="prev" title="Lab 1" href="lab1.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="section" id="Lab-10">
+<h1>Lab 10<a class="headerlink" href="#Lab-10" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Continuing-Seaborn">
+<h2>Continuing Seaborn<a class="headerlink" href="#Continuing-Seaborn" title="Permalink to this headline">¶</a></h2>
+<p>We&#8217;ll finish up the seaborn material from last lab</p>
+</div>
+<div class="section" id="Multidimensional-Scaling-(MDS)">
+<h2>Multidimensional Scaling (MDS)<a class="headerlink" href="#Multidimensional-Scaling-(MDS)" title="Permalink to this headline">¶</a></h2>
+<p><em>Note:</em> This is based off of <a class="reference external" href="http://www.cs.columbia.edu/~jebara/6772/notes/notes2.pdf">Prof Tony Jebara&#8217;s lecture notes for COMS
+6772 at Columbia in Spring
+2015.</a></p>
+<p>Say we have a series of points <span class="math">\(x_1,\ldots,x_n \in R^d\)</span>, where
+<span class="math">\(d\)</span> is large, and we want to learn a representation of these data
+in <span class="math">\(R^k\)</span> with <span class="math">\(k &lt;&lt; d\)</span> (as we do in Project 2 to visualize
+Presidents and speeches).</p>
+<p>How can we do this?</p>
+<p>Idea: Find a representation that preserves <strong>pairwise distances</strong>
+between the data. In general we don&#8217;t need to just consider distances,
+but can widen our scope to dissimilarities. A <strong>Dissimilarity</strong> is a
+function <span class="math">\(d:R^d \times R^d \to R\)</span> such that for all
+<span class="math">\(x,y \in R^d\)</span>.</p>
+<ul class="simple">
+<li><span class="math">\(d(x,y) \geq 0\)</span></li>
+<li><span class="math">\(d(x,x) = 0\)</span></li>
+<li><span class="math">\(d(x,y) = d(y,x)\)</span></li>
+</ul>
+<p>Two examples which are both distances and dissimilarities are the usual
+Euclidean distance between vectors and the Jensen-Shannon distance for
+distributions.</p>
+<p>For our data <span class="math">\(x_1,\ldots,x_n\)</span>, we can construct the matrix of
+pairwise dissimilarities as</p>
+<div class="math">
+\[\Delta_{ij} = d(x_i, x_j)\]</div>
+<p>Now we can formalize the problem a bit more. Given data
+<span class="math">\(x_1,\ldots,x_n \in R^d\)</span> with dissimilarity matrix <span class="math">\(\Delta\)</span>,
+can we find a representation <span class="math">\(y_1,\ldots,y_n \in R^k\)</span> with
+dissimilarity matrix <span class="math">\(D\)</span> such that <span class="math">\(D\)</span> is &#8220;close&#8221; to
+<span class="math">\(\Delta\)</span>.</p>
+<p>How do we define &#8220;close&#8221;? <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.manifold.MDS.html">Scikit
+learn</a>
+uses <strong>Stress</strong>:</p>
+<div class="math">
+\[Stress(y_1,\ldots,y_n) = \sum_{ij} (D_{ij} - \Delta_{ij})^2\]</div>
+<p>To find a lower-dimensional representation we then find
+<span class="math">\(y_1,\ldots,y_n \in R^k\)</span> to minimize the stress.</p>
+<p>Let&#8217;s look at an example with the NFL trends data from Lab 9.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [48]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># load the data</span>
+<span class="n">nfl_trends</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/fivethirtyeight-nfl-google.csv&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">nfl_trends</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># convert percent strings into floats</span>
+<span class="n">numeric_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">nfl_trends</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span>
+                <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;%&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span>
+<span class="n">numeric_data</span><span class="p">[</span><span class="s2">&quot;DMA&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;DMA&quot;</span><span class="p">]</span>
+<span class="n">nfl_trends</span> <span class="o">=</span> <span class="n">numeric_data</span>
+</pre></div>
+</div>
+</div>
+<p>We&#8217;ll normalize the search interest for each league in each market
+(they&#8217;re actually close to adding up to 100 except for rounding errors).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># get the search interest for each league, normalizes</span>
+<span class="n">interests</span>  <span class="o">=</span> <span class="n">nfl_trends</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">interests</span> <span class="o">=</span> <span class="n">interests</span> <span class="o">/</span> <span class="n">interests</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Now we can compute the Jensen-Shannon distance between all of the
+markets and get a distance matrix.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">entropy</span>
+
+<span class="k">def</span> <span class="nf">JSdiv</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Jensen-Shannon divergence.&quot;&quot;&quot;</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">q</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">entropy</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">entropy</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mf">2.0</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># initialize the distance matrix</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">interests</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="c1"># compute JS distance for all pairs</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">JSdiv</span><span class="p">(</span><span class="n">interests</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span> <span class="n">interests</span><span class="p">[</span><span class="n">j</span><span class="p">,:])</span>
+</pre></div>
+</div>
+</div>
+<p>And use MDS to find a lower dimensional representation</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [63]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">manifold</span>
+
+<span class="c1"># intiialize</span>
+<span class="n">MDS</span> <span class="o">=</span>  <span class="n">manifold</span><span class="o">.</span><span class="n">MDS</span><span class="p">(</span><span class="n">dissimilarity</span><span class="o">=</span><span class="s2">&quot;precomputed&quot;</span><span class="p">)</span>
+<span class="c1"># transform to lower dimensional representation with JS distance</span>
+<span class="n">lower</span> <span class="o">=</span> <span class="n">MDS</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
+
+<span class="c1"># intiialize</span>
+<span class="n">MDS</span> <span class="o">=</span>  <span class="n">manifold</span><span class="o">.</span><span class="n">MDS</span><span class="p">()</span>
+<span class="c1"># transform to lower dimensional representation with Euclidean distance</span>
+<span class="n">lower_naive</span> <span class="o">=</span> <span class="n">MDS</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">interests</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [68]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># put into a dataframe and plot</span>
+<span class="n">lower_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x_JS&quot;</span><span class="p">:</span><span class="n">lower</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;y_JS&quot;</span><span class="p">:</span><span class="n">lower</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span>
+                         <span class="s2">&quot;x_naive&quot;</span><span class="p">:</span><span class="n">lower_naive</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;y_naive&quot;</span><span class="p">:</span> <span class="n">lower_naive</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span>
+                         <span class="s2">&quot;DMA&quot;</span><span class="p">:</span><span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;DMA&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">:</span><span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">]})</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">lower_df</span><span class="p">[</span><span class="s2">&quot;x_JS&quot;</span><span class="p">],</span> <span class="n">lower_df</span><span class="p">[</span><span class="s2">&quot;y_JS&quot;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">lower_df</span><span class="p">[</span><span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">],</span>
+           <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;viridis&quot;</span><span class="p">))</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">lower_df</span><span class="p">[</span><span class="s2">&quot;x_naive&quot;</span><span class="p">],</span> <span class="n">lower_df</span><span class="p">[</span><span class="s2">&quot;y_naive&quot;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">lower_df</span><span class="p">[</span><span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">],</span>
+           <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;viridis&quot;</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;JS Distance MDS Representation&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Euclidean MDS Representation&quot;</span><span class="p">)</span>
+
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;2016 Trump Vote%&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+/home/ebenmichael/anaconda3/lib/python3.6/site-packages/matplotlib/font_manager.py:1297: UserWarning: findfont: Font family [&#39;sans-serif&#39;] not found. Falling back to DejaVu Sans
+  (prop.get_family(), self.defaultFamily[fontext]))
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/labs_lab10_10_1.png" src="../_images/labs_lab10_10_1.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Stat 159/259 - Reproducible and Collaborative Data Science</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/05-class-practice.html">Class practice: strings, lists &amp; numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/06-conda-pip-environments.html">Conda and pip - managing environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/07-reading3-discussion.html">From September 25 reading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/07-reading3-discussion.html#Make:-automating-tasks">Make: automating tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/08-ligo-make.html">LIGO, the 2017 Nobel prize in physics, and wrapping up Makefiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy.html">An Introduction to the Scientific Python Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy.html#Motivation:-the-trapezoidal-rule">Motivation: the trapezoidal rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy.html#NumPy-arrays:-the-right-data-structure-for-scientific-computing">NumPy arrays: the right data structure for scientific computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/trapezoid.html">The trapezoidal rule: vectorization and perormance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Live plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/image_tutorial.html">Matplotlib image tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/image_tutorial.html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/13-data-frames.html">Data Manipulation</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab 1</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lab 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab2.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab3.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab4.html">Lab 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab5.html">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab6.html">Lab 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab8.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab9.html">Lab 9</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="lab1.html" title="previous chapter">Lab 1</a></li>
+      <li>Next: <a href="lab2.html" title="next chapter">Lab 2</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Fernando Perez.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/labs/lab10.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

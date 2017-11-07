@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>An Introduction to the Scientific Python Ecosystem &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="The trapezoidal rule: vectorization and perormance" href="trapezoid.html" />
@@ -33,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -232,7 +235,7 @@ collection of example-oriented lessons on how to best use the
 scientific Python toolkit, by the creator of Scikit-Image and BIDS
 researcher <a class="reference external" href="https://bids.berkeley.edu/people/st%C3%A9fan-van-der-walt">Stéfan van der
 Walt</a>.
-In addition to the previous O’Reilly reader, the <a class="reference external" href="https://github.com/elegant-scipy/elegant-scipy">full
+In addition to the previous O&#8217;Reilly reader, the <a class="reference external" href="https://github.com/elegant-scipy/elegant-scipy">full
 book</a> as well as
 all the <a class="reference external" href="https://github.com/elegant-scipy/notebooks">notebooks</a>
 are available.</li>
@@ -258,12 +261,12 @@ documentation</a>.</li>
 that provide powerful array facilities, linear algebra, numerical
 algorithms, data visualization and more. In this appendix, we will
 briefly outline the tools most frequently used for this purpose, that
-make “Scientific Python” something far more powerful than the Python
+make &#8220;Scientific Python&#8221; something far more powerful than the Python
 language alone.</p>
 <p>For reasons of space, we can only briefly describe the central Numpy
 library, but below we provide links to the websites of each project
 where you can read their full documentation in more detail.</p>
-<p>First, let’s look at an overview of the basic tools that most scientists
+<p>First, let&#8217;s look at an overview of the basic tools that most scientists
 use in daily research with Python. The core of this ecosystem is
 composed of:</p>
 <ul class="simple">
@@ -299,15 +302,15 @@ figures and multimedia. It can be found at
 </ul>
 <p>While each of these tools can be installed separately, in our experience
 the most convenient way of accessing them today (especially on Windows
-and Mac computers) is to install the <a class="reference external" href="http://www.enthought.com/products/epd_free.php">Free Edition of the Enthought’s
+and Mac computers) is to install the <a class="reference external" href="http://www.enthought.com/products/epd_free.php">Free Edition of the Enthought&#8217;s
 Canopy
 Distribution</a>or
-<a class="reference external" href="http://continuum.io/downloads">Continuum Analytics’ Anaconda</a>, both
+<a class="reference external" href="http://continuum.io/downloads">Continuum Analytics&#8217; Anaconda</a>, both
 of which contain all the above. Other free alternatives on Windows (but
 not on Macs) are <a class="reference external" href="http://code.google.com/p/pythonxy">Python(x,y)</a> and
-<a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs">Christoph Gohlke’s packages
+<a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs">Christoph Gohlke&#8217;s packages
 page</a>.</p>
-<p>The four ‘core’ libraries above are in practice complemented by a number
+<p>The four &#8216;core&#8217; libraries above are in practice complemented by a number
 of other tools for more specialized work. We will briefly list here the
 ones that we think are the most commonly needed:</p>
 <ul class="simple">
@@ -336,15 +339,15 @@ industry-standard HDF5 format;
 <a class="reference external" href="http://www.pytables.org">www.pytables.org</a>.</li>
 </ul>
 <p>Beyond these, for any specific problem you should look on the internet
-first, before starting to write code from scratch. There’s a good chance
+first, before starting to write code from scratch. There&#8217;s a good chance
 that someone, somewhere, has written an open source library that you can
 use for part or all of your problem.</p>
 </div>
 </div>
 <div class="section" id="Motivation:-the-trapezoidal-rule">
 <h1>Motivation: the trapezoidal rule<a class="headerlink" href="#Motivation:-the-trapezoidal-rule" title="Permalink to this headline">¶</a></h1>
-<p>In subsequent sections we’ll provide a basic introduction to the nuts
-and bolts of the basic scientific python tools; but we’ll first motivate
+<p>In subsequent sections we&#8217;ll provide a basic introduction to the nuts
+and bolts of the basic scientific python tools; but we&#8217;ll first motivate
 it with a brief example that illustrates what you can do in a few lines
 with these tools. For this, we will use the simple problem of
 approximating a definite integral with the trapezoid rule:</p>
@@ -390,7 +393,7 @@ trapezoid approximation:</p>
 </pre></div>
 </div>
 </div>
-<p>Let’s plot both the function and the area below it in the trapezoid
+<p>Let&#8217;s plot both the function and the area below it in the trapezoid
 approximation:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -462,7 +465,7 @@ needs.</p>
 <div class="section" id="Basics-of-Numpy-arrays">
 <h2>Basics of Numpy arrays<a class="headerlink" href="#Basics-of-Numpy-arrays" title="Permalink to this headline">¶</a></h2>
 <p>We now turn our attention to the Numpy library, which forms the base
-layer for the entire ‘scipy ecosystem’. Once you have installed numpy,
+layer for the entire &#8216;scipy ecosystem&#8217;. Once you have installed numpy,
 you can import it as</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -486,7 +489,7 @@ you can import it as</p>
 </div>
 </div>
 <p>As mentioned above, the main object provided by numpy is a powerful
-array. We’ll start by exploring how the numpy array differs from Python
+array. We&#8217;ll start by exploring how the numpy array differs from Python
 lists. We start by creating a simple list and an array with the same
 contents of the list:</p>
 <div class="nbinput nblast docutils container">
@@ -679,7 +682,7 @@ into an integer:</p>
 </div>
 </div>
 <p>Above we created an array from an existing list; now let us now see
-other ways in which we can create arrays, which we’ll illustrate next. A
+other ways in which we can create arrays, which we&#8217;ll illustrate next. A
 common need is to have an array initialized with a constant value, and
 very often this value is 0 or 1 (suitable as starting value for additive
 and multiplicative loops respectively); <code class="docutils literal"><span class="pre">zeros</span></code> creates arrays of all
@@ -791,6 +794,7 @@ into the array:</p>
 <p>This illustrates the internal structure of a Numpy array (taken from the
 <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.html">official Numpy
 docs</a>:</p>
+<p>&lt;img src=&#8221;numpy_object.png&#8221;, width=60%&gt;</p>
 <p>Numpy also offers the <code class="docutils literal"><span class="pre">arange</span></code> function, which works like the builtin
 <code class="docutils literal"><span class="pre">range</span></code> but returns an array instead of a list:</p>
 <div class="nbinput docutils container">
@@ -1149,7 +1153,7 @@ Second row:  [4 5 6 7]
 </div>
 <p>The following provides a visual overview of indexing in Numpy:</p>
 <p>Now that we have seen how to create arrays with more than one dimension,
-it’s a good idea to look at some of the most useful properties and
+it&#8217;s a good idea to look at some of the most useful properties and
 methods that arrays have. The following provide basic information about
 the size, shape and data in the array:</p>
 <div class="nbinput docutils container">
@@ -1202,7 +1206,7 @@ Mean and standard deviation     : 3.5 2.29128784748
 </pre></div></div>
 </div>
 <p>For these methods, the above operations area all computed on all the
-elements of the array. But for a multidimensional array, it’s possible
+elements of the array. But for a multidimensional array, it&#8217;s possible
 to do the computation along a single dimension, by passing the <code class="docutils literal"><span class="pre">axis</span></code>
 parameter; for example:</p>
 <div class="nbinput docutils container">
@@ -1285,8 +1289,8 @@ Transpose:
  [3 7]]
 </pre></div></div>
 </div>
-<p>We don’t have time here to look at all the methods and properties of
-arrays, here’s a complete list. Simply try exploring some of these
+<p>We don&#8217;t have time here to look at all the methods and properties of
+arrays, here&#8217;s a complete list. Simply try exploring some of these
 IPython to learn more, or read their description in the full Numpy
 documentation:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="o">.</span><span class="n">T</span>             <span class="n">arr</span><span class="o">.</span><span class="n">copy</span>          <span class="n">arr</span><span class="o">.</span><span class="n">getfield</span>      <span class="n">arr</span><span class="o">.</span><span class="n">put</span>           <span class="n">arr</span><span class="o">.</span><span class="n">squeeze</span>
@@ -1334,7 +1338,7 @@ sampled, then</p>
 <span class="math">\(y_{i}=f(x_{i}),\)</span> so the formula becomes</p>
 <div class="math">
 \[\int_{a}^{b}f(x)dx\approx\frac{1}{2}\sum_{i=1}^{n}\left(x_{i}-x_{i-1}\right)\left(y_{i}+y_{i-1}\right).\]</div>
-<p>In this exercise, you’ll need to write two functions, <code class="docutils literal"><span class="pre">trapz</span></code> and
+<p>In this exercise, you&#8217;ll need to write two functions, <code class="docutils literal"><span class="pre">trapz</span></code> and
 <code class="docutils literal"><span class="pre">trapzf</span></code>. <code class="docutils literal"><span class="pre">trapz</span></code> applies the trapezoid formula to pre-computed
 values, implementing equation trapz, while <code class="docutils literal"><span class="pre">trapzf</span></code> takes a function
 <span class="math">\(f\)</span> as input, as well as the total number of samples to evaluate,
@@ -1417,7 +1421,7 @@ do it:</p>
 </pre></div>
 </div>
 </div>
-<p>But thanks to numpy’s broadcasting rules, the following is equally
+<p>But thanks to numpy&#8217;s broadcasting rules, the following is equally
 valid:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -1464,22 +1468,22 @@ valid:</p>
 scalar, considered a zero-dimensional object. The broadcasting rules
 allow numpy to:</p>
 <ul class="simple">
-<li><em>create</em> new dimensions of length 1 (since this doesn’t change the
+<li><em>create</em> new dimensions of length 1 (since this doesn&#8217;t change the
 size of the array)</li>
-<li>‘stretch’ a dimension of length 1 that needs to be matched to a
+<li>&#8216;stretch&#8217; a dimension of length 1 that needs to be matched to a
 dimension of a different size.</li>
 </ul>
 <p>So in the above example, the scalar 1.5 is effectively:</p>
 <ul class="simple">
-<li>first ‘promoted’ to a 1-dimensional array of length 1</li>
-<li>then, this array is ‘stretched’ to length 4 to match the dimension of
+<li>first &#8216;promoted&#8217; to a 1-dimensional array of length 1</li>
+<li>then, this array is &#8216;stretched&#8217; to length 4 to match the dimension of
 <code class="docutils literal"><span class="pre">arr1</span></code>.</li>
 </ul>
 <p>After these two operations are complete, the addition can proceed as now
 both operands are one-dimensional arrays of length 4.</p>
 <p>This broadcasting behavior is in practice enormously powerful,
 especially because when numpy broadcasts to create new dimensions or to
-‘stretch’ existing ones, it doesn’t actually replicate the data. In the
+&#8216;stretch&#8217; existing ones, it doesn&#8217;t actually replicate the data. In the
 example above the operation is carried <em>as if</em> the 1.5 was a 1-d array
 with 1.5 in all of its entries, but no actual array was ever created.
 This can save lots of memory in cases when the arrays in question are
@@ -1490,7 +1494,7 @@ its way forward, creating dimensions of length 1 as needed. Two
 dimensions are considered compatible when</p>
 <ul class="simple">
 <li>they are equal to begin with, or</li>
-<li>one of them is 1; in this case numpy will do the ‘stretching’ to make
+<li>one of them is 1; in this case numpy will do the &#8216;stretching&#8217; to make
 them equal.</li>
 </ul>
 <p>If these conditions are not met, a
@@ -1554,7 +1558,7 @@ error we previously mentioned:</p>
 </div>
 <p>According to the rules above, the array <code class="docutils literal"><span class="pre">c</span></code> would need to have a
 <em>trailing</em> dimension of 1 for the broadcasting to work. It turns out
-that numpy allows you to ‘inject’ new dimensions anywhere into an array
+that numpy allows you to &#8216;inject&#8217; new dimensions anywhere into an array
 on the fly, by indexing it with the special object <code class="docutils literal"><span class="pre">np.newaxis</span></code>:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -1799,11 +1803,11 @@ additional details on these.</p>
 order to use these tools well, it is critical to understand the
 difference between a <em>text</em> and a <em>binary</em> file containing numerical
 data. In a text file, the number <span class="math">\(\pi\)</span> could be written as
-“3.141592653589793”, for example: a string of digits that a human can
+&#8220;3.141592653589793&#8221;, for example: a string of digits that a human can
 read, with in this case 15 decimal digits. In contrast, that same number
 written to a binary file would be encoded as 8 characters (bytes) that
 are not readable by a human but which contain the exact same data that
-the variable <code class="docutils literal"><span class="pre">pi</span></code> had in the computer’s memory.</p>
+the variable <code class="docutils literal"><span class="pre">pi</span></code> had in the computer&#8217;s memory.</p>
 <p>The tradeoffs between the two modes are thus:</p>
 <ul class="simple">
 <li>Text mode: occupies more space, precision can be lost (if not all
@@ -1811,10 +1815,10 @@ digits are written to disk), but is readable and editable by hand
 with a text editor. Can <em>only</em> be used for one- and two-dimensional
 arrays.</li>
 <li>Binary mode: compact and exact representation of the data in memory,
-can’t be read or edited by hand. Arrays of any size and
+can&#8217;t be read or edited by hand. Arrays of any size and
 dimensionality can be saved and read without loss of information.</li>
 </ul>
-<p>First, let’s see how to read and write arrays in text mode. The
+<p>First, let&#8217;s see how to read and write arrays in text mode. The
 <code class="docutils literal"><span class="pre">np.savetxt</span></code> function saves an array to a text file, with options to
 control the precision, separators and even adding a header:</p>
 <div class="nbinput docutils container">
@@ -2002,7 +2006,7 @@ as to browse its extensive gallery of examples that include source code.</p>
 <p>Just as we typically use the shorthand <code class="docutils literal"><span class="pre">np</span></code> for Numpy, we will use
 <code class="docutils literal"><span class="pre">plt</span></code> for the <code class="docutils literal"><span class="pre">matplotlib.pyplot</span></code> module where the easy-to-use
 plotting functions reside (the library contains a rich object-oriented
-architecture that we don’t have the space to discuss here):</p>
+architecture that we don&#8217;t have the space to discuss here):</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [65]:
@@ -2283,7 +2287,7 @@ Dimensions of the array img: (375, 500, 3)
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -2298,18 +2302,25 @@ Dimensions of the array img: (375, 500, 3)
 <li class="toctree-l1"><a class="reference internal" href="#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trapezoid.html">The trapezoidal rule: vectorization and perormance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Live plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/image_tutorial.html">Matplotlib image tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/image_tutorial.html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11-strings/11-strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13-data-frames.html">Data Manipulation</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab10.html">Lab 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab2.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab3.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab4.html">Lab 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab5.html">Lab 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab8.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab9.html">Lab 9</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Course resources</a></li>
@@ -2342,7 +2353,7 @@ Dimensions of the array img: (375, 500, 3)
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
