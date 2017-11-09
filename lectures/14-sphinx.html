@@ -1,0 +1,382 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>An introduction to Sphinx &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab 1" href="../labs/lab1.html" />
+    <link rel="prev" title="Data Manipulation" href="13-data-frames.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="An-introduction-to-Sphinx">
+<h1>An introduction to Sphinx<a class="headerlink" href="#An-introduction-to-Sphinx" title="Permalink to this headline">¶</a></h1>
+<p><strong>Credit:</strong> this notebook draws heavily on <a class="reference external" href="https://github.com/willingc/2017_09_28_sdpug_sphinx">Carol Willing’s Practical
+Sphinx
+tutorial</a>,
+originally MIT licensed. All modifications made here are also MIT
+licensed.</p>
+<div class="section" id="Sphinx?">
+<h2>Sphinx?<a class="headerlink" href="#Sphinx?" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="http://www.sphinx-doc.org/en/stable">Python documentation
+generator</a>.</p>
+<p>By default, Sphinx assumes input files are created using the
+<a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText format</a>
+(this <a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">quick
+reference</a>
+can be handy). But Sphinx is an <em>extensible system</em>, and with a couple
+of custom extensions, we can:</p>
+<ul class="simple">
+<li>Use Markdown, thanks to
+<a class="reference external" href="https://github.com/rtfd/recommonmark">recommonmark</a>.</li>
+<li>Use Jupyter Notebooks, thanks to
+<a class="reference external" href="https://nbsphinx.readthedocs.io">nbsphinx</a>.</li>
+</ul>
+<p><strong>This is what the class website uses!</strong></p>
+</div>
+<div class="section" id="The-Jupyter-Docs">
+<h2>The Jupyter Docs<a class="headerlink" href="#The-Jupyter-Docs" title="Permalink to this headline">¶</a></h2>
+<p>Available at <a class="reference external" href="http://jupyter.readthedocs.io">jupyter.readthedocs.io</a>:</p>
+<ul class="simple">
+<li>Complex set of docs that span multiple projects</li>
+<li>Include sources in reST, Markdown and Jupyter Notebooks.</li>
+<li><a class="reference external" href="http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html">Detailed explanations with
+figures</a></li>
+<li><a class="reference external" href="http://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html">Reference documentation for the
+software</a></li>
+<li><a class="reference external" href="http://jupyter-notebook.readthedocs.io/en/latest/examples/Notebook/Running%20Code.html">Notebooks rendered as part of the
+documentation</a></li>
+</ul>
+</div>
+<div class="section" id="Getting-Started">
+<h2>Getting Started<a class="headerlink" href="#Getting-Started" title="Permalink to this headline">¶</a></h2>
+<p>If you didn’t already, in your class environment, run:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>conda install sphinx
+conda install -c conda-forge nbsphinx recommonmark ghp-import
+</pre></div>
+</div>
+</div>
+<div class="section" id="Create-project-folder">
+<h2>Create project folder<a class="headerlink" href="#Create-project-folder" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">my</span><span class="o">-</span><span class="n">doc</span><span class="o">-</span><span class="n">project</span>
+<span class="n">cd</span> <span class="n">my</span><span class="o">-</span><span class="n">doc</span><span class="o">-</span><span class="n">project</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Run-sphinx's-quickstart">
+<h2>Run sphinx’s quickstart<a class="headerlink" href="#Run-sphinx's-quickstart" title="Permalink to this headline">¶</a></h2>
+<p>We can leave most items as default:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">quickstart</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Build-docs-from-your-docs-root-directory">
+<h2>Build docs from your docs root directory<a class="headerlink" href="#Build-docs-from-your-docs-root-directory" title="Permalink to this headline">¶</a></h2>
+<p>Type <code class="docutils literal"><span class="pre">make</span></code> for help on all the possible targets. Typical workflow:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">clean</span>
+<span class="n">make</span> <span class="n">html</span>
+<span class="n">make</span> <span class="n">linkcheck</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="To-view-the-docs">
+<h2>To view the docs<a class="headerlink" href="#To-view-the-docs" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">open</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Or-start-a-webserver-and-view">
+<h2>Or start a webserver and view<a class="headerlink" href="#Or-start-a-webserver-and-view" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Configuration">
+<h2>Configuration<a class="headerlink" href="#Configuration" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="conf.py">
+<h2><code class="docutils literal"><span class="pre">conf.py</span></code><a class="headerlink" href="#conf.py" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Use for configuration settings.</li>
+<li>This is a Python file.</li>
+<li>You can execute Python code for custom builds.</li>
+</ul>
+</div>
+<div class="section" id="conf.py">
+<h2><code class="docutils literal"><span class="pre">conf.py</span></code><a class="headerlink" href="#conf.py" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>themes</li>
+<li>source files</li>
+<li>extensions</li>
+</ul>
+</div>
+<div class="section" id="Themes-in-conf.py">
+<h2>Themes in <code class="docutils literal"><span class="pre">conf.py</span></code><a class="headerlink" href="#Themes-in-conf.py" title="Permalink to this headline">¶</a></h2>
+<p><strong>Easiest</strong> Use the default.</p>
+<p><strong>Easy</strong> Use another standard theme.</p>
+<p><strong>Customize</strong> <code class="docutils literal"><span class="pre">css</span></code>, <code class="docutils literal"><span class="pre">js</span></code> and override <code class="docutils literal"><span class="pre">templates</span></code> (<code class="docutils literal"><span class="pre">jinja2</span></code>)</p>
+<p><strong>Create your own theme</strong> Only do if the above doesn’t meet your needs.</p>
+</div>
+<div class="section" id="Source-files">
+<h2>Source files<a class="headerlink" href="#Source-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="More-than-.rst">
+<h3>More than <code class="docutils literal"><span class="pre">.rst</span></code><a class="headerlink" href="#More-than-.rst" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>reStructuredText <code class="docutils literal"><span class="pre">.rst</span></code> and sometimes <code class="docutils literal"><span class="pre">.txt</span></code></li>
+<li>markdown <code class="docutils literal"><span class="pre">.md</span></code></li>
+<li>Jupyter notebooks <code class="docutils literal"><span class="pre">.ipynb</span></code></li>
+</ul>
+</div>
+</div>
+<div class="section" id="conf.py">
+<h2><code class="docutils literal"><span class="pre">conf.py</span></code><a class="headerlink" href="#conf.py" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reStructuredText-.rst">
+<h3>reStructuredText <code class="docutils literal"><span class="pre">.rst</span></code><a class="headerlink" href="#reStructuredText-.rst" title="Permalink to this headline">¶</a></h3>
+<p>No changes needed in <code class="docutils literal"><span class="pre">conf.py</span></code>.</p>
+</div>
+</div>
+<div class="section" id="conf.py-(cont.)">
+<h2><code class="docutils literal"><span class="pre">conf.py</span></code> (cont.)<a class="headerlink" href="#conf.py-(cont.)" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Markdown-.md-using-recommonmark.">
+<h3>Markdown <code class="docutils literal"><span class="pre">.md</span></code> using <code class="docutils literal"><span class="pre">recommonmark</span></code>.<a class="headerlink" href="#Markdown-.md-using-recommonmark." title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># For conversion from markdown to html</span>
+<span class="kn">import</span> <span class="nn">recommonmark.Parser</span>
+
+<span class="c1"># Add a source file parser for markdown</span>
+<span class="n">source_parsers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;.md&#39;</span><span class="p">:</span> <span class="s1">&#39;recommonmark.parser.CommonMarkParser&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Add type of source files</span>
+<span class="n">source_suffix</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.rst&#39;</span><span class="p">,</span> <span class="s1">&#39;.md&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="conf.py-(cont.)">
+<h2><code class="docutils literal"><span class="pre">conf.py</span></code> (cont.)<a class="headerlink" href="#conf.py-(cont.)" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Jupyter-notebooks-.ipynb-using-nbsphinx-extension.">
+<h3>Jupyter notebooks <code class="docutils literal"><span class="pre">.ipynb</span></code> using <code class="docutils literal"><span class="pre">nbsphinx</span></code> extension.<a class="headerlink" href="#Jupyter-notebooks-.ipynb-using-nbsphinx-extension." title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;sphinx.ext.mathjax&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;nbsphinx&#39;</span><span class="p">,</span>  <span class="c1"># This lets us use notebooks</span>
+<span class="p">]</span>
+
+<span class="c1"># I execute the notebooks manually in advance. If notebooks test the code,</span>
+<span class="c1"># they should be run at build time.</span>
+<span class="n">nbsphinx_execute</span> <span class="o">=</span> <span class="s1">&#39;never&#39;</span>
+<span class="n">nbsphinx_allow_errors</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="c1"># Add type of source files</span>
+<span class="n">source_suffix</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.rst&#39;</span><span class="p">,</span> <span class="s1">&#39;.md&#39;</span><span class="p">,</span> <span class="s1">&#39;.ipynb&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="index.rst">
+<h2><code class="docutils literal"><span class="pre">index.rst</span></code><a class="headerlink" href="#index.rst" title="Permalink to this headline">¶</a></h2>
+<p>Table of Contents using each source file type</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
+   <span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">2</span>
+   <span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">Sphinx</span> <span class="n">Tips</span>
+
+   <span class="n">installation</span>
+   <span class="n">configuration</span><span class="o">.</span><span class="n">md</span>
+   <span class="n">content</span><span class="o">.</span><span class="n">ipynb</span>
+   <span class="n">deploy</span><span class="o">-</span><span class="n">on</span><span class="o">-</span><span class="n">rtd</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Github-Pages">
+<h2>Github Pages<a class="headerlink" href="#Github-Pages" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Host static websites (HTML+JS) directly from a Github Repo!</li>
+<li><a class="reference external" href="https://pages.github.com">https://pages.github.com</a></li>
+<li>All we need to have is a branch called <code class="docutils literal"><span class="pre">gh-pages</span></code> that has an HTML
+build (with an <code class="docutils literal"><span class="pre">index.html</span></code> file at the start). Github does the
+rest!</li>
+</ul>
+</div>
+<div class="section" id="Using-Github-Pages-to-post-a-sphinx-site-easily">
+<h2>Using Github Pages to post a sphinx site easily<a class="headerlink" href="#Using-Github-Pages-to-post-a-sphinx-site-easily" title="Permalink to this headline">¶</a></h2>
+<p>Make sure you answer <code class="docutils literal"><span class="pre">yes</span></code> to the question about Github Pages in the
+quickstart! If you didn’t, add to your extensions list:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;sphinx.ext.githubpages&#39;</span>
+</pre></div>
+</div>
+<p>Add this target to the <code class="docutils literal"><span class="pre">Makefile</span></code>. It automates pushing to GitHub
+Pages:</p>
+<div class="highlight-makefile"><div class="highlight"><pre><span></span><span class="nf">.PHONY</span><span class="o">:</span> <span class="n">github</span>
+
+<span class="nf">github</span><span class="o">:</span> <span class="n">html</span>
+    ghp-import <span class="k">$(</span>BUILDDIR<span class="k">)</span>/html/
+    git push -u origin gh-pages
+    @echo
+    @echo <span class="s2">&quot;Published to Github&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Let's-post-our-site">
+<h2>Let’s post our site<a class="headerlink" href="#Let's-post-our-site" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Turn our little test into a git repo (<code class="docutils literal"><span class="pre">git</span> <span class="pre">init,</span> <span class="pre">etc...</span></code>)</li>
+<li>Go to GitHub and create a GH repo for it</li>
+<li>Type:</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="nn">_build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span>
+<span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">gh</span><span class="o">-</span><span class="n">pages</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Go to <strong>Settings</strong> page and see that Github Pages is enabled.</li>
+</ul>
+<p>Once we verify the above works, we can just use, thanks to our above
+target:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">github</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Love-your-docs!">
+<h2>Love your docs!<a class="headerlink" href="#Love-your-docs!" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Many documentation examples esp. Django, Jupyter, Python</li>
+<li>Check out Carol’s documentation examples on GitHub:
+<code class="docutils literal"><span class="pre">https://github.com/willingc</span></code></li>
+<li>A minimal documentation example repo
+<a class="reference external" href="https://github.com/willingc/doc-basics">https://github.com/willingc/doc-basics</a></li>
+<li>Anne Gentle’s <a class="reference external" href="https://justwriteclick.com/">https://justwriteclick.com/</a> and
+<a class="reference external" href="https://www.docslikecode.com/articles/">https://www.docslikecode.com/articles/</a></li>
+<li>Eric Holscher <a class="reference external" href="http://www.writethedocs.org/">http://www.writethedocs.org/</a> and <a class="reference external" href="https://readthedocs.io">https://readthedocs.io</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Stat 159/259 - Reproducible and Collaborative Data Science</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-class-practice.html">Class practice: strings, lists &amp; numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-conda-pip-environments.html">Conda and pip - managing environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-reading3-discussion.html">From September 25 reading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-reading3-discussion.html#Make:-automating-tasks">Make: automating tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-ligo-make.html">LIGO, the 2017 Nobel prize in physics, and wrapping up Makefiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy.html">An Introduction to the Scientific Python Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy.html#Motivation:-the-trapezoidal-rule">Motivation: the trapezoidal rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy.html#NumPy-arrays:-the-right-data-structure-for-scientific-computing">NumPy arrays: the right data structure for scientific computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/trapezoid.html">The trapezoidal rule: vectorization and perormance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Live plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/image_tutorial.html">Matplotlib image tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/image_tutorial.html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-strings/11-strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13-data-frames.html">Data Manipulation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">An introduction to Sphinx</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab10.html">Lab 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab2.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab3.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab4.html">Lab 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab5.html">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab6.html">Lab 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab8.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab9.html">Lab 9</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="13-data-frames.html" title="previous chapter">Data Manipulation</a></li>
+      <li>Next: <a href="../labs/lab1.html" title="next chapter">Lab 1</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Fernando Perez.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/lectures/14-sphinx.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

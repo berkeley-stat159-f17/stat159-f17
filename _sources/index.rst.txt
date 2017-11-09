@@ -106,6 +106,7 @@ Lectures
    lectures/11-strings/11-nltk.ipynb
    lectures/12-data-intro.ipynb
    lectures/13-data-frames.ipynb
+   lectures/14-sphinx.ipynb
 
 
 Labs

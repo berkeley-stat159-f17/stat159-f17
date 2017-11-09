@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Lab 10 &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
-    
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -24,7 +21,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Lab 2" href="lab2.html" />
@@ -36,7 +33,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -210,11 +207,11 @@ div.nboutput div.output_area.stderr {
 <h1>Lab 10<a class="headerlink" href="#Lab-10" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="Continuing-Seaborn">
 <h2>Continuing Seaborn<a class="headerlink" href="#Continuing-Seaborn" title="Permalink to this headline">¶</a></h2>
-<p>We&#8217;ll finish up the seaborn material from last lab</p>
+<p>We’ll finish up the seaborn material from last lab</p>
 </div>
 <div class="section" id="Multidimensional-Scaling-(MDS)">
 <h2>Multidimensional Scaling (MDS)<a class="headerlink" href="#Multidimensional-Scaling-(MDS)" title="Permalink to this headline">¶</a></h2>
-<p><em>Note:</em> This is based off of <a class="reference external" href="http://www.cs.columbia.edu/~jebara/6772/notes/notes2.pdf">Prof Tony Jebara&#8217;s lecture notes for COMS
+<p><em>Note:</em> This is based off of <a class="reference external" href="http://www.cs.columbia.edu/~jebara/6772/notes/notes2.pdf">Prof Tony Jebara’s lecture notes for COMS
 6772 at Columbia in Spring
 2015.</a></p>
 <p>Say we have a series of points <span class="math">\(x_1,\ldots,x_n \in R^d\)</span>, where
@@ -223,7 +220,7 @@ in <span class="math">\(R^k\)</span> with <span class="math">\(k &lt;&lt; d\)</s
 Presidents and speeches).</p>
 <p>How can we do this?</p>
 <p>Idea: Find a representation that preserves <strong>pairwise distances</strong>
-between the data. In general we don&#8217;t need to just consider distances,
+between the data. In general we don’t need to just consider distances,
 but can widen our scope to dissimilarities. A <strong>Dissimilarity</strong> is a
 function <span class="math">\(d:R^d \times R^d \to R\)</span> such that for all
 <span class="math">\(x,y \in R^d\)</span>.</p>
@@ -242,16 +239,16 @@ pairwise dissimilarities as</p>
 <p>Now we can formalize the problem a bit more. Given data
 <span class="math">\(x_1,\ldots,x_n \in R^d\)</span> with dissimilarity matrix <span class="math">\(\Delta\)</span>,
 can we find a representation <span class="math">\(y_1,\ldots,y_n \in R^k\)</span> with
-dissimilarity matrix <span class="math">\(D\)</span> such that <span class="math">\(D\)</span> is &#8220;close&#8221; to
+dissimilarity matrix <span class="math">\(D\)</span> such that <span class="math">\(D\)</span> is “close” to
 <span class="math">\(\Delta\)</span>.</p>
-<p>How do we define &#8220;close&#8221;? <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.manifold.MDS.html">Scikit
+<p>How do we define “close”? <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.manifold.MDS.html">Scikit
 learn</a>
 uses <strong>Stress</strong>:</p>
 <div class="math">
 \[Stress(y_1,\ldots,y_n) = \sum_{ij} (D_{ij} - \Delta_{ij})^2\]</div>
 <p>To find a lower-dimensional representation we then find
 <span class="math">\(y_1,\ldots,y_n \in R^k\)</span> to minimize the stress.</p>
-<p>Let&#8217;s look at an example with the NFL trends data from Lab 9.</p>
+<p>Let’s look at an example with the NFL trends data from Lab 9.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [48]:
@@ -285,8 +282,8 @@ uses <strong>Stress</strong>:</p>
 </pre></div>
 </div>
 </div>
-<p>We&#8217;ll normalize the search interest for each league in each market
-(they&#8217;re actually close to adding up to 100 except for rounding errors).</p>
+<p>We’ll normalize the search interest for each league in each market
+(they’re actually close to adding up to 100 except for rounding errors).</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [14]:
@@ -415,7 +412,7 @@ markets and get a distance matrix.</p>
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -437,6 +434,7 @@ markets and get a distance matrix.</p>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/13-data-frames.html">Data Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/14-sphinx.html">An introduction to Sphinx</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab 1</a></li>
@@ -481,7 +479,7 @@ markets and get a distance matrix.</p>
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

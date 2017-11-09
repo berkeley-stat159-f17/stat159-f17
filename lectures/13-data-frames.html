@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Data Manipulation &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
-    
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -24,10 +21,10 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lab 1" href="../labs/lab1.html" />
+    <link rel="next" title="An introduction to Sphinx" href="14-sphinx.html" />
     <link rel="prev" title="Data - an introduction to the world of Pandas" href="12-data-intro.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -36,7 +33,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -209,7 +206,7 @@ div.nboutput div.output_area.stderr {
 <div class="section" id="Data-Manipulation">
 <h1>Data Manipulation<a class="headerlink" href="#Data-Manipulation" title="Permalink to this headline">¶</a></h1>
 <p><strong>Note:</strong> This is an edited version of <a class="reference external" href="http://people.duke.edu/~ccc14/cfar-data-2016/ManipulatingDataFrames_Solutions.html">Cliburn
-Chan&#8217;s</a>
+Chan’s</a>
 original tutorial. All changes remain licensed as the original, under
 the terms of the MIT license.</p>
 <div class="nbinput nblast docutils container">
@@ -730,7 +727,7 @@ trying to do.</p>
 on some unique identifier, for example, to combine clinical and
 laboratory information for specific patients with unique PIDs. Often the
 ordering of the PIDs in the two data frames are not exactly lined up so
-&#8220;horizontal stacking&#8221; will not work. Usually we need to <code class="docutils literal"><span class="pre">merge</span></code> the
+“horizontal stacking” will not work. Usually we need to <code class="docutils literal"><span class="pre">merge</span></code> the
 data on a unique identifier from one or more columns.</p>
 <div class="section" id="Simplest-case---rows-line-up-perfectly-across-data-frames">
 <h4>Simplest case - rows line up perfectly across data frames<a class="headerlink" href="#Simplest-case---rows-line-up-perfectly-across-data-frames" title="Permalink to this headline">¶</a></h4>
@@ -2748,7 +2745,7 @@ only the number.</p>
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -2770,6 +2767,7 @@ only the number.</p>
 <li class="toctree-l1"><a class="reference internal" href="11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14-sphinx.html">An introduction to Sphinx</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>
@@ -2792,7 +2790,7 @@ only the number.</p>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="12-data-intro.html" title="previous chapter">Data - an introduction to the world of Pandas</a></li>
-      <li>Next: <a href="../labs/lab1.html" title="next chapter">Lab 1</a></li>
+      <li>Next: <a href="14-sphinx.html" title="next chapter">An introduction to Sphinx</a></li>
   </ul></li>
 </ul>
 </div>
@@ -2814,7 +2812,7 @@ only the number.</p>
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
