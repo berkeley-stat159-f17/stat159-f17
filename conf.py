@@ -32,7 +32,8 @@
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = ['sphinx.ext.mathjax',
-    'sphinx.ext.githubpages', 'nbsphinx']
+              'sphinx.ext.githubpages', 
+              'nbsphinx']
 
 nbsphinx_execute = 'never'
 nbsphinx_allow_errors = True
