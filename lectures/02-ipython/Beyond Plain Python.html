@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>IPython: beyond plain Python &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
    
@@ -31,7 +34,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -216,7 +219,7 @@ new one if you are at the end. Alternately, you can use:</p>
 (useful when inserting new content in the middle of an existing
 notebook).</li>
 <li><code class="docutils literal"><span class="pre">Control-Enter</span></code> executes the cell and keeps the cursor in the same
-cell, useful for quick experimentation of snippets that you don’t
+cell, useful for quick experimentation of snippets that you don&#8217;t
 need to keep permanently.</li>
 </ul>
 <div class="nbinput docutils container">
@@ -225,7 +228,7 @@ need to keep permanently.</li>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>print(&quot;Hi&quot;)
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -244,7 +247,7 @@ Hi
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>?
+<span></span><span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -257,8 +260,8 @@ arguments) and constructor details for classes.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import collections
-collections.namedtuple?
+<span></span><span class="kn">import</span> <span class="nn">collections</span>
+collections.namedtuple<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -268,7 +271,7 @@ collections.namedtuple?
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>collections.Counter??
+<span></span>collections.Counter<span class="o">??</span>
 </pre></div>
 </div>
 </div>
@@ -278,7 +281,7 @@ collections.namedtuple?
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>*int*?
+<span></span>*int*<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -289,7 +292,7 @@ collections.namedtuple?
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%quickref
+<span></span><span class="o">%</span><span class="k">quickref</span>
 </pre></div>
 </div>
 </div>
@@ -307,7 +310,7 @@ names.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>collections.
+<span></span><span class="n">collections</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
@@ -320,7 +323,7 @@ names.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>2+10
+<span></span><span class="mi">2</span><span class="o">+</span><span class="mi">10</span>
 </pre></div>
 </div>
 </div>
@@ -340,7 +343,7 @@ names.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>_+10
+<span></span><span class="n">_</span><span class="o">+</span><span class="mi">10</span>
 </pre></div>
 </div>
 </div>
@@ -363,7 +366,7 @@ example):</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>10+20;
+<span></span><span class="mi">10</span><span class="o">+</span><span class="mi">20</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -373,7 +376,7 @@ example):</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>_
+<span></span><span class="n">_</span>
 </pre></div>
 </div>
 </div>
@@ -394,7 +397,7 @@ example):</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>_10 == Out[10]
+<span></span><span class="n">_10</span> <span class="o">==</span> <span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -415,7 +418,7 @@ example):</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>In[11]
+<span></span><span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -435,7 +438,7 @@ example):</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>_i
+<span></span><span class="n">_i</span>
 </pre></div>
 </div>
 </div>
@@ -455,7 +458,7 @@ example):</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%history -n 1-5
+<span></span><span class="o">%</span><span class="k">history</span> -n 1-5
 </pre></div>
 </div>
 </div>
@@ -482,7 +485,7 @@ collections.namedtuple?
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>!pwd
+<span></span><span class="o">!</span>pwd
 </pre></div>
 </div>
 </div>
@@ -500,9 +503,9 @@ collections.namedtuple?
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>files = !ls
-print(&quot;My current directory&#39;s files:&quot;)
-print(files)
+<span></span><span class="n">files</span> <span class="o">=</span> <span class="o">!</span>ls
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My current directory&#39;s files:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -521,7 +524,7 @@ My current directory&#39;s files:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>!echo $files
+<span></span><span class="o">!</span><span class="nb">echo</span> <span class="nv">$files</span>
 </pre></div>
 </div>
 </div>
@@ -539,7 +542,7 @@ My current directory&#39;s files:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>!echo {files[0].upper()}
+<span></span><span class="o">!</span><span class="nb">echo</span> <span class="o">{</span>files<span class="o">[</span><span class="m">0</span><span class="o">]</span>.upper<span class="o">()}</span>
 </pre></div>
 </div>
 </div>
@@ -558,12 +561,12 @@ BEYOND PLAIN PYTHON.IPYNB
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import os
-for i,f in enumerate(files):
-    if f.endswith(&#39;ipynb&#39;):
-        !echo {&quot;%02d&quot; % i} - &quot;{os.path.splitext(f)[0]}&quot;
-    else:
-        print(&#39;--&#39;)
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;ipynb&#39;</span><span class="p">):</span>
+        <span class="o">!</span><span class="nb">echo</span> <span class="o">{</span><span class="s2">&quot;%02d&quot;</span> % i<span class="o">}</span> - <span class="s2">&quot;{os.path.splitext(f)[0]}&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -585,7 +588,7 @@ for i,f in enumerate(files):
 </div>
 <div class="section" id="Beyond-Python:-magic-functions">
 <h2>Beyond Python: magic functions<a class="headerlink" href="#Beyond-Python:-magic-functions" title="Permalink to this headline">¶</a></h2>
-<p>The IPyhton ‘magic’ functions are a set of commands, invoked by
+<p>The IPyhton &#8216;magic&#8217; functions are a set of commands, invoked by
 prepending one or two <code class="docutils literal"><span class="pre">%</span></code> signs to their name, that live in a
 namespace separate from your normal Python variables and provide a more
 command-like interface. They take flags with <code class="docutils literal"><span class="pre">--</span></code> and arguments
@@ -604,7 +607,7 @@ classic Unix shell style for commands.</li>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%magic
+<span></span><span class="o">%</span><span class="k">magic</span>
 </pre></div>
 </div>
 </div>
@@ -615,7 +618,7 @@ classic Unix shell style for commands.</li>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%timeit list(range(1000))
+<span></span><span class="o">%</span><span class="k">timeit</span> list(range(1000))
 </pre></div>
 </div>
 </div>
@@ -633,7 +636,7 @@ classic Unix shell style for commands.</li>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%%timeit -n 100000
+<span></span><span class="o">%%</span><span class="k">timeit</span> -n 100000
 x = list(range(100))
 sum(x)
 </pre></div>
@@ -654,10 +657,10 @@ sum(x)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>for i in range(1, 5):
-    size = i*100
-    print(&#39;size:&#39;, size, end=&#39; &#39;)
-    %timeit -n 100000 list(range(size))
+<span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">i</span><span class="o">*</span><span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;size:&#39;</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="o">%</span><span class="k">timeit</span> -n 100000 list(range(size))
 </pre></div>
 </div>
 </div>
@@ -672,7 +675,7 @@ size: 300 2.35 µs ± 39 ns per loop (mean ± std. dev. of 7 runs, 100000 loops 
 size: 400 3.82 µs ± 41.2 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div></div>
 </div>
-<p>Magics can do anything they want with their input, so it doesn’t have to
+<p>Magics can do anything they want with their input, so it doesn&#8217;t have to
 be valid Python:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -709,7 +712,7 @@ the notebook:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%%writefile test.txt
+<span></span><span class="o">%%</span><span class="k">writefile</span> test.txt
 This is a test file!
 It can contain anything I want...
 
@@ -731,7 +734,7 @@ Overwriting test.txt
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>!cat test.txt
+<span></span><span class="o">!</span>cat test.txt
 </pre></div>
 </div>
 </div>
@@ -746,14 +749,14 @@ It can contain anything I want...
 And more...
 </pre></div></div>
 </div>
-<p>Let’s see what other magics are currently defined in the system:</p>
+<p>Let&#8217;s see what other magics are currently defined in the system:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%lsmagic
+<span></span><span class="o">%</span><span class="k">lsmagic</span>
 </pre></div>
 </div>
 </div>
@@ -784,12 +787,12 @@ from a Python or IPython shell session:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>&gt;&gt;&gt; # Fibonacci series:
-... # the sum of two elements defines the next
-... a, b = 0, 1
-&gt;&gt;&gt; while b &lt; 10:
-...     print(b)
-...     a, b = b, a+b
+<span></span><span class="o">&gt;&gt;&gt;</span> <span class="c1"># Fibonacci series:</span>
+<span class="o">...</span> <span class="c1"># the sum of two elements defines the next</span>
+<span class="o">...</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">while</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="o">...</span>     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
 </pre></div>
 </div>
 </div>
@@ -812,9 +815,9 @@ from a Python or IPython shell session:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>In [1]: for i in range(10):
-   ...:     print(i, end=&#39; &#39;)
-   ...:
+<span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+   <span class="o">...</span><span class="p">:</span>     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+   <span class="o">...</span><span class="p">:</span>
 </pre></div>
 </div>
 </div>
@@ -834,7 +837,7 @@ displayed with the <code class="docutils literal"><span class="pre">%xmode</span
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%%writefile mod.py
+<span></span><span class="o">%%</span><span class="k">writefile</span> mod.py
 
 def f(x):
     return 1.0/(x-1)
@@ -852,7 +855,7 @@ def g(y):
 Overwriting mod.py
 </pre></div></div>
 </div>
-<p>Now let’s call the function <code class="docutils literal"><span class="pre">g</span></code> with an argument that would produce an
+<p>Now let&#8217;s call the function <code class="docutils literal"><span class="pre">g</span></code> with an argument that would produce an
 error:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -860,8 +863,8 @@ error:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import mod
-mod.g(0)
+<span></span><span class="kn">import</span> <span class="nn">mod</span>
+<span class="n">mod</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -897,8 +900,8 @@ mod.g(0)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%xmode plain
-mod.g(0)
+<span></span><span class="o">%</span><span class="k">xmode</span> plain
+<span class="n">mod</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -936,8 +939,8 @@ Traceback <span class="ansi-cyan-fg">(most recent call last)</span>:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%xmode verbose
-mod.g(0)
+<span></span><span class="o">%</span><span class="k">xmode</span> verbose
+<span class="n">mod</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -979,8 +982,8 @@ Exception reporting mode: Verbose
 <span class="ansi-red-fg">ZeroDivisionError</span>: float division by zero
 </pre></div></div>
 </div>
-<p>The default <code class="docutils literal"><span class="pre">%xmode</span></code> is “context”, which shows additional context but
-not all local variables. Let’s restore that one for the rest of our
+<p>The default <code class="docutils literal"><span class="pre">%xmode</span></code> is &#8220;context&#8221;, which shows additional context but
+not all local variables. Let&#8217;s restore that one for the rest of our
 session.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -988,7 +991,7 @@ session.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%xmode context
+<span></span><span class="o">%</span><span class="k">xmode</span> context
 </pre></div>
 </div>
 </div>
@@ -1055,7 +1058,7 @@ notebook:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mod.g(0)
+<span></span><span class="n">mod</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1090,7 +1093,7 @@ notebook:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%debug
+<span></span><span class="o">%</span><span class="k">debug</span>
 </pre></div>
 </div>
 </div>
@@ -1109,7 +1112,7 @@ notebook:</p>
 ipdb&gt; q
 </pre></div></div>
 </div>
-<p>Don’t foget to exit your debugging session. Raw input can of course be
+<p>Don&#8217;t foget to exit your debugging session. Raw input can of course be
 use to ask for user input:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -1117,8 +1120,8 @@ use to ask for user input:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>enjoy = input(&#39;Are you enjoying this tutorial? &#39;)
-print(&#39;enjoy is:&#39;, enjoy)
+<span></span><span class="n">enjoy</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Are you enjoying this tutorial? &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;enjoy is:&#39;</span><span class="p">,</span> <span class="n">enjoy</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1141,7 +1144,7 @@ enjoy is: yes!
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%matplotlib inline
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -1151,8 +1154,8 @@ enjoy is: yes!
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy as np
-import matplotlib.pyplot as plt
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -1162,11 +1165,11 @@ import matplotlib.pyplot as plt
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x = np.linspace(0, 2*np.pi, 300)
-y = np.sin(x**2)
-plt.plot(x, y)
-plt.title(&quot;A little chirp&quot;)
-fig = plt.gcf()  # let&#39;s keep the figure object around for later...
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;A little chirp&quot;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>  <span class="c1"># let&#39;s keep the figure object around for later...</span>
 </pre></div>
 </div>
 </div>
@@ -1186,7 +1189,7 @@ fig = plt.gcf()  # let&#39;s keep the figure object around for later...
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%connect_info
+<span></span><span class="o">%</span><span class="k">connect_info</span>
 </pre></div>
 </div>
 </div>
@@ -1226,7 +1229,7 @@ kernel with the <code class="docutils literal"><span class="pre">%qtconsole</spa
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%qtconsole
+<span></span><span class="o">%</span><span class="k">qtconsole</span>
 </pre></div>
 </div>
 </div>
@@ -1250,7 +1253,7 @@ kernel with the <code class="docutils literal"><span class="pre">%qtconsole</spa
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -1274,6 +1277,7 @@ kernel with the <code class="docutils literal"><span class="pre">%qtconsole</spa
 <li class="toctree-l1"><a class="reference internal" href="../13-data-frames.html">Data Manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../14-sphinx.html">An introduction to Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../16-testing.html">Testing your software in Python</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
@@ -1316,7 +1320,7 @@ kernel with the <code class="docutils literal"><span class="pre">%qtconsole</spa
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

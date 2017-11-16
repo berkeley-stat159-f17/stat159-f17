@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Problem 2: Statistics &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
    
@@ -31,7 +34,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -205,23 +208,23 @@ div.nboutput div.output_area.stderr {
 First, <strong>restart the kernel</strong> (in the menubar, select
 Kernel<span class="math">\(\rightarrow\)</span>Restart) and then <strong>run all cells</strong> (in the
 menubar, select Cell<span class="math">\(\rightarrow\)</span>Run All).</p>
-<p>Make sure you fill in any place that says <code class="docutils literal"><span class="pre">YOUR</span> <span class="pre">CODE</span> <span class="pre">HERE</span></code> or “YOUR
-ANSWER HERE”, as well as your name and collaborators below:</p>
+<p>Make sure you fill in any place that says <code class="docutils literal"><span class="pre">YOUR</span> <span class="pre">CODE</span> <span class="pre">HERE</span></code> or &#8220;YOUR
+ANSWER HERE&#8221;, as well as your name and collaborators below:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>NAME = &quot;&quot;
-COLLABORATORS = &quot;&quot;
+<span></span><span class="n">NAME</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">COLLABORATORS</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="Problem-2:-Statistics">
 <h1>Problem 2: Statistics<a class="headerlink" href="#Problem-2:-Statistics" title="Permalink to this headline">¶</a></h1>
-<p>In this problem we’ll use Python to do some basic statistics</p>
+<p>In this problem we&#8217;ll use Python to do some basic statistics</p>
 <div class="section" id="Part-A:-MLE-for-a-Gaussian-(2-points)">
 <h2>Part A: MLE for a Gaussian (2 points)<a class="headerlink" href="#Part-A:-MLE-for-a-Gaussian-(2-points)" title="Permalink to this headline">¶</a></h2>
 <p>Recall that with data <span class="math">\(X_1,\ldots,X_n\)</span>,drawn i.i.d. from a
@@ -241,11 +244,11 @@ likeihood estimate for the mean and variance.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def compute_mean_and_var(data):
-    &quot;&quot;&quot;Compute the mean and variance&quot;&quot;&quot;
+<span></span><span class="k">def</span> <span class="nf">compute_mean_and_var</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute the mean and variance&quot;&quot;&quot;</span>
 
-    # YOUR CODE HERE
-    raise NotImplementedError()
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -255,19 +258,19 @@ likeihood estimate for the mean and variance.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>&quot;&quot;&quot;Check that means and variances are computed correctly&quot;&quot;&quot;
+<span></span><span class="sd">&quot;&quot;&quot;Check that means and variances are computed correctly&quot;&quot;&quot;</span>
 
-# Don&#39;t worry about the use of numpy, it&#39;s just for testing
-import numpy as np
-# set the seed so it&#39;s the same across runs
-np.random.seed(1234)
+<span class="c1"># Don&#39;t worry about the use of numpy, it&#39;s just for testing</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># set the seed so it&#39;s the same across runs</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
 
-# test data
-data = list(np.random.randn(1000))
-# compute mean and variance and make sure it&#39;s right
-mean, var = compute_mean_and_var(data)
-np.testing.assert_approx_equal(mean, 0.01574, 3)
-np.testing.assert_approx_equal(var, 0.9468, 3)
+<span class="c1"># test data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+<span class="c1"># compute mean and variance and make sure it&#39;s right</span>
+<span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">compute_mean_and_var</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="mf">0.01574</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="mf">0.9468</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -284,7 +287,7 @@ log normal distribution with</p>
 <div class="math">
 \[ \begin{align}\begin{aligned}\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n (\log X_i - \hat{\mu})^2\\Write a function which computes the maximum liklihood estimates.\end{aligned}\end{align} \]</div>
 <p>If any of the data are non-positive, then it cannot be log normally
-distributed. For this problem we’ll assume non-positive numbers are
+distributed. For this problem we&#8217;ll assume non-positive numbers are
 missing, so make sure your function removes negative values. If all
 values are non-positive, return a <code class="docutils literal"><span class="pre">ValueError</span></code></p>
 <div class="nbinput nblast docutils container">
@@ -293,13 +296,13 @@ values are non-positive, return a <code class="docutils literal"><span class="pr
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import math
+<span></span><span class="kn">import</span> <span class="nn">math</span>
 
-def compute_log_mean_and_var(data):
-    &quot;&quot;&quot;Compute the MLE estimates of the parameters for a log normal&quot;&quot;&quot;
+<span class="k">def</span> <span class="nf">compute_log_mean_and_var</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute the MLE estimates of the parameters for a log normal&quot;&quot;&quot;</span>
 
-    # YOUR CODE HERE
-    raise NotImplementedError()
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -309,14 +312,14 @@ def compute_log_mean_and_var(data):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>&quot;&quot;&quot;Check that mle parameters are computed correctly&quot;&quot;&quot;
-# test data
-np.random.seed(1234)
-data = list(np.exp(np.random.randn(1000))) + [-1]
-# compute mean and variance and make sure it&#39;s right
-mean, var = compute_log_mean_and_var(data)
-np.testing.assert_approx_equal(mean, 0.01574, 3)
-np.testing.assert_approx_equal(var, 0.9468, 3)
+<span></span><span class="sd">&quot;&quot;&quot;Check that mle parameters are computed correctly&quot;&quot;&quot;</span>
+<span class="c1"># test data</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)))</span> <span class="o">+</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># compute mean and variance and make sure it&#39;s right</span>
+<span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">compute_log_mean_and_var</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="mf">0.01574</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="mf">0.9468</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -326,13 +329,13 @@ np.testing.assert_approx_equal(var, 0.9468, 3)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>&quot;&quot;&quot;Check for correct exception throwing&quot;&quot;&quot;
-try:
-    compute_log_mean_and_var([-1,-4])
-except ValueError:
-    pass
-else:
-    raise AssertionError(&quot;ValueError not thrown&quot;)
+<span></span><span class="sd">&quot;&quot;&quot;Check for correct exception throwing&quot;&quot;&quot;</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">compute_log_mean_and_var</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;ValueError not thrown&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -353,8 +356,8 @@ left and right end points of the confidence interval</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># YOUR CODE HERE
-raise NotImplementedError()
+<span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -364,14 +367,14 @@ raise NotImplementedError()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>&quot;&quot;&quot;Check if CIs are correct&quot;&quot;&quot;
-# test data
-np.random.seed(1234)
-data = list(np.random.randn(100))
-# compute confidence interval
-lower, upper = compute_mean_ci(data)
-np.testing.assert_approx_equal(lower, -0.1608, 3)
-np.testing.assert_approx_equal(upper, 0.2311, 3)
+<span></span><span class="sd">&quot;&quot;&quot;Check if CIs are correct&quot;&quot;&quot;</span>
+<span class="c1"># test data</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="c1"># compute confidence interval</span>
+<span class="n">lower</span><span class="p">,</span> <span class="n">upper</span> <span class="o">=</span> <span class="n">compute_mean_ci</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1608</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span> <span class="mf">0.2311</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -386,10 +389,10 @@ and <code class="docutils literal"><span class="pre">False</span></code> otherwi
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def hypothesis_test(data):
-    &quot;&quot;&quot;Test H_0:mu = 0&quot;&quot;&quot;
-    # YOUR CODE HERE
-    raise NotImplementedError()
+<span></span><span class="k">def</span> <span class="nf">hypothesis_test</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Test H_0:mu = 0&quot;&quot;&quot;</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -399,14 +402,14 @@ and <code class="docutils literal"><span class="pre">False</span></code> otherwi
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>&quot;&quot;&quot;Check if tests are correct&quot;&quot;&quot;
-# test data
-np.random.seed(1234)
-data1 = list(np.random.randn(100))
-# run test
-assert hypothesis_test(data1) == False
-data2 = list(np.random.randn(100) + 1)
-assert hypothesis_test(data2) == True
+<span></span><span class="sd">&quot;&quot;&quot;Check if tests are correct&quot;&quot;&quot;</span>
+<span class="c1"># test data</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+<span class="n">data1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="c1"># run test</span>
+<span class="k">assert</span> <span class="n">hypothesis_test</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="n">data2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">hypothesis_test</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
 
 </pre></div>
 </div>
@@ -438,11 +441,11 @@ sample means is different than the variance for the means</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def read_and_test(file_path):
-    &quot;&quot;&quot;Compute confidence interval of difference in means and run a test&quot;&quot;&quot;
+<span></span><span class="k">def</span> <span class="nf">read_and_test</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute confidence interval of difference in means and run a test&quot;&quot;&quot;</span>
 
-    # YOUR CODE HERE
-    raise NotImplementedError()
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -452,20 +455,20 @@ sample means is different than the variance for the means</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>&quot;&quot;&quot;Check if results of experiment are correct&quot;&quot;&quot;
-# compute ci and make sure it&#39;s right
-(lower1, upper1), reject1 = read_and_test(&quot;/accounts/class/s159/exchange/experiment1.txt&quot;)
-(lower2, upper2), reject2 = read_and_test(&quot;/accounts/class/s159/exchange/experiment2.txt&quot;)
+<span></span><span class="sd">&quot;&quot;&quot;Check if results of experiment are correct&quot;&quot;&quot;</span>
+<span class="c1"># compute ci and make sure it&#39;s right</span>
+<span class="p">(</span><span class="n">lower1</span><span class="p">,</span> <span class="n">upper1</span><span class="p">),</span> <span class="n">reject1</span> <span class="o">=</span> <span class="n">read_and_test</span><span class="p">(</span><span class="s2">&quot;/accounts/class/s159/exchange/experiment1.txt&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">lower2</span><span class="p">,</span> <span class="n">upper2</span><span class="p">),</span> <span class="n">reject2</span> <span class="o">=</span> <span class="n">read_and_test</span><span class="p">(</span><span class="s2">&quot;/accounts/class/s159/exchange/experiment2.txt&quot;</span><span class="p">)</span>
 
-np.testing.assert_approx_equal(lower1, -0.5642, 3)
-np.testing.assert_approx_equal(upper1, -0.3323, 3)
+<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">lower1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5642</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">upper1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3323</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
-np.testing.assert_approx_equal(lower2, -0.1894, 3)
-np.testing.assert_approx_equal(upper2, 0.0424, 3)
+<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">lower2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1894</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">upper2</span><span class="p">,</span> <span class="mf">0.0424</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
-# check if hypothesis test is right
-assert reject1 == True
-assert reject2 == False
+<span class="c1"># check if hypothesis test is right</span>
+<span class="k">assert</span> <span class="n">reject1</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">reject2</span> <span class="o">==</span> <span class="kc">False</span>
 </pre></div>
 </div>
 </div>
@@ -488,7 +491,7 @@ assert reject2 == False
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -512,6 +515,7 @@ assert reject2 == False
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/13-data-frames.html">Data Manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/14-sphinx.html">An introduction to Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/16-testing.html">Testing your software in Python</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
@@ -554,7 +558,7 @@ assert reject2 == False
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

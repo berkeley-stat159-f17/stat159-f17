@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>P-values discussion with Prof. Philip B. Stark &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -21,10 +24,10 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lab 1" href="../../labs/lab1.html" />
+    <link rel="next" title="Testing your software in Python" href="../16-testing.html" />
     <link rel="prev" title="An introduction to Sphinx" href="../14-sphinx.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -33,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -44,8 +47,8 @@
   <div class="section" id="p-values-discussion-with-prof-philip-b-stark">
 <span id="p-values-discussion-with-prof-philip-b-stark"></span><h1>P-values discussion with Prof. Philip B. Stark<a class="headerlink" href="#p-values-discussion-with-prof-philip-b-stark" title="Permalink to this headline">¶</a></h1>
 <p>This lecture was a discussion on the role of p-values in statistical research, the assumptions that underlie their definition, and how to critically consider the constructions of hypotheses.</p>
-<p>The background readings were the <a class="reference external" href="http://amstat.tandfonline.com/doi/abs/10.1080/00031305.2016.1154108#.Wg1GP7Q-dE4">ASA's statement on p-values</a> (along with supporting commentaries) and the paper <a class="reference external" href="https://www.nature.com/articles/s41562-017-0189-z">&quot;Redefine statistical significance&quot;</a>.</p>
-<p>The complete lecture by prof. Stark was <a class="reference external" href="rabbits.slides.html">&quot;P-values, Probability, Priors, Rabbits, Quantifauxcation, and Cargo-Cult Statistics&quot;</a></p>
+<p>The background readings were the <a class="reference external" href="http://amstat.tandfonline.com/doi/abs/10.1080/00031305.2016.1154108#.Wg1GP7Q-dE4">ASA&#8217;s statement on p-values</a> (along with supporting commentaries) and the paper <a class="reference external" href="https://www.nature.com/articles/s41562-017-0189-z">&#8220;Redefine statistical significance&#8221;</a>.</p>
+<p>The complete lecture by prof. Stark was <a class="reference external" href="rabbits.slides.html">&#8220;P-values, Probability, Priors, Rabbits, Quantifauxcation, and Cargo-Cult Statistics&#8221;</a></p>
 </div>
 
 
@@ -65,7 +68,7 @@
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -89,6 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../13-data-frames.html">Data Manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../14-sphinx.html">An introduction to Sphinx</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">P-values discussion with Prof. Philip B. Stark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../16-testing.html">Testing your software in Python</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
@@ -111,7 +115,7 @@
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="../14-sphinx.html" title="previous chapter">An introduction to Sphinx</a></li>
-      <li>Next: <a href="../../labs/lab1.html" title="next chapter">Lab 1</a></li>
+      <li>Next: <a href="../16-testing.html" title="next chapter">Testing your software in Python</a></li>
   </ul></li>
 </ul>
 </div>
@@ -133,7 +137,7 @@
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

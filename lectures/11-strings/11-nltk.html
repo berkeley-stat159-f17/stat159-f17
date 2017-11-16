@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>NLTK: Natural Language Made Easy &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Data - an introduction to the world of Pandas" href="../12-data-intro.html" />
@@ -33,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -205,17 +208,17 @@ div.nboutput div.output_area.stderr {
 </style>
 <div class="section" id="NLTK:-Natural-Language-Made-Easy">
 <h1>NLTK: Natural Language Made Easy<a class="headerlink" href="#NLTK:-Natural-Language-Made-Easy" title="Permalink to this headline">¶</a></h1>
-<p>Dealing with text is hard! Thankfully, it’s hard for everyone, so tools
+<p>Dealing with text is hard! Thankfully, it&#8217;s hard for everyone, so tools
 exist to make it easier.</p>
-<p>NLTK, the Natural Language Toolkit, is a python package “for building
-Python programs to work with human language data”. It has many tools for
-basic language processing (e.g.&nbsp;tokenization, <span class="math">\(n\)</span>-grams, etc.) as
-well as tools for more complicated language processing (e.g.&nbsp;part of
+<p>NLTK, the Natural Language Toolkit, is a python package &#8220;for building
+Python programs to work with human language data&#8221;. It has many tools for
+basic language processing (e.g. tokenization, <span class="math">\(n\)</span>-grams, etc.) as
+well as tools for more complicated language processing (e.g. part of
 speech tagging, parse trees, etc.).</p>
 <p>NLTK has an <a class="reference external" href="http://www.nltk.org/book/">associated book about NLP</a>
 that provides some context for the corpora and models.</p>
-<div class="section" id="Installing-NLTK,-or-“why-do-I-need-to-download-so-much-data?”">
-<h2>Installing NLTK, or “why do I need to download so much data?”<a class="headerlink" href="#Installing-NLTK,-or-“why-do-I-need-to-download-so-much-data?”" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Installing-NLTK,-or-&quot;why-do-I-need-to-download-so-much-data?&quot;">
+<h2>Installing NLTK, or &#8220;why do I need to download so much data?&#8221;<a class="headerlink" href="#Installing-NLTK,-or-"why-do-I-need-to-download-so-much-data?"" title="Permalink to this headline">¶</a></h2>
 <p>We can <code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">nltk</span></code> to get the package. Then we need to do
 something somewhat strange: we have to download data.</p>
 <div class="nbinput nblast docutils container">
@@ -224,8 +227,8 @@ something somewhat strange: we have to download data.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import nltk
-#nltk.download()
+<span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="c1">#nltk.download()</span>
 </pre></div>
 </div>
 </div>
@@ -237,7 +240,7 @@ something somewhat strange: we have to download data.</p>
 </ul>
 </li>
 <li>Models<ul>
-<li>These are data (e.g.&nbsp;weights, etc.) for trained models.</li>
+<li>These are data (e.g. weights, etc.) for trained models.</li>
 </ul>
 </li>
 </ol>
@@ -256,7 +259,7 @@ something somewhat strange: we have to download data.</p>
 <h2>Analyzing tweets<a class="headerlink" href="#Analyzing-tweets" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="First-pass">
 <h3>First pass<a class="headerlink" href="#First-pass" title="Permalink to this headline">¶</a></h3>
-<p>Let’s take a look at one corpus in particular: positive and negative
+<p>Let&#8217;s take a look at one corpus in particular: positive and negative
 tweets.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -264,11 +267,11 @@ tweets.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># read some twitter data
-neg_id = nltk.corpus.twitter_samples.fileids()[0]
-neg_tweets = nltk.corpus.twitter_samples.strings(neg_id)
-pos_id = nltk.corpus.twitter_samples.fileids()[1]
-pos_tweets = nltk.corpus.twitter_samples.strings(pos_id)
+<span></span><span class="c1"># read some twitter data</span>
+<span class="n">neg_id</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">corpus</span><span class="o">.</span><span class="n">twitter_samples</span><span class="o">.</span><span class="n">fileids</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">neg_tweets</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">corpus</span><span class="o">.</span><span class="n">twitter_samples</span><span class="o">.</span><span class="n">strings</span><span class="p">(</span><span class="n">neg_id</span><span class="p">)</span>
+<span class="n">pos_id</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">corpus</span><span class="o">.</span><span class="n">twitter_samples</span><span class="o">.</span><span class="n">fileids</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">pos_tweets</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">corpus</span><span class="o">.</span><span class="n">twitter_samples</span><span class="o">.</span><span class="n">strings</span><span class="p">(</span><span class="n">pos_id</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -278,9 +281,9 @@ pos_tweets = nltk.corpus.twitter_samples.strings(pos_id)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>print(pos_tweets[10])
-print()
-print(neg_tweets[10])
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">pos_tweets</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">neg_tweets</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -303,10 +306,10 @@ tokenization.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def tokenize_tweets1(tweets):
-    &quot;&quot;&quot;Get all of the tokens in a set of tweets&quot;&quot;&quot;
-    tokens = [token for tweet in tweets for token in nltk.word_tokenize(tweet)]
-    return(tokens)
+<span></span><span class="k">def</span> <span class="nf">tokenize_tweets1</span><span class="p">(</span><span class="n">tweets</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get all of the tokens in a set of tweets&quot;&quot;&quot;</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span> <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">tweet</span><span class="p">)]</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -317,9 +320,9 @@ tokenization.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pos_tokens = tokenize_tweets1(pos_tweets)
-neg_tokens = tokenize_tweets1(neg_tweets)
-print(pos_tokens[:10])
+<span></span><span class="n">pos_tokens</span> <span class="o">=</span> <span class="n">tokenize_tweets1</span><span class="p">(</span><span class="n">pos_tweets</span><span class="p">)</span>
+<span class="n">neg_tokens</span> <span class="o">=</span> <span class="n">tokenize_tweets1</span><span class="p">(</span><span class="n">neg_tweets</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos_tokens</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -332,17 +335,17 @@ print(pos_tokens[:10])
 </pre></div></div>
 </div>
 <p>We can look at the most common words (like in the first homework) using
-Python’s Counter class.</p>
+Python&#8217;s Counter class.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from collections import Counter
+<span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Counter</span>
 
-pos_count = Counter(pos_tokens)
-neg_count = Counter(neg_tokens)
+<span class="n">pos_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">pos_tokens</span><span class="p">)</span>
+<span class="n">neg_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">neg_tokens</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -352,7 +355,7 @@ neg_count = Counter(neg_tokens)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pos_count.most_common(20)
+<span></span><span class="n">pos_count</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -391,7 +394,7 @@ neg_count = Counter(neg_tokens)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>neg_count.most_common(20)
+<span></span><span class="n">neg_count</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -424,18 +427,18 @@ neg_count = Counter(neg_tokens)
 </pre></div>
 </div>
 </div>
-<p>The two most common tokens for postiive tweets are “:” and “)” and the
-tweo most common tokens for negative tweets are “(” and “:”. These are
+<p>The two most common tokens for postiive tweets are &#8221;:&#8221; and &#8221;)&#8221; and the
+tweo most common tokens for negative tweets are &#8220;(&#8221; and &#8221;:&#8221;. These are
 smiley and frowny faces! The basic word tokenizer is treating these as
 separate tokens, which makes sense in most cases but not for text from
 social media.</p>
 </div>
 <div class="section" id="A-better-tokenizer">
 <h3>A better tokenizer<a class="headerlink" href="#A-better-tokenizer" title="Permalink to this headline">¶</a></h3>
-<p>We’re not the first people to see this problem, and NLTK actually has a
+<p>We&#8217;re not the first people to see this problem, and NLTK actually has a
 wide set of tokenizers in the <code class="docutils literal"><span class="pre">`nltk.tokenizer</span></code>
 module &lt;<a class="reference external" href="http://www.nltk.org/api/nltk.tokenize.html">http://www.nltk.org/api/nltk.tokenize.html</a>&gt;`__. In particular,
-there’s a <a class="reference external" href="http://www.nltk.org/api/nltk.tokenize.html#module-nltk.tokenize.casual">tokenizer that’s optimized for
+there&#8217;s a <a class="reference external" href="http://www.nltk.org/api/nltk.tokenize.html#module-nltk.tokenize.casual">tokenizer that&#8217;s optimized for
 tweets</a>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -443,11 +446,11 @@ tweets</a>.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def tokenize_tweets2(tweets):
-    &quot;&quot;&quot;Get all of the tokens in a set of tweets&quot;&quot;&quot;
-    twt = nltk.tokenize.TweetTokenizer(strip_handles=True, reduce_len=True)
-    tokens = [token for tweet in tweets for token in twt.tokenize(tweet)]
-    return(tokens)
+<span></span><span class="k">def</span> <span class="nf">tokenize_tweets2</span><span class="p">(</span><span class="n">tweets</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get all of the tokens in a set of tweets&quot;&quot;&quot;</span>
+    <span class="n">twt</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">TweetTokenizer</span><span class="p">(</span><span class="n">strip_handles</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">reduce_len</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span> <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">twt</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">tweet</span><span class="p">)]</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -457,10 +460,10 @@ tweets</a>.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pos_tokens = tokenize_tweets2(pos_tweets)
-neg_tokens = tokenize_tweets2(neg_tweets)
-pos_count = Counter(pos_tokens)
-neg_count = Counter(neg_tokens)
+<span></span><span class="n">pos_tokens</span> <span class="o">=</span> <span class="n">tokenize_tweets2</span><span class="p">(</span><span class="n">pos_tweets</span><span class="p">)</span>
+<span class="n">neg_tokens</span> <span class="o">=</span> <span class="n">tokenize_tweets2</span><span class="p">(</span><span class="n">neg_tweets</span><span class="p">)</span>
+<span class="n">pos_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">pos_tokens</span><span class="p">)</span>
+<span class="n">neg_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">neg_tokens</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -470,7 +473,7 @@ neg_count = Counter(neg_tokens)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pos_count.most_common(20)
+<span></span><span class="n">pos_count</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -509,7 +512,7 @@ neg_count = Counter(neg_tokens)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>neg_count.most_common(20)
+<span></span><span class="n">neg_count</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -543,13 +546,13 @@ neg_count = Counter(neg_tokens)
 </div>
 </div>
 <p>Much better! This tokenizer got rid of twitter handles for us, so no
-more “&#64;” tokens, and catches emoticons. However, there are still some
+more &#8220;&#64;&#8221; tokens, and catches emoticons. However, there are still some
 questions:</p>
 <ol class="arabic simple">
 <li>Should we count a capitalized word differently from a non-capitalized
-word? e.g.&nbsp;should “Thanks” be different from “thanks”?</li>
+word? e.g. should &#8220;Thanks&#8221; be different from &#8220;thanks&#8221;?</li>
 <li>Do we want to be counting punctuation?</li>
-<li>Do we want to count words like “I”, “me”, etc.?</li>
+<li>Do we want to count words like &#8220;I&#8221;, &#8220;me&#8221;, etc.?</li>
 </ol>
 <p>Using a combination of NLTK and basic Python string tools we can address
 these concerns.</p>
@@ -560,7 +563,7 @@ these concerns.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>&quot;ThIS IS a cRaZy sTRing&quot;.lower()
+<span></span><span class="s2">&quot;ThIS IS a cRaZy sTRing&quot;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -582,9 +585,9 @@ latin alphabet.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import string
+<span></span><span class="kn">import</span> <span class="nn">string</span>
 
-string.punctuation
+<span class="n">string</span><span class="o">.</span><span class="n">punctuation</span>
 </pre></div>
 </div>
 </div>
@@ -598,7 +601,7 @@ string.punctuation
 </pre></div>
 </div>
 </div>
-<p>NLTK has a collection of “stop words” for many languages, including
+<p>NLTK has a collection of &#8220;stop words&#8221; for many languages, including
 English. This is one of the corpora we downloaded.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -606,9 +609,9 @@ English. This is one of the corpora we downloaded.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from nltk.corpus import stopwords
+<span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">stopwords</span>
 
-stopwords.words(&quot;english&quot;)[:20]
+<span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">&quot;english&quot;</span><span class="p">)[:</span><span class="mi">20</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -648,16 +651,16 @@ stopwords.words(&quot;english&quot;)[:20]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def tokenize_tweets3(tweets):
-    &quot;&quot;&quot;Get all of the tokens in a set of tweets&quot;&quot;&quot;
-    twt = nltk.tokenize.TweetTokenizer(strip_handles=True, reduce_len=True)
-    # combine stop words and punctuation
-    stop = stopwords.words(&quot;english&quot;) + list(string.punctuation)
-    # filter out stop words and punctuation and send to lower case
-    tokens = [token.lower() for tweet in tweets
-              for token in twt.tokenize(tweet)
-              if token.lower() not in stop]
-    return(tokens)
+<span></span><span class="k">def</span> <span class="nf">tokenize_tweets3</span><span class="p">(</span><span class="n">tweets</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get all of the tokens in a set of tweets&quot;&quot;&quot;</span>
+    <span class="n">twt</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">TweetTokenizer</span><span class="p">(</span><span class="n">strip_handles</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">reduce_len</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># combine stop words and punctuation</span>
+    <span class="n">stop</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">&quot;english&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">)</span>
+    <span class="c1"># filter out stop words and punctuation and send to lower case</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets</span>
+              <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">twt</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">tweet</span><span class="p">)</span>
+              <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop</span><span class="p">]</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -667,10 +670,10 @@ stopwords.words(&quot;english&quot;)[:20]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pos_tokens = tokenize_tweets3(pos_tweets)
-neg_tokens = tokenize_tweets3(neg_tweets)
-pos_count = Counter(pos_tokens)
-neg_count = Counter(neg_tokens)
+<span></span><span class="n">pos_tokens</span> <span class="o">=</span> <span class="n">tokenize_tweets3</span><span class="p">(</span><span class="n">pos_tweets</span><span class="p">)</span>
+<span class="n">neg_tokens</span> <span class="o">=</span> <span class="n">tokenize_tweets3</span><span class="p">(</span><span class="n">neg_tweets</span><span class="p">)</span>
+<span class="n">pos_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">pos_tokens</span><span class="p">)</span>
+<span class="n">neg_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">neg_tokens</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -680,7 +683,7 @@ neg_count = Counter(neg_tokens)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pos_count.most_common(20)
+<span></span><span class="n">pos_count</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -719,7 +722,7 @@ neg_count = Counter(neg_tokens)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>neg_count.most_common(20)
+<span></span><span class="n">neg_count</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -758,17 +761,17 @@ neg_count = Counter(neg_tokens)
 <p>How we pre-process text is very important. NLTK provides more tools for
 pre-processing.</p>
 <p>One popular method of pre-processing is <strong>stemming</strong>. The idea here is
-to find the “root” of each word.</p>
+to find the &#8220;root&#8221; of each word.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from nltk.stem import PorterStemmer
+<span></span><span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="k">import</span> <span class="n">PorterStemmer</span>
 
-stemmer = PorterStemmer()
-stemmer.stem(&quot;actually&quot;)
+<span class="n">stemmer</span> <span class="o">=</span> <span class="n">PorterStemmer</span><span class="p">()</span>
+<span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="s2">&quot;actually&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -789,7 +792,7 @@ stemmer.stem(&quot;actually&quot;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>print(stemmer.stem(&quot;please&quot;), stemmer.stem(&quot;pleasing&quot;))
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="s2">&quot;please&quot;</span><span class="p">),</span> <span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="s2">&quot;pleasing&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -801,29 +804,29 @@ stemmer.stem(&quot;actually&quot;)
 pleas pleas
 </pre></div></div>
 </div>
-<p>Let’s update the tokenizer</p>
+<p>Let&#8217;s update the tokenizer</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def tokenize_tweets4(tweets):
-    &quot;&quot;&quot;Get all of the tokens in a set of tweets&quot;&quot;&quot;
-    twt = nltk.tokenize.TweetTokenizer(strip_handles=True, reduce_len=True)
-    # combine stop words and punctuation
-    stop = stopwords.words(&quot;english&quot;) + list(string.punctuation)
-    # create the stemmer
-    stemmer = PorterStemmer()
-    # filter out stop words and punctuation and send to lower case
-    tokens = [ stemmer.stem(token) for tweet in tweets
-              for token in twt.tokenize(tweet)
-              if token.lower() not in stop]
-    return(tokens)
-pos_tokens = tokenize_tweets4(pos_tweets)
-neg_tokens = tokenize_tweets4(neg_tweets)
-pos_count = Counter(pos_tokens)
-neg_count = Counter(neg_tokens)
+<span></span><span class="k">def</span> <span class="nf">tokenize_tweets4</span><span class="p">(</span><span class="n">tweets</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get all of the tokens in a set of tweets&quot;&quot;&quot;</span>
+    <span class="n">twt</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">TweetTokenizer</span><span class="p">(</span><span class="n">strip_handles</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">reduce_len</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># combine stop words and punctuation</span>
+    <span class="n">stop</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">&quot;english&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">)</span>
+    <span class="c1"># create the stemmer</span>
+    <span class="n">stemmer</span> <span class="o">=</span> <span class="n">PorterStemmer</span><span class="p">()</span>
+    <span class="c1"># filter out stop words and punctuation and send to lower case</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span> <span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets</span>
+              <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">twt</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">tweet</span><span class="p">)</span>
+              <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop</span><span class="p">]</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+<span class="n">pos_tokens</span> <span class="o">=</span> <span class="n">tokenize_tweets4</span><span class="p">(</span><span class="n">pos_tweets</span><span class="p">)</span>
+<span class="n">neg_tokens</span> <span class="o">=</span> <span class="n">tokenize_tweets4</span><span class="p">(</span><span class="n">neg_tweets</span><span class="p">)</span>
+<span class="n">pos_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">pos_tokens</span><span class="p">)</span>
+<span class="n">neg_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">neg_tokens</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -833,7 +836,7 @@ neg_count = Counter(neg_tokens)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pos_count.most_common(20)
+<span></span><span class="n">pos_count</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -872,7 +875,7 @@ neg_count = Counter(neg_tokens)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>neg_count.most_common(20)
+<span></span><span class="n">neg_count</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -915,7 +918,7 @@ neg_count = Counter(neg_tokens)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>small_twt =  pos_tweets[:2000]
+<span></span><span class="n">small_twt</span> <span class="o">=</span>  <span class="n">pos_tweets</span><span class="p">[:</span><span class="mi">2000</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -925,7 +928,7 @@ neg_count = Counter(neg_tokens)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%%time
+<span></span><span class="o">%%</span><span class="k">time</span>
 # Base NLTK tokenizer
 _ = tokenize_tweets1(small_twt)
 </pre></div>
@@ -946,7 +949,7 @@ Wall time: 340 ms
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%%time
+<span></span><span class="o">%%</span><span class="k">time</span>
 # Twitter optimized tokenizer
 _ = tokenize_tweets2(small_twt)
 </pre></div>
@@ -967,7 +970,7 @@ Wall time: 84.8 ms
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%%time
+<span></span><span class="o">%%</span><span class="k">time</span>
 # Get rid of stop words and lowercase
 _ = tokenize_tweets3(small_twt)
 </pre></div>
@@ -988,7 +991,7 @@ Wall time: 131 ms
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%%time
+<span></span><span class="o">%%</span><span class="k">time</span>
 # Also stemming
 _ = tokenize_tweets4(small_twt)
 </pre></div>
@@ -1007,7 +1010,7 @@ Wall time: 352 ms
 that generality makes it slow - Using a tokenizer optimized to your
 problem will be faster - Adding more and more complications adds more
 and more time - Sometimes need to work to optimize these also</p>
-<p>This optimization really does matter. Here’s a “fast” version of
+<p>This optimization really does matter. Here&#8217;s a &#8220;fast&#8221; version of
 tokenization made for a specific project.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -1015,17 +1018,17 @@ tokenization made for a specific project.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import re
+<span></span><span class="kn">import</span> <span class="nn">re</span>
 
-def word_tokenize(words):
-    &quot;&quot;&quot;Faster word tokenization than nltk.word_tokenize
-    Input:
-        words: a string to be tokenized
-    Output:
-        tokens: tokenized words
-    &quot;&quot;&quot;
-    tokens = re.findall(r&quot;[a-z]+-?[a-z]+&quot;, words.lower())
-    return(tokens)
+<span class="k">def</span> <span class="nf">word_tokenize</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Faster word tokenization than nltk.word_tokenize</span>
+<span class="sd">    Input:</span>
+<span class="sd">        words: a string to be tokenized</span>
+<span class="sd">    Output:</span>
+<span class="sd">        tokens: tokenized words</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[a-z]+-?[a-z]+&quot;</span><span class="p">,</span> <span class="n">words</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1035,8 +1038,8 @@ def word_tokenize(words):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>small_twt = &quot; &quot;.join(pos_tweets[:10000])
-twt = nltk.tokenize.TweetTokenizer(strip_handles=True, reduce_len=True)
+<span></span><span class="n">small_twt</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pos_tweets</span><span class="p">[:</span><span class="mi">10000</span><span class="p">])</span>
+<span class="n">twt</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">TweetTokenizer</span><span class="p">(</span><span class="n">strip_handles</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">reduce_len</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1046,7 +1049,7 @@ twt = nltk.tokenize.TweetTokenizer(strip_handles=True, reduce_len=True)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%%time
+<span></span><span class="o">%%</span><span class="k">time</span>
 _ = nltk.word_tokenize(small_twt)
 </pre></div>
 </div>
@@ -1066,7 +1069,7 @@ Wall time: 507 ms
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%%time
+<span></span><span class="o">%%</span><span class="k">time</span>
 _ = twt.tokenize(small_twt)
 </pre></div>
 </div>
@@ -1086,7 +1089,7 @@ Wall time: 194 ms
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%%time
+<span></span><span class="o">%%</span><span class="k">time</span>
 _ = word_tokenize(small_twt)
 </pre></div>
 </div>
@@ -1101,15 +1104,15 @@ Wall time: 26.6 ms
 </pre></div></div>
 </div>
 <p>We can see that optimizing our tokenization can really help the speed.
-But this tokenizer isn’t optimized for this problem. For instance, it
-doesn’t pick up emoticons.</p>
+But this tokenizer isn&#8217;t optimized for this problem. For instance, it
+doesn&#8217;t pick up emoticons.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Counter(word_tokenize(small_twt)).most_common(20)
+<span></span><span class="n">Counter</span><span class="p">(</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">small_twt</span><span class="p">))</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1158,8 +1161,8 @@ processsing.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>tokens = word_tokenize(small_twt[:100])
-nltk.pos_tag(tokens)
+<span></span><span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">small_twt</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1207,7 +1210,7 @@ nltk.pos_tag(tokens)
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -1231,6 +1234,7 @@ nltk.pos_tag(tokens)
 <li class="toctree-l1"><a class="reference internal" href="../13-data-frames.html">Data Manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../14-sphinx.html">An introduction to Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../16-testing.html">Testing your software in Python</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
@@ -1275,7 +1279,7 @@ nltk.pos_tag(tokens)
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

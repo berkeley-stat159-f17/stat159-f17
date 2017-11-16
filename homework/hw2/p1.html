@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Problem 1: Word Frequencies &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
    
@@ -31,7 +34,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -205,16 +208,16 @@ div.nboutput div.output_area.stderr {
 First, <strong>restart the kernel</strong> (in the menubar, select
 Kernel<span class="math">\(\rightarrow\)</span>Restart) and then <strong>run all cells</strong> (in the
 menubar, select Cell<span class="math">\(\rightarrow\)</span>Run All).</p>
-<p>Make sure you fill in any place that says <code class="docutils literal"><span class="pre">YOUR</span> <span class="pre">CODE</span> <span class="pre">HERE</span></code> or “YOUR
-ANSWER HERE”, as well as your name and collaborators below:</p>
+<p>Make sure you fill in any place that says <code class="docutils literal"><span class="pre">YOUR</span> <span class="pre">CODE</span> <span class="pre">HERE</span></code> or &#8220;YOUR
+ANSWER HERE&#8221;, as well as your name and collaborators below:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>NAME = &quot;&quot;
-COLLABORATORS = &quot;&quot;
+<span></span><span class="n">NAME</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">COLLABORATORS</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -222,14 +225,14 @@ COLLABORATORS = &quot;&quot;
 <div class="section" id="Problem-1:-Word-Frequencies">
 <h1>Problem 1: Word Frequencies<a class="headerlink" href="#Problem-1:-Word-Frequencies" title="Permalink to this headline">¶</a></h1>
 <p>In this problem, you will need to count the frequencies of all the words
-contained in a compressed text file supplied as input. We’ll go through
+contained in a compressed text file supplied as input. We&#8217;ll go through
 this process in several of parts.</p>
 <div class="section" id="Part-A-(2-points)">
 <h2>Part A (2 points)<a class="headerlink" href="#Part-A-(2-points)" title="Permalink to this headline">¶</a></h2>
 <p>Write a function which takes in a string and and returns the frequencies
-of each word in a dictionary. Consider ‘words’ simply the result of
+of each word in a dictionary. Consider &#8216;words&#8217; simply the result of
 splitting the input text into a list, using any form of whitespace as a
-separator. This is obviously a very naive definition of ‘word’, but it
+separator. This is obviously a very naive definition of &#8216;word&#8217;, but it
 shall suffice for the purposes of this exercise.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -237,11 +240,11 @@ shall suffice for the purposes of this exercise.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def word_freq(text):
-    &quot;&quot;&quot;Return a dictionary of word frequencies for the given text.&quot;&quot;&quot;
+<span></span><span class="k">def</span> <span class="nf">word_freq</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a dictionary of word frequencies for the given text.&quot;&quot;&quot;</span>
 
-    # YOUR CODE HERE
-    raise NotImplementedError()
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -251,13 +254,13 @@ shall suffice for the purposes of this exercise.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>&quot;&quot;&quot;Check that word_freq returns the right values&quot;&quot;&quot;
+<span></span><span class="sd">&quot;&quot;&quot;Check that word_freq returns the right values&quot;&quot;&quot;</span>
 
-text = &quot;do we see how many times do we see many very many&quot;
-freqs = word_freq(text)
-assert freqs[&quot;many&quot;] == 3
-assert freqs[&quot;do&quot;] == 2
-assert freqs[&quot;how&quot;] == 1
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;do we see how many times do we see many very many&quot;</span>
+<span class="n">freqs</span> <span class="o">=</span> <span class="n">word_freq</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">freqs</span><span class="p">[</span><span class="s2">&quot;many&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="k">assert</span> <span class="n">freqs</span><span class="p">[</span><span class="s2">&quot;do&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="k">assert</span> <span class="n">freqs</span><span class="p">[</span><span class="s2">&quot;how&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -273,11 +276,11 @@ and returns a list of (word, frequency) tuples in order of frequency
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def ordered_kv(text):
-    &quot;&quot;&quot;Return a list of (word, frequency) tuples ordered by decreasing freq&quot;&quot;&quot;
+<span></span><span class="k">def</span> <span class="nf">ordered_kv</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a list of (word, frequency) tuples ordered by decreasing freq&quot;&quot;&quot;</span>
 
-    # YOUR CODE HERE
-    raise NotImplementedError()
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -287,13 +290,13 @@ and returns a list of (word, frequency) tuples in order of frequency
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>&quot;&quot;&quot;Check that ordered_kv returns the right values&quot;&quot;&quot;
+<span></span><span class="sd">&quot;&quot;&quot;Check that ordered_kv returns the right values&quot;&quot;&quot;</span>
 
-text = &quot;do we see how many times do we see many very many&quot;
-kv = ordered_kv(text)
-assert kv[0][1] == 3
-assert kv[0][0] == &quot;many&quot;
-assert kv[-1][1] == 1
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;do we see how many times do we see many very many&quot;</span>
+<span class="n">kv</span> <span class="o">=</span> <span class="n">ordered_kv</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">kv</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="k">assert</span> <span class="n">kv</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;many&quot;</span>
+<span class="k">assert</span> <span class="n">kv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -313,14 +316,14 @@ their frequencies in increasing order.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># YOUR CODE HERE
-raise NotImplementedError()
+<span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 
-def top_and_bottom(zipped_path):
-    &quot;&quot;&quot;Return the top 20 and bottom 20 words in a zipped file&quot;&quot;&quot;
+<span class="k">def</span> <span class="nf">top_and_bottom</span><span class="p">(</span><span class="n">zipped_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the top 20 and bottom 20 words in a zipped file&quot;&quot;&quot;</span>
 
-    # YOUR CODE HERE
-    raise NotImplementedError()
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -330,11 +333,11 @@ def top_and_bottom(zipped_path):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>&quot;&quot;&quot;Check that top_and_bottom returns two lists&quot;&quot;&quot;
-out = top_and_bottom(&#39;/accounts/class/s159/exchange/HISTORY.gz&#39;)
-assert len(out) == 2
-assert type(out[0]) == list
-assert type(out[1]) == list
+<span></span><span class="sd">&quot;&quot;&quot;Check that top_and_bottom returns two lists&quot;&quot;&quot;</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">top_and_bottom</span><span class="p">(</span><span class="s1">&#39;/accounts/class/s159/exchange/HISTORY.gz&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">list</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="nb">list</span>
 </pre></div>
 </div>
 </div>
@@ -344,16 +347,16 @@ assert type(out[1]) == list
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>&quot;&quot;&quot;Check that top_and_bottom returns the right lists&quot;&quot;&quot;
-top20, bot20 = top_and_bottom(&#39;/accounts/class/s159/exchange/HISTORY.gz&#39;)
+<span></span><span class="sd">&quot;&quot;&quot;Check that top_and_bottom returns the right lists&quot;&quot;&quot;</span>
+<span class="n">top20</span><span class="p">,</span> <span class="n">bot20</span> <span class="o">=</span> <span class="n">top_and_bottom</span><span class="p">(</span><span class="s1">&#39;/accounts/class/s159/exchange/HISTORY.gz&#39;</span><span class="p">)</span>
 
-assert top20[0][0] == b&quot;the&quot;
-assert top20[0][1] == 2461
-assert top20[10][0] == b&quot;The&quot;
-assert top20[10][1] == 581
+<span class="k">assert</span> <span class="n">top20</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sa">b</span><span class="s2">&quot;the&quot;</span>
+<span class="k">assert</span> <span class="n">top20</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2461</span>
+<span class="k">assert</span> <span class="n">top20</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sa">b</span><span class="s2">&quot;The&quot;</span>
+<span class="k">assert</span> <span class="n">top20</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">581</span>
 
-for bot_word in bot20:
-    assert bot_word[1] == 1
+<span class="k">for</span> <span class="n">bot_word</span> <span class="ow">in</span> <span class="n">bot20</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">bot_word</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -380,14 +383,14 @@ frequencies</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def print_top_and_bottom(zipped_path):
-    &quot;&quot;&quot;Print the top 20 and bottom 20 words in a zipped file&quot;&quot;&quot;
+<span></span><span class="k">def</span> <span class="nf">print_top_and_bottom</span><span class="p">(</span><span class="n">zipped_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print the top 20 and bottom 20 words in a zipped file&quot;&quot;&quot;</span>
 
-    # YOUR CODE HERE
-    raise NotImplementedError()
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 
-# print output here
-print_top_and_bottom(&#39;/accounts/class/s159/exchange/HISTORY.gz&#39;)
+<span class="c1"># print output here</span>
+<span class="n">print_top_and_bottom</span><span class="p">(</span><span class="s1">&#39;/accounts/class/s159/exchange/HISTORY.gz&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -411,7 +414,7 @@ print_top_and_bottom(&#39;/accounts/class/s159/exchange/HISTORY.gz&#39;)
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -435,6 +438,7 @@ print_top_and_bottom(&#39;/accounts/class/s159/exchange/HISTORY.gz&#39;)
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/13-data-frames.html">Data Manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/14-sphinx.html">An introduction to Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/16-testing.html">Testing your software in Python</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
@@ -477,7 +481,7 @@ print_top_and_bottom(&#39;/accounts/class/s159/exchange/HISTORY.gz&#39;)
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

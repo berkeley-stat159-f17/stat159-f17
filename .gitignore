@@ -1,8 +1,0 @@
-_build
-.ipynb_checkpoints
-gh-token
-__pycache__
-misc
-
-# emacs backups
-*~

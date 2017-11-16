@@ -1,2 +1,0 @@
-This is a temporary text file.
-We'll parse this file.

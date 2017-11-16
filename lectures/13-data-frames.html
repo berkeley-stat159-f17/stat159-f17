@@ -1,13 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Data Manipulation &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="An introduction to Sphinx" href="14-sphinx.html" />
@@ -33,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body>
+  <body role="document">
   
 
     <div class="document">
@@ -206,7 +209,7 @@ div.nboutput div.output_area.stderr {
 <div class="section" id="Data-Manipulation">
 <h1>Data Manipulation<a class="headerlink" href="#Data-Manipulation" title="Permalink to this headline">¶</a></h1>
 <p><strong>Note:</strong> This is an edited version of <a class="reference external" href="http://people.duke.edu/~ccc14/cfar-data-2016/ManipulatingDataFrames_Solutions.html">Cliburn
-Chan’s</a>
+Chan&#8217;s</a>
 original tutorial. All changes remain licensed as the original, under
 the terms of the MIT license.</p>
 <div class="nbinput nblast docutils container">
@@ -215,8 +218,8 @@ the terms of the MIT license.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy as np
-import pandas as pd
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
@@ -230,10 +233,10 @@ import pandas as pd
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_versiocolor = pd.read_csv(&#39;data/versicolor.csv&#39;)
-df_virginica = pd.read_csv(&#39;data/virginica.csv&#39;)
-df_sertosa = pd.read_csv(&#39;data/setosa.csv&#39;)
-dfs = [df_versiocolor, df_virginica, df_sertosa]
+<span></span><span class="n">df_versiocolor</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/versicolor.csv&#39;</span><span class="p">)</span>
+<span class="n">df_virginica</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/virginica.csv&#39;</span><span class="p">)</span>
+<span class="n">df_sertosa</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/setosa.csv&#39;</span><span class="p">)</span>
+<span class="n">dfs</span> <span class="o">=</span> <span class="p">[</span><span class="n">df_versiocolor</span><span class="p">,</span> <span class="n">df_virginica</span><span class="p">,</span> <span class="n">df_sertosa</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -243,7 +246,7 @@ dfs = [df_versiocolor, df_virginica, df_sertosa]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_versiocolor.head(3)
+<span></span><span class="n">df_versiocolor</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -313,7 +316,7 @@ dfs = [df_versiocolor, df_virginica, df_sertosa]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_virginica.head(3)
+<span></span><span class="n">df_virginica</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -383,7 +386,7 @@ dfs = [df_versiocolor, df_virginica, df_sertosa]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_sertosa.head(3)
+<span></span><span class="n">df_sertosa</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -453,8 +456,8 @@ dfs = [df_versiocolor, df_virginica, df_sertosa]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>for df in dfs:
-    print(df.shape)
+<span></span><span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">dfs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -476,8 +479,8 @@ dfs = [df_versiocolor, df_virginica, df_sertosa]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>for df in dfs:
-    print(df.Species.unique())
+<span></span><span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">dfs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Species</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -503,8 +506,8 @@ means combining by columns.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df = pd.concat(dfs, axis=0)
-df.shape
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dfs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -530,7 +533,7 @@ to 50 or 51.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df.iloc[48:52]
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">48</span><span class="p">:</span><span class="mi">52</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -611,7 +614,7 @@ to 50 or 51.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df = df.reset_index(drop=True)
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -621,7 +624,7 @@ to 50 or 51.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df.iloc[48:52]
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">48</span><span class="p">:</span><span class="mi">52</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -702,7 +705,7 @@ to 50 or 51.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df.Species.unique()
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">Species</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -727,7 +730,7 @@ trying to do.</p>
 on some unique identifier, for example, to combine clinical and
 laboratory information for specific patients with unique PIDs. Often the
 ordering of the PIDs in the two data frames are not exactly lined up so
-“horizontal stacking” will not work. Usually we need to <code class="docutils literal"><span class="pre">merge</span></code> the
+&#8220;horizontal stacking&#8221; will not work. Usually we need to <code class="docutils literal"><span class="pre">merge</span></code> the
 data on a unique identifier from one or more columns.</p>
 <div class="section" id="Simplest-case---rows-line-up-perfectly-across-data-frames">
 <h4>Simplest case - rows line up perfectly across data frames<a class="headerlink" href="#Simplest-case---rows-line-up-perfectly-across-data-frames" title="Permalink to this headline">¶</a></h4>
@@ -737,8 +740,8 @@ data on a unique identifier from one or more columns.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_sepal = pd.read_csv(&#39;data/sepal.csv&#39;)
-df_petal = pd.read_csv(&#39;data/petal.csv&#39;)
+<span></span><span class="n">df_sepal</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/sepal.csv&#39;</span><span class="p">)</span>
+<span class="n">df_petal</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/petal.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -748,7 +751,7 @@ df_petal = pd.read_csv(&#39;data/petal.csv&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_sepal.head(3)
+<span></span><span class="n">df_sepal</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -810,7 +813,7 @@ df_petal = pd.read_csv(&#39;data/petal.csv&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_petal.head(3)
+<span></span><span class="n">df_petal</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -872,7 +875,7 @@ df_petal = pd.read_csv(&#39;data/petal.csv&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_sepal.shape, df_petal.shape
+<span></span><span class="n">df_sepal</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">df_petal</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -895,7 +898,7 @@ df_petal = pd.read_csv(&#39;data/petal.csv&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.concat([df_sepal, df_petal], axis=1).head()
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_sepal</span><span class="p">,</span> <span class="n">df_petal</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -994,11 +997,11 @@ df_petal = pd.read_csv(&#39;data/petal.csv&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.seed(123456)
-pid1 = np.random.choice(100, 6, replace=False)
-val1 = np.random.normal(10, 1, 6)
-df1 = pd.DataFrame({&#39;pid&#39;: pid1, &#39;val&#39;: val1})
-df1
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123456</span><span class="p">)</span>
+<span class="n">pid1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">val1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;pid&#39;</span><span class="p">:</span> <span class="n">pid1</span><span class="p">,</span> <span class="s1">&#39;val&#39;</span><span class="p">:</span> <span class="n">val1</span><span class="p">})</span>
+<span class="n">df1</span>
 </pre></div>
 </div>
 </div>
@@ -1071,10 +1074,10 @@ df1
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pid2 = np.random.permutation(pid1)
-val2 = np.random.normal(15, 1, 6)
-df2 = pd.DataFrame({&#39;pid&#39;: pid2, &#39;val&#39;: val2})
-df2
+<span></span><span class="n">pid2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">pid1</span><span class="p">)</span>
+<span class="n">val2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;pid&#39;</span><span class="p">:</span> <span class="n">pid2</span><span class="p">,</span> <span class="s1">&#39;val&#39;</span><span class="p">:</span> <span class="n">val2</span><span class="p">})</span>
+<span class="n">df2</span>
 </pre></div>
 </div>
 </div>
@@ -1152,7 +1155,7 @@ horizontally.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.merge(df1, df2, on=&#39;pid&#39;, suffixes=[&#39;_visit_1&#39;, &#39;_visit_2&#39;])
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;pid&#39;</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;_visit_1&#39;</span><span class="p">,</span> <span class="s1">&#39;_visit_2&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1232,8 +1235,8 @@ horizontally.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df1a = df1.set_index(&#39;pid&#39;)  # we&#39;ll use these later
-df2a = df2.set_index(&#39;pid&#39;)
+<span></span><span class="n">df1a</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;pid&#39;</span><span class="p">)</span>  <span class="c1"># we&#39;ll use these later</span>
+<span class="n">df2a</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;pid&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1254,9 +1257,9 @@ scenario in the example below.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df1[&#39;stim&#39;] = np.random.choice([&#39;cmv&#39;, &#39;flu&#39;], 6, replace=True)
-df1 = df1[[&#39;pid&#39;, &#39;stim&#39;, &#39;val&#39;]]
-df1
+<span></span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;stim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;cmv&#39;</span><span class="p">,</span> <span class="s1">&#39;flu&#39;</span><span class="p">],</span> <span class="mi">6</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">df1</span><span class="p">[[</span><span class="s1">&#39;pid&#39;</span><span class="p">,</span> <span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="s1">&#39;val&#39;</span><span class="p">]]</span>
+<span class="n">df1</span>
 </pre></div>
 </div>
 </div>
@@ -1336,9 +1339,9 @@ df1
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df2[&#39;stim&#39;] = np.random.choice([&#39;cmv&#39;, &#39;flu&#39;], 6, replace=True)
-df2 = df2[[&#39;pid&#39;, &#39;stim&#39;, &#39;val&#39;]]
-df2
+<span></span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;stim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;cmv&#39;</span><span class="p">,</span> <span class="s1">&#39;flu&#39;</span><span class="p">],</span> <span class="mi">6</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[[</span><span class="s1">&#39;pid&#39;</span><span class="p">,</span> <span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="s1">&#39;val&#39;</span><span class="p">]]</span>
+<span class="n">df2</span>
 </pre></div>
 </div>
 </div>
@@ -1418,7 +1421,7 @@ df2
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.merge(df1, df2, on = [&#39;pid&#39;, &#39;stim&#39;], suffixes = [&#39;_visit_1&#39;, &#39;_visit_2&#39;])
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pid&#39;</span><span class="p">,</span> <span class="s1">&#39;stim&#39;</span><span class="p">],</span> <span class="n">suffixes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_visit_1&#39;</span><span class="p">,</span> <span class="s1">&#39;_visit_2&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1484,7 +1487,7 @@ df2
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.merge(df1, df2, on = [&#39;pid&#39;, &#39;stim&#39;], how = &#39;left&#39;, suffixes = [&#39;_visit_1&#39;, &#39;_visit_2&#39;])
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pid&#39;</span><span class="p">,</span> <span class="s1">&#39;stim&#39;</span><span class="p">],</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">suffixes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_visit_1&#39;</span><span class="p">,</span> <span class="s1">&#39;_visit_2&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1571,7 +1574,7 @@ df2
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.merge(df1, df2, on = [&#39;pid&#39;, &#39;stim&#39;], how = &#39;right&#39;, suffixes = [&#39;_visit_1&#39;, &#39;_visit_2&#39;])
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pid&#39;</span><span class="p">,</span> <span class="s1">&#39;stim&#39;</span><span class="p">],</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">suffixes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_visit_1&#39;</span><span class="p">,</span> <span class="s1">&#39;_visit_2&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1658,7 +1661,7 @@ df2
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.merge(df1, df2, on = [&#39;pid&#39;, &#39;stim&#39;], how = &#39;outer&#39;, suffixes = [&#39;_visit_1&#39;, &#39;_visit_2&#39;])
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pid&#39;</span><span class="p">,</span> <span class="s1">&#39;stim&#39;</span><span class="p">],</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">suffixes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_visit_1&#39;</span><span class="p">,</span> <span class="s1">&#39;_visit_2&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1783,7 +1786,7 @@ save yourself some typing.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df1a
+<span></span><span class="n">df1a</span>
 </pre></div>
 </div>
 </div>
@@ -1853,7 +1856,7 @@ save yourself some typing.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df2a
+<span></span><span class="n">df2a</span>
 </pre></div>
 </div>
 </div>
@@ -1923,7 +1926,7 @@ save yourself some typing.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df1a.join(df2a, lsuffix=&#39;_1&#39;, rsuffix=&#39;_2&#39;)
+<span></span><span class="n">df1a</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df2a</span><span class="p">,</span> <span class="n">lsuffix</span><span class="o">=</span><span class="s1">&#39;_1&#39;</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s1">&#39;_2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2008,7 +2011,7 @@ variable.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from collections import OrderedDict
+<span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
 </pre></div>
 </div>
 </div>
@@ -2018,12 +2021,12 @@ variable.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>d = OrderedDict()
-d[&#39;pid-visit-stim&#39;] = [&#39;1-1-cmv&#39;, &#39;1-1-hiv&#39;, &#39;1-2-cmv&#39;, &#39;1-2-hiv&#39;, &#39;1-3-cmv&#39;, &#39;1-3-hiv&#39;, &#39;2-1-cmv&#39;, &#39;2-1-hiv&#39;, &#39;2-2-cmv&#39;, &#39;2-2-hiv&#39;]
-d[&#39;tnf&#39;] = [1.0, 2.0, 1.1, 2.1, 1.2, 2.2, 3, 4, 3.1, 4.1]
-d[&#39;ifn&#39;] = [11.0, 12.0, 11.1, 12.1, 11.2, 12.2, 13, 14, 13.1, 14.1]
-d[&#39;il2&#39;] = [0.0, 0.0, 0.1, 0.1, 0.2, 0.2, 0.1, 0.3, 0.1, 0.1]
-df = pd.DataFrame(d)
+<span></span><span class="n">d</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;pid-visit-stim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1-1-cmv&#39;</span><span class="p">,</span> <span class="s1">&#39;1-1-hiv&#39;</span><span class="p">,</span> <span class="s1">&#39;1-2-cmv&#39;</span><span class="p">,</span> <span class="s1">&#39;1-2-hiv&#39;</span><span class="p">,</span> <span class="s1">&#39;1-3-cmv&#39;</span><span class="p">,</span> <span class="s1">&#39;1-3-hiv&#39;</span><span class="p">,</span> <span class="s1">&#39;2-1-cmv&#39;</span><span class="p">,</span> <span class="s1">&#39;2-1-hiv&#39;</span><span class="p">,</span> <span class="s1">&#39;2-2-cmv&#39;</span><span class="p">,</span> <span class="s1">&#39;2-2-hiv&#39;</span><span class="p">]</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;tnf&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">,</span> <span class="mf">4.1</span><span class="p">]</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;ifn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">11.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">11.1</span><span class="p">,</span> <span class="mf">12.1</span><span class="p">,</span> <span class="mf">11.2</span><span class="p">,</span> <span class="mf">12.2</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mf">13.1</span><span class="p">,</span> <span class="mf">14.1</span><span class="p">]</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;il2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2033,7 +2036,7 @@ df = pd.DataFrame(d)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df.head()
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2113,9 +2116,9 @@ df = pd.DataFrame(d)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df1 = pd.DataFrame(df[&#39;pid-visit-stim&#39;].str.split(&#39;-&#39;).tolist(),
-                   columns = [&#39;pid&#39;, &#39;visit&#39;, &#39;stim&#39;])
-df1.head()
+<span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pid-visit-stim&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                   <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pid&#39;</span><span class="p">,</span> <span class="s1">&#39;visit&#39;</span><span class="p">,</span> <span class="s1">&#39;stim&#39;</span><span class="p">])</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2189,8 +2192,8 @@ df1.head()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df1 = pd.concat([df1, df], axis=1)
-df1.head()
+<span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2288,8 +2291,8 @@ df1.head()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df1.drop(&#39;pid-visit-stim&#39;, axis=1, inplace=True)
-df1.head()
+<span></span><span class="n">df1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;pid-visit-stim&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2381,10 +2384,10 @@ df1.head()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def separate(df, column, sep):
-    df1 = pd.DataFrame(df[column].str.split(sep).tolist(), columns = column.split(sep))
-    df1 = pd.concat([df1, df], axis=1)
-    return df1.drop(column, axis = 1)
+<span></span><span class="k">def</span> <span class="nf">separate</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">sep</span><span class="p">):</span>
+    <span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">sep</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">sep</span><span class="p">))</span>
+    <span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2394,7 +2397,7 @@ df1.head()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>separate(df, &#39;pid-visit-stim&#39;, &#39;-&#39;).head()
+<span></span><span class="n">separate</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;pid-visit-stim&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2491,9 +2494,9 @@ questions below.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>d1 = pd.DataFrame({&#39;subject&#39;: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;], &#39;group&#39;: [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;], &#39;value&#39;: [1, 2, 3, 4]})
-d2 = pd.DataFrame({&#39;subject&#39;: [&#39;w&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;], &#39;group&#39;: [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;], &#39;value&#39;: [2, 1, 4, 3]})
-d3 = pd.DataFrame({&#39;subject&#39;: [&#39;a&#39;, &#39;x&#39;, &#39;w&#39;, &#39;d&#39;, &#39;b&#39;, &#39;c&#39;, &#39;y&#39;, &#39;z&#39;], &#39;age&#39;: [10, 20, 30, 40, 50, 60, 70, 80]})
+<span></span><span class="n">d1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;subject&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]})</span>
+<span class="n">d2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;subject&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]})</span>
+<span class="n">d3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;subject&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">]})</span>
 </pre></div>
 </div>
 </div>
@@ -2503,7 +2506,7 @@ d3 = pd.DataFrame({&#39;subject&#39;: [&#39;a&#39;, &#39;x&#39;, &#39;w&#39;, &#
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>d1
+<span></span><span class="n">d1</span>
 </pre></div>
 </div>
 </div>
@@ -2571,7 +2574,7 @@ d3 = pd.DataFrame({&#39;subject&#39;: [&#39;a&#39;, &#39;x&#39;, &#39;w&#39;, &#
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>d2
+<span></span><span class="n">d2</span>
 </pre></div>
 </div>
 </div>
@@ -2639,7 +2642,7 @@ d3 = pd.DataFrame({&#39;subject&#39;: [&#39;a&#39;, &#39;x&#39;, &#39;w&#39;, &#
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>d3
+<span></span><span class="n">d3</span>
 </pre></div>
 </div>
 </div>
@@ -2745,7 +2748,7 @@ only the number.</p>
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -2769,6 +2772,7 @@ only the number.</p>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data Manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="14-sphinx.html">An introduction to Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16-testing.html">Testing your software in Python</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>
@@ -2813,7 +2817,7 @@ only the number.</p>
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
