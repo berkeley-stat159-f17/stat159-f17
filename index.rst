@@ -107,6 +107,7 @@ Lectures
    lectures/12-data-intro.ipynb
    lectures/13-data-frames.ipynb
    lectures/14-sphinx.ipynb
+   lectures/15-pvalues/index.md
 
 
 Labs
