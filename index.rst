@@ -12,6 +12,10 @@ The `class syllabus <_static/ref/syllabus.pdf>`_ will be updated over the course
 
 Readings
 ~~~~~~~~
+
+* Due **Tuesday November 21, 2017**:
+  - This `blog post <https://bids.github.io/colormap/>`_ and the associated videos on colormaps and matplotlib.
+
 * Due **Monday Novemeber 13, 2017**:
  - The official ASA statement on p-values (asastatementpvalues.pdf on Piazza)
 
