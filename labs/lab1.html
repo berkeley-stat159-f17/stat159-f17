@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Lab 1 &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
-    
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -24,7 +21,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Lab 10" href="lab10.html" />
@@ -36,7 +33,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -45,11 +42,11 @@
           <div class="body" role="main">
             
   <div class="section" id="lab-1">
-<span id="lab-1"></span><h1>Lab 1<a class="headerlink" href="#lab-1" title="Permalink to this headline">¶</a></h1>
+<h1>Lab 1<a class="headerlink" href="#lab-1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="installs-and-setup">
-<span id="installs-and-setup"></span><h2>Installs and Setup<a class="headerlink" href="#installs-and-setup" title="Permalink to this headline">¶</a></h2>
+<h2>Installs and Setup<a class="headerlink" href="#installs-and-setup" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="git-and-github">
-<span id="git-and-github"></span><h3>Git and Github<a class="headerlink" href="#git-and-github" title="Permalink to this headline">¶</a></h3>
+<h3>Git and Github<a class="headerlink" href="#git-and-github" title="Permalink to this headline">¶</a></h3>
 <p>Do you have a GitHub account?</p>
 <p>Git configuration:</p>
 <ul class="simple">
@@ -59,7 +56,7 @@
 <p>Can change much more: editor, coloring, etc.</p>
 </div>
 <div class="section" id="anaconda">
-<span id="anaconda"></span><h3>Anaconda<a class="headerlink" href="#anaconda" title="Permalink to this headline">¶</a></h3>
+<h3>Anaconda<a class="headerlink" href="#anaconda" title="Permalink to this headline">¶</a></h3>
 <p>What is Anaconda?</p>
 <ul class="simple">
 <li>A Python distribution</li>
@@ -67,21 +64,21 @@
 <li>A package manager</li>
 </ul>
 <div class="section" id="a-python-distribution">
-<span id="a-python-distribution"></span><h4>A Python distribution<a class="headerlink" href="#a-python-distribution" title="Permalink to this headline">¶</a></h4>
+<h4>A Python distribution<a class="headerlink" href="#a-python-distribution" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Install Anaconda from the download</li>
 <li>Open python by typing in <code class="docutils literal"><span class="pre">python</span></code> into the shell. Should see something like</li>
 </ul>
-<p><img alt="Alt" src="assets/images/python_anaconda.png" /></p>
+<p><img alt="assets/images/python_anaconda.png" src="assets/images/python_anaconda.png" />Alt</p>
 <ul class="simple">
-<li>Make sure you&#8217;re using Anaconda&#8217;s python. If not, open <code class="docutils literal"><span class="pre">~/.bashrc</span></code> and add</li>
+<li>Make sure you're using Anaconda's python. If not, open <code class="docutils literal"><span class="pre">~/.bashrc</span></code> and add</li>
 </ul>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">&quot;/home/$USERNAME/anaconda3/bin:$PATH&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="an-environment-manager">
-<span id="an-environment-manager"></span><h4>An environment manager<a class="headerlink" href="#an-environment-manager" title="Permalink to this headline">¶</a></h4>
+<h4>An environment manager<a class="headerlink" href="#an-environment-manager" title="Permalink to this headline">¶</a></h4>
 <p>An environment is a standalone version of python which you can make changes to without affecting your global system python.</p>
 <ul class="simple">
 <li>Create an environment with Python 3.6 and a few packages for this class:
@@ -99,7 +96,7 @@
 </ul>
 </div>
 <div class="section" id="a-package-manager">
-<span id="a-package-manager"></span><h4>A package manager<a class="headerlink" href="#a-package-manager" title="Permalink to this headline">¶</a></h4>
+<h4>A package manager<a class="headerlink" href="#a-package-manager" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Add a package (pandas) to the environment</li>
 </ul>
@@ -110,7 +107,7 @@
 </div>
 </div>
 <div class="section" id="playing-with-python">
-<span id="playing-with-python"></span><h3>Playing with python<a class="headerlink" href="#playing-with-python" title="Permalink to this headline">¶</a></h3>
+<h3>Playing with python<a class="headerlink" href="#playing-with-python" title="Permalink to this headline">¶</a></h3>
 <p>Some code to create and plot random data</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
@@ -128,7 +125,7 @@
 <li>In a Jupyer notebook: <code class="docutils literal"><span class="pre">jupyter</span> <span class="pre">notebook</span></code></li>
 </ul>
 <div class="section" id="whirlwind-tour-of-python">
-<span id="whirlwind-tour-of-python"></span><h4>Whirlwind Tour of Python<a class="headerlink" href="#whirlwind-tour-of-python" title="Permalink to this headline">¶</a></h4>
+<h4>Whirlwind Tour of Python<a class="headerlink" href="#whirlwind-tour-of-python" title="Permalink to this headline">¶</a></h4>
 <p>A good reference on Python that we will be using is <a class="reference external" href="http://www.oreilly.com/programming/free/files/a-whirlwind-tour-of-python.pdf">A Whirlwind Tour of Python</a> by Jake VanderPlas. The book has a <a class="reference external" href="https://github.com/jakevdp/WhirlwindTourOfPython">collection of Jupyter notebooks</a> to run through.</p>
 <p>Start by cloning the repo:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">jakevdp</span><span class="o">/</span><span class="n">WhirlwindTourOfPython</span><span class="o">.</span><span class="n">git</span>
@@ -138,11 +135,11 @@
 </div>
 </div>
 <div class="section" id="loose-ends">
-<span id="loose-ends"></span><h3>Loose Ends<a class="headerlink" href="#loose-ends" title="Permalink to this headline">¶</a></h3>
-<p>Be sure to <a class="reference external" href="https://code.visualstudio.com/download">install Visual Studio Code</a> if you don&#8217;t have an editor that you already like. Also create an <a class="reference external" href="https://www.overleaf.com">Overleaf Account</a> for collaboration.</p>
+<h3>Loose Ends<a class="headerlink" href="#loose-ends" title="Permalink to this headline">¶</a></h3>
+<p>Be sure to <a class="reference external" href="https://code.visualstudio.com/download">install Visual Studio Code</a> if you don't have an editor that you already like. Also create an <a class="reference external" href="https://www.overleaf.com">Overleaf Account</a> for collaboration.</p>
 </div>
 <div class="section" id="survey">
-<span id="survey"></span><h3>Survey<a class="headerlink" href="#survey" title="Permalink to this headline">¶</a></h3>
+<h3>Survey<a class="headerlink" href="#survey" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://goo.gl/forms/PrbaWcyBi1lEXzEi2">Please complete the survey</a>
 (Shortened url: http://bit.ly/2vpsNqu)</p>
 </div>
@@ -166,7 +163,7 @@
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -235,7 +232,7 @@
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

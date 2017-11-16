@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>An introduction to Sphinx &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
-    
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -24,7 +21,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="P-values discussion with Prof. Philip B. Stark" href="15-pvalues/index.html" />
@@ -36,7 +33,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -46,7 +43,7 @@
             
   <div class="section" id="An-introduction-to-Sphinx">
 <h1>An introduction to Sphinx<a class="headerlink" href="#An-introduction-to-Sphinx" title="Permalink to this headline">¶</a></h1>
-<p><strong>Credit:</strong> this notebook draws heavily on <a class="reference external" href="https://github.com/willingc/2017_09_28_sdpug_sphinx">Carol Willing&#8217;s Practical
+<p><strong>Credit:</strong> this notebook draws heavily on <a class="reference external" href="https://github.com/willingc/2017_09_28_sdpug_sphinx">Carol Willing’s Practical
 Sphinx
 tutorial</a>,
 originally MIT licensed. All modifications made here are also MIT
@@ -85,7 +82,7 @@ documentation</a></li>
 </div>
 <div class="section" id="Getting-Started">
 <h2>Getting Started<a class="headerlink" href="#Getting-Started" title="Permalink to this headline">¶</a></h2>
-<p>If you didn&#8217;t already, in your class environment, run:</p>
+<p>If you didn’t already, in your class environment, run:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>conda install sphinx
 conda install -c conda-forge nbsphinx recommonmark ghp-import
 </pre></div>
@@ -98,8 +95,8 @@ conda install -c conda-forge nbsphinx recommonmark ghp-import
 </pre></div>
 </div>
 </div>
-<div class="section" id="Run-sphinx's-quickstart">
-<h2>Run sphinx&#8217;s quickstart<a class="headerlink" href="#Run-sphinx's-quickstart" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Run-sphinx’s-quickstart">
+<h2>Run sphinx’s quickstart<a class="headerlink" href="#Run-sphinx’s-quickstart" title="Permalink to this headline">¶</a></h2>
 <p>We can leave most items as default:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">quickstart</span>
 </pre></div>
@@ -150,7 +147,7 @@ conda install -c conda-forge nbsphinx recommonmark ghp-import
 <p><strong>Easiest</strong> Use the default.</p>
 <p><strong>Easy</strong> Use another standard theme.</p>
 <p><strong>Customize</strong> <code class="docutils literal"><span class="pre">css</span></code>, <code class="docutils literal"><span class="pre">js</span></code> and override <code class="docutils literal"><span class="pre">templates</span></code> (<code class="docutils literal"><span class="pre">jinja2</span></code>)</p>
-<p><strong>Create your own theme</strong> Only do if the above doesn&#8217;t meet your needs.</p>
+<p><strong>Create your own theme</strong> Only do if the above doesn’t meet your needs.</p>
 </div>
 <div class="section" id="Source-files">
 <h2>Source files<a class="headerlink" href="#Source-files" title="Permalink to this headline">¶</a></h2>
@@ -235,7 +232,7 @@ rest!</li>
 <div class="section" id="Using-Github-Pages-to-post-a-sphinx-site-easily">
 <h2>Using Github Pages to post a sphinx site easily<a class="headerlink" href="#Using-Github-Pages-to-post-a-sphinx-site-easily" title="Permalink to this headline">¶</a></h2>
 <p>Make sure you answer <code class="docutils literal"><span class="pre">yes</span></code> to the question about Github Pages in the
-quickstart! If you didn&#8217;t, add to your extensions list:</p>
+quickstart! If you didn’t, add to your extensions list:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;sphinx.ext.githubpages&#39;</span>
 </pre></div>
 </div>
@@ -251,8 +248,8 @@ Pages:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="Let's-post-our-site">
-<h2>Let&#8217;s post our site<a class="headerlink" href="#Let's-post-our-site" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Let’s-post-our-site">
+<h2>Let’s post our site<a class="headerlink" href="#Let’s-post-our-site" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Turn our little test into a git repo (<code class="docutils literal"><span class="pre">git</span> <span class="pre">init,</span> <span class="pre">etc...</span></code>)</li>
 <li>Go to GitHub and create a GH repo for it</li>
@@ -275,11 +272,11 @@ target:</p>
 <h2>Love your docs!<a class="headerlink" href="#Love-your-docs!" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Many documentation examples esp. Django, Jupyter, Python</li>
-<li>Check out Carol&#8217;s documentation examples on GitHub:
+<li>Check out Carol’s documentation examples on GitHub:
 <code class="docutils literal"><span class="pre">https://github.com/willingc</span></code></li>
 <li>A minimal documentation example repo
 <a class="reference external" href="https://github.com/willingc/doc-basics">https://github.com/willingc/doc-basics</a></li>
-<li>Anne Gentle&#8217;s <a class="reference external" href="https://justwriteclick.com/">https://justwriteclick.com/</a> and
+<li>Anne Gentle’s <a class="reference external" href="https://justwriteclick.com/">https://justwriteclick.com/</a> and
 <a class="reference external" href="https://www.docslikecode.com/articles/">https://www.docslikecode.com/articles/</a></li>
 <li>Eric Holscher <a class="reference external" href="http://www.writethedocs.org/">http://www.writethedocs.org/</a> and <a class="reference external" href="https://readthedocs.io">https://readthedocs.io</a></li>
 </ul>
@@ -303,7 +300,7 @@ target:</p>
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -327,7 +324,6 @@ target:</p>
 <li class="toctree-l1"><a class="reference internal" href="13-data-frames.html">Data Manipulation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">An introduction to Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
-<li class="toctree-l1"><a class="reference internal" href="16-testing.html">Testing your software in Python</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>
@@ -372,7 +368,7 @@ target:</p>
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

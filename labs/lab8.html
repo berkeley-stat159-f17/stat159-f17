@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Lab 8 &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
-    
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -24,7 +21,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Lab 9" href="lab9.html" />
@@ -36,7 +33,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -212,16 +209,16 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">linspace</span>
-<span class="kn">from</span> <span class="nn">scipy.io</span> <span class="k">import</span> <span class="n">wavfile</span>
-<span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="nn">ipd</span>
+<span></span>%matplotlib inline
+import matplotlib.pyplot as plt
+import numpy as np
+from numpy import sin, pi, linspace
+from scipy.io import wavfile
+import IPython.display as ipd
 
-<span class="c1"># Stdlib imports</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+# Stdlib imports
+import os
+import sys
 </pre></div>
 </div>
 </div>
@@ -241,7 +238,7 @@ you? <code class="docutils literal"><span class="pre">git</span> <span class="pr
 <h2>Numpy and Matplotlib: A Basic Fourier Analysis Example<a class="headerlink" href="#Numpy-and-Matplotlib:-A-Basic-Fourier-Analysis-Example" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="Creating-a-Square-Wave">
 <h3>Creating a Square Wave<a class="headerlink" href="#Creating-a-Square-Wave" title="Permalink to this headline">¶</a></h3>
-<p>We&#8217;re going to look at reconstructing a square wave:</p>
+<p>We’re going to look at reconstructing a square wave:</p>
 <div class="math">
 \[y(t) = \text{sgn}(\sin(t))\]</div>
 <p>First, create a function which returns a square wave</p>
@@ -251,57 +248,57 @@ you? <code class="docutils literal"><span class="pre">git</span> <span class="pr
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">npts</span><span class="o">=</span><span class="mi">2000</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Create a real square wave.</span>
+<span></span>def square(npts=2000):
+    &quot;&quot;&quot;Create a real square wave.
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    npts : int, optional</span>
-<span class="sd">      Number of points at which to sample the function.</span>
+    Parameters
+    ----------
+    npts : int, optional
+      Number of points at which to sample the function.
 
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    t : array</span>
-<span class="sd">      The t values where the wave was sampled.</span>
-<span class="sd">    y : array</span>
-<span class="sd">      The square wave approximation (the final sum of all terms).</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    Returns
+    -------
+    t : array
+      The t values where the wave was sampled.
+    y : array
+      The square wave approximation (the final sum of all terms).
+    &quot;&quot;&quot;
 
-    <span class="c1"># get time points</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
+    # get time points
+    t = linspace(-pi, 2*pi, npts)
 
-    <span class="c1"># create the square wave</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    # create the square wave
+    y = np.sign(sin(t))
 
-    <span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">y</span>
+    return t, y
 </pre></div>
 </div>
 </div>
-<p>Now let&#8217;s plot it.</p>
+<p>Now let’s plot it.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">plot_square</span><span class="p">(</span><span class="n">npts</span><span class="o">=</span><span class="mi">2000</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Plot a real sqaure wave</span>
+<span></span>def plot_square(npts=2000):
+    &quot;&quot;&quot;Plot a real sqaure wave
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    npts : int, optional</span>
-<span class="sd">      Number of points at which to sample the function.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># create the square wave</span>
-    <span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">square</span><span class="p">(</span><span class="n">npts</span><span class="p">)</span>
-    <span class="c1"># use the basic plt api</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;True Wave&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    Parameters
+    ----------
+    npts : int, optional
+      Number of points at which to sample the function.
+    &quot;&quot;&quot;
+    # create the square wave
+    t, y = square(npts)
+    # use the basic plt api
+    plt.plot(t, y, label=&quot;True Wave&quot;)
+    plt.grid()
+    plt.legend()
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;True Square Wave&#39;</span><span class="p">)</span>
+    plt.xlabel(&quot;t&quot;)
+    plt.ylabel(&quot;y&quot;)
+    plt.title(&#39;True Square Wave&#39;)
 </pre></div>
 </div>
 </div>
@@ -311,7 +308,7 @@ you? <code class="docutils literal"><span class="pre">git</span> <span class="pr
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">plot_square</span><span class="p">()</span>
+<span></span>plot_square()
 </pre></div>
 </div>
 </div>
@@ -335,70 +332,70 @@ you? <code class="docutils literal"><span class="pre">git</span> <span class="pr
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">square_approx</span><span class="p">(</span><span class="n">nterms</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">2000</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Add nterms to construct a square wave.</span>
+<span></span>def square_approx(nterms=5, npts=2000):
+    &quot;&quot;&quot;Add nterms to construct a square wave.
 
-<span class="sd">    Computes an approximation to a square wave using a total of nterms.</span>
+    Computes an approximation to a square wave using a total of nterms.
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    nterms : int, optional</span>
-<span class="sd">      Number of terms to use in the sum.</span>
-<span class="sd">    npts : int, optional</span>
-<span class="sd">      Number of points at which to sample the function.</span>
+    Parameters
+    ----------
+    nterms : int, optional
+      Number of terms to use in the sum.
+    npts : int, optional
+      Number of points at which to sample the function.
 
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    t : array</span>
-<span class="sd">      The t values where the wave was sampled.</span>
-<span class="sd">    y : array</span>
-<span class="sd">      The square wave approximation (the final sum of all terms).</span>
-<span class="sd">      &quot;&quot;&quot;</span>
-    <span class="c1"># create equally spaced time</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
-    <span class="c1"># initialize the wave</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    Returns
+    -------
+    t : array
+      The t values where the wave was sampled.
+    y : array
+      The square wave approximation (the final sum of all terms).
+      &quot;&quot;&quot;
+    # create equally spaced time
+    t = linspace(-pi, 2*pi, npts)
+    # initialize the wave
+    y = np.zeros_like(t)
 
-    <span class="c1"># add nterms terms in the infinite series</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nterms</span><span class="p">):</span>
-        <span class="n">y</span> <span class="o">+=</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">sin</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span> <span class="n">t</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">*=</span> <span class="mi">4</span> <span class="o">/</span> <span class="n">pi</span>
+    # add nterms terms in the infinite series
+    for i in range(nterms):
+        y += (1.0/(2*i+1))*sin((2*i+1)* t)
+    y *= 4 / pi
 
-    <span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">y</span>
+    return t, y
 </pre></div>
 </div>
 </div>
-<p>Again, let&#8217;s plot it</p>
+<p>Again, let’s plot it</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">plot_square_approx</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">2000</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Plot the square wave construction for a list of total number of terms.</span>
+<span></span>def plot_square_approx(terms, npts=2000):
+    &quot;&quot;&quot;Plot the square wave construction for a list of total number of terms.
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    terms : int or list of ints</span>
-<span class="sd">      If a list is given, the plot will be constructed for all terms in it.</span>
-<span class="sd">    npts : int, optional</span>
-<span class="sd">      Number of points at which to sample the function.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    Parameters
+    ----------
+    terms : int or list of ints
+      If a list is given, the plot will be constructed for all terms in it.
+    npts : int, optional
+      Number of points at which to sample the function.
+    &quot;&quot;&quot;
 
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="c1"># Single term, just put it in a list since the code below expects a list</span>
-        <span class="n">terms</span> <span class="o">=</span> <span class="p">[</span><span class="n">terms</span><span class="p">]</span>
+    if isinstance(terms, int):
+        # Single term, just put it in a list since the code below expects a list
+        terms = [terms]
 
-    <span class="k">for</span> <span class="n">nterms</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">:</span>
-        <span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">square_approx</span><span class="p">(</span><span class="n">nterms</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;n=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">nterms</span><span class="p">)</span>
+    for nterms in terms:
+        t, y = square_approx(nterms, npts)
+        plt.plot(t, y, label=&#39;n=%s&#39; % nterms)
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Square wave with n terms&#39;</span><span class="p">)</span>
+    plt.grid()
+    plt.legend()
+    plt.xlabel(&quot;t&quot;)
+    plt.ylabel(&quot;y&quot;)
+    plt.title(&#39;Square wave with n terms&#39;)
 </pre></div>
 </div>
 </div>
@@ -408,7 +405,7 @@ you? <code class="docutils literal"><span class="pre">git</span> <span class="pr
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">plot_square_approx</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+<span></span>plot_square_approx([2, 10, 100])
 </pre></div>
 </div>
 </div>
@@ -419,29 +416,29 @@ you? <code class="docutils literal"><span class="pre">git</span> <span class="pr
 <img alt="../_images/labs_lab8_10_0.png" src="../_images/labs_lab8_10_0.png" />
 </div>
 </div>
-<p>And let&#8217;s overlay the true square wave on top</p>
+<p>And let’s overlay the true square wave on top</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">plot_both</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">2000</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Plot a true square wave and construction for a list of total number of terms.</span>
+<span></span>def plot_both(terms, npts=2000):
+    &quot;&quot;&quot;Plot a true square wave and construction for a list of total number of terms.
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    terms : int or list of ints</span>
-<span class="sd">      If a list is given, the plot will be constructed for all terms in it.</span>
-<span class="sd">    npts : int, optional</span>
-<span class="sd">      Number of points at which to sample the function.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    Parameters
+    ----------
+    terms : int or list of ints
+      If a list is given, the plot will be constructed for all terms in it.
+    npts : int, optional
+      Number of points at which to sample the function.
+    &quot;&quot;&quot;
 
-    <span class="c1"># use our previous functions!</span>
+    # use our previous functions!
 
-    <span class="n">plot_square</span><span class="p">(</span><span class="n">npts</span><span class="p">)</span>
-    <span class="n">plot_square_approx</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    plot_square(npts)
+    plot_square_approx(terms, npts)
+    plt.grid()
 </pre></div>
 </div>
 </div>
@@ -451,7 +448,7 @@ you? <code class="docutils literal"><span class="pre">git</span> <span class="pr
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">plot_both</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+<span></span>plot_both([2, 10, 100])
 </pre></div>
 </div>
 </div>
@@ -470,34 +467,34 @@ intuition</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">square_terms</span><span class="p">(</span><span class="n">nterms</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Compute all nterms to construct a square wave.</span>
+<span></span>def square_terms(nterms=5, npts=500):
+    &quot;&quot;&quot;Compute all nterms to construct a square wave.
 
-<span class="sd">    Computes an approximation to a square wave using a total of nterms, and</span>
-<span class="sd">    returns the individual terms as well as the final sum.</span>
+    Computes an approximation to a square wave using a total of nterms, and
+    returns the individual terms as well as the final sum.
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    nterms : int, optional</span>
-<span class="sd">      Number of terms to use in the sum.</span>
-<span class="sd">    npts : int, optional</span>
-<span class="sd">      Number of points at which to sample the function.</span>
+    Parameters
+    ----------
+    nterms : int, optional
+      Number of terms to use in the sum.
+    npts : int, optional
+      Number of points at which to sample the function.
 
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    t : array</span>
-<span class="sd">      The t values where the wave was sampled.</span>
-<span class="sd">    y : array</span>
-<span class="sd">      The square wave approximation (the final sum of all terms).</span>
-<span class="sd">    terms : array of shape (nterms, npts)</span>
-<span class="sd">      Array with each term of the sum as one row.</span>
-<span class="sd">      &quot;&quot;&quot;</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span>
-    <span class="n">terms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nterms</span><span class="p">,</span> <span class="n">npts</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nterms</span><span class="p">):</span>
-        <span class="n">terms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">/</span> <span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span> <span class="n">t</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">terms</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">terms</span>
+    Returns
+    -------
+    t : array
+      The t values where the wave was sampled.
+    y : array
+      The square wave approximation (the final sum of all terms).
+    terms : array of shape (nterms, npts)
+      Array with each term of the sum as one row.
+      &quot;&quot;&quot;
+    t = linspace(-pi, 2*pi, npts)
+    terms = np.zeros((nterms, npts))
+    for i in range(nterms):
+        terms[i] = 4 / pi * (1.0/(2*i+1))*sin( (2*i+1)* t)
+    y = terms.sum(axis=0)
+    return t, y, terms
 </pre></div>
 </div>
 </div>
@@ -507,28 +504,28 @@ intuition</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">plot_square_terms</span><span class="p">(</span><span class="n">nterms</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">2000</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Plot individual terms of square wave construction.</span>
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    nterms : int, optional</span>
-<span class="sd">      Number of terms to use in the sum.</span>
-<span class="sd">    npts : int, optional</span>
-<span class="sd">      Number of points at which to sample the function.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># first plot the true wave</span>
-    <span class="n">plot_square</span><span class="p">(</span><span class="n">npts</span><span class="p">)</span>
+<span></span>def plot_square_terms(nterms, npts=2000):
+    &quot;&quot;&quot;Plot individual terms of square wave construction.
+    Parameters
+    ----------
+    nterms : int, optional
+      Number of terms to use in the sum.
+    npts : int, optional
+      Number of points at which to sample the function.
+    &quot;&quot;&quot;
+    # first plot the true wave
+    plot_square(npts)
 
-    <span class="c1"># plot individual terms</span>
-    <span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">terms</span> <span class="o">=</span> <span class="n">square_terms</span><span class="p">(</span><span class="n">nterms</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">term</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">terms</span><span class="p">):</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;freq=</span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    # plot individual terms
+    t, y, terms = square_terms(nterms)
+    for i,term in enumerate(terms):
+        plt.plot(t, term, label=&#39;freq=%i&#39; % (2*i+1))
 
-    <span class="c1"># plot the reconstruction</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Individual components of a square wave&#39;</span><span class="p">)</span>
+    # plot the reconstruction
+    plt.plot(t, y, color=&#39;k&#39;, linewidth=2, label=&#39;sum&#39;)
+    plt.legend()
+    plt.grid()
+    plt.title(&#39;Individual components of a square wave&#39;)
 </pre></div>
 </div>
 </div>
@@ -538,7 +535,7 @@ intuition</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">plot_square_terms</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span></span>plot_square_terms(3)
 </pre></div>
 </div>
 </div>
@@ -552,7 +549,7 @@ intuition</p>
 </div>
 <div class="section" id="The-Gibbs-Phenomenon">
 <h3>The Gibbs Phenomenon<a class="headerlink" href="#The-Gibbs-Phenomenon" title="Permalink to this headline">¶</a></h3>
-<p>Notice the weird jump we get even with a lot of terms. It&#8217;s almost
+<p>Notice the weird jump we get even with a lot of terms. It’s almost
 perfect except for at the discontinuity.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -560,7 +557,7 @@ perfect except for at the discontinuity.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">plot_both</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span></span>plot_both(100)
 </pre></div>
 </div>
 </div>
@@ -605,8 +602,8 @@ waves.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">infile</span> <span class="o">=</span> <span class="s1">&#39;data/CallRingingIn.wav&#39;</span>
-<span class="n">rate</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">infile</span><span class="p">)</span>
+<span></span>infile = &#39;data/CallRingingIn.wav&#39;
+rate, y = wavfile.read(infile)
 </pre></div>
 </div>
 </div>
@@ -617,7 +614,7 @@ waves.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">infile</span><span class="p">)</span>
+<span></span>ipd.Audio(infile)
 </pre></div>
 </div>
 </div>
@@ -639,25 +636,25 @@ waves.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">plot_wave</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">rate</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;P</span>
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    y : ndarray</span>
-<span class="sd">      Audio signal as a numpy array</span>
-<span class="sd">    rate : float</span>
-<span class="sd">      Sampling rate of signal in Hz</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span></span>def plot_wave(y, rate):
+    &quot;&quot;&quot;P
+    Parameters
+    ----------
+    y : ndarray
+      Audio signal as a numpy array
+    rate : float
+      Sampling rate of signal in Hz
+    &quot;&quot;&quot;
 
-    <span class="c1">## Your code here</span>
+    ## Your code here
 </pre></div>
 </div>
 </div>
 <p>Similar to the square wave, we can approximate the signal by only
-keeping the frequencies with the highest magnitude. Let&#8217;s compute the
-FFT and plot the magnitudes. We&#8217;ll show a straightforward implementation
+keeping the frequencies with the highest magnitude. Let’s compute the
+FFT and plot the magnitudes. We’ll show a straightforward implementation
 of a <code class="docutils literal"><span class="pre">plot_dft</span></code> function to illustrate how the data is structured, but
-in practice we&#8217;ll use the matplotlib
+in practice we’ll use the matplotlib
 <code class="docutils literal"><span class="pre">`plt.psd</span></code> &lt;<a class="reference external" href="https://matplotlib.org/api/mlab_api.html#matplotlib.mlab.psd">https://matplotlib.org/api/mlab_api.html#matplotlib.mlab.psd</a>&gt;`__
 function which uses a windowed approach to better extract the peaks in
 the data:</p>
@@ -667,42 +664,42 @@ the data:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">plot_dft</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Plot a signal in the frequency domain</span>
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    y : ndarray</span>
-<span class="sd">      Audio signal as a numpy array</span>
-<span class="sd">    rate : float</span>
-<span class="sd">      Sampling rate of signal in Hz</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span></span>def plot_dft(y, rate, ax=None):
+    &quot;&quot;&quot;Plot a signal in the frequency domain
+    Parameters
+    ----------
+    y : ndarray
+      Audio signal as a numpy array
+    rate : float
+      Sampling rate of signal in Hz
+    &quot;&quot;&quot;
 
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    n = len(y)
 
-    <span class="c1"># compute the real FFT</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">n</span>
+    # compute the real FFT
+    out = np.fft.rfft(y) * 2 / n
 
-    <span class="c1"># Note that nf may be off by one from n, see rfft docs for details</span>
+    # Note that nf may be off by one from n, see rfft docs for details
 
-    <span class="c1"># get the frequencies</span>
-    <span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">rate</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">))</span>
-    <span class="c1"># Typically power information is plotted on a log scale, as it often decays (for real-</span>
-    <span class="c1"># world signals) as a power law</span>
-    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    # get the frequencies
+    freqs = np.linspace(0, rate/2, len(out))
+    # Typically power information is plotted on a log scale, as it often decays (for real-
+    # world signals) as a power law
+    if ax is None:
+        f, ax = plt.subplots()
 
-    <span class="n">ax</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">out</span><span class="p">))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Simple DFT plot&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">ax</span>
+    ax.semilogy(freqs, np.abs(out))
+    ax.set_title(&#39;Simple DFT plot&#39;)
+    ax.grid()
+    return ax
 
 
-<span class="n">plot_dft</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span>
+plot_dft(y, rate)
 
-<span class="c1"># In practice, we use the psd function:</span>
-<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">psd</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">Fs</span><span class="o">=</span><span class="n">rate</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Power Spectral Density&#39;</span><span class="p">);</span>
+# In practice, we use the psd function:
+f, ax = plt.subplots()
+ax.psd(y, Fs=rate)
+ax.set_title(&#39;Power Spectral Density&#39;);
 </pre></div>
 </div>
 </div>
@@ -733,81 +730,81 @@ DFT to get a reconstructed signal.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">fourier_approx</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Approximate a signal with the top frac frequencies</span>
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    y : ndarray</span>
-<span class="sd">      Audio signal as a numpy array</span>
-<span class="sd">    rate : float</span>
-<span class="sd">      Sampling rate of signal in Hz</span>
-<span class="sd">    frac : float, optional</span>
-<span class="sd">      Fraction of frequencies to keep, defaults to 0.5</span>
+<span></span>def fourier_approx(y, rate, frac=0.5):
+    &quot;&quot;&quot; Approximate a signal with the top frac frequencies
+    Parameters
+    ----------
+    y : ndarray
+      Audio signal as a numpy array
+    rate : float
+      Sampling rate of signal in Hz
+    frac : float, optional
+      Fraction of frequencies to keep, defaults to 0.5
 
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    y_approx : array</span>
-<span class="sd">      Approximated signal.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    Returns
+    -------
+    y_approx : array
+      Approximated signal.
+    &quot;&quot;&quot;
 
-    <span class="c1"># compute (real) fourier transform</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    # compute (real) fourier transform
+    n = len(y)
+    out = np.fft.rfft(y)
 
-    <span class="c1"># compute the magnitudes of the coefficients and keep the top frac</span>
-    <span class="c1"># zeroing out everything else</span>
+    # compute the magnitudes of the coefficients and keep the top frac
+    # zeroing out everything else
 
-    <span class="c1">## Your code here</span>
-    <span class="c1">## Hint: after you get the magnitudes, you may want to look up how argsort works</span>
-    <span class="c1">## to find which frequency components you need to zero out</span>
+    ## Your code here
+    ## Hint: after you get the magnitudes, you may want to look up how argsort works
+    ## to find which frequency components you need to zero out
 
-    <span class="n">y_approx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">irfft</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+    y_approx = np.fft.irfft(out)
 
-    <span class="k">return</span><span class="p">(</span><span class="n">y_approx</span><span class="p">)</span>
+    return(y_approx)
 </pre></div>
 </div>
 </div>
-<p>Now let&#8217;s plot the signal and the approximated signal side by side.</p>
+<p>Now let’s plot the signal and the approximated signal side by side.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">plot_approx</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_approx</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Plot an audio signal and its approximation.</span>
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    y : ndarray</span>
-<span class="sd">      Audio signal as a numpy array</span>
-<span class="sd">    y_approx: ndarray</span>
-<span class="sd">      Approximated audo signal</span>
-<span class="sd">    rate : float</span>
-<span class="sd">      Sampling rate of signal in Hz</span>
-<span class="sd">    frac : float, optional</span>
-<span class="sd">      Fraction of frequencies to keep, defaults to 0.5</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">shorter_y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="c1"># get the time points</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">shorter_y</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">/</span><span class="n">rate</span>
+<span></span>def plot_approx(y, y_approx, rate, frac=0.5):
+    &quot;&quot;&quot;Plot an audio signal and its approximation.
+    Parameters
+    ----------
+    y : ndarray
+      Audio signal as a numpy array
+    y_approx: ndarray
+      Approximated audo signal
+    rate : float
+      Sampling rate of signal in Hz
+    frac : float, optional
+      Fraction of frequencies to keep, defaults to 0.5
+    &quot;&quot;&quot;
+    shorter_y = y[:-1]
+    # get the time points
+    t = np.arange(len(shorter_y), dtype=float)/rate
 
-    <span class="c1"># Make a figure with two axes, one for time-domain and one for frequency-domain plots</span>
-    <span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">at</span><span class="p">,</span> <span class="n">af</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+    # Make a figure with two axes, one for time-domain and one for frequency-domain plots
+    f, (at, af) = plt.subplots(2, 1, figsize=(14,10))
 
-    <span class="c1"># Plots in the time domain</span>
-    <span class="c1"># Original and approximate signal</span>
-    <span class="n">at</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">shorter_y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;original&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">at</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_approx</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;approx&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">at</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
-    <span class="n">at</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Signal amplitude&#39;</span><span class="p">)</span>
-    <span class="n">at</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">at</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-    <span class="n">at</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Approx signal {frac * 100:2g}</span><span class="si">% o</span><span class="s1">f the total frequencies&#39;</span><span class="p">)</span>
+    # Plots in the time domain
+    # Original and approximate signal
+    at.plot(t, shorter_y, label=&#39;original&#39;, lw=1)
+    at.plot(t, y_approx, label=&#39;approx&#39;, lw=1)
+    at.set_xlabel(&#39;time (s)&#39;)
+    at.set_ylabel(&#39;Signal amplitude&#39;)
+    at.grid()
+    at.legend()
+    at.set_title(f&#39;Approx signal {frac * 100:2g}% of the total frequencies&#39;)
 
-    <span class="c1"># Plots in the frequency domain</span>
-    <span class="n">af</span><span class="o">.</span><span class="n">psd</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;original&#39;</span><span class="p">)</span>
-    <span class="n">af</span><span class="o">.</span><span class="n">psd</span><span class="p">(</span><span class="n">y_approx</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;approx&#39;</span><span class="p">)</span>
-    <span class="n">af</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    # Plots in the frequency domain
+    af.psd(y, label=&#39;original&#39;)
+    af.psd(y_approx, label=&#39;approx&#39;)
+    af.legend()
 </pre></div>
 </div>
 </div>
@@ -817,8 +814,8 @@ DFT to get a reconstructed signal.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">frac</span> <span class="o">=</span> <span class="o">.</span><span class="mi">01</span>
-<span class="n">y_approx</span> <span class="o">=</span> <span class="n">fourier_approx</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">frac</span><span class="p">)</span>
+<span></span>frac = .01
+y_approx = fourier_approx(y, rate, frac)
 </pre></div>
 </div>
 </div>
@@ -828,7 +825,7 @@ DFT to get a reconstructed signal.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">plot_approx</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_approx</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="n">frac</span><span class="p">)</span>
+<span></span>plot_approx(y, y_approx, rate, frac=frac)
 </pre></div>
 </div>
 </div>
@@ -847,8 +844,8 @@ frequencies visualized with our basic <code class="docutils literal"><span class
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plot_dft</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span>
-<span class="n">plot_dft</span><span class="p">(</span><span class="n">y_approx</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+<span></span>ax = plot_dft(y, rate)
+plot_dft(y_approx, rate, ax=ax);
 </pre></div>
 </div>
 </div>
@@ -859,32 +856,32 @@ frequencies visualized with our basic <code class="docutils literal"><span class
 <img alt="../_images/labs_lab8_36_0.png" src="../_images/labs_lab8_36_0.png" />
 </div>
 </div>
-<p>Now let&#8217;s convert into a wav file and take a listen.</p>
+<p>Now let’s convert into a wav file and take a listen.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># linearly rescale raw data to wav range and convert to integers</span>
-<span class="n">sound</span> <span class="o">=</span> <span class="n">y_approx</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
-<span class="n">basename</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">infile</span><span class="p">)</span>
-<span class="n">new_filename</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;</span><span class="si">{basename}</span><span class="s1">_frac{100*frac:2g}.wav&#39;</span>
-<span class="n">wavfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">new_filename</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">sound</span><span class="p">)</span>
+<span></span># linearly rescale raw data to wav range and convert to integers
+sound = y_approx.astype(np.int16)
+basename, ext = os.path.splitext(infile)
+new_filename = f&#39;{basename}_frac{100*frac:2g}.wav&#39;
+wavfile.write(new_filename, rate, sound)
 </pre></div>
 </div>
 </div>
-<p>Let&#8217;s now compatre the two signals, the original and the compressed one:</p>
+<p>Let’s now compatre the two signals, the original and the compressed one:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original:&quot;</span><span class="p">)</span>
-<span class="n">ipd</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">infile</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Compressed:&quot;</span><span class="p">)</span>
-<span class="n">ipd</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">new_filename</span><span class="p">))</span>
+<span></span>print(&quot;Original:&quot;)
+ipd.display(ipd.Audio(infile))
+print(&quot;Compressed:&quot;)
+ipd.display(ipd.Audio(new_filename))
 </pre></div>
 </div>
 </div>
@@ -942,7 +939,7 @@ Compressed:
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -966,7 +963,6 @@ Compressed:
 <li class="toctree-l1"><a class="reference internal" href="../lectures/13-data-frames.html">Data Manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/14-sphinx.html">An introduction to Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/16-testing.html">Testing your software in Python</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab 1</a></li>
@@ -1011,7 +1007,7 @@ Compressed:
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

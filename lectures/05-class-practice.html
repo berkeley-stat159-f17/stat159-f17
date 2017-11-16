@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Class practice: strings, lists &amp; numbers &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
-    
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -24,7 +21,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Conda and pip - managing environments" href="06-conda-pip-environments.html" />
@@ -36,7 +33,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -208,7 +205,7 @@ div.nboutput div.output_area.stderr {
 </style>
 <div class="section" id="Class-practice:-strings,-lists-&amp;-numbers">
 <h1>Class practice: strings, lists &amp; numbers<a class="headerlink" href="#Class-practice:-strings,-lists-&-numbers" title="Permalink to this headline">¶</a></h1>
-<p>These were copied and slightly modified from <a class="reference external" href="https://github.com/waddell/urban-informatics-and-visualization">Paul Waddell&#8217;s Urban
+<p>These were copied and slightly modified from <a class="reference external" href="https://github.com/waddell/urban-informatics-and-visualization">Paul Waddell’s Urban
 Informatics and
 Visualization</a>.
 All credit goes to him, all mistakes are mine.</p>
@@ -224,7 +221,7 @@ print the result.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">end</span> <span class="o">=</span> <span class="mi">100001</span>
+<span></span>end = 100001
 </pre></div>
 </div>
 </div>
@@ -234,7 +231,7 @@ print the result.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="o">%%</span><span class="k">timeit</span>
+<span></span>%%timeit
 a = list(range(end))
 b = a[::-2]
 #print(b)
@@ -255,7 +252,7 @@ b = a[::-2]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="o">%%</span><span class="k">timeit</span>
+<span></span>%%timeit
 a = []
 for i in range(end):
     if i % 2 ==0:
@@ -279,7 +276,7 @@ b = a[::-1]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="o">%%</span><span class="k">timeit</span>
+<span></span>%%timeit
 a = list(range(end-1, -1, -2))
 #print(a)
 </pre></div>
@@ -310,9 +307,9 @@ a = list(range(end-1, -1, -2))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100</span><span class="n">_000</span>
-<span class="n">a</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-<span class="n">b</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span></span>n = 100_000
+a=list(range(n))
+b=list(range(n))
 
 </pre></div>
 </div>
@@ -323,8 +320,8 @@ a = list(range(end-1, -1, -2))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">dis</span>
-<span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="s2">&quot;pd = [b[i]-a[i] for i in range(0,len(a))]&quot;</span><span class="p">)</span>
+<span></span>import dis
+dis.dis(&quot;pd = [b[i]-a[i] for i in range(0,len(a))]&quot;)
 </pre></div>
 </div>
 </div>
@@ -355,11 +352,11 @@ a = list(range(end-1, -1, -2))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">l = []</span>
-<span class="s2">for i in range(len(a)):</span>
-<span class="s2">  l.append(b[i] - a[i])</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span></span>dis.dis(&quot;&quot;&quot;
+l = []
+for i in range(len(a)):
+  l.append(b[i] - a[i])
+&quot;&quot;&quot;)
 </pre></div>
 </div>
 </div>
@@ -404,7 +401,7 @@ a = list(range(end-1, -1, -2))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>==0]
+<span></span>[x for x in range(10) if x%2==0]
 </pre></div>
 </div>
 </div>
@@ -422,8 +419,8 @@ a = list(range(end-1, -1, -2))
 </div>
 <div class="section" id="List-insertions">
 <h3>List insertions<a class="headerlink" href="#List-insertions" title="Permalink to this headline">¶</a></h3>
-<p><strong>Write code that add the name &#8220;Norah&#8221; to the following list, after the
-name &#8220;Michael&#8221;.</strong></p>
+<p><strong>Write code that add the name “Norah” to the following list, after the
+name “Michael”.</strong></p>
 <p>Make sure your code continues to do the right thing if more names are
 added to the list, or if the list is reordered, or if you need to find
 Jessica instead of Michael (or anyone else on the list).</p>
@@ -435,25 +432,25 @@ Michael, Philip, Sarah</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Akshara&quot;</span><span class="p">,</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Aqshems&quot;</span><span class="p">,</span> <span class="s2">&quot;Chester&quot;</span><span class="p">,</span> <span class="s2">&quot;Echo&quot;</span><span class="p">,</span> <span class="s2">&quot;James&quot;</span><span class="p">,</span> <span class="s2">&quot;Jessica&quot;</span><span class="p">,</span> <span class="s2">&quot;Matthew&quot;</span><span class="p">,</span> <span class="s2">&quot;Michael&quot;</span><span class="p">,</span> <span class="s2">&quot;Philip&quot;</span><span class="p">,</span> <span class="s2">&quot;Sarah&quot;</span><span class="p">]</span>
+<span></span>names = [&quot;Akshara&quot;, &quot;Anna&quot;, &quot;Aqshems&quot;, &quot;Chester&quot;, &quot;Echo&quot;, &quot;James&quot;, &quot;Jessica&quot;, &quot;Matthew&quot;, &quot;Michael&quot;, &quot;Philip&quot;, &quot;Sarah&quot;]
 
-<span class="k">def</span> <span class="nf">add_after</span><span class="p">(</span><span class="n">name_list</span><span class="p">,</span> <span class="n">name_to_add</span><span class="p">,</span> <span class="n">name_to_after</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Add a name to a list, at the specified position.</span>
+def add_after(name_list, name_to_add, name_to_after):
+    &quot;&quot;&quot;Add a name to a list, at the specified position.
 
-<span class="sd">    Adds....</span>
-<span class="sd">    ....</span>
+    Adds....
+    ....
 
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">names</span> <span class="o">=</span> <span class="n">name_list</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="n">name_to_after</span><span class="p">:</span>
-            <span class="n">names</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">name_to_add</span><span class="p">)</span>
-            <span class="k">break</span>
-    <span class="k">return</span> <span class="n">names</span>
+    &quot;&quot;&quot;
+    names = name_list
+    for i, name in enumerate(names):
+        if name == name_to_after:
+            names.insert(i+1,name_to_add)
+            break
+    return names
 
-<span class="nb">print</span><span class="p">(</span><span class="n">add_after</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="s2">&quot;Norah&quot;</span><span class="p">,</span> <span class="s2">&quot;Michael&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">add_after</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="s2">&quot;Lance&quot;</span><span class="p">,</span> <span class="s2">&quot;Jessica&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+print(add_after(names, &quot;Norah&quot;, &quot;Michael&quot;))
+print(add_after(names, &quot;Lance&quot;, &quot;Jessica&quot;))
+print(names)
 </pre></div>
 </div>
 </div>
@@ -473,9 +470,9 @@ Michael, Philip, Sarah</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Akshara&quot;</span><span class="p">,</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Aqshems&quot;</span><span class="p">,</span> <span class="s2">&quot;Chester&quot;</span><span class="p">,</span> <span class="s2">&quot;Echo&quot;</span><span class="p">,</span> <span class="s2">&quot;James&quot;</span><span class="p">,</span> <span class="s2">&quot;Jessica&quot;</span><span class="p">,</span> <span class="s2">&quot;Matthew&quot;</span><span class="p">,</span> <span class="s2">&quot;Michael&quot;</span><span class="p">,</span> <span class="s2">&quot;Philip&quot;</span><span class="p">,</span> <span class="s2">&quot;Sarah&quot;</span><span class="p">]</span>
-<span class="n">name</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;Michael&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;Norah&quot;</span><span class="p">)</span>
-<span class="n">name</span>
+<span></span>name = [&quot;Akshara&quot;, &quot;Anna&quot;, &quot;Aqshems&quot;, &quot;Chester&quot;, &quot;Echo&quot;, &quot;James&quot;, &quot;Jessica&quot;, &quot;Matthew&quot;, &quot;Michael&quot;, &quot;Philip&quot;, &quot;Sarah&quot;]
+name.insert(name.index(&#39;Michael&#39;)+1,&quot;Norah&quot;)
+name
 </pre></div>
 </div>
 </div>
@@ -512,15 +509,15 @@ the highest.**</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="Cars-and-brown-trucks">
 <h3>Cars and brown trucks<a class="headerlink" href="#Cars-and-brown-trucks" title="Permalink to this headline">¶</a></h3>
-<p>Write code that prints all colors in the list and the word &#8216;car&#8217;, one
-per line, <strong>unless</strong> the color is brown, when you should print &#8216;truck&#8217;
+<p>Write code that prints all colors in the list and the word ‘car’, one
+per line, <strong>unless</strong> the color is brown, when you should print ‘truck’
 instead:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">]</span>
 </pre></div>
@@ -531,7 +528,7 @@ instead:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -554,7 +551,7 @@ in reverse order, separated by spaces. For example:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -572,7 +569,7 @@ a single line.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -583,7 +580,7 @@ a single line.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -604,7 +601,7 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -629,7 +626,7 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -653,7 +650,6 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
 <li class="toctree-l1"><a class="reference internal" href="13-data-frames.html">Data Manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="14-sphinx.html">An introduction to Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
-<li class="toctree-l1"><a class="reference internal" href="16-testing.html">Testing your software in Python</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>
@@ -698,7 +694,7 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

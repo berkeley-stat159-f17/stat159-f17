@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Matplotlib: Live plots &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
-    
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -24,7 +21,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Matplotlib image tutorial" href="image_tutorial.html" />
@@ -36,7 +33,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -215,13 +212,13 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Use this version for live, zoomable plots</span>
-<span class="o">%</span><span class="k">matplotlib</span> notebook
+<span></span># Use this version for live, zoomable plots
+%matplotlib notebook
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="c1"># a few widely used tools from numpy</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">linspace</span><span class="p">,</span> <span class="n">arange</span>
+import matplotlib.pyplot as plt
+import numpy as np
+# a few widely used tools from numpy
+from numpy import sin, cos, exp, sqrt, pi, linspace, arange
 </pre></div>
 </div>
 </div>
@@ -231,17 +228,17 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sin(x)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Harmonic&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span></span>x = linspace(0, 2 * pi)
+y = sin(x)
+plt.plot(x, y, label=&#39;sin(x)&#39;)
+plt.legend()
+plt.title(&#39;Harmonic&#39;)
+plt.xlabel(&#39;x&#39;)
+plt.ylabel(&#39;y&#39;)
 
-<span class="c1"># Add one line to that plot</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cos(x)&#39;</span><span class="p">);</span>
+# Add one line to that plot
+z = cos(x)
+plt.plot(x, z, label=&#39;cos(x)&#39;);
 </pre></div>
 </div>
 </div>
@@ -249,9 +246,9 @@ div.nboutput div.output_area.stderr {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div id="b6d14057-d12a-406e-87b4-82ffae7d7c85"></div>
+<div id="58aa0bfc-b5f9-4c61-aa17-29840b047771"></div>
 <script type="text/javascript">
-var element = document.getElementById('b6d14057-d12a-406e-87b4-82ffae7d7c85');
+var element = document.getElementById('58aa0bfc-b5f9-4c61-aa17-29840b047771');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -1042,32 +1039,32 @@ adding share calls to those, but in most cases the functionality from
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Simple data to display in various forms</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span></span># Simple data to display in various forms
+x = linspace(0, 2*pi, 400)
+y = sin(x**2)
 
-<span class="c1"># Two subplots, the axes array is 1-d</span>
-<span class="n">f</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Sharing X axis&#39;</span><span class="p">)</span>
-<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+# Two subplots, the axes array is 1-d
+f, axarr = plt.subplots(2, sharex=True)
+f.suptitle(&#39;Sharing X axis&#39;)
+axarr[0].plot(x, y)
+axarr[1].scatter(x, y)
 
-<span class="c1"># Two subplots, unpack the axes array immediately</span>
-<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Sharing Y axis&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+# Two subplots, unpack the axes array immediately
+f, (ax1, ax2) = plt.subplots(1, 2, sharey=True)
+f.suptitle(&#39;Sharing Y axis&#39;)
+ax1.plot(x, y)
+ax2.scatter(x, y)
 
-<span class="c1"># Three subplots sharing both x/y axes</span>
-<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Sharing both axes&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="c1"># Fine-tune figure; make subplots close to each other and hide x ticks for</span>
-<span class="c1"># all but bottom plot.</span>
-<span class="n">f</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">([</span><span class="n">a</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">axes</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+# Three subplots sharing both x/y axes
+f, (ax1, ax2, ax3) = plt.subplots(3, sharex=True, sharey=True)
+f.suptitle(&#39;Sharing both axes&#39;)
+ax1.plot(x, y)
+ax2.scatter(x, y)
+ax3.scatter(x, 2*y**2-1,color=&#39;r&#39;)
+# Fine-tune figure; make subplots close to each other and hide x ticks for
+# all but bottom plot.
+f.subplots_adjust(hspace=0)
+plt.setp([a.get_xticklabels() for a in f.axes[:-1]], visible=False);
 </pre></div>
 </div>
 </div>
@@ -1075,9 +1072,9 @@ adding share calls to those, but in most cases the functionality from
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div id="2b1854d2-4e0e-4b57-ae4f-e098b7908058"></div>
+<div id="d8a4e93b-638a-4f36-80da-d8ab07e1003f"></div>
 <script type="text/javascript">
-var element = document.getElementById('2b1854d2-4e0e-4b57-ae4f-e098b7908058');
+var element = document.getElementById('d8a4e93b-638a-4f36-80da-d8ab07e1003f');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -1860,9 +1857,9 @@ if (IPython.notebook.kernel != null) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div id="e2d3df4b-aa91-4ce6-8e80-e1215b19fb02"></div>
+<div id="aa608fc3-da10-42ca-8353-e59674650b6c"></div>
 <script type="text/javascript">
-var element = document.getElementById('e2d3df4b-aa91-4ce6-8e80-e1215b19fb02');
+var element = document.getElementById('aa608fc3-da10-42ca-8353-e59674650b6c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -2645,9 +2642,9 @@ if (IPython.notebook.kernel != null) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div id="b8009abe-7056-4880-822f-7be9b1846851"></div>
+<div id="99a44ec6-03d8-497d-b3c8-5ef6acb1827c"></div>
 <script type="text/javascript">
-var element = document.getElementById('b8009abe-7056-4880-822f-7be9b1846851');
+var element = document.getElementById('99a44ec6-03d8-497d-b3c8-5ef6acb1827c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -3437,10 +3434,10 @@ simple array of random numbers, plotted in grayscale:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">cm</span>
+<span></span>from matplotlib import cm
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+plt.figure()
+plt.imshow(np.random.rand(128, 128), cmap=cm.gray, interpolation=&#39;nearest&#39;)
 </pre></div>
 </div>
 </div>
@@ -3448,9 +3445,9 @@ simple array of random numbers, plotted in grayscale:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div id="1999d1c0-eae3-4b79-aadd-2dbba180eb18"></div>
+<div id="7e5d0635-410b-43da-9828-e05e1fbaf49f"></div>
 <script type="text/javascript">
-var element = document.getElementById('1999d1c0-eae3-4b79-aadd-2dbba180eb18');
+var element = document.getElementById('7e5d0635-410b-43da-9828-e05e1fbaf49f');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -4247,9 +4244,9 @@ correctly:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">img</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;data/stained_glass_barcelona.png&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span></span>img = plt.imread(&#39;data/stained_glass_barcelona.png&#39;)
+plt.figure()
+plt.imshow(img)
 </pre></div>
 </div>
 </div>
@@ -4257,9 +4254,9 @@ correctly:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div id="3038a68a-4416-4686-ab66-5890b9b045f3"></div>
+<div id="911a95b7-3a22-4179-a9a6-97840111e0cf"></div>
 <script type="text/javascript">
-var element = document.getElementById('3038a68a-4416-4686-ab66-5890b9b045f3');
+var element = document.getElementById('911a95b7-3a22-4179-a9a6-97840111e0cf');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -5096,7 +5093,7 @@ by side with linked axes for zooming.</li>
 </div>
 <blockquote>
 <div>fig = plt.figure()
-fig.add_subplot(&lt;other arguments here&gt;, projection=&#8216;3d&#8217;)</div></blockquote>
+fig.add_subplot(&lt;other arguments here&gt;, projection=‘3d’)</div></blockquote>
 <p>A simple surface plot:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -5104,19 +5101,19 @@ fig.add_subplot(&lt;other arguments here&gt;, projection=&#8216;3d&#8217;)</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d.axes3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">cm</span>
+<span></span>from mpl_toolkits.mplot3d.axes3d import Axes3D
+from matplotlib import cm
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
-<span class="n">surf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span>
-        <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">antialiased</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlim3d</span><span class="p">(</span><span class="o">-</span><span class="mf">1.01</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">)</span>
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1, projection=&#39;3d&#39;)
+X = arange(-5, 5, 0.25)
+Y = arange(-5, 5, 0.25)
+X, Y = np.meshgrid(X, Y)
+R = sqrt(X**2 + Y**2)
+Z = sin(R)
+surf = ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.jet,
+        linewidth=0, antialiased=False)
+ax.set_zlim3d(-1.01, 1.01)
 </pre></div>
 </div>
 </div>
@@ -5124,9 +5121,9 @@ fig.add_subplot(&lt;other arguments here&gt;, projection=&#8216;3d&#8217;)</div>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div id="f6fb41df-f119-48a4-ae0c-16aad0d7603f"></div>
+<div id="2319f90f-2fd8-49a3-8271-6ff632cd23b8"></div>
 <script type="text/javascript">
-var element = document.getElementById('f6fb41df-f119-48a4-ae0c-16aad0d7603f');
+var element = document.getElementById('2319f90f-2fd8-49a3-8271-6ff632cd23b8');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -5922,18 +5919,18 @@ if (IPython.notebook.kernel != null) {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;legend.fontsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span></span>import matplotlib
+matplotlib.rcParams[&#39;legend.fontsize&#39;] = 10
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">theta</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;parametric curve&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+fig = plt.figure()
+ax = fig.add_subplot(111, projection=&#39;3d&#39;)
+theta = linspace(-4*pi, 4*pi, 100)
+z = linspace(-2, 2, 100)
+r = z**2 + 1
+x = r*sin(theta)
+y = r*cos(theta)
+ax.plot(x, y, z, label=&#39;parametric curve&#39;)
+ax.legend()
 </pre></div>
 </div>
 </div>
@@ -5941,9 +5938,9 @@ if (IPython.notebook.kernel != null) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div id="656e6058-a4c3-444d-8672-b09e7ae40331"></div>
+<div id="a8eeea79-8e56-45d3-8a2b-919db9867402"></div>
 <script type="text/javascript">
-var element = document.getElementById('656e6058-a4c3-444d-8672-b09e7ae40331');
+var element = document.getElementById('a8eeea79-8e56-45d3-8a2b-919db9867402');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -6757,7 +6754,7 @@ the figure object, the entire raw object where events take place).</p>
 <p>The windowing system will then pass the event (each event has some
 relevant information that goes with it, such as which key or button was
 pressed) to your function, which can act on it. These functions are
-referred to as <em>callbacks</em>, because they are meant to be &#8216;called back&#8217;
+referred to as <em>callbacks</em>, because they are meant to be ‘called back’
 not by you, but by the windowing toolkit when the right event goes by.</p>
 <p>Below is the simplest possible matplotlib event handler.</p>
 <p><strong>Note:</strong> to run this code, you need to restart your kernel, so that
@@ -6768,18 +6765,18 @@ IPython can switch to a GUI matplotlib backend (qt5 in this case).</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="o">%</span><span class="k">matplotlib</span> qt5
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span>%matplotlib qt5
+import matplotlib.pyplot as plt
+import numpy as np
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+fig, ax = plt.subplots()
+ax.plot(np.random.rand(10))
 
-<span class="k">def</span> <span class="nf">onclick</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;button=</span><span class="si">%d</span><span class="s1">, x=</span><span class="si">%d</span><span class="s1">, y=</span><span class="si">%d</span><span class="s1">, xdata=</span><span class="si">%f</span><span class="s1">, ydata=</span><span class="si">%f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span>
-        <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">xdata</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">ydata</span><span class="p">))</span>
+def onclick(event):
+    print (&#39;button=%d, x=%d, y=%d, xdata=%f, ydata=%f&#39;%(
+        event.button, event.x, event.y, event.xdata, event.ydata))
 
-<span class="n">cid</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s1">&#39;button_press_event&#39;</span><span class="p">,</span> <span class="n">onclick</span><span class="p">)</span>
+cid = fig.canvas.mpl_connect(&#39;button_press_event&#39;, onclick)
 </pre></div>
 </div>
 </div>
@@ -6838,7 +6835,7 @@ both of which have the following attributes:</p>
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn&#8217;t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
@@ -6862,7 +6859,6 @@ both of which have the following attributes:</p>
 <li class="toctree-l1"><a class="reference internal" href="../13-data-frames.html">Data Manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../14-sphinx.html">An introduction to Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../16-testing.html">Testing your software in Python</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
@@ -6907,7 +6903,7 @@ both of which have the following attributes:</p>
       &copy;2017, Fernando Perez.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

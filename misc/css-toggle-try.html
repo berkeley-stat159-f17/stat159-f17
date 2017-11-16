@@ -1,0 +1,467 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Some discussion points about last week’s reading &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="section" id="Some-discussion-points-about-last-week’s-reading">
+<h1>Some discussion points about last week’s reading<a class="headerlink" href="#Some-discussion-points-about-last-week’s-reading" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Point-1">
+<h2>Point 1<a class="headerlink" href="#Point-1" title="Permalink to this headline">¶</a></h2>
+<p>“While the article mentions the benefits of reproducibility and
+collaborative practices, it doesn’t discuss the practical drawbacks of
+the proper implementations it recommends. For example, adding such
+documentation and tracking every step in processes adds a significant
+extra workload on the shoulders of scientists who could be working on
+their actual subject. In an Academia where publishing is king, many
+scientists simply cannot afford to complete their work at an
+“open-source” standard. It also requires them to become skilled in tools
+and concepts they may have never been exposed to before.”</p>
+<button onclick="toggle('m')"><p>Discussion</p>
+</button><div class="discuss", id='m'>
+* What parts do you think are the most burdensome?
+* Degrees of reproducibility?
+* Incentives/recognition?
+* What if social/community practices change?
+</div><p class="space"></p></div>
+<div class="section" id="Point-2">
+<h2>Point 2<a class="headerlink" href="#Point-2" title="Permalink to this headline">¶</a></h2>
+<p>“So the fact that there still are such strong incentives for
+unscrupulous journal editors to allow lax standards for non-reproducible
+scientific research (which honestly to some extent is an oxymoron,
+because it really shouldn’t be considered research if it can’t be
+replicated by anyone) is very disappointing, but even more disappointing
+is that publication in these unscrupulous journals is even socially
+accepted in the scientific community as anything besides quack science.”</p>
+<ul class="simple">
+<li>Can someone think of cases where we can’t make research easily
+reproducible?</li>
+<li>Today, still a huge range of journals have no</li>
+</ul>
+</div>
+<div class="section" id="Point-3">
+<h2>Point 3<a class="headerlink" href="#Point-3" title="Permalink to this headline">¶</a></h2>
+<p>“Reading this article, I think one of my biggest concerns about using
+open source practice would be security. This is especially a concern
+when working with EHR data. I’ve worked with sensitive patient level
+data before and I can see why researchers would be against things like
+code review, remote version control, etc. I know there are ways to scrub
+data of sensitive information and I wish those different techniques were
+discussed in the paper.”</p>
+<p>So to summarize the thoughts I see: 1. “Doing things right is hard” 2.
+“Science is broken because people are bad” 3. “How can you address
+privacy concerns?”</p>
+<p>I think the second point in particular is something you addressed that
+maybe didn’t sink in yet.</p>
+</div>
+<div class="section" id="Point-2">
+<h2>Point 2<a class="headerlink" href="#Point-2" title="Permalink to this headline">¶</a></h2>
+<p>“So the fact that there still are such strong incentives for
+unscrupulous journal editors to allow lax standards for non-reproducible
+scientific research (which honestly to some extent is an oxymoron,
+because it really shouldn’t be considered research if it can’t be
+replicated by anyone) is very disappointing, but even more disappointing
+is that publication in these unscrupulous journals is even socially
+accepted in the scientific community as anything besides quack science.”</p>
+<ul class="simple">
+<li>Can someone think of cases where we can’t make research easily
+reproducible?</li>
+<li>Today, still a huge range of journals have no</li>
+</ul>
+</div>
+<div class="section" id="Point-3">
+<h2>Point 3<a class="headerlink" href="#Point-3" title="Permalink to this headline">¶</a></h2>
+<p>“Reading this article, I think one of my biggest concerns about using
+open source practice would be security. This is especially a concern
+when working with EHR data. I’ve worked with sensitive patient level
+data before and I can see why researchers would be against things like
+code review, remote version control, etc. I know there are ways to scrub
+data of sensitive information and I wish those different techniques were
+discussed in the paper.”</p>
+<p>So to summarize the thoughts I see: 1. “Doing things right is hard” 2.
+“Science is broken because people are bad” 3. “How can you address
+privacy concerns?”</p>
+<p>I think the second point in particular is something you addressed that
+maybe didn’t sink in yet.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>%%html
+&lt;style&gt;
+  .sm-space {
+     margin-bottom: 2cm;
+  }
+
+  .big-space {
+     margin-bottom: 6cm;
+  }
+
+.discuss {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top:20px;
+}
+
+&lt;/style&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<style>
+  .sm-space {
+     margin-bottom: 2cm;
+  }
+
+  .big-space {
+     margin-bottom: 6cm;
+  }
+
+.discuss {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top:20px;
+}
+
+</style></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [12]:
+</pre></div>
+</div>
+<div class="input_area highlight-javascript"><div class="highlight"><pre>
+<span></span><span class="o">%%</span><span class="nx">javascript</span>
+<span class="kd">function</span> <span class="nx">toggle</span><span class="p">(</span><span class="nx">eid</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">eid</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">===</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">x</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">x</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div id="2fd92879-e301-4710-9ffb-533069772723"></div>
+<script type="text/javascript">
+var element = document.getElementById('2fd92879-e301-4710-9ffb-533069772723');
+function toggle(eid) {
+    var x = document.getElementById(eid);
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Stat 159/259 - Reproducible and Collaborative Data Science</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial.html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Index.html">A quick overview of the Jupyter Notebook and IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/03-reading1-discussion.html">Reading discussion - Developing open source scientific practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/04-reading2-discussion.html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/05-class-practice.html">Class practice: strings, lists &amp; numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/06-conda-pip-environments.html">Conda and pip - managing environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/07-reading3-discussion.html">From September 25 reading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/07-reading3-discussion.html#Make:-automating-tasks">Make: automating tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/08-ligo-make.html">LIGO, the 2017 Nobel prize in physics, and wrapping up Makefiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy.html">An Introduction to the Scientific Python Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy.html#Motivation:-the-trapezoidal-rule">Motivation: the trapezoidal rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy.html#NumPy-arrays:-the-right-data-structure-for-scientific-computing">NumPy arrays: the right data structure for scientific computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/trapezoid.html">The trapezoidal rule: vectorization and perormance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Live plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/image_tutorial.html">Matplotlib image tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/image_tutorial.html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/13-data-frames.html">Data Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/14-sphinx.html">An introduction to Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab10.html">Lab 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab2.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab3.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab4.html">Lab 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab5.html">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab6.html">Lab 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab8.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab9.html">Lab 9</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Fernando Perez.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/misc/css-toggle-try.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
