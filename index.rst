@@ -109,6 +109,12 @@ Lectures
    lectures/14-sphinx.ipynb
    lectures/15-pvalues/index.md
 
+.. toctree::
+   :hidden:
+
+   lectures/15-pvalues/rabbits.slides
+
+
 
 Labs
 ~~~~
