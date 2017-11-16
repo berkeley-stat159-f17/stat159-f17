@@ -108,6 +108,7 @@ Lectures
    lectures/13-data-frames.ipynb
    lectures/14-sphinx.ipynb
    lectures/15-pvalues/index.md
+   lectures/16-testing.md
 
 .. toctree::
    :hidden:
