@@ -219,7 +219,7 @@ print the result.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -229,20 +229,20 @@ print the result.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Solution 1</span>
+<span></span># Solution 1
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)))</span>
+print(list(range(100,-1,-2)))
 
-<span class="c1"># Solution 2</span>
+# Solution 2
 
-<span class="n">a</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">a</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+a=list(range(0,101,2))
+a.reverse()
+print(a)
 
-<span class="c1"># Solution 3</span>
+# Solution 3
 
-<span class="n">a</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+a=list(range(0,101,2))
+print(a[::-1])
 </pre></div>
 </div>
 </div>
@@ -273,7 +273,7 @@ print the result.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -283,18 +283,18 @@ print the result.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># solution</span>
+<span></span># solution
 
-<span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span>
-<span class="n">b</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">90</span><span class="p">]</span>
+a=[10,20,30]
+b=[30,60,90]
 
 
-<span class="n">A</span><span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span>
-<span class="n">B</span><span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
-<span class="n">C</span><span class="o">=</span> <span class="n">a</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
-<span class="n">D</span><span class="o">=</span><span class="p">[</span><span class="n">y</span><span class="o">-</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)]</span>
+A= [a,b]
+B= a+b
+C= a[:2]+b[-2:]
+D=[y-x for x,y in zip(a, b)]
 
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{A}</span><span class="se">\n</span><span class="si">{B}</span><span class="se">\n</span><span class="si">{C}</span><span class="se">\n</span><span class="si">{D}</span><span class="s1">&#39;</span><span class="p">)</span>
+print(f&#39;{A}\n{B}\n{C}\n{D}&#39;)
 </pre></div>
 </div>
 </div>
@@ -326,7 +326,7 @@ Michael, Philip, Sarah</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -336,14 +336,14 @@ Michael, Philip, Sarah</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Solution</span>
+<span></span># Solution
 
-<span class="n">who</span> <span class="o">=</span> <span class="s1">&#39;Michael&#39;</span>
-<span class="n">names</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Akshara&#39;</span><span class="p">,</span><span class="s1">&#39;Anna&#39;</span><span class="p">,</span><span class="s1">&#39;Aqshems&#39;</span><span class="p">,</span><span class="s1">&#39;Chester&#39;</span><span class="p">,</span><span class="s1">&#39;Echo&#39;</span><span class="p">,</span><span class="s1">&#39;James&#39;</span><span class="p">,</span><span class="s1">&#39;Jessica&#39;</span><span class="p">,</span><span class="s1">&#39;Matthew&#39;</span><span class="p">,</span><span class="s1">&#39;Michael&#39;</span><span class="p">,</span><span class="s1">&#39;Philip&#39;</span><span class="p">,</span><span class="s1">&#39;Sarah&#39;</span><span class="p">]</span>
-<span class="n">who_idx</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">who</span><span class="p">)</span>
-<span class="n">names</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">who_idx</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Norah&#39;</span><span class="p">)</span>
+who = &#39;Michael&#39;
+names= [&#39;Akshara&#39;,&#39;Anna&#39;,&#39;Aqshems&#39;,&#39;Chester&#39;,&#39;Echo&#39;,&#39;James&#39;,&#39;Jessica&#39;,&#39;Matthew&#39;,&#39;Michael&#39;,&#39;Philip&#39;,&#39;Sarah&#39;]
+who_idx = names.index(who)
+names.insert(who_idx+1, &#39;Norah&#39;)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+print(names)
 </pre></div>
 </div>
 </div>
@@ -367,7 +367,7 @@ the highest.**</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -377,10 +377,10 @@ the highest.**</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Solution</span>
+<span></span># Solution
 
-<span class="n">G</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">13</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">11</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">9</span><span class="p">]]</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">sum</span><span class="p">))</span>
+G = [[13,9,8], [14,6,12], [10,13,11], [7,18,9]]
+print(max(G, key=sum))
 </pre></div>
 </div>
 </div>
@@ -407,7 +407,7 @@ instead:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -469,18 +469,27 @@ a single line.</p>
 <li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/trapezoid.html">The trapezoidal rule: vectorization and perormance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Live plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/image_tutorial.html">Matplotlib image tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/image_tutorial.html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-strings/11-strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13-data-frames.html">Data Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14-sphinx.html">An introduction to Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab10.html">Lab 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab2.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab3.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab4.html">Lab 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab5.html">Lab 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab8.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab9.html">Lab 9</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>

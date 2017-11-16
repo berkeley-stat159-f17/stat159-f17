@@ -244,7 +244,7 @@ with two arguments: <code class="docutils literal"><span class="pre">open(filena
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;workfile&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span></span>f = open(&#39;workfile&#39;, &#39;w&#39;)
 </pre></div>
 </div>
 </div>
@@ -279,9 +279,9 @@ is also much shorter than writing equivalent try-finally blocks:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;workfile&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">read_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">f</span><span class="o">.</span><span class="n">closed</span>
+<span></span>with open(&#39;workfile&#39;) as f:
+    read_data = f.read()
+f.closed
 </pre></div>
 </div>
 </div>
@@ -310,8 +310,8 @@ Python implementations will do this clean-up at different times.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span></span>f.close()
+f.read()
 </pre></div>
 </div>
 </div>
@@ -323,7 +323,7 @@ try-finally blocks</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Your code here</span>
+<span></span># Your code here
 </pre></div>
 </div>
 </div>
@@ -337,7 +337,7 @@ try-finally blocks</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;lab5-files/example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span></span>f = open(&quot;lab5-files/example.txt&quot;, &quot;r&quot;)
 </pre></div>
 </div>
 </div>
@@ -357,7 +357,7 @@ return an empty string (<code class="docutils literal"><span class="pre">''</spa
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span></span>print(f.read())
 </pre></div>
 </div>
 </div>
@@ -377,7 +377,7 @@ We&#39;ll parse this file.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span></span>f.read()
 </pre></div>
 </div>
 </div>
@@ -403,8 +403,8 @@ represented by <code class="docutils literal"><span class="pre">'\n'</span></cod
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span></span>f = open(&quot;example.txt&quot;, &quot;r&quot;)
+f.readline()
 
 </pre></div>
 </div>
@@ -425,7 +425,7 @@ represented by <code class="docutils literal"><span class="pre">'\n'</span></cod
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span></span>f.readline()
 </pre></div>
 </div>
 </div>
@@ -445,7 +445,7 @@ represented by <code class="docutils literal"><span class="pre">'\n'</span></cod
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span></span>f.readline()
 </pre></div>
 </div>
 </div>
@@ -467,9 +467,9 @@ is memory efficient, fast, and leads to simple code:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span></span>f = open(&quot;example.txt&quot;, &quot;r&quot;)
+for line in f:
+    print(line, end=&#39;&#39;)
 </pre></div>
 </div>
 </div>
@@ -494,7 +494,7 @@ We&#39;ll parse this file.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;our_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span></span>f = open(&quot;our_file.txt&quot;, &quot;w&quot;)
 </pre></div>
 </div>
 </div>
@@ -507,7 +507,7 @@ returning the number of characters written. :</p>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 
-<span></span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;This is a test</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span></span>f.write(&#39;This is a test\n&#39;)
 </pre></div>
 </div>
 </div>
@@ -529,10 +529,10 @@ text mode) or a bytes object (in binary mode) – before writing them:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;the answer&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
-<span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># convert the tuple to string</span>
-<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span></span>value = (&#39;the answer&#39;, 42)
+s = str(value)  # convert the tuple to string
+f.write(s)
+f.close()
 </pre></div>
 </div>
 </div>
@@ -544,16 +544,16 @@ The position is computed from adding <em>offset</em> to a reference point; the
 reference point is selected by the <em>from_what</em> argument. A <em>from_what</em>
 value of 0 measures from the beginning of the file, 1 uses the current
 file position, and 2 uses the end of the file as the reference point.
-<em>from_what</em> can be omitted and defaults to 0, using the beginning of
-the file as the reference point. :</p>
+<em>from_what</em> can be omitted and defaults to 0, using the beginning of the
+file as the reference point. :</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;our_file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rb+&#39;</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;0123456789abcdef&#39;</span><span class="p">)</span>
+<span></span>f = open(&#39;our_file.txt&#39;, &#39;rb+&#39;)
+f.write(b&#39;0123456789abcdef&#39;)
 </pre></div>
 </div>
 </div>
@@ -573,7 +573,7 @@ the file as the reference point. :</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>      <span class="c1"># Go to the 6th byte in the file</span>
+<span></span>f.seek(5)      # Go to the 6th byte in the file
 
 </pre></div>
 </div>
@@ -594,7 +594,7 @@ the file as the reference point. :</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span></span>f.read(1)
 </pre></div>
 </div>
 </div>
@@ -614,7 +614,7 @@ the file as the reference point. :</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Go to the 3rd byte before the end</span>
+<span></span>f.seek(-3, 2)  # Go to the 3rd byte before the end
 
 </pre></div>
 </div>
@@ -635,7 +635,7 @@ the file as the reference point. :</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span></span>f.read(1)
 
 </pre></div>
 </div>
@@ -679,7 +679,7 @@ negative number.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -693,7 +693,7 @@ negative number.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -704,7 +704,7 @@ negative number.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -718,7 +718,7 @@ negative number.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -729,7 +729,7 @@ negative number.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -769,18 +769,27 @@ negative number.</p>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/trapezoid.html">The trapezoidal rule: vectorization and perormance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Live plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/image_tutorial.html">Matplotlib image tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/image_tutorial.html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/13-data-frames.html">Data Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/14-sphinx.html">An introduction to Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab10.html">Lab 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab2.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab3.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab4.html">Lab 4</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Lab 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab8.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab9.html">Lab 9</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>

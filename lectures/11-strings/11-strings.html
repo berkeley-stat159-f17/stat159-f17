@@ -218,25 +218,25 @@ analysis - for example, by converting to a bag of words.</p>
 <p>We will use a whimsical example to illustrate Python tools for <em>munging</em>
 text data using string methods and regular expressions. Finally, we will
 see how to format text data for reporting.</p>
-<div class="section" id="Get-&quot;Through-the-Looking-Glass&quot;">
-<h2>Get “Through the Looking Glass”<a class="headerlink" href="#Get-"Through-the-Looking-Glass"" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Get-“Through-the-Looking-Glass”">
+<h2>Get “Through the Looking Glass”<a class="headerlink" href="#Get-“Through-the-Looking-Glass”" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span></span>import requests
 
-<span class="k">try</span><span class="p">:</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;looking_glass.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.gutenberg.org/cache/epub/12/pg12.txt&#39;</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">text</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;looking_glass.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+try:
+    with open(&#39;looking_glass.txt&#39;) as f:
+        text = f.read()
+except IOError:
+    url = &#39;http://www.gutenberg.org/cache/epub/12/pg12.txt&#39;
+    res = requests.get(url)
+    text = res.text
+    with open(&#39;looking_glass.txt&#39;, &#39;w&#39;) as f:
+        f.write(str(text))
 </pre></div>
 </div>
 </div>
@@ -249,7 +249,7 @@ see how to format text data for reporting.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">start</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;JABBERWOCKY&#39;</span><span class="p">)</span>
+<span></span>start = text.find(&#39;JABBERWOCKY&#39;)
 </pre></div>
 </div>
 </div>
@@ -259,7 +259,7 @@ see how to format text data for reporting.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">text</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">start</span><span class="o">+</span><span class="mi">2000</span><span class="p">]</span>
+<span></span>text[start:start+2000]
 </pre></div>
 </div>
 </div>
@@ -279,7 +279,7 @@ see how to format text data for reporting.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">end</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;It seems very pretty&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">)</span>
+<span></span>end = text.find(&#39;It seems very pretty&#39;, start)
 </pre></div>
 </div>
 </div>
@@ -289,8 +289,8 @@ see how to format text data for reporting.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">poem</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
-<span class="n">poem</span>
+<span></span>poem = text[start:end]
+poem
 </pre></div>
 </div>
 </div>
@@ -310,7 +310,7 @@ see how to format text data for reporting.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">poem</span><span class="p">)</span>
+<span></span>print(poem)
 </pre></div>
 </div>
 </div>
@@ -366,7 +366,7 @@ JABBERWOCKY
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">poem</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
+<span></span>print(poem.title())
 </pre></div>
 </div>
 </div>
@@ -422,7 +422,7 @@ Jabberwocky
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">poem</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;the&#39;</span><span class="p">)</span>
+<span></span>poem.count(&#39;the&#39;)
 </pre></div>
 </div>
 </div>
@@ -442,7 +442,7 @@ Jabberwocky
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">poem</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;the&#39;</span><span class="p">,</span> <span class="s1">&#39;XXX&#39;</span><span class="p">))</span>
+<span></span>print(poem.replace(&#39;the&#39;, &#39;XXX&#39;))
 </pre></div>
 </div>
 </div>
@@ -501,7 +501,7 @@ JABBERWOCKY
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">poem</span> <span class="o">=</span> <span class="n">poem</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span></span>poem = poem.lower()
 </pre></div>
 </div>
 </div>
@@ -512,8 +512,8 @@ JABBERWOCKY
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">string</span>
-<span class="n">string</span><span class="o">.</span><span class="n">punctuation</span>
+<span></span>import string
+string.punctuation
 </pre></div>
 </div>
 </div>
@@ -533,8 +533,8 @@ JABBERWOCKY
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">poem</span>  <span class="o">=</span> <span class="n">poem</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">)))</span>
-<span class="n">poem</span>
+<span></span>poem  = poem.translate(dict.fromkeys(map(ord, string.punctuation)))
+poem
 </pre></div>
 </div>
 </div>
@@ -554,8 +554,8 @@ JABBERWOCKY
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">words</span> <span class="o">=</span> <span class="n">poem</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-<span class="n">words</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+<span></span>words = poem.split()
+words[:10]
 </pre></div>
 </div>
 </div>
@@ -584,8 +584,8 @@ JABBERWOCKY
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">is_palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">word</span> <span class="o">==</span> <span class="n">word</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span></span>def is_palindrome(word):
+    return word == word[::-1]
 </pre></div>
 </div>
 </div>
@@ -595,7 +595,7 @@ JABBERWOCKY
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="p">{</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">)}</span>
+<span></span>{word for word in words if is_palindrome(word)}
 </pre></div>
 </div>
 </div>
@@ -618,7 +618,7 @@ JABBERWOCKY
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">collections</span>
+<span></span>import collections
 </pre></div>
 </div>
 </div>
@@ -628,7 +628,7 @@ JABBERWOCKY
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">poem_counter</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span></span>poem_counter = collections.Counter(words)
 </pre></div>
 </div>
 </div>
@@ -638,7 +638,7 @@ JABBERWOCKY
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">poem_counter</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span></span>poem_counter.most_common(10)
 </pre></div>
 </div>
 </div>
@@ -667,7 +667,7 @@ JABBERWOCKY
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">poem_counter</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span></span>poem_counter.items()
 </pre></div>
 </div>
 </div>
@@ -690,7 +690,7 @@ JABBERWOCKY
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">poem_counter</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span><span class="o">==</span><span class="mi">2</span><span class="p">]</span>
+<span></span>[(k, v) for (k, v) in poem_counter.items() if v==2]
 </pre></div>
 </div>
 </div>
@@ -741,7 +741,7 @@ JABBERWOCKY
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">words</span><span class="p">[:],</span> <span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">words</span><span class="p">[</span><span class="mi">2</span><span class="p">:]))[:</span><span class="mi">10</span><span class="p">]</span>
+<span></span>list(zip(words[:], words[1:], words[2:]))[:10]
 </pre></div>
 </div>
 </div>
@@ -770,7 +770,7 @@ JABBERWOCKY
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">itertools</span> <span class="k">as</span> <span class="nn">it</span>
+<span></span>import itertools as it
 </pre></div>
 </div>
 </div>
@@ -780,10 +780,10 @@ JABBERWOCKY
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">window</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Sliding window of size n from iterable x.&quot;&quot;&quot;</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-    <span class="k">return</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">s</span><span class="p">)</span>
+<span></span>def window(x, n):
+    &quot;&quot;&quot;Sliding window of size n from iterable x.&quot;&quot;&quot;
+    s = (it.islice(x, i, None) for i in range(n))
+    return zip(*s)
 </pre></div>
 </div>
 </div>
@@ -793,7 +793,7 @@ JABBERWOCKY
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">list</span><span class="p">(</span><span class="n">window</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="mi">3</span><span class="p">))[:</span><span class="mi">10</span><span class="p">]</span>
+<span></span>list(window(words, 3))[:10]
 </pre></div>
 </div>
 </div>
@@ -824,15 +824,15 @@ JABBERWOCKY
 HOWTO</a></li>
 <li><a class="reference external" href="http://pythex.org/">Test your Python regular expressions</a></li>
 </ul>
-<div class="section" id="Find-all-words-with-a-sequence-of-two-or-more-identical-letters-e.g.-&quot;look&quot;">
-<h3>Find all words with a sequence of two or more identical letters e.g. “look”<a class="headerlink" href="#Find-all-words-with-a-sequence-of-two-or-more-identical-letters-e.g.-"look"" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Find-all-words-with-a-sequence-of-two-or-more-identical-letters-e.g.-“look”">
+<h3>Find all words with a sequence of two or more identical letters e.g. “look”<a class="headerlink" href="#Find-all-words-with-a-sequence-of-two-or-more-identical-letters-e.g.-“look”" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">re</span>
+<span></span>import re
 </pre></div>
 </div>
 </div>
@@ -842,7 +842,7 @@ HOWTO</a></li>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\w*(\w)\2+\w*)&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">)</span>
+<span></span>regex = re.compile(r&#39;(\w*(\w)\2+\w*)&#39;, re.IGNORECASE | re.MULTILINE)
 </pre></div>
 </div>
 </div>
@@ -852,8 +852,8 @@ HOWTO</a></li>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">regex</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">poem</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span></span>for match in regex.finditer(poem):
+    print(match.group(2), match.group(1))
 </pre></div>
 </div>
 </div>
@@ -890,11 +890,11 @@ l all
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">match</span><span class="p">):</span>
-    <span class="n">word</span><span class="p">,</span> <span class="n">letter</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">word</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">letter</span><span class="p">,</span> <span class="n">letter</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span></span>def f(match):
+    word, letter = match.groups()
+    return word.replace(letter, letter.upper())
 
-<span class="nb">print</span><span class="p">(</span><span class="n">regex</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">poem</span><span class="p">))</span>
+print(regex.sub(f, poem))
 </pre></div>
 </div>
 </div>
@@ -960,7 +960,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">para</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;When compared with the control group no significant associations were found for the NS-PEecl group after adjustment of confounding variables. For the S-PEecl group, antiβ2GP1 IgG (OR 16.91, 95% CI 3.71-77.06) was associated, as well as age, obesity, smoking and multiparity. Antiβ2GP1-domain I IgG were associated with aCL, antiβ2GP1 and aPS/PT IgG in the three groups. aPS/PT IgG were associated with aCL IgG, and aPS/PT IgM were associated with aCL and antiβ2GP1 IgM in the three groups CONCLUSION: S-PEecl is a distinct entity from NS-PEecl and is mainly associated with the presence of antiβ2GP1 IgG. Antiβ2GP1 domain I correlate with other aPL IgG tests, and aPS/PT may be promising in patients in which LA tests cannot be interpreted.&quot;&quot;&quot;</span>
+<span></span>para = &quot;&quot;&quot;When compared with the control group no significant associations were found for the NS-PEecl group after adjustment of confounding variables. For the S-PEecl group, antiβ2GP1 IgG (OR 16.91, 95% CI 3.71-77.06) was associated, as well as age, obesity, smoking and multiparity. Antiβ2GP1-domain I IgG were associated with aCL, antiβ2GP1 and aPS/PT IgG in the three groups. aPS/PT IgG were associated with aCL IgG, and aPS/PT IgM were associated with aCL and antiβ2GP1 IgM in the three groups CONCLUSION: S-PEecl is a distinct entity from NS-PEecl and is mainly associated with the presence of antiβ2GP1 IgG. Antiβ2GP1 domain I correlate with other aPL IgG tests, and aPS/PT may be promising in patients in which LA tests cannot be interpreted.&quot;&quot;&quot;
 </pre></div>
 </div>
 </div>
@@ -972,7 +972,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">sep</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[\?\!\.]&#39;</span><span class="p">)</span>
+<span></span>sep = re.compile(r&#39;[\?\!\.]&#39;)
 </pre></div>
 </div>
 </div>
@@ -982,7 +982,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">ss</span> <span class="o">=</span> <span class="n">sep</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">para</span><span class="p">)</span>
+<span></span>ss = sep.split(para)
 </pre></div>
 </div>
 </div>
@@ -992,8 +992,8 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ss</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span></span>for i, s in enumerate(ss, 1):
+    print(i, &#39;:&#39;, s, end=&#39;\n\n&#39;)
 </pre></div>
 </div>
 </div>
@@ -1031,7 +1031,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span></span>import nltk
 </pre></div>
 </div>
 </div>
@@ -1041,7 +1041,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">ss_nltk</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="n">para</span><span class="p">)</span>
+<span></span>ss_nltk = nltk.sent_tokenize(para)
 </pre></div>
 </div>
 </div>
@@ -1051,8 +1051,8 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ss_nltk</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span></span>for i, s in enumerate(ss_nltk, 1):
+    print(i, &#39;:&#39;, s, end=&#39;\n\n&#39;)
 </pre></div>
 </div>
 </div>
@@ -1082,8 +1082,8 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">s</span> <span class="o">=</span> <span class="n">ss_nltk</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">s</span>
+<span></span>s = ss_nltk[1]
+s
 </pre></div>
 </div>
 </div>
@@ -1103,9 +1103,9 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># remove punctuation and split on whit space</span>
-<span class="n">table</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">))</span>
-<span class="n">s</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">table</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span></span># remove punctuation and split on whit space
+table = dict.fromkeys(map(ord, string.punctuation))
+s.translate(table).split()
 </pre></div>
 </div>
 </div>
@@ -1148,8 +1148,8 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">text</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="n">text</span>
+<span></span>text = nltk.word_tokenize(s)
+text
 </pre></div>
 </div>
 </div>
@@ -1204,8 +1204,8 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">tagged_text</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="n">tagged_text</span>
+<span></span>tagged_text = nltk.pos_tag(text)
+tagged_text
 </pre></div>
 </div>
 </div>
@@ -1254,7 +1254,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">s</span>
+<span></span>s
 </pre></div>
 </div>
 </div>
@@ -1278,7 +1278,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tagged_text</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)]</span>
+<span></span>[w for w, t in tagged_text if t.startswith(&#39;N&#39;)]
 </pre></div>
 </div>
 </div>
@@ -1313,7 +1313,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">math</span>
+<span></span>import math
 </pre></div>
 </div>
 </div>
@@ -1323,7 +1323,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">stuff</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;bun&#39;</span><span class="p">,</span> <span class="s1">&#39;shoe&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bee&#39;</span><span class="p">,</span> <span class="s1">&#39;door&#39;</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+<span></span>stuff = (&#39;bun&#39;, &#39;shoe&#39;, [&#39;bee&#39;, &#39;door&#39;], 2, math.pi, 0.05)
 </pre></div>
 </div>
 </div>
@@ -1333,7 +1333,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="s1">&#39;One: </span><span class="si">{}</span><span class="s1">, Two </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">stuff</span><span class="p">)</span>
+<span></span>&#39;One: {}, Two {}&#39;.format(*stuff)
 </pre></div>
 </div>
 </div>
@@ -1353,7 +1353,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="s1">&#39;One: </span><span class="si">{0}</span><span class="s1">, Two </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">stuff</span><span class="p">)</span>
+<span></span>&#39;One: {0}, Two {1}&#39;.format(*stuff)
 </pre></div>
 </div>
 </div>
@@ -1373,7 +1373,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="s1">&#39;One: </span><span class="si">{1}</span><span class="s1">, Two </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">stuff</span><span class="p">)</span>
+<span></span>&#39;One: {1}, Two {1}&#39;.format(*stuff)
 </pre></div>
 </div>
 </div>
@@ -1393,7 +1393,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="s1">&#39;One: </span><span class="si">{0}</span><span class="s1">, Two </span><span class="si">{2[1]}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">stuff</span><span class="p">)</span>
+<span></span>&#39;One: {0}, Two {2[1]}&#39;.format(*stuff)
 </pre></div>
 </div>
 </div>
@@ -1416,7 +1416,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="s1">&#39;One: </span><span class="si">{0:^10s}</span><span class="s1">, Two </span><span class="si">{1:_&gt;15s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">stuff</span><span class="p">)</span>
+<span></span>&#39;One: {0:^10s}, Two {1:_&gt;15s}&#39;.format(*stuff)
 </pre></div>
 </div>
 </div>
@@ -1436,7 +1436,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="s1">&#39;One: </span><span class="si">{3}</span><span class="s1">, Two </span><span class="si">{4}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">stuff</span><span class="p">)</span>
+<span></span>&#39;One: {3}, Two {4}&#39;.format(*stuff)
 </pre></div>
 </div>
 </div>
@@ -1456,7 +1456,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="s1">&#39;One: </span><span class="si">{3:+10d}</span><span class="s1">, Two </span><span class="si">{4:.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">stuff</span><span class="p">)</span>
+<span></span>&#39;One: {3:+10d}, Two {4:.4f}&#39;.format(*stuff)
 </pre></div>
 </div>
 </div>
@@ -1476,7 +1476,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="s1">&#39;One: </span><span class="si">{3:04d}</span><span class="s1">, Two </span><span class="si">{4:.4g}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">stuff</span><span class="p">)</span>
+<span></span>&#39;One: {3:04d}, Two {4:.4g}&#39;.format(*stuff)
 </pre></div>
 </div>
 </div>
@@ -1496,7 +1496,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="s1">&#39;One: </span><span class="si">{3:.4e}</span><span class="s1">, Two </span><span class="si">{4:.4e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">stuff</span><span class="p">)</span>
+<span></span>&#39;One: {3:.4e}, Two {4:.4e}&#39;.format(*stuff)
 </pre></div>
 </div>
 </div>
@@ -1516,7 +1516,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="s1">&#39;One: </span><span class="si">{5:.2%}</span><span class="s1">, Two </span><span class="si">{5:f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">stuff</span><span class="p">)</span>
+<span></span>&#39;One: {5:.2%}, Two {5:f}&#39;.format(*stuff)
 </pre></div>
 </div>
 </div>
@@ -1539,7 +1539,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, %a, </span><span class="si">%d</span><span class="s1">, </span><span class="si">%.4f</span><span class="s1">, </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">stuff</span>
+<span></span>&#39;%s, %s, %a, %d, %.4f, %.2f&#39; % stuff
 </pre></div>
 </div>
 </div>
@@ -1562,7 +1562,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span>import numpy as np
 </pre></div>
 </div>
 </div>
@@ -1572,8 +1572,8 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">x</span>
+<span></span>x = np.arange(1, 13).reshape(3,4)
+x
 </pre></div>
 </div>
 </div>
@@ -1595,7 +1595,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;int&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">%8.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">x</span><span class="p">})</span>
+<span></span>np.set_printoptions(formatter={&#39;int&#39;: lambda x: &#39;%8.2f&#39; % x})
 </pre></div>
 </div>
 </div>
@@ -1605,7 +1605,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">x</span>
+<span></span>x
 </pre></div>
 </div>
 </div>
@@ -1627,7 +1627,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">()</span>
+<span></span>np.set_printoptions()
 </pre></div>
 </div>
 </div>
@@ -1637,7 +1637,7 @@ into words.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">x</span>
+<span></span>x
 </pre></div>
 </div>
 </div>
@@ -1695,9 +1695,13 @@ into words.</p>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Strings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11-nltk.html">NLTK: Natural Language Made Easy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13-data-frames.html">Data Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14-sphinx.html">An introduction to Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab10.html">Lab 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab2.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab3.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab4.html">Lab 4</a></li>
@@ -1705,7 +1709,7 @@ into words.</p>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab7.html">Lab 7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab8.html">Lab 8</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../labs/mpl_tight_layout_bug.html">A bug in mpl’s <code class="docutils literal"><span class="pre">tight_layout</span></code>?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab9.html">Lab 9</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Course resources</a></li>

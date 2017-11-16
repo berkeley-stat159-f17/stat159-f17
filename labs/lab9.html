@@ -24,7 +24,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="A bug in mpl’s tight_layout?" href="mpl_tight_layout_bug.html" />
+    <link rel="next" title="Course resources" href="../resources.html" />
     <link rel="prev" title="Lab 8" href="lab8.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -231,10 +231,10 @@ I’ve renamed the files and put them under the <code class="docutils literal"><
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
+<span></span>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+%matplotlib inline
 </pre></div>
 </div>
 </div>
@@ -247,9 +247,9 @@ as Trump’s share of the vote in that market.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># load the data</span>
-<span class="n">nfl_trends</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/fivethirtyeight-nfl-google.csv&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">nfl_trends</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span></span># load the data
+nfl_trends = pd.read_csv(&quot;data/fivethirtyeight-nfl-google.csv&quot;, header=1)
+nfl_trends.head()
 </pre></div>
 </div>
 </div>
@@ -359,12 +359,12 @@ as Trump’s share of the vote in that market.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># convert percent strings into floats</span>
-<span class="n">numeric_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">nfl_trends</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span>
-                <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;%&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-                <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span>
-<span class="n">numeric_data</span><span class="p">[</span><span class="s2">&quot;DMA&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;DMA&quot;</span><span class="p">]</span>
-<span class="n">nfl_trends</span> <span class="o">=</span> <span class="n">numeric_data</span>
+<span></span># convert percent strings into floats
+numeric_data = (nfl_trends.iloc[:,1:]
+                .replace(&quot;%&quot;, &quot;&quot;,regex=True)
+                .astype(float))
+numeric_data[&quot;DMA&quot;] = nfl_trends[&quot;DMA&quot;]
+nfl_trends = numeric_data
 </pre></div>
 </div>
 </div>
@@ -375,7 +375,7 @@ as Trump’s share of the vote in that market.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;NFL&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">);</span>
+<span></span>plt.hist(nfl_trends[&quot;NFL&quot;], bins=25);
 </pre></div>
 </div>
 </div>
@@ -392,8 +392,8 @@ as Trump’s share of the vote in that market.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;NFL&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">);</span>
+<span></span>import seaborn as sns
+plt.hist(nfl_trends[&quot;NFL&quot;], bins=25);
 </pre></div>
 </div>
 </div>
@@ -420,8 +420,8 @@ as Trump’s share of the vote in that market.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;NFL&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">);</span>
+<span></span>with sns.axes_style(&quot;whitegrid&quot;):
+    plt.hist(nfl_trends[&quot;NFL&quot;], bins=25);
 </pre></div>
 </div>
 </div>
@@ -447,8 +447,8 @@ as Trump’s share of the vote in that market.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;ticks&quot;</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;NFL&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">);</span>
+<span></span>with sns.axes_style(&quot;ticks&quot;):
+    plt.hist(nfl_trends[&quot;NFL&quot;], bins=25);
 </pre></div>
 </div>
 </div>
@@ -474,9 +474,9 @@ as Trump’s share of the vote in that market.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;NFL&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
-    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span></span>with sns.axes_style(&quot;whitegrid&quot;):
+    plt.hist(nfl_trends[&quot;NFL&quot;], bins=25)
+    sns.despine()
 </pre></div>
 </div>
 </div>
@@ -503,7 +503,7 @@ as Trump’s share of the vote in that market.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span></span>sns.set_style(&quot;whitegrid&quot;)
 </pre></div>
 </div>
 </div>
@@ -522,7 +522,7 @@ visualize the distribution with the <code class="docutils literal"><span class="
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;NFL&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">);</span>
+<span></span>sns.distplot(nfl_trends[&quot;NFL&quot;], bins=25);
 </pre></div>
 </div>
 </div>
@@ -550,11 +550,11 @@ oriented <code class="docutils literal"><span class="pre">matplotlib</span></cod
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;NFL&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;NFL Interest by Google Searches&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;NFL Search Interest&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span></span>fig, ax = plt.subplots(1, 1)
+ax = sns.distplot(nfl_trends[&quot;NFL&quot;], bins=25, ax=ax);
+ax.set_title(&quot;NFL Interest by Google Searches&quot;)
+ax.set_xlabel(&quot;NFL Search Interest&quot;)
+ax.set_ylabel(&quot;Count&quot;)
 </pre></div>
 </div>
 </div>
@@ -594,10 +594,10 @@ to see all of them.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;NFL&quot;</span><span class="p">],</span> <span class="n">hist</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kde_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;shade&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">});</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;NFL Interest by Google Searches&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;NFL Search Interest&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span></span>ax = sns.distplot(nfl_trends[&quot;NFL&quot;], hist=False, kde_kws={&quot;shade&quot;:True});
+ax.set_title(&quot;NFL Interest by Google Searches&quot;)
+ax.set_xlabel(&quot;NFL Search Interest&quot;)
+ax.set_ylabel(&quot;Count&quot;)
 </pre></div>
 </div>
 </div>
@@ -634,11 +634,11 @@ to see all of them.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;NFL&quot;</span><span class="p">],</span> <span class="n">hist</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                  <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">kde_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;shade&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">});</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;NFL Interest by Google Searches&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;NFL Search Interest&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span></span>ax = sns.distplot(nfl_trends[&quot;NFL&quot;], hist=False,
+                  rug=True, kde_kws={&quot;shade&quot;:True});
+ax.set_title(&quot;NFL Interest by Google Searches&quot;)
+ax.set_xlabel(&quot;NFL Search Interest&quot;)
+ax.set_ylabel(&quot;Count&quot;)
 </pre></div>
 </div>
 </div>
@@ -688,7 +688,7 @@ simple scatterplot.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;NFL&quot;</span><span class="p">],</span> <span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">]);</span>
+<span></span>plt.scatter(nfl_trends[&quot;NFL&quot;], nfl_trends[&quot;Trump 2016 Vote%&quot;]);
 </pre></div>
 </div>
 </div>
@@ -723,8 +723,8 @@ familiar.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nfl_trends</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;NFL&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">,</span>
-              <span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
+<span></span>sns.jointplot(data=nfl_trends, x=&quot;NFL&quot;, y=&quot;Trump 2016 Vote%&quot;,
+              size=7);
 </pre></div>
 </div>
 </div>
@@ -751,8 +751,8 @@ familiar.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nfl_trends</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;NFL&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">,</span>
-              <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;reg&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
+<span></span>sns.jointplot(data=nfl_trends, x=&quot;NFL&quot;, y=&quot;Trump 2016 Vote%&quot;,
+              kind=&quot;reg&quot;, size=7);
 </pre></div>
 </div>
 </div>
@@ -785,8 +785,8 @@ all Americans, and isn’t polarized.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nfl_trends</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;NFL&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">,</span>
-              <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
+<span></span>sns.jointplot(data=nfl_trends, x=&quot;NFL&quot;, y=&quot;Trump 2016 Vote%&quot;,
+              kind=&quot;kde&quot;, size=7);
 </pre></div>
 </div>
 </div>
@@ -816,19 +816,19 @@ and customize it further.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># make plot</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nfl_trends</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;NFL&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">,</span>
-              <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
+<span></span># make plot
+g = sns.jointplot(data=nfl_trends, x=&quot;NFL&quot;, y=&quot;Trump 2016 Vote%&quot;,
+              kind=&quot;kde&quot;, size=7);
 
-<span class="c1"># change x/y labels on the two axes that hold the marginal distriubtions</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;NFL Interest&quot;</span><span class="p">,</span> <span class="s2">&quot;Trump 2016 Vote Share&quot;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">ax_marg_x</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Marginal Distribution of NFL Interest&quot;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">ax_marg_x</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+# change x/y labels on the two axes that hold the marginal distriubtions
+g.set_axis_labels(&quot;NFL Interest&quot;, &quot;Trump 2016 Vote Share&quot;)
+g.ax_marg_x.set_xlabel(&quot;Marginal Distribution of NFL Interest&quot;)
+g.ax_marg_x.xaxis.set_label_position(&quot;top&quot;)
 
-<span class="n">g</span><span class="o">.</span><span class="n">ax_marg_y</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Marginal Distribution of Trump Vote Share&quot;</span><span class="p">,</span>
-                      <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">ax_marg_y</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+g.ax_marg_y.set_ylabel(&quot;Marginal Distribution of Trump Vote Share&quot;,
+                      rotation=270, labelpad=15)
+g.ax_marg_y.yaxis.set_label_position(&quot;right&quot;)
+plt.tight_layout()
 </pre></div>
 </div>
 </div>
@@ -856,7 +856,7 @@ together.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">nfl_trends</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:],</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;reg&quot;</span><span class="p">);</span>
+<span></span>sns.pairplot(nfl_trends.iloc[:,1:], kind=&quot;reg&quot;);
 </pre></div>
 </div>
 </div>
@@ -894,8 +894,8 @@ convert to a long format.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">nfl_melted</span> <span class="o">=</span> <span class="n">nfl_trends</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="s2">&quot;DMA&quot;</span><span class="p">)</span>
-<span class="n">nfl_melted</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span></span>nfl_melted = nfl_trends.melt(&quot;DMA&quot;)
+nfl_melted.head()
 </pre></div>
 </div>
 </div>
@@ -971,11 +971,11 @@ distributions. A classic plot to compare distributions is a box plot</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># get rid of trump vote share to only have data on leagues</span>
-<span class="n">no_trump</span> <span class="o">=</span> <span class="n">nfl_melted</span><span class="p">[</span><span class="o">~</span><span class="n">nfl_melted</span><span class="p">[</span><span class="s2">&quot;variable&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Trump&quot;</span><span class="p">)]</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">no_trump</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;League&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Search Interest&quot;</span><span class="p">);</span>
+<span></span># get rid of trump vote share to only have data on leagues
+no_trump = nfl_melted[~nfl_melted[&quot;variable&quot;].str.contains(&quot;Trump&quot;)]
+sns.boxplot(data=no_trump, x=&quot;variable&quot;, y=&quot;value&quot;)
+plt.xlabel(&quot;League&quot;)
+plt.ylabel(&quot;Search Interest&quot;);
 </pre></div>
 </div>
 </div>
@@ -1003,9 +1003,9 @@ kernel density estimate plot.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">no_trump</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;League&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Search Interest&quot;</span><span class="p">);</span>
+<span></span>sns.violinplot(data=no_trump, x=&quot;variable&quot;, y=&quot;value&quot;)
+plt.xlabel(&quot;League&quot;)
+plt.ylabel(&quot;Search Interest&quot;);
 </pre></div>
 </div>
 </div>
@@ -1033,9 +1033,9 @@ Trump did and did not win a majority.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;Majority Trump&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nfl_trends</span><span class="p">[</span><span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span>
-<span class="n">nfl_melted</span> <span class="o">=</span> <span class="n">nfl_trends</span><span class="o">.</span><span class="n">melt</span><span class="p">([</span><span class="s2">&quot;DMA&quot;</span><span class="p">,</span> <span class="s2">&quot;Majority Trump&quot;</span><span class="p">])</span>
-<span class="n">nfl_melted</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span></span>nfl_trends[&quot;Majority Trump&quot;] = nfl_trends[&quot;Trump 2016 Vote%&quot;] &gt; 50
+nfl_melted = nfl_trends.melt([&quot;DMA&quot;, &quot;Majority Trump&quot;])
+nfl_melted.head()
 </pre></div>
 </div>
 </div>
@@ -1115,11 +1115,11 @@ Trump did and did not win a majority.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">no_trump</span> <span class="o">=</span> <span class="n">nfl_melted</span><span class="p">[</span><span class="o">~</span><span class="n">nfl_melted</span><span class="p">[</span><span class="s2">&quot;variable&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Trump&quot;</span><span class="p">)]</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">no_trump</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span>
-               <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Majority Trump&quot;</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;League&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Search Interest&quot;</span><span class="p">);</span>
+<span></span>no_trump = nfl_melted[~nfl_melted[&quot;variable&quot;].str.contains(&quot;Trump&quot;)]
+sns.violinplot(data=no_trump, x=&quot;variable&quot;, y=&quot;value&quot;,
+               hue=&quot;Majority Trump&quot;, split=True)
+plt.xlabel(&quot;League&quot;)
+plt.ylabel(&quot;Search Interest&quot;);
 </pre></div>
 </div>
 </div>
@@ -1154,17 +1154,17 @@ as the percentage of responders who identify as white and non-white.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">all_fans</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/fivethirtyeight-nfl-fan.csv&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="c1"># only keep aggregates</span>
-<span class="n">small_fans</span> <span class="o">=</span> <span class="n">all_fans</span><span class="p">[[</span><span class="s2">&quot;Team&quot;</span><span class="p">,</span><span class="s2">&quot;GOP%&quot;</span><span class="p">,</span> <span class="s2">&quot;Dem%&quot;</span><span class="p">,</span> <span class="s2">&quot;Ind%&quot;</span><span class="p">,</span> <span class="s2">&quot;White%&quot;</span><span class="p">,</span> <span class="s2">&quot;Nonwhite%&quot;</span><span class="p">]]</span>
+<span></span>all_fans = pd.read_csv(&quot;data/fivethirtyeight-nfl-fan.csv&quot;, header=1)
+# only keep aggregates
+small_fans = all_fans[[&quot;Team&quot;,&quot;GOP%&quot;, &quot;Dem%&quot;, &quot;Ind%&quot;, &quot;White%&quot;, &quot;Nonwhite%&quot;]]
 
-<span class="c1"># convert percent strings into floats</span>
-<span class="n">numeric_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">small_fans</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span>
-                <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;%&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-                <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span>
-<span class="n">numeric_data</span><span class="p">[</span><span class="s2">&quot;Team&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">small_fans</span><span class="p">[</span><span class="s2">&quot;Team&quot;</span><span class="p">]</span>
-<span class="n">small_fans</span> <span class="o">=</span> <span class="n">numeric_data</span>
-<span class="n">small_fans</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+# convert percent strings into floats
+numeric_data = (small_fans.iloc[:,1:]
+                .replace(&quot;%&quot;, &quot;&quot;,regex=True)
+                .astype(float))
+numeric_data[&quot;Team&quot;] = small_fans[&quot;Team&quot;]
+small_fans = numeric_data
+small_fans.head()
 </pre></div>
 </div>
 </div>
@@ -1259,7 +1259,7 @@ figure</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1">### Your code here</span>
+<span></span>### Your code here
 </pre></div>
 </div>
 </div>
@@ -1272,7 +1272,7 @@ than 75% of respondents identify as white</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1">### Your code here</span>
+<span></span>### Your code here
 </pre></div>
 </div>
 </div>
@@ -1290,8 +1290,8 @@ relationship between NFL interest and Trump support.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nfl_trends</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;NFL&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;NFL Interest&quot;</span><span class="p">,</span> <span class="s2">&quot;Trump 2016 Vote Share&quot;</span><span class="p">);</span>
+<span></span>g = sns.lmplot(data=nfl_trends, x=&quot;NFL&quot;, y=&quot;Trump 2016 Vote%&quot;)
+g.set_axis_labels(&quot;NFL Interest&quot;, &quot;Trump 2016 Vote Share&quot;);
 </pre></div>
 </div>
 </div>
@@ -1318,8 +1318,8 @@ relationship between NFL interest and Trump support.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nfl_trends</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;NASCAR&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;NASCAR Interest&quot;</span><span class="p">,</span> <span class="s2">&quot;Trump 2016 Vote Share&quot;</span><span class="p">);</span>
+<span></span>g = sns.lmplot(data=nfl_trends, x=&quot;NASCAR&quot;, y=&quot;Trump 2016 Vote%&quot;)
+g.set_axis_labels(&quot;NASCAR Interest&quot;, &quot;Trump 2016 Vote Share&quot;);
 </pre></div>
 </div>
 </div>
@@ -1347,9 +1347,9 @@ LOWESS</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nfl_trends</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;NASCAR&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">,</span>
-              <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;NASCAR Interest&quot;</span><span class="p">,</span> <span class="s2">&quot;Trump 2016 Vote Share&quot;</span><span class="p">);</span>
+<span></span>g = sns.lmplot(data=nfl_trends, x=&quot;NASCAR&quot;, y=&quot;Trump 2016 Vote%&quot;,
+              order=3)
+g.set_axis_labels(&quot;NASCAR Interest&quot;, &quot;Trump 2016 Vote Share&quot;);
 </pre></div>
 </div>
 </div>
@@ -1375,9 +1375,9 @@ LOWESS</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nfl_trends</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;NASCAR&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">,</span>
-              <span class="n">lowess</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">line_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;linestyle&#39;</span><span class="p">:</span><span class="s2">&quot;--&quot;</span><span class="p">})</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;NASCAR Interest&quot;</span><span class="p">,</span> <span class="s2">&quot;Trump 2016 Vote Share&quot;</span><span class="p">);</span>
+<span></span>g = sns.lmplot(data=nfl_trends, x=&quot;NASCAR&quot;, y=&quot;Trump 2016 Vote%&quot;,
+              lowess=True, line_kws={&#39;linestyle&#39;:&quot;--&quot;})
+g.set_axis_labels(&quot;NASCAR Interest&quot;, &quot;Trump 2016 Vote Share&quot;);
 </pre></div>
 </div>
 </div>
@@ -1404,8 +1404,8 @@ LOWESS</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">residplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nfl_trends</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;NASCAR&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">,</span>
-              <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span></span>ax = sns.residplot(data=nfl_trends, x=&quot;NASCAR&quot;, y=&quot;Trump 2016 Vote%&quot;,
+              order=3)
 </pre></div>
 </div>
 </div>
@@ -1433,9 +1433,9 @@ expensive than fitting a linear regression.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nfl_trends</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;NASCAR&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Majority Trump&quot;</span><span class="p">,</span>
-              <span class="n">logistic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">line_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;linestyle&#39;</span><span class="p">:</span><span class="s2">&quot;--&quot;</span><span class="p">},</span> <span class="n">y_jitter</span><span class="o">=</span><span class="mf">0.03</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;NASCAR Interest&quot;</span><span class="p">,</span> <span class="s2">&quot;Majority Trump&quot;</span><span class="p">);</span>
+<span></span>g = sns.lmplot(data=nfl_trends, x=&quot;NASCAR&quot;, y=&quot;Majority Trump&quot;,
+              logistic=True, line_kws={&#39;linestyle&#39;:&quot;--&quot;}, y_jitter=0.03)
+g.set_axis_labels(&quot;NASCAR Interest&quot;, &quot;Majority Trump&quot;);
 </pre></div>
 </div>
 </div>
@@ -1465,13 +1465,13 @@ simultaneously.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">nfl_melted</span> <span class="o">=</span> <span class="n">nfl_trends</span><span class="o">.</span><span class="n">melt</span><span class="p">([</span><span class="s2">&quot;DMA&quot;</span><span class="p">,</span> <span class="s2">&quot;Majority Trump&quot;</span><span class="p">,</span> <span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">])</span>
-<span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">plotting_context</span><span class="p">(</span><span class="s2">&quot;poster&quot;</span><span class="p">):</span>
-    <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nfl_melted</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Trump 2016 Vote%&quot;</span><span class="p">,</span>
-                  <span class="n">col</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;alpha&quot;</span><span class="p">:</span><span class="o">.</span><span class="mi">5</span><span class="p">},</span>
-                  <span class="n">sharex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Interest&quot;</span><span class="p">,</span> <span class="s2">&quot;Trump 2016 Vote Share&quot;</span><span class="p">)</span>
-    <span class="n">g</span><span class="o">.</span><span class="n">set_titles</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{col_name}</span><span class="s2">&quot;</span><span class="p">);</span>
+<span></span>nfl_melted = nfl_trends.melt([&quot;DMA&quot;, &quot;Majority Trump&quot;, &quot;Trump 2016 Vote%&quot;])
+with sns.plotting_context(&quot;poster&quot;):
+    g = sns.lmplot(data=nfl_melted, x=&quot;value&quot;, y=&quot;Trump 2016 Vote%&quot;,
+                  col=&quot;variable&quot;, col_wrap=3, scatter_kws={&quot;alpha&quot;:.5},
+                  sharex=False)
+    g.set_axis_labels(&quot;Interest&quot;, &quot;Trump 2016 Vote Share&quot;)
+    g.set_titles(&quot;{col_name}&quot;);
 </pre></div>
 </div>
 </div>
@@ -1500,7 +1500,7 @@ non-white</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1">### Your code here</span>
+<span></span>### Your code here
 </pre></div>
 </div>
 </div>
@@ -1512,7 +1512,7 @@ from GOP to Dem to Independent</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1">### Your code here</span>
+<span></span>### Your code here
 </pre></div>
 </div>
 </div>
@@ -1529,7 +1529,7 @@ columns and rows are defined as “facets” of the data.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">nfl_melted</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span></span>nfl_melted.head()
 </pre></div>
 </div>
 </div>
@@ -1615,8 +1615,8 @@ columns and rows are defined as “facets” of the data.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">plotting_context</span><span class="p">(</span><span class="s2">&quot;poster&quot;</span><span class="p">):</span>
-    <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nfl_melted</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span></span>with sns.plotting_context(&quot;poster&quot;):
+    g = sns.FacetGrid(data=nfl_melted, col=&quot;variable&quot;, col_wrap=3)
 </pre></div>
 </div>
 </div>
@@ -1644,9 +1644,9 @@ across each facet.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">plotting_context</span><span class="p">(</span><span class="s2">&quot;poster&quot;</span><span class="p">):</span>
-    <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nfl_melted</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-    <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+<span></span>with sns.plotting_context(&quot;poster&quot;):
+    g = sns.FacetGrid(data=nfl_melted, col=&quot;variable&quot;, col_wrap=3)
+    g.map(plt.hist, &quot;value&quot;)
 </pre></div>
 </div>
 </div>
@@ -1675,11 +1675,11 @@ map the plotting function.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">plotting_context</span><span class="p">(</span><span class="s2">&quot;poster&quot;</span><span class="p">):</span>
-    <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nfl_melted</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-                      <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Majority Trump&quot;</span><span class="p">)</span>
-    <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">hist</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kde_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;bw&quot;</span><span class="p">:</span><span class="o">.</span><span class="mi">7</span><span class="p">})</span>
-    <span class="n">g</span><span class="o">.</span><span class="n">add_legend</span><span class="p">()</span>
+<span></span>with sns.plotting_context(&quot;poster&quot;):
+    g = sns.FacetGrid(data=nfl_melted, col=&quot;variable&quot;, col_wrap=3,
+                      hue=&quot;Majority Trump&quot;)
+    g.map(sns.distplot, &quot;value&quot;, hist=False, kde_kws={&quot;bw&quot;:.7})
+    g.add_legend()
 </pre></div>
 </div>
 </div>
@@ -1706,15 +1706,15 @@ map the plotting function.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">plotting_context</span><span class="p">(</span><span class="s2">&quot;poster&quot;</span><span class="p">):</span>
-    <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">nfl_melted</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-                      <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Majority Trump&quot;</span><span class="p">)</span>
-    <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">hist</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kde_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;bw&quot;</span><span class="p">:</span><span class="o">.</span><span class="mi">7</span><span class="p">})</span>
-    <span class="n">g</span><span class="o">.</span><span class="n">add_legend</span><span class="p">()</span>
-    <span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Interest&quot;</span><span class="p">,</span> <span class="s2">&quot;Density Estimate&quot;</span><span class="p">)</span>
-    <span class="n">g</span><span class="o">.</span><span class="n">set_titles</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{col_name}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">g</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Search interest in sports leagues&quot;</span><span class="p">);</span>
+<span></span>with sns.plotting_context(&quot;poster&quot;):
+    g = sns.FacetGrid(data=nfl_melted, col=&quot;variable&quot;, col_wrap=3,
+                      hue=&quot;Majority Trump&quot;)
+    g.map(sns.distplot, &quot;value&quot;, hist=False, kde_kws={&quot;bw&quot;:.7})
+    g.add_legend()
+    g.set_axis_labels(&quot;Interest&quot;, &quot;Density Estimate&quot;)
+    g.set_titles(&quot;{col_name}&quot;)
+    g.fig.subplots_adjust(top=0.9)
+    plt.suptitle(&quot;Search interest in sports leagues&quot;);
 </pre></div>
 </div>
 </div>
@@ -1745,7 +1745,7 @@ columns by greater than 75% white.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1">### Your code here</span>
+<span></span>### Your code here
 </pre></div>
 </div>
 </div>
@@ -1757,7 +1757,7 @@ columns by greater than 75% white.</p>
 <h3>Problem 1<a class="headerlink" href="#Problem-1" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="Part-A-(2-points)">
 <h4>Part A (2 points)<a class="headerlink" href="#Part-A-(2-points)" title="Permalink to this headline">¶</a></h4>
-<p>Write a function which centers a matrix, i.e. for a matrix
+<p>Write a function which centers a matrix, i.e.&nbsp;for a matrix
 <span class="math">\(X \in R^{n\times d}\)</span> with columns <span class="math">\(X_1,\ldots, X_d\)</span>, each
 column should have mean zero</p>
 <div class="nbinput nblast docutils container">
@@ -1766,16 +1766,16 @@ column should have mean zero</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">center</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Center a matrix X&quot;&quot;&quot;</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">X</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span></span>def center(X):
+    &quot;&quot;&quot;Center a matrix X&quot;&quot;&quot;
+    return(X - X.mean(0))
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="Part-B-(2-points)">
 <h4>Part B (2 points)<a class="headerlink" href="#Part-B-(2-points)" title="Permalink to this headline">¶</a></h4>
-<p>Write a function which standardizes a matrix, i.e. for a matrix
+<p>Write a function which standardizes a matrix, i.e.&nbsp;for a matrix
 <span class="math">\(X \in R^{n\times d}\)</span> with columns <span class="math">\(X_1,\ldots, X_d\)</span>, each
 column should have mean zero and variance 1</p>
 <div class="nbinput nblast docutils container">
@@ -1784,16 +1784,16 @@ column should have mean zero and variance 1</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">standardize</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Standardize a matrix X&quot;&quot;&quot;</span>
-    <span class="k">return</span><span class="p">((</span><span class="n">X</span> <span class="o">-</span> <span class="n">X</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span></span>def standardize(X):
+    &quot;&quot;&quot;Standardize a matrix X&quot;&quot;&quot;
+    return((X - X.mean(0)) / X.std(0))
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="Part-C-(2-points)">
 <h4>Part C (2 points)<a class="headerlink" href="#Part-C-(2-points)" title="Permalink to this headline">¶</a></h4>
-<p>Write a function which normalizes a matrix, i.e. for a matrix <span class="math">\(X\)</span>,
+<p>Write a function which normalizes a matrix, i.e.&nbsp;for a matrix <span class="math">\(X\)</span>,
 with columns <span class="math">\(X_1,\ldots, X_d\)</span>, define a new matrix
 <span class="math">\(\tilde{X}\)</span> such that for each column</p>
 <div class="math">
@@ -1804,9 +1804,9 @@ with columns <span class="math">\(X_1,\ldots, X_d\)</span>, define a new matrix
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Standardize a matrix X&quot;&quot;&quot;</span>
-    <span class="k">return</span><span class="p">((</span><span class="n">X</span> <span class="o">-</span> <span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>
+<span></span>def normalize(X):
+    &quot;&quot;&quot;Standardize a matrix X&quot;&quot;&quot;
+    return((X - X.min(0)) / (X.max(0) - X.min(0)))
 </pre></div>
 </div>
 </div>
@@ -1814,7 +1814,7 @@ with columns <span class="math">\(X_1,\ldots, X_d\)</span>, define a new matrix
 <div class="section" id="Part-D-(2-points)">
 <h4>Part D (2 points)<a class="headerlink" href="#Part-D-(2-points)" title="Permalink to this headline">¶</a></h4>
 <p>Write a functions which takes in a matrix <span class="math">\(X\)</span> and normalizes the
-rows so that each row has unit norm, i.e. project the rows onto the unit
+rows so that each row has unit norm, i.e.&nbsp;project the rows onto the unit
 sphere</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -1822,9 +1822,9 @@ sphere</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">project</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Project rows of X onto the unit sphere&quot;&quot;&quot;</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">X</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span></span>def project(X):
+    &quot;&quot;&quot;Project rows of X onto the unit sphere&quot;&quot;&quot;
+    return(X / np.linalg.norm(X, axis=1, keepdims=True))
 </pre></div>
 </div>
 </div>
@@ -1843,36 +1843,36 @@ title for the whole plot. You may find the function
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">plot_transforms</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Plot histogram of x and transformations&quot;&quot;&quot;</span>
-    <span class="c1"># get figure and axes</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span></span>def plot_transforms(x):
+    &quot;&quot;&quot;Plot histogram of x and transformations&quot;&quot;&quot;
+    # get figure and axes
+    fig, axes = plt.subplots(2, 2, figsize=(8,9/2))
 
-    <span class="c1"># first histogram</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Un-transformed&quot;</span><span class="p">)</span>
+    # first histogram
+    axes[0,0].hist(x, bins=50)
+    axes[0,0].set_title(&quot;Un-transformed&quot;)
 
-    <span class="c1"># centered</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">center</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Centered&quot;</span><span class="p">)</span>
+    # centered
+    axes[0,1].hist(center(x), bins=50)
+    axes[0,1].set_title(&quot;Centered&quot;)
 
-    <span class="c1"># standardized</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">standardize</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Standardized&quot;</span><span class="p">)</span>
+    # standardized
+    axes[1,0].hist(standardize(x), bins=50)
+    axes[1,0].set_title(&quot;Standardized&quot;)
 
-    <span class="c1"># normalized</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normalize</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Normalized&quot;</span><span class="p">)</span>
+    # normalized
+    axes[1,1].hist(normalize(x), bins=50)
+    axes[1,1].set_title(&quot;Normalized&quot;)
 
-    <span class="c1"># sup title</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Histograms of transformed x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.05</span><span class="p">)</span>
+    # sup title
+    fig.suptitle(&quot;Histograms of transformed x&quot;, y=1.05)
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">)</span>
+    plt.tight_layout()
+    return(fig, axes)
 
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gumbel</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">plot_transforms</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+np.random.seed(1234)
+x = np.random.gumbel(4, 5, 1000)
+plot_transforms(x);
 </pre></div>
 </div>
 </div>
@@ -1899,14 +1899,14 @@ title for the whole plot. You may find the function
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gumbel</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Un-transformed&quot;</span><span class="p">]</span>
-<span class="n">x</span><span class="p">[</span><span class="s2">&quot;Centered&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">center</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;Un-transformed&quot;</span><span class="p">])</span>
-<span class="n">x</span><span class="p">[</span><span class="s2">&quot;Standardized&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">standardize</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;Un-transformed&quot;</span><span class="p">])</span>
-<span class="n">x</span><span class="p">[</span><span class="s2">&quot;Normalized&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;Un-transformed&quot;</span><span class="p">])</span>
-<span class="n">x</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">index</span>
-<span class="n">x</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span></span>x = np.random.gumbel(4, 5, 1000)
+x = pd.DataFrame(x)
+x.columns = [&quot;Un-transformed&quot;]
+x[&quot;Centered&quot;] = center(x[&quot;Un-transformed&quot;])
+x[&quot;Standardized&quot;] = standardize(x[&quot;Un-transformed&quot;])
+x[&quot;Normalized&quot;] = normalize(x[&quot;Un-transformed&quot;])
+x[&quot;id&quot;] = x.index
+x.head()
 </pre></div>
 </div>
 </div>
@@ -1992,7 +1992,7 @@ title for the whole plot. You may find the function
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1">### Your code here</span>
+<span></span>### Your code here
 </pre></div>
 </div>
 </div>
@@ -2010,36 +2010,36 @@ the function <code class="docutils literal"><span class="pre">plt.tight_layout()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">plot_project</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Plot a scatter plot of X and of the rows projected on to the circle&quot;&quot;&quot;</span>
+<span></span>def plot_project(X):
+    &quot;&quot;&quot;Plot a scatter plot of X and of the rows projected on to the circle&quot;&quot;&quot;
 
-    <span class="c1">### BEGIN SOLUTION</span>
-    <span class="c1"># get figure and axes</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+    ### BEGIN SOLUTION
+    # get figure and axes
+    fig, axes = plt.subplots(1, 2, figsize=(8,9/2))
 
-    <span class="c1"># regular</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Un-transformed&quot;</span><span class="p">)</span>
+    # regular
+    axes[0].scatter(X[:, 0], X[:, 1])
+    axes[0].set_title(&quot;Un-transformed&quot;)
 
-    <span class="c1"># centered</span>
-    <span class="n">X_proj</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_proj</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_proj</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Projected&quot;</span><span class="p">)</span>
+    # centered
+    X_proj = project(X)
+    axes[1].scatter(X_proj[:, 0], X_proj[:, 1])
+    axes[1].set_title(&quot;Projected&quot;)
 
 
-    <span class="c1"># sup title</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Scatterplots of X&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.05</span><span class="p">)</span>
+    # sup title
+    fig.suptitle(&quot;Scatterplots of X&quot;, y=1.05)
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">)</span>
+    plt.tight_layout()
+    return(fig, axes)
 
-    <span class="c1">### END SOLUTION</span>
+    ### END SOLUTION
 
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
-<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
-<span class="n">plot_project</span><span class="p">(</span><span class="n">X</span><span class="p">);</span>
+np.random.seed(1234)
+x1 = np.random.exponential(4, 1000)
+x2 = np.random.chisquare(2, 1000)
+X = np.vstack([x1, x2]).T
+plot_project(X);
 </pre></div>
 </div>
 </div>
@@ -2078,9 +2078,9 @@ goal here is to perform the linear algebra operations <strong>in numpy</strong><
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">compute_ols</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Computes the OLS estimate of y regressed on X&quot;&quot;&quot;</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">X</span><span class="p">)</span> <span class="o">@</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">y</span><span class="p">)</span>
+<span></span>def compute_ols(X, y):
+    &quot;&quot;&quot;Computes the OLS estimate of y regressed on X&quot;&quot;&quot;
+    return(np.linalg.inv( X.T @ X) @ X.T @ y)
 </pre></div>
 </div>
 </div>
@@ -2102,39 +2102,39 @@ line</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">plot_ols</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Make a scatter plot of y on X&quot;&quot;&quot;</span>
+<span></span>def plot_ols(X, y):
+    &quot;&quot;&quot;Make a scatter plot of y on X&quot;&quot;&quot;
 
-    <span class="c1">### BEGIN SOLUTION</span>
-    <span class="c1"># compute ols</span>
-    <span class="n">ols</span> <span class="o">=</span> <span class="n">compute_ols</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    ### BEGIN SOLUTION
+    # compute ols
+    ols = compute_ols(X, y)
 
-    <span class="c1"># start the scatter plot</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">)</span>
+    # start the scatter plot
+    plt.scatter(X[:, 1], y)
 
-    <span class="c1"># add the regression line</span>
-    <span class="n">xmin</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-    <span class="n">xmax</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    # add the regression line
+    xmin = X[:, 1].min()
+    xmax = X[:, 1].max()
 
-    <span class="n">y_hat_min</span> <span class="o">=</span> <span class="n">ols</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">ols</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">xmin</span>
-    <span class="n">y_hat_max</span> <span class="o">=</span> <span class="n">ols</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">ols</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">xmax</span>
+    y_hat_min = ols[0] + ols[1] * xmin
+    y_hat_max = ols[0] + ols[1] * xmax
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">],</span> <span class="p">[</span><span class="n">y_hat_min</span><span class="p">,</span> <span class="n">y_hat_max</span><span class="p">])</span>
+    plt.plot([xmin, xmax], [y_hat_min, y_hat_max])
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;y Regressed on x&quot;</span><span class="p">)</span>
-    <span class="c1">### END SOLUTION</span>
+    plt.xlabel(&quot;x&quot;)
+    plt.ylabel(&quot;y&quot;)
+    plt.title(&quot;y Regressed on x&quot;)
+    ### END SOLUTION
 
-<span class="c1"># simulate heterskedastic data</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">159</span><span class="p">)</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span>
-<span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">laplace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">beta</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mi">0</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+# simulate heterskedastic data
+np.random.seed(159)
+n = 100
+X = np.vstack([np.ones(n), np.random.randn(n)]).T
+beta = np.random.laplace(0, 1, 2)
+y = X @ beta + np.random.randn(n) * (X[:, 1] - X.min(0)[1])
 
-<span class="c1"># plot</span>
-<span class="n">plot_ols</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+# plot
+plot_ols(X, y)
 </pre></div>
 </div>
 </div>
@@ -2161,7 +2161,7 @@ line</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1">### Your code here</span>
+<span></span>### Your code here
 </pre></div>
 </div>
 </div>
@@ -2208,9 +2208,13 @@ line</p>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-strings.html">Strings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/13-data-frames.html">Data Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/14-sphinx.html">An introduction to Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab10.html">Lab 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab2.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab3.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab4.html">Lab 4</a></li>
@@ -2219,7 +2223,6 @@ line</p>
 <li class="toctree-l1"><a class="reference internal" href="lab7.html">Lab 7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab8.html">Lab 8</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Lab 9</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mpl_tight_layout_bug.html">A bug in mpl’s <code class="docutils literal"><span class="pre">tight_layout</span></code>?</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
@@ -2230,7 +2233,7 @@ line</p>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="lab8.html" title="previous chapter">Lab 8</a></li>
-      <li>Next: <a href="mpl_tight_layout_bug.html" title="next chapter">A bug in mpl’s <code class="docutils literal"><span class="pre">tight_layout</span></code>?</a></li>
+      <li>Next: <a href="../resources.html" title="next chapter">Course resources</a></li>
   </ul></li>
 </ul>
 </div>

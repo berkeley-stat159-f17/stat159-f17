@@ -362,12 +362,12 @@ approximating a definite integral with the trapezoid rule:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span><span class="o">+</span><span class="mi">85</span>
+<span></span>def f(x):
+    return (x-3)*(x-5)*(x-7)+85
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+import numpy as np
+x = np.linspace(0, 10, 200)
+y = f(x)
 </pre></div>
 </div>
 </div>
@@ -380,13 +380,13 @@ trapezoid approximation:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span>
-<span class="n">sampling</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">xint</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">x</span><span class="o">&gt;=</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="o">&lt;=</span><span class="n">b</span><span class="p">)][::</span><span class="n">sampling</span><span class="p">]</span>
-<span class="n">yint</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">x</span><span class="o">&gt;=</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="o">&lt;=</span><span class="n">b</span><span class="p">)][::</span><span class="n">sampling</span><span class="p">]</span>
-<span class="c1"># Fix end points of the interval</span>
-<span class="n">xint</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xint</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
-<span class="n">yint</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">yint</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span></span>a, b = 1, 9
+sampling = 10
+xint = x[np.logical_and(x&gt;=a, x&lt;=b)][::sampling]
+yint = y[np.logical_and(x&gt;=a, x&lt;=b)][::sampling]
+# Fix end points of the interval
+xint[0], xint[-1] = a, b
+yint[0], yint[-1] = f(a), f(b)
 </pre></div>
 </div>
 </div>
@@ -398,16 +398,16 @@ approximation:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-dark&#39;</span><span class="p">)</span>
+<span></span>%matplotlib inline
+import matplotlib.pyplot as plt
+plt.style.use(&#39;seaborn-dark&#39;)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">140</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">xint</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">yint</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">),</span> <span class="mi">30</span><span class="p">,</span><span class="sa">r</span><span class="s2">&quot;$\int_a^b f(x)dx$&quot;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+plt.plot(x, y, lw=2)
+plt.plot([a, a], [0, f(a)], color=&#39;black&#39;)
+plt.plot([b, b], [0, f(b)], color=&#39;black&#39;)
+plt.axis([a-1, b+1, 0, 140])
+plt.fill_between(xint, 0, yint, facecolor=&#39;gray&#39;, edgecolor=&#39;red&#39;, alpha=.4)
+plt.text(0.5 * (a + b), 30,r&quot;$\int_a^b f(x)dx$&quot;, horizontalalignment=&#39;center&#39;, fontsize=20);
 </pre></div>
 </div>
 </div>
@@ -426,13 +426,13 @@ approximation</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="k">import</span> <span class="n">quad</span><span class="p">,</span> <span class="n">trapz</span>
+<span></span>from scipy.integrate import quad, trapz
 
-<span class="n">integral</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-<span class="n">trap_integral</span> <span class="o">=</span> <span class="n">trapz</span><span class="p">(</span><span class="n">yint</span><span class="p">,</span> <span class="n">xint</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The integral is: </span><span class="si">%g</span><span class="s2"> +/- </span><span class="si">%.1e</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">integral</span><span class="p">,</span> <span class="n">error</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The trapezoid approximation with&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">xint</span><span class="p">),</span> <span class="s2">&quot;points is:&quot;</span><span class="p">,</span> <span class="n">trap_integral</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The absolute error is:&quot;</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span> <span class="o">-</span> <span class="n">trap_integral</span><span class="p">))</span>
+integral, error = quad(f, a, b)
+trap_integral = trapz(yint, xint)
+print(&quot;The integral is: %g +/- %.1e&quot; % (integral, error))
+print(&quot;The trapezoid approximation with&quot;, len(xint), &quot;points is:&quot;, trap_integral)
+print(&quot;The absolute error is:&quot;, abs(integral - trap_integral))
 </pre></div>
 </div>
 </div>
@@ -470,7 +470,7 @@ you can import it as</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span></span>import numpy
 </pre></div>
 </div>
 </div>
@@ -481,7 +481,7 @@ you can import it as</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span>import numpy as np
 </pre></div>
 </div>
 </div>
@@ -495,8 +495,8 @@ contents of the list:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
-<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span>
+<span></span>lst = [10, 20, 30, 40]
+arr = np.array([10, 20, 30, 40])
 </pre></div>
 </div>
 </div>
@@ -508,7 +508,7 @@ a list:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span></span>lst[0]
 </pre></div>
 </div>
 </div>
@@ -528,7 +528,7 @@ a list:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span></span>arr[0]
 </pre></div>
 </div>
 </div>
@@ -548,7 +548,7 @@ a list:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">arr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span></span>arr[-1]
 </pre></div>
 </div>
 </div>
@@ -568,7 +568,7 @@ a list:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span></span>arr[2:]
 </pre></div>
 </div>
 </div>
@@ -583,7 +583,7 @@ a list:</p>
 </div>
 </div>
 <p>The first difference to note between lists and arrays is that arrays are
-<em>homogeneous</em>; i.e. all elements of an array must be of the same type.
+<em>homogeneous</em>; i.e.&nbsp;all elements of an array must be of the same type.
 In contrast, lists can contain elements of arbitrary type. For example,
 we can change the last element in our list above to be a string:</p>
 <div class="nbinput docutils container">
@@ -592,8 +592,8 @@ we can change the last element in our list above to be a string:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">lst</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a string inside a list&#39;</span>
-<span class="n">lst</span>
+<span></span>lst[-1] = &#39;a string inside a list&#39;
+lst
 </pre></div>
 </div>
 </div>
@@ -614,7 +614,7 @@ we can change the last element in our list above to be a string:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">arr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a string inside an array&#39;</span>
+<span></span>arr[-1] = &#39;a string inside an array&#39;
 </pre></div>
 </div>
 </div>
@@ -639,7 +639,7 @@ attribute:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span>
+<span></span>arr.dtype
 </pre></div>
 </div>
 </div>
@@ -663,8 +663,8 @@ into an integer:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">arr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="o">-</span><span class="mf">1.99999</span><span class="p">)</span>
-<span class="n">arr</span>
+<span></span>arr[-1] = round(-1.99999)
+arr
 </pre></div>
 </div>
 </div>
@@ -690,7 +690,7 @@ zeros, with any desired dtype:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<span></span>np.zeros(5, float)
 </pre></div>
 </div>
 </div>
@@ -710,7 +710,7 @@ zeros, with any desired dtype:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span></span>np.zeros(3, int)
 </pre></div>
 </div>
 </div>
@@ -730,7 +730,7 @@ zeros, with any desired dtype:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nb">complex</span><span class="p">)</span>
+<span></span>np.zeros(3, complex)
 </pre></div>
 </div>
 </div>
@@ -751,7 +751,7 @@ zeros, with any desired dtype:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;5 ones:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span></span>print(&#39;5 ones:&#39;, np.ones(5))
 </pre></div>
 </div>
 </div>
@@ -772,9 +772,9 @@ into the array:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">a</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mf">5.5</span><span class="p">)</span>
-<span class="n">a</span>
+<span></span>a = np.empty(4)
+a.fill(5.5)
+a
 </pre></div>
 </div>
 </div>
@@ -791,6 +791,7 @@ into the array:</p>
 <p>This illustrates the internal structure of a Numpy array (taken from the
 <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.html">official Numpy
 docs</a>:</p>
+<p>&lt;img src=“numpy_object.png”, width=60%&gt;</p>
 <p>Numpy also offers the <code class="docutils literal"><span class="pre">arange</span></code> function, which works like the builtin
 <code class="docutils literal"><span class="pre">range</span></code> but returns an array instead of a list:</p>
 <div class="nbinput docutils container">
@@ -799,7 +800,7 @@ docs</a>:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span></span>np.arange(1, 100, 5)
 </pre></div>
 </div>
 </div>
@@ -823,8 +824,8 @@ and including both ends of the specified interval:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A linear grid between 0 and 1:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A logarithmic grid between 10**1 and 10**4: &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span></span>print(&quot;A linear grid between 0 and 1:&quot;, np.linspace(0, 1, 5))
+print(&quot;A logarithmic grid between 10**1 and 10**4: &quot;, np.logspace(1, 4, 4))
 </pre></div>
 </div>
 </div>
@@ -848,7 +849,7 @@ distribution (0 mean and variance 1):</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span></span>np.random.randn(5)
 </pre></div>
 </div>
 </div>
@@ -870,8 +871,8 @@ with a mean of 10 and a variance of 3:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">norm10</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">norm10</span>
+<span></span>norm10 = np.random.normal(10, 3, 5)
+norm10
 </pre></div>
 </div>
 </div>
@@ -903,8 +904,8 @@ values above 9 with the value 0. We can do so by first finding the
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">norm10</span> <span class="o">&gt;</span> <span class="mi">9</span>
-<span class="n">mask</span>
+<span></span>mask = norm10 &gt; 9
+mask
 </pre></div>
 </div>
 </div>
@@ -926,7 +927,7 @@ to reset them to 0:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Values above 9:&#39;</span><span class="p">,</span> <span class="n">norm10</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+<span></span>print(&#39;Values above 9:&#39;, norm10[mask])
 </pre></div>
 </div>
 </div>
@@ -944,9 +945,9 @@ Values above 9: [  9.38384542   9.93356931  12.20141612]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Resetting all values above 9 to 0...&#39;</span><span class="p">)</span>
-<span class="n">norm10</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">norm10</span><span class="p">)</span>
+<span></span>print(&#39;Resetting all values above 9 to 0...&#39;)
+norm10[mask] = 9
+print(norm10)
 </pre></div>
 </div>
 </div>
@@ -973,9 +974,9 @@ array:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">lst2</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
-<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
-<span class="n">arr2</span>
+<span></span>lst2 = [[1, 2], [3, 4]]
+arr2 = np.array([[1, 2], [3, 4]])
+arr2
 </pre></div>
 </div>
 </div>
@@ -1000,8 +1001,8 @@ a single <code class="docutils literal"><span class="pre">[</span> <span class="
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">lst2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">arr2</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span></span>print(lst2[0][1])
+print(arr2[0,1])
 </pre></div>
 </div>
 </div>
@@ -1022,7 +1023,7 @@ than one dimension, for example:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]],</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
+<span></span>np.array([[1,2,3],[4,5,6]], order=&#39;F&#39;)
 </pre></div>
 </div>
 </div>
@@ -1043,7 +1044,7 @@ than one dimension, for example:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span></span>np.zeros((2,3))
 </pre></div>
 </div>
 </div>
@@ -1064,7 +1065,7 @@ than one dimension, for example:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span></span>np.random.normal(10, 3, (2, 4))
 </pre></div>
 </div>
 </div>
@@ -1088,8 +1089,8 @@ array with numbers increasing from 0, the easiest way to create it is:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span></span>arr = np.arange(8).reshape(2,4)
+print(arr)
 </pre></div>
 </div>
 </div>
@@ -1111,8 +1112,8 @@ the same array as above):</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Slicing in the second row:&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;All rows, third column   :&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
+<span></span>print(&#39;Slicing in the second row:&#39;, arr[1, 2:4])
+print(&#39;All rows, third column   :&#39;, arr[:, 2])
 </pre></div>
 </div>
 </div>
@@ -1133,8 +1134,8 @@ dimension containing that row:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First row:  &#39;</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Second row: &#39;</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span></span>print(&#39;First row:  &#39;, arr[0])
+print(&#39;Second row: &#39;, arr[1])
 </pre></div>
 </div>
 </div>
@@ -1158,11 +1159,11 @@ the size, shape and data in the array:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data type                :&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total number of elements :&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of dimensions     :&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape (dimensionality)   :&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Memory used (in bytes)   :&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">nbytes</span><span class="p">)</span>
+<span></span>print(&#39;Data type                :&#39;, arr.dtype)
+print(&#39;Total number of elements :&#39;, arr.size)
+print(&#39;Number of dimensions     :&#39;, arr.ndim)
+print(&#39;Shape (dimensionality)   :&#39;, arr.shape)
+print(&#39;Memory used (in bytes)   :&#39;, arr.nbytes)
 </pre></div>
 </div>
 </div>
@@ -1185,9 +1186,9 @@ Memory used (in bytes)   : 64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Minimum and maximum             :&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">arr</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sum and product of all elements :&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">arr</span><span class="o">.</span><span class="n">prod</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean and standard deviation     :&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">arr</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span></span>print(&#39;Minimum and maximum             :&#39;, arr.min(), arr.max())
+print(&#39;Sum and product of all elements :&#39;, arr.sum(), arr.prod())
+print(&#39;Mean and standard deviation     :&#39;, arr.mean(), arr.std())
 </pre></div>
 </div>
 </div>
@@ -1211,9 +1212,9 @@ parameter; for example:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;For the following array:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The sum of elements along the rows is    :&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The sum of elements along the columns is :&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span></span>print(&#39;For the following array:\n&#39;, arr)
+print(&#39;The sum of elements along the rows is    :&#39;, arr.sum(axis=1))
+print(&#39;The sum of elements along the columns is :&#39;, arr.sum(axis=0))
 </pre></div>
 </div>
 </div>
@@ -1234,7 +1235,7 @@ the dimension which will be <em>consumed</em> once the operation has been
 carried out. This is why to sum along the rows we use <code class="docutils literal"><span class="pre">axis=0</span></code>.</p>
 <p>This can be easily illustrated with an example that has more dimensions;
 we create an array with 4 dimensions and shape <code class="docutils literal"><span class="pre">(3,4,5,6)</span></code> and sum
-along the axis number 2 (i.e. the <em>third</em> axis, since in Python all
+along the axis number 2 (i.e.&nbsp;the <em>third</em> axis, since in Python all
 counts are 0-based). That consumes the dimension whose length was 5,
 leaving us with a new array that has shape <code class="docutils literal"><span class="pre">(3,4,6)</span></code>:</p>
 <div class="nbinput docutils container">
@@ -1243,7 +1244,7 @@ leaving us with a new array that has shape <code class="docutils literal"><span 
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+<span></span>np.zeros((3,4,5,6)).sum(2).shape
 </pre></div>
 </div>
 </div>
@@ -1265,8 +1266,8 @@ allows you to access the transpose of the array:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Array:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Transpose:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span></span>print(&#39;Array:\n&#39;, arr)
+print(&#39;Transpose:\n&#39;, arr.T)
 </pre></div>
 </div>
 </div>
@@ -1311,7 +1312,7 @@ documentation:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.argmax<span class="o">?</span>
+<span></span>np.argmax?
 </pre></div>
 </div>
 </div>
@@ -1357,9 +1358,9 @@ all the elements of the array at the same time. Consider for example:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">arr2</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">arr1</span><span class="o">+</span><span class="n">arr2</span><span class="p">)</span>
+<span></span>arr1 = np.arange(4)
+arr2 = np.arange(10, 14)
+print(arr1, &#39;+&#39;, arr2, &#39;=&#39;, arr1+arr2)
 </pre></div>
 </div>
 </div>
@@ -1380,7 +1381,7 @@ from linear algebra (as is the case in Matlab, for example):</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">arr2</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">arr1</span><span class="o">*</span><span class="n">arr2</span><span class="p">)</span>
+<span></span>print(arr1, &#39;*&#39;, arr2, &#39;=&#39;, arr1*arr2)
 </pre></div>
 </div>
 </div>
@@ -1403,7 +1404,7 @@ do it:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">arr1</span> <span class="o">+</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span></span>arr1 + 1.5*np.ones(4)
 </pre></div>
 </div>
 </div>
@@ -1425,7 +1426,7 @@ valid:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">arr1</span> <span class="o">+</span> <span class="mf">1.5</span>
+<span></span>arr1 + 1.5
 </pre></div>
 </div>
 </div>
@@ -1445,7 +1446,7 @@ valid:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">arr1</span><span class="o">.</span><span class="n">shape</span>
+<span></span>arr1.shape
 </pre></div>
 </div>
 </div>
@@ -1505,8 +1506,8 @@ dimension of the input arrays.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">+&#39;</span><span class="p">,</span> <span class="n">b</span> <span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">----------------</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">arr</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<span></span>b = np.array([2, 3, 4, 5])
+print(arr, &#39;\n\n+&#39;, b , &#39;\n----------------\n&#39;, arr + b)
 </pre></div>
 </div>
 </div>
@@ -1533,8 +1534,8 @@ error we previously mentioned:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
-<span class="n">arr</span> <span class="o">+</span> <span class="n">c</span>
+<span></span>c = np.array([4, 6])
+arr + c
 </pre></div>
 </div>
 </div>
@@ -1562,7 +1563,7 @@ on the fly, by indexing it with the special object <code class="docutils literal
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">c</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span></span>c[:, np.newaxis]
 </pre></div>
 </div>
 </div>
@@ -1583,8 +1584,8 @@ on the fly, by indexing it with the special object <code class="docutils literal
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">((</span><span class="n">c</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span></span>print(c.shape)
+print((c[:, np.newaxis]).shape)
 </pre></div>
 </div>
 </div>
@@ -1604,7 +1605,7 @@ on the fly, by indexing it with the special object <code class="docutils literal
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">arr</span> <span class="o">+</span> <span class="n">c</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span></span>arr + c[:, np.newaxis]
 </pre></div>
 </div>
 </div>
@@ -1635,8 +1636,8 @@ as:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span></span>x = np.linspace(0, 2*np.pi, 100)
+y = np.sin(x)
 </pre></div>
 </div>
 </div>
@@ -1646,8 +1647,8 @@ as:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span></span>import math
+math.sin(x)
 </pre></div>
 </div>
 </div>
@@ -1679,9 +1680,9 @@ two-dimensional arrays:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">v1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<span class="n">v2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">v1</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v2</span><span class="p">))</span>
+<span></span>v1 = np.array([2, 3, 4])
+v2 = np.array([1, 0, 1])
+print(v1, &#39;.&#39;, v2, &#39;=&#39;, v1.dot(v2))
 </pre></div>
 </div>
 </div>
@@ -1705,7 +1706,7 @@ tutorial. The above line would now read:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">v1</span> <span class="o">@</span> <span class="n">v2</span><span class="p">)</span>
+<span></span>print(v1, &#39;.&#39;, v2, &#39;=&#39;, v1 @ v2)
 </pre></div>
 </div>
 </div>
@@ -1729,8 +1730,8 @@ matrix multiplied by a 3-vector, which produces a 2-vector:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">A</span> <span class="o">@</span> <span class="n">v1</span><span class="p">)</span>
+<span></span>A = np.arange(6).reshape(2, 3)
+print(A, &#39;x&#39;, v1, &#39;=&#39;, A @ v1)
 </pre></div>
 </div>
 </div>
@@ -1744,14 +1745,14 @@ matrix multiplied by a 3-vector, which produces a 2-vector:</p>
 </pre></div></div>
 </div>
 <p>For matrix-matrix multiplication, the same dimension-matching rules must
-be satisfied, e.g. consider the difference between <span class="math">\(A \times A^T\)</span>:</p>
+be satisfied, e.g.&nbsp;consider the difference between <span class="math">\(A \times A^T\)</span>:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span></span>print(A @ A.T)
 </pre></div>
 </div>
 </div>
@@ -1771,7 +1772,7 @@ be satisfied, e.g. consider the difference between <span class="math">\(A \times
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">A</span><span class="p">)</span>
+<span></span>print(A.T @ A)
 </pre></div>
 </div>
 </div>
@@ -1823,9 +1824,9 @@ control the precision, separators and even adding a header:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;test.out&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.2e</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="s2">&quot;My dataset&quot;</span><span class="p">)</span>
-<span class="o">!</span>cat test.out
+<span></span>arr = np.arange(10).reshape(2, 5)
+np.savetxt(&#39;test.out&#39;, arr, fmt=&#39;%.2e&#39;, header=&quot;My dataset&quot;)
+!cat test.out
 </pre></div>
 </div>
 </div>
@@ -1847,8 +1848,8 @@ control the precision, separators and even adding a header:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;test.out&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">arr2</span><span class="p">)</span>
+<span></span>arr2 = np.loadtxt(&#39;test.out&#39;)
+print(arr2)
 </pre></div>
 </div>
 </div>
@@ -1874,12 +1875,12 @@ single array:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;test.npy&#39;</span><span class="p">,</span> <span class="n">arr2</span><span class="p">)</span>
-<span class="c1"># Now we read this back</span>
-<span class="n">arr2n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;test.npy&#39;</span><span class="p">)</span>
-<span class="c1"># Let&#39;s see if any element is non-zero in the difference.</span>
-<span class="c1"># A value of True would be a problem.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Any differences?&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">arr2</span><span class="o">-</span><span class="n">arr2n</span><span class="p">))</span>
+<span></span>np.save(&#39;test.npy&#39;, arr2)
+# Now we read this back
+arr2n = np.load(&#39;test.npy&#39;)
+# Let&#39;s see if any element is non-zero in the difference.
+# A value of True would be a problem.
+print(&#39;Any differences?&#39;, np.any(arr2-arr2n))
 </pre></div>
 </div>
 </div>
@@ -1901,9 +1902,9 @@ archive as <code class="docutils literal"><span class="pre">arr_0</span></code>,
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="s1">&#39;test.npz&#39;</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">arr2</span><span class="p">)</span>
-<span class="n">arrays</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;test.npz&#39;</span><span class="p">)</span>
-<span class="n">arrays</span><span class="o">.</span><span class="n">files</span>
+<span></span>np.savez(&#39;test.npz&#39;, arr, arr2)
+arrays = np.load(&#39;test.npz&#39;)
+arrays.files
 </pre></div>
 </div>
 </div>
@@ -1924,9 +1925,9 @@ archive as <code class="docutils literal"><span class="pre">arr_0</span></code>,
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="s1">&#39;test.npz&#39;</span><span class="p">,</span> <span class="n">array1</span><span class="o">=</span><span class="n">arr</span><span class="p">,</span> <span class="n">array2</span><span class="o">=</span><span class="n">arr2</span><span class="p">)</span>
-<span class="n">arrays</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;test.npz&#39;</span><span class="p">)</span>
-<span class="n">arrays</span><span class="o">.</span><span class="n">files</span>
+<span></span>np.savez(&#39;test.npz&#39;, array1=arr, array2=arr2)
+arrays = np.load(&#39;test.npz&#39;)
+arrays.files
 </pre></div>
 </div>
 </div>
@@ -1950,9 +1951,9 @@ an example with the <code class="docutils literal"><span class="pre">arrays</spa
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First row of first array:&#39;</span><span class="p">,</span> <span class="n">arrays</span><span class="p">[</span><span class="s1">&#39;array1&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-<span class="c1"># This is an equivalent way to get the same field</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First row of first array:&#39;</span><span class="p">,</span> <span class="n">arrays</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">array1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span></span>print(&#39;First row of first array:&#39;, arrays[&#39;array1&#39;][0])
+# This is an equivalent way to get the same field
+print(&#39;First row of first array:&#39;, arrays.f.array1[0])
 </pre></div>
 </div>
 </div>
@@ -2009,7 +2010,7 @@ architecture that we don’t have the space to discuss here):</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span></span>import matplotlib.pyplot as plt
 </pre></div>
 </div>
 </div>
@@ -2024,15 +2025,15 @@ unnecessary right now):</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sin(x)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Harmonic&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
+<span></span>x = np.linspace(0, 2*np.pi)
+y = np.sin(x)
+plt.figure()
+plt.plot(x,y, label=&#39;sin(x)&#39;)
+plt.legend()
+plt.grid()
+plt.title(&#39;Harmonic&#39;)
+plt.xlabel(&#39;x&#39;)
+plt.ylabel(&#39;y&#39;);
 </pre></div>
 </div>
 </div>
@@ -2051,7 +2052,7 @@ for example:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+<span></span>plt.plot(x, y, linewidth=2);
 </pre></div>
 </div>
 </div>
@@ -2068,7 +2069,7 @@ for example:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">);</span>
+<span></span>plt.plot(x, y, &#39;o&#39;, markersize=5, color=&#39;r&#39;);
 </pre></div>
 </div>
 </div>
@@ -2087,18 +2088,18 @@ simple error plot:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># example data</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+<span></span># example data
+x = np.arange(0.1, 4, 0.5)
+y = np.exp(-x)
 
-<span class="c1"># example variable error bar values</span>
-<span class="n">yerr</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">xerr</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="n">yerr</span>
+# example variable error bar values
+yerr = 0.1 + 0.2*np.sqrt(x)
+xerr = 0.1 + yerr
 
-<span class="c1"># First illustrate basic pyplot interface, using defaults where possible.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xerr</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Simplest errorbars, 0.2 in x, 0.4 in y&quot;</span><span class="p">);</span>
+# First illustrate basic pyplot interface, using defaults where possible.
+plt.figure()
+plt.errorbar(x, y, xerr=0.2, yerr=0.4)
+plt.title(&quot;Simplest errorbars, 0.2 in x, 0.4 in y&quot;);
 </pre></div>
 </div>
 </div>
@@ -2116,10 +2117,10 @@ simple error plot:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-<span class="c1">#plt.plot(x, y);</span>
+<span></span>x = np.linspace(-5, 5)
+y = np.exp(-x**2)
+plt.semilogy(x, y);
+#plt.plot(x, y);
 </pre></div>
 </div>
 </div>
@@ -2138,19 +2139,19 @@ function:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">15</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span></span>mu, sigma = 100, 15
+x = mu + sigma * np.random.randn(10000)
 
-<span class="c1"># the histogram of the data</span>
-<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+# the histogram of the data
+n, bins, patches = plt.hist(x, 50, normed=1, facecolor=&#39;g&#39;, alpha=0.75)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Smarts&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of IQ&#39;</span><span class="p">)</span>
-<span class="c1"># This will put a text fragment at the position given:</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="o">.</span><span class="mi">027</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\mu=100,\ \sigma=15$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+plt.xlabel(&#39;Smarts&#39;)
+plt.ylabel(&#39;Probability&#39;)
+plt.title(&#39;Histogram of IQ&#39;)
+# This will put a text fragment at the position given:
+plt.text(55, .027, r&#39;$\mu=100,\ \sigma=15$&#39;, fontsize=14)
+plt.axis([40, 160, 0, 0.03])
+plt.grid()
 </pre></div>
 </div>
 </div>
@@ -2171,9 +2172,9 @@ simple array of random numbers, plotted in grayscale:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">cm</span>
+<span></span>from matplotlib import cm
 
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">);</span>
+plt.imshow(np.random.rand(5, 10), cmap=cm.gray, interpolation=&#39;nearest&#39;);
 </pre></div>
 </div>
 </div>
@@ -2192,9 +2193,9 @@ correctly:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">img</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;stinkbug.png&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dimensions of the array img:&#39;</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">);</span>
+<span></span>img = plt.imread(&#39;stinkbug.png&#39;)
+print(&#39;Dimensions of the array img:&#39;, img.shape)
+plt.imshow(img);
 </pre></div>
 </div>
 </div>
@@ -2223,7 +2224,7 @@ Dimensions of the array img: (375, 500, 3)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
+<span></span>from mpl_toolkits.mplot3d import Axes3D
 </pre></div>
 </div>
 </div>
@@ -2240,19 +2241,19 @@ Dimensions of the array img: (375, 500, 3)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d.axes3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">cm</span>
+<span></span>from mpl_toolkits.mplot3d.axes3d import Axes3D
+from matplotlib import cm
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
-<span class="n">surf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">,</span>
-        <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">antialiased</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlim3d</span><span class="p">(</span><span class="o">-</span><span class="mf">1.01</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">);</span>
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1, projection=&#39;3d&#39;)
+X = np.arange(-5, 5, 0.25)
+Y = np.arange(-5, 5, 0.25)
+X, Y = np.meshgrid(X, Y)
+R = np.sqrt(X**2 + Y**2)
+Z = np.sin(R)
+surf = ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.viridis,
+        linewidth=0, antialiased=False)
+ax.set_zlim3d(-1.01, 1.01);
 </pre></div>
 </div>
 </div>
@@ -2298,18 +2299,27 @@ Dimensions of the array img: (375, 500, 3)
 <li class="toctree-l1"><a class="reference internal" href="#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trapezoid.html">The trapezoidal rule: vectorization and perormance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Live plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/image_tutorial.html">Matplotlib image tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/image_tutorial.html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11-strings/11-strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13-data-frames.html">Data Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14-sphinx.html">An introduction to Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab10.html">Lab 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab2.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab3.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab4.html">Lab 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab5.html">Lab 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab8.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab9.html">Lab 9</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Course resources</a></li>

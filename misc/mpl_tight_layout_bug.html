@@ -201,16 +201,16 @@ div.nboutput div.output_area.stderr {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="section" id="A-bug-in-mpl's-tight_layout?">
-<h1>A bug in mpl’s <code class="docutils literal"><span class="pre">tight_layout</span></code>?<a class="headerlink" href="#A-bug-in-mpl's-tight_layout?" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="A-bug-in-mpl’s-tight_layout?">
+<h1>A bug in mpl’s <code class="docutils literal"><span class="pre">tight_layout</span></code>?<a class="headerlink" href="#A-bug-in-mpl’s-tight_layout?" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="o">%</span><span class="k">pylab</span> inline
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">__version__</span>
+<span></span>%pylab inline
+matplotlib.__version__
 </pre></div>
 </div>
 </div>
@@ -240,19 +240,19 @@ call to <code class="docutils literal"><span class="pre">tight_layout</span></co
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">y1</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">y2</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span></span>x = linspace(0, 2*pi, 500)
+y1 = sin(x)
+y2 = cos(x**2)
 
-<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Axis 1 X Label&quot;</span><span class="p">)</span>
+f, (ax1, ax2) = plt.subplots(2, 1, figsize=(14, 10))
+ax1.plot(x, y1)
+ax1.set_xlabel(&quot;Axis 1 X Label&quot;)
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Axis 2 X Label&quot;</span><span class="p">)</span>
+ax2.plot(x, y2)
+ax2.set_xlabel(&quot;Axis 2 X Label&quot;)
 
-<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Figure Title&#39;</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+f.suptitle(&#39;Figure Title&#39;)
+f.tight_layout()
 </pre></div>
 </div>
 </div>
@@ -271,21 +271,21 @@ inside the axis, but it overlaps with the axis title:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">y1</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">y2</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span></span>x = linspace(0, 2*pi, 500)
+y1 = sin(x)
+y2 = cos(x**2)
 
-<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Axis 1 Title&quot;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Axis 1 X Label&quot;</span><span class="p">)</span>
+f, (ax1, ax2) = plt.subplots(2, 1, figsize=(14, 10))
+ax1.plot(x, y1)
+ax1.set_title(&quot;Axis 1 Title&quot;)
+ax1.set_xlabel(&quot;Axis 1 X Label&quot;)
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Axis 2 Title&quot;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Axis 2 X Label&quot;</span><span class="p">)</span>
+ax2.plot(x, y2)
+ax2.set_title(&quot;Axis 2 Title&quot;)
+ax2.set_xlabel(&quot;Axis 2 X Label&quot;)
 
-<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Figure Title&#39;</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+f.suptitle(&#39;Figure Title&#39;)
+f.tight_layout()
 </pre></div>
 </div>
 </div>
@@ -302,7 +302,7 @@ inside the axis, but it overlaps with the axis title:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">pwd</span>
+<span></span>pwd
 </pre></div>
 </div>
 </div>
@@ -322,8 +322,8 @@ inside the axis, but it overlaps with the axis title:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">IPython</span> <span class="k">import</span> <span class="n">sys_info</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sys_info</span><span class="p">())</span>
+<span></span>from IPython import sys_info
+print(sys_info())
 </pre></div>
 </div>
 </div>
@@ -387,6 +387,7 @@ inside the axis, but it overlaps with the axis title:</p>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/13-data-frames.html">Data Manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/14-sphinx.html">An introduction to Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>

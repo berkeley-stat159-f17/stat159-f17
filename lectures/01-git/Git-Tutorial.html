@@ -203,8 +203,8 @@ div.nboutput div.output_area.stderr {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="section" id="An-interactive-Git-Tutorial:-the-tool-you-didn't-know-you-needed">
-<h1>An interactive Git Tutorial: the tool you didn’t know you needed<a class="headerlink" href="#An-interactive-Git-Tutorial:-the-tool-you-didn't-know-you-needed" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="An-interactive-Git-Tutorial:-the-tool-you-didn’t-know-you-needed">
+<h1>An interactive Git Tutorial: the tool you didn’t know you needed<a class="headerlink" href="#An-interactive-Git-Tutorial:-the-tool-you-didn’t-know-you-needed" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="From-personal-workflows-to-open-collaboration">
 <h2>From personal workflows to open collaboration<a class="headerlink" href="#From-personal-workflows-to-open-collaboration" title="Permalink to this headline">¶</a></h2>
 <p><strong>Note:</strong> this tutorial was particularly modeled, and therefore owes a
@@ -262,21 +262,19 @@ files.</strong>”</p>
 </div>
 <div class="section" id="Teaching-courses-with-Git">
 <h2>Teaching courses with Git<a class="headerlink" href="#Teaching-courses-with-Git" title="Permalink to this headline">¶</a></h2>
-<div class="figure">
-<img alt="" src="../../_images/indefero_projects_notes.png" />
-</div>
-<!-- offline:
-<img src="files/fig/indefero_projects_notes.png" width="100%">
-<img src="https://raw.github.com/fperez/reprosw/master/fig/indefero_projects_notes.png" width="100%">
---></div>
-<div class="section" id="Annotated-history-of-each-student's-worfklow-(and-backup!)">
-<h2>Annotated history of each student’s worfklow (and backup!)<a class="headerlink" href="#Annotated-history-of-each-student's-worfklow-(and-backup!)" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image0" src="../../_images/mergeaftermath.png" /></p>
+  <!-- offline:
+  <img src="files/fig/indefero_projects_notes.png" width="100%">
+  <img src="https://raw.github.com/fperez/reprosw/master/fig/indefero_projects_notes.png" width="100%">
+  -->
+
+–></div>
+<div class="section" id="Annotated-history-of-each-student’s-worfklow-(and-backup!)">
+<h2>Annotated history of each student’s worfklow (and backup!)<a class="headerlink" href="#Annotated-history-of-each-student’s-worfklow-(and-backup!)" title="Permalink to this headline">¶</a></h2>
 <!-- offline:
     <img src="files/fig/indefero_projects1.png" width="100%">
 <img src="https://raw.github.com/fperez/reprosw/master/fig/indefero_projects1.png" width="100%">
-    --><div class="figure">
-<img alt="" src="../../_images/indefero_projects1.png" />
-</div>
+    --><p><img alt="image0" src="../../_images/mergeaftermath.png" /></p>
 </div>
 <div class="section" id="The-plan-for-this-tutorial">
 <h2>The plan for this tutorial<a class="headerlink" href="#The-plan-for-this-tutorial" title="Permalink to this headline">¶</a></h2>
@@ -309,9 +307,8 @@ collaborating on github on open-source projects should make sense.</p>
 ![](fig/commit_anatomy.png)
 
 <img src="https://raw.github.com/fperez/reprosw/master/fig/commit_anatomy.png">
---><div class="figure">
-<img alt="" src="../../_images/commit_anatomy.png" />
-</div>
+--><p>–&gt;</p>
+<p><img alt="image0" src="../../_images/mergeaftermath.png" /></p>
 <p>Credit: ProGit book, by Scott Chacon, CC License.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -319,7 +316,7 @@ collaborating on github on open-source projects should make sense.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">ls</span>
+<span></span>ls
 </pre></div>
 </div>
 </div>
@@ -336,9 +333,8 @@ Git-Tutorial.ipynb  <span class="ansi-blue-fg">fig</span>/                gh-tok
 ![](files/fig/threecommits.png)
 
 <img src="https://raw.github.com/fperez/reprosw/master/fig/threecommits.png" >
---><div class="figure">
-<img alt="" src="../../_images/threecommits.png" />
-</div>
+--><p>–&gt;</p>
+<p><img alt="image0" src="../../_images/mergeaftermath.png" /></p>
 <p>Note: these form a Directed Acyclic Graph (DAG), with nodes identified
 by their <em>hash</em>.</p>
 <p>A <strong>hash</strong>: a fingerprint of the content of each commit <em>and its parent</em></p>
@@ -348,13 +344,13 @@ by their <em>hash</em>.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="k">import</span> <span class="n">sha1</span>
+<span></span>from hashlib import sha1
 
-<span class="c1"># Our first commit</span>
-<span class="n">data1</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;This is the start of my paper.&#39;</span>
-<span class="n">meta1</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;date: 1/1/17&#39;</span>
-<span class="n">hash1</span> <span class="o">=</span> <span class="n">sha1</span><span class="p">(</span><span class="n">data1</span> <span class="o">+</span> <span class="n">meta1</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hash:&#39;</span><span class="p">,</span> <span class="n">hash1</span><span class="p">)</span>
+# Our first commit
+data1 = b&#39;This is the start of my paper.&#39;
+meta1 = b&#39;date: 1/1/17&#39;
+hash1 = sha1(data1 + meta1).hexdigest( )
+print(&#39;Hash:&#39;, hash1)
 </pre></div>
 </div>
 </div>
@@ -372,12 +368,12 @@ Hash: 3b32905baabd5ff22b3832c892078f78f5e5bd3b
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Our second commit, linked to the first</span>
-<span class="n">data2</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;Some more text in my paper...&#39;</span>
-<span class="n">meta2</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;date: 1/2/1&#39;</span>
-<span class="c1"># Note we add the parent hash here!</span>
-<span class="n">hash2</span> <span class="o">=</span> <span class="n">sha1</span><span class="p">(</span><span class="n">data2</span> <span class="o">+</span> <span class="n">meta2</span> <span class="o">+</span> <span class="n">hash1</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hash:&#39;</span><span class="p">,</span> <span class="n">hash2</span><span class="p">)</span>
+<span></span># Our second commit, linked to the first
+data2 = b&#39;Some more text in my paper...&#39;
+meta2 = b&#39;date: 1/2/1&#39;
+# Note we add the parent hash here!
+hash2 = sha1(data2 + meta2 + hash1.encode()).hexdigest()
+print(&#39;Hash:&#39;, hash2)
 </pre></div>
 </div>
 </div>
@@ -439,7 +435,7 @@ through most of these via small practical exercises:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="o">!</span>git
+<span></span>!git
 </pre></div>
 </div>
 </div>
@@ -592,9 +588,9 @@ drwxr-xr-x   4 fperez  staff  136 Sep  6 23:24 objects
 drwxr-xr-x   4 fperez  staff  136 Sep  6 23:24 refs
 </pre></div></div>
 </div>
-<p>Now let’s edit our first file in the test directory with a text
-editor… I’m doing it programatically here for automation purposes, but
-you’d normally be editing by hand</p>
+<p>Now let’s edit our first file in the test directory with a text editor…
+I’m doing it programatically here for automation purposes, but you’d
+normally be editing by hand</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [13]:
@@ -655,8 +651,8 @@ Changes to be committed:
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="git-commit:-permanently-record-our-changes-in-git's-database">
-<h3><code class="docutils literal"><span class="pre">git</span> <span class="pre">commit</span></code>: permanently record our changes in git’s database<a class="headerlink" href="#git-commit:-permanently-record-our-changes-in-git's-database" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="git-commit:-permanently-record-our-changes-in-git’s-database">
+<h3><code class="docutils literal"><span class="pre">git</span> <span class="pre">commit</span></code>: permanently record our changes in git’s database<a class="headerlink" href="#git-commit:-permanently-record-our-changes-in-git’s-database" title="Permalink to this headline">¶</a></h3>
 <p>For now, we are <em>always</em> going to call <code class="docutils literal"><span class="pre">git</span> <span class="pre">commit</span></code> either with the
 <code class="docutils literal"><span class="pre">-a</span></code> option <em>or</em> with specific filenames
 (<code class="docutils literal"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">file1</span> <span class="pre">file2...</span></code>). This delays the discussion of an aspect
@@ -809,8 +805,8 @@ deletions/additions are shown for context:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="The-cycle-of-git-virtue:-work,-commit,-work,-commit,-...">
-<h3>The cycle of git virtue: work, commit, work, commit, …<a class="headerlink" href="#The-cycle-of-git-virtue:-work,-commit,-work,-commit,-..." title="Permalink to this headline">¶</a></h3>
+<div class="section" id="The-cycle-of-git-virtue:-work,-commit,-work,-commit,-…">
+<h3>The cycle of git virtue: work, commit, work, commit, …<a class="headerlink" href="#The-cycle-of-git-virtue:-work,-commit,-work,-commit,-…" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [20]:
@@ -999,35 +995,27 @@ step!).</p>
 <h2>Local user, branching<a class="headerlink" href="#Local-user,-branching" title="Permalink to this headline">¶</a></h2>
 <p>What is a branch? Simply a <em>label for the ‘current’ commit in a sequence
 of ongoing commits</em>:</p>
-<div class="figure">
-<img alt="" src="../../_images/masterbranch.png" />
-</div>
+<p><img alt="image0" src="../../_images/mergeaftermath.png" /></p>
 <!-- offline:
 <img src="https://raw.github.com/fperez/reprosw/master/fig/masterbranch.png" >
---><p>There can be multiple branches alive at any point in time; the working
+--><p>–&gt;</p>
+<p>There can be multiple branches alive at any point in time; the working
 directory is the state of a special pointer called HEAD. In this example
 there are two branches, <em>master</em> and <em>testing</em>, and <em>testing</em> is the
 currently active branch since it’s what HEAD points to:</p>
-<div class="figure">
-<img alt="" src="../../_images/HEAD_testing.png" />
-</div>
+<p><img alt="image0" src="../../_images/mergeaftermath.png" /></p>
 <!-- offline:
 <img src="https://raw.github.com/fperez/reprosw/master/fig/HEAD_testing.png" >
---><p>Once new commits are made on a branch, HEAD and the branch label move
+--><p>–&gt;</p>
+<p>Once new commits are made on a branch, HEAD and the branch label move
 with the new commits:</p>
-<div class="figure">
-<img alt="" src="../../_images/branchcommit.png" />
-</div>
+<p><img alt="image0" src="../../_images/mergeaftermath.png" /></p>
 <p>This allows the history of both branches to diverge:</p>
-<div class="figure">
-<img alt="" src="../../_images/mergescenario.png" />
-</div>
+<p><img alt="image0" src="../../_images/mergeaftermath.png" /></p>
 <p>But based on this graph structure, git can compute the necessary
 information to merge the divergent branches back and continue with a
 unified line of development:</p>
-<div class="figure">
-<img alt="" src="../../_images/mergeaftermath.png" />
-</div>
+<p><img alt="image0" src="../../_images/mergeaftermath.png" /></p>
 <p>Let’s now illustrate all of this with a concrete example. Let’s get our
 bearings first:</p>
 <div class="nbinput docutils container">
@@ -1804,20 +1792,16 @@ clients to browse a repo and to operate in it. I personally have
 found <a class="reference external" href="http://sourceforge.net/projects/qgit/">qgit</a> to be nicer
 and easier to use. It is available on modern linux distros, and
 since it is based on Qt, it should run on OSX and Windows.</dd>
-</dl>
-<p><a class="reference external" href="http://www-cs-students.stanford.edu/~blynn/gitmagic/index.html">Git
-Magic</a></p>
-<blockquote>
-<div>Another book-size guide that has useful snippets.</div></blockquote>
-<p>A <a class="reference external" href="http://cworth.org/hgbook-git/tour">port</a> of the Hg book’s
-beginning</p>
-<blockquote>
-<div>The <a class="reference external" href="http://hgbook.red-bean.com">Mercurial book</a> has a reputation
+<dt><a class="reference external" href="http://www-cs-students.stanford.edu/~blynn/gitmagic/index.html">Git Magic</a></dt>
+<dd>Another book-size guide that has useful snippets.</dd>
+<dt>A <a class="reference external" href="http://cworth.org/hgbook-git/tour">port</a> of the Hg book’s beginning</dt>
+<dd>The <a class="reference external" href="http://hgbook.red-bean.com">Mercurial book</a> has a reputation
 for clarity, so Carl Worth decided to
 <a class="reference external" href="http://cworth.org/hgbook-git/tour">port</a> its introductory
 chapter to Git. It’s a nicely written intro, which is possible in
 good measure because of how similar the underlying models of Hg and
-Git ultimately are.</div></blockquote>
+Git ultimately are.</dd>
+</dl>
 <p>Finally, if you prefer a video presentation, this 1-hour tutorial
 prepared by the GitHub educational team will walk you through the entire
 process:</p>
@@ -1827,8 +1811,8 @@ process:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">YouTubeVideo</span>
-<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;U8GBXvdmHT4&#39;</span><span class="p">)</span>
+<span></span>from IPython.display import YouTubeVideo
+YouTubeVideo(&#39;U8GBXvdmHT4&#39;)
 </pre></div>
 </div>
 </div>
@@ -1932,18 +1916,27 @@ the line <code class="docutils literal"><span class="pre">\input{revision}</span
 <li class="toctree-l1"><a class="reference internal" href="../09-intro-numpy/intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../09-intro-numpy/trapezoid.html">The trapezoidal rule: vectorization and perormance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Live plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/image_tutorial.html">Matplotlib image tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-matplotlib_beyond_basics/image_tutorial.html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11-strings/11-strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13-data-frames.html">Data Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14-sphinx.html">An introduction to Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab10.html">Lab 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab2.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab3.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab4.html">Lab 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab5.html">Lab 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../labs/lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab8.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/lab9.html">Lab 9</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Course resources</a></li>

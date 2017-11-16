@@ -219,7 +219,7 @@ print the result.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -229,20 +229,20 @@ print the result.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Solution 1</span>
+<span></span># Solution 1
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)))</span>
+print(list(range(100,-1,-2)))
 
-<span class="c1"># Solution 2</span>
+# Solution 2
 
-<span class="n">a</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">a</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+a=list(range(0,101,2))
+a.reverse()
+print(a)
 
-<span class="c1"># Solution 3</span>
+# Solution 3
 
-<span class="n">a</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+a=list(range(0,101,2))
+print(a[::-1])
 </pre></div>
 </div>
 </div>
@@ -273,7 +273,7 @@ print the result.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -283,18 +283,18 @@ print the result.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># solution</span>
+<span></span># solution
 
-<span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span>
-<span class="n">b</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">90</span><span class="p">]</span>
+a=[10,20,30]
+b=[30,60,90]
 
 
-<span class="n">A</span><span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span>
-<span class="n">B</span><span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
-<span class="n">C</span><span class="o">=</span> <span class="n">a</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
-<span class="n">D</span><span class="o">=</span><span class="p">[</span><span class="n">y</span><span class="o">-</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)]</span>
+A= [a,b]
+B= a+b
+C= a[:2]+b[-2:]
+D=[y-x for x,y in zip(a, b)]
 
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{A}</span><span class="se">\n</span><span class="si">{B}</span><span class="se">\n</span><span class="si">{C}</span><span class="se">\n</span><span class="si">{D}</span><span class="s1">&#39;</span><span class="p">)</span>
+print(f&#39;{A}\n{B}\n{C}\n{D}&#39;)
 </pre></div>
 </div>
 </div>
@@ -326,7 +326,7 @@ Michael, Philip, Sarah</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -336,14 +336,14 @@ Michael, Philip, Sarah</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Solution</span>
+<span></span># Solution
 
-<span class="n">who</span> <span class="o">=</span> <span class="s1">&#39;Michael&#39;</span>
-<span class="n">names</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Akshara&#39;</span><span class="p">,</span><span class="s1">&#39;Anna&#39;</span><span class="p">,</span><span class="s1">&#39;Aqshems&#39;</span><span class="p">,</span><span class="s1">&#39;Chester&#39;</span><span class="p">,</span><span class="s1">&#39;Echo&#39;</span><span class="p">,</span><span class="s1">&#39;James&#39;</span><span class="p">,</span><span class="s1">&#39;Jessica&#39;</span><span class="p">,</span><span class="s1">&#39;Matthew&#39;</span><span class="p">,</span><span class="s1">&#39;Michael&#39;</span><span class="p">,</span><span class="s1">&#39;Philip&#39;</span><span class="p">,</span><span class="s1">&#39;Sarah&#39;</span><span class="p">]</span>
-<span class="n">who_idx</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">who</span><span class="p">)</span>
-<span class="n">names</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">who_idx</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Norah&#39;</span><span class="p">)</span>
+who = &#39;Michael&#39;
+names= [&#39;Akshara&#39;,&#39;Anna&#39;,&#39;Aqshems&#39;,&#39;Chester&#39;,&#39;Echo&#39;,&#39;James&#39;,&#39;Jessica&#39;,&#39;Matthew&#39;,&#39;Michael&#39;,&#39;Philip&#39;,&#39;Sarah&#39;]
+who_idx = names.index(who)
+names.insert(who_idx+1, &#39;Norah&#39;)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+print(names)
 </pre></div>
 </div>
 </div>
@@ -367,7 +367,7 @@ the highest.**</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -377,10 +377,10 @@ the highest.**</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Solution</span>
+<span></span># Solution
 
-<span class="n">G</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">13</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">11</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">9</span><span class="p">]]</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">sum</span><span class="p">))</span>
+G = [[13,9,8], [14,6,12], [10,13,11], [7,18,9]]
+print(max(G, key=sum))
 </pre></div>
 </div>
 </div>
@@ -398,7 +398,7 @@ the highest.**</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>max<span class="o">?</span>
+<span></span>max?
 </pre></div>
 </div>
 </div>
@@ -417,7 +417,7 @@ instead:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Type your code here</span>
+<span></span># Type your code here
 </pre></div>
 </div>
 </div>
@@ -427,11 +427,11 @@ instead:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Solution</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
-    <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;truck&#39;</span> <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="s1">&#39;brown&#39;</span> <span class="k">else</span> <span class="s1">&#39;car&#39;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{color.upper()+} </span><span class="si">{kind}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span></span># Solution
+colors = [&#39;red&#39;, &#39;black&#39;, &#39;gray&#39;, &#39;brown&#39;, &#39;blue&#39;, &#39;white&#39;]
+for color in colors:
+    kind = &#39;truck&#39; if color == &#39;brown&#39; else &#39;car&#39;
+    print(f&#39;{color.upper()+} {kind}&#39;)
 </pre></div>
 </div>
 </div>
@@ -468,13 +468,13 @@ in reverse order, separated by spaces. For example:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Solution</span>
+<span></span># Solution
 
-<span class="k">def</span> <span class="nf">nums_reversed</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">nums</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-    <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+def nums_reversed(n):
+    nums = map(str, range(n, 0, -1))
+    return &#39; &#39;.join(nums)
 
-<span class="n">nums_reversed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+nums_reversed(5)
 </pre></div>
 </div>
 </div>
@@ -502,13 +502,13 @@ a single line.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="c1"># Solution</span>
+<span></span># Solution
 
-<span class="n">start</span><span class="p">,</span> <span class="n">stop</span>  <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1200</span>
-<span class="n">nums</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{n}</span><span class="s1">,&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+start, stop  = 1000, 1200
+nums = range(start, stop+1)
+for n in nums:
+    if n % 7 == 0 and n % 5 != 0:
+        print(f&#39;{n},&#39;, end=&#39; &#39;)
 </pre></div>
 </div>
 </div>
@@ -538,23 +538,23 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">counter</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Return a dict with the number of n-count occurrences of val.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span></span>def counter(lst, val=100):
+    &quot;&quot;&quot;Return a dict with the number of n-count occurrences of val.
+    &quot;&quot;&quot;
 
-    <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="n">n_consec_vals</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">val</span><span class="p">:</span>
-            <span class="n">n_consec_vals</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">n_consec_vals</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">counts</span><span class="p">[</span><span class="n">n_consec_vals</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">n_consec_vals</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-                <span class="n">n_consec_vals</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">if</span> <span class="n">n_consec_vals</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">counts</span><span class="p">[</span><span class="n">n_consec_vals</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">n_consec_vals</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    counts = {}
+    n_consec_vals = 0
+    for x in lst:
+        if x == val:
+            n_consec_vals += 1
+        else:
+            if n_consec_vals &gt; 0:
+                counts[n_consec_vals] = counts.get(n_consec_vals, 0) + 1
+                n_consec_vals = 0
+    if n_consec_vals &gt; 0:
+        counts[n_consec_vals] = counts.get(n_consec_vals, 0) + 1
 
-    <span class="k">return</span> <span class="n">counts</span>
+    return counts
 </pre></div>
 </div>
 </div>
@@ -564,16 +564,16 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">tests</span> <span class="o">=</span> <span class="p">[</span> <span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span> <span class="p">),</span>
-          <span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span> <span class="p">,</span>
-          <span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="mi">1</span><span class="p">}),</span>
-          <span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span> <span class="p">),</span>
-         <span class="p">([],</span> <span class="p">{})</span>
+<span></span>tests = [ ([100, 200], {1: 1} ),
+          ([100, 100, 100, 1, 100, 1, 100], {1: 2, 3: 1}) ,
+          ([5, 4, 1, 100, 100, 5, 1, 9], {2: 1}),
+          ([5, 4, 1, 100, 100, 5, 1, 9, 100], {1: 1, 2: 1} ),
+         ([], {})
 
-        <span class="p">]</span>
+        ]
 
-<span class="k">for</span> <span class="n">lst</span><span class="p">,</span> <span class="n">ans</span> <span class="ow">in</span> <span class="n">tests</span><span class="p">:</span>
-    <span class="k">assert</span> <span class="n">counter</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="n">ans</span>
+for lst, ans in tests:
+    assert counter(lst, val=100) == ans
 </pre></div>
 </div>
 </div>
@@ -583,8 +583,8 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">double100</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">counter</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span></span>def double100(lst):
+    return counter(lst, 100) == {2: 1}
 </pre></div>
 </div>
 </div>
@@ -594,7 +594,7 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">double100</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+<span></span>double100([5, 4, 1, 100, 100, 5, 1, 9])
 </pre></div>
 </div>
 </div>
@@ -614,7 +614,7 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="n">double100</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+<span></span>double100([5, 4, 1, 100, 100, 5, 1, 9, 100])
 </pre></div>
 </div>
 </div>
@@ -671,6 +671,7 @@ returns <code class="docutils literal"><span class="pre">True</span></code> only
 <li class="toctree-l1"><a class="reference internal" href="../lectures/12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/13-data-frames.html">Data Manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/14-sphinx.html">An introduction to Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>

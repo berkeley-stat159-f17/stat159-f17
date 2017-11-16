@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+%\textwidth=6.5in
+%\textheight=9in
+%\topmargin=-1in
+%\bottommargin=-1in
+%\headheight=0in
+%\headsep=.5in
+%\hoffset  -.85in
+\usepackage[margin=0.7in]{geometry}
+\usepackage{termcal}
+
+\newcommand{\Holiday}[2]{%
+\options{#1}{\noclassday}
+\caltext{#1}{\bf{#2}}
+}
+
+
+\begin{document}
+\center
+\begin{calendar}{8/24/15}{17}
+\setlength{\calboxdepth}{.3in}
+
+% Description of the Week.
+\calday[Monday]{\noclassday}     % Monday
+\calday[Tuesday]{\classday}    % Wednesday
+\skipday                       % Tuesday  (no class)
+\calday[Thursday]{\classday}   % Thursday (unnumbered)
+\skipday                       % Friday  (no class)
+\skipday\skipday               % weekend  (no class)
+
+% Holidays
+\Holiday{8/24/15}{No class}
+\Holiday{8/25/15}{No class}
+\Holiday{9/7/15}{No class}
+\Holiday{10/26/15}{\bf{HW 2 (21:00)}}
+\Holiday{11/23/15}{BIC tour}
+\Holiday{11/26/15}{No class}
+\Holiday{12/7/15}{No class}
+\Holiday{12/8/15}{No class}
+\Holiday{12/10/15}{No class}
+\Holiday{12/14/15}{Final report (21:00)}
+\Holiday{12/15/15}{No class}
+\Holiday{12/17/15}{No class}
+
+%% Exams
+%\caltext{9/12/15}{Midterm Exam}
+%% Text on consecutive days
+%% the subject of the 9th lecture
+%\caltexton{9}{\S1.2,1.3\\Sorting and disporting}
+%% the subject of the 10th lecture
+%\caltextnext{\S1.3,1,4\\Assembling and dissembling}
+%\caltextnext{}
+%% the subject of the 12th lecture
+%\caltextnext{\S9.9\\Tending and rending}
+
+
+% schedule
+%\caltexton{1}{1.1, 1.2 Review}
+%\caltextnext{1.3, 1.4 Review}
+%\caltextnext{2.1, 2.2 Linear Equations}
+\caltexton{3}{\bf{Reading 1 (21:00)}}
+\caltexton{5}{\bf{Reading 2 (21:00)}}
+\caltexton{7}{\bf{Reading 3 (21:00)}}
+\caltexton{8}{\bf{Teams (21:00)}}
+\caltexton{9}{\bf{HW 1 (21:00)}}
+\caltexton{11}{\bf{Proposal (21:00)}}
+\caltexton{13}{\bf{Reading 4 (21:00)}}
+\caltexton{15}{\bf{Reading 5 (21:00)}}
+%\caltexton{18}{\bf{HW 2 (21:00)}}
+%\caltexton{20}{\bf{Progress}}
+%\caltextnext{\bf{Progress}}
+\caltexton{23}{\bf{Progress report}}
+%\caltexton{25}{\bf{HW 3}}
+\caltexton{27}{\bf{Presentations}}
+\caltextnext{\bf{Presentations}}
+% ... and so on
+
+\end{calendar}
+\end{document}

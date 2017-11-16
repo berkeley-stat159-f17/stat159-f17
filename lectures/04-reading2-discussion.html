@@ -256,7 +256,7 @@ well, as per the instructions on the site):</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="o">%</span><span class="k">load_ext</span> tutormagic
+<span></span>%load_ext tutormagic
 </pre></div>
 </div>
 </div>
@@ -275,7 +275,7 @@ The tutormagic extension is already loaded. To reload it, use:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="o">%%</span><span class="k">tutor</span> -l python3
+<span></span>%%tutor -l python3
 x = [1,2,3]
 y = x
 x.append(&#39;hi&#39;)
@@ -316,7 +316,7 @@ are more complicated):</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="o">%%</span><span class="k">tutor</span> -l python3 -h 600
+<span></span>%%tutor -l python3 -h 600
 def qsort(lst):
     &quot;&quot;&quot;Return a sorted copy of the input list.&quot;&quot;&quot;
     if len(lst) &lt;= 1: return lst
@@ -350,12 +350,12 @@ what the interpreter actually executes:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">dis</span>
-<span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">x = [1,2,3]</span>
-<span class="s2">y = x</span>
-<span class="s2">x.append(&#39;hi&#39;)</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span></span>import dis
+dis.dis(&quot;&quot;&quot;
+x = [1,2,3]
+y = x
+x.append(&#39;hi&#39;)
+&quot;&quot;&quot;)
 </pre></div>
 </div>
 </div>
@@ -436,7 +436,7 @@ and base Python (as mentioned here, without mentioning IPython
 engine/shell, much less Jupyter notebooks) is high-level and
 non-interactive. So really the only competitor that comes to mind for
 high-level non-interactive (at least with extensions) languages (that
-existed at the time, i.e. not Julia, which hasn’t even had a stable
+existed at the time, i.e.&nbsp;not Julia, which hasn’t even had a stable
 release yet anyway) is R, but comparisons with R are mostly ignored
 and/or glossed over and/or inaccurate/unfair. (E.g. with regards to data
 visualization, statistical algorithms, and most importantly data
@@ -450,30 +450,33 @@ management/manipulation).”</p>
 <li>Indeed, it’s out of date: I couldn’t find a current version of that
 article, which would be great to have. Much has changed since that
 article was written. The Stack Overflow team published recently two
-interesting posts:</li>
+interesting posts:<ul>
 <li><a class="reference external" href="https://stackoverflow.blog/2017/09/06/incredible-growth-python">The Incredible Growth of
 Python</a></li>
 <li><a class="reference external" href="https://stackoverflow.blog/2017/09/14/python-growing-quickly">Why is Python Growing So
 Quickly?</a></li>
 </ul>
+</li>
+</ul>
 <p>This image is particularly telling:</p>
-<ul class="simple">
-<li>There’s certainly nothing quite like the
+<ul>
+<li><p class="first">There’s certainly nothing quite like the
 <a class="reference external" href="https://www.tidyverse.org">TidyVerse</a> in Python. Note that at the
 time of writing of the article, dplyr (and much of the tidyverse)
 didn’t exist (its <a class="reference external" href="https://github.com/tidyverse/dplyr/commit/80dc69b144711ec095db1d62cf0b73e09560eaf0">initial
 commit</a>
 is dated Oct 28, 2012). But it’s certainly true that the R machinery
 is exceptionally powerful, and many of its tools interoperate with
-power and elegance.</li>
+power and elegance.</p>
+<p>In today’s data science, research and industry environments, both R
+and Python play a role. Each has areas of particular strength, each
+has weaknesses, in some areas they overlap enough to be nearly
+interchangeable, in others they compete and feed each other. In the
+end, a good scientist should know more than one tool, and know when
+to pick the most appropriate for the job. I hope this course will
+teach you enough Python to know when to use it, and when not to!</p>
+</li>
 </ul>
-<p>In today’s data science, research and industry environments, both R and
-Python play a role. Each has areas of particular strength, each has
-weaknesses, in some areas they overlap enough to be nearly
-interchangeable, in others they compete and feed each other. In the end,
-a good scientist should know more than one tool, and know when to pick
-the most appropriate for the job. I hope this course will teach you
-enough Python to know when to use it, and when not to!</p>
 <p class="space"></p></div>
 </div>
 <div class="section" id="Point-4">
@@ -525,18 +528,27 @@ and engineering classes.”</p>
 <li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy.html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/trapezoid.html">The trapezoidal rule: vectorization and perormance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/10-matplotlib_beyond_basics.html">Matplotlib: Beyond the basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/10-matplotlib_live_plots.html">Matplotlib: Live plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/image_tutorial.html">Matplotlib image tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/image_tutorial.html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-strings/11-strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-strings/11-nltk.html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12-data-intro.html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13-data-frames.html">Data Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14-sphinx.html">An introduction to Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab10.html">Lab 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab2.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab3.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab4.html">Lab 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab5.html">Lab 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab6.html">Lab 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab8.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab9.html">Lab 9</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
