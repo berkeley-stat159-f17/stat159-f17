@@ -51,7 +51,8 @@ Lectures
    :hidden:
    :glob:
 
-   lectures/02-ipython/*.ipynb
+   lectures/02-ipython/*
+   lectures/15-pvalues/rabbits.ipynb
    readings
 
 
