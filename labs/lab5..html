@@ -1,0 +1,852 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Lab 5 &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab 6" href="lab6..html" />
+    <link rel="prev" title="Lab 4" href="lab4.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+</style>
+<div class="section" id="Lab-5">
+<h1>Lab 5<a class="headerlink" href="#Lab-5" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Some-remarks">
+<h2>Some remarks<a class="headerlink" href="#Some-remarks" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Repositories and directories for this course: Most course materials
+are in <a class="reference external" href="https://github.com/berkeley-stat159-f17/stat159-f17">the course
+repo</a>.</p>
+<p>We recomend that you clone the repo into a directory called
+<code class="docutils literal"><span class="pre">stat159-f17-reference</span></code>. First, move into your directory for this
+course (e.g. <code class="docutils literal"><span class="pre">stat159</span></code>) and clone the repo:</p>
+<p><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/berkeley-stat159-f17/stat159-f17.git</span> <span class="pre">stat159-f17-reference</span></code></p>
+<p>Then copy the contents of the repo into a new directory called
+<code class="docutils literal"><span class="pre">stat159-f17-work</span></code>:</p>
+<p><code class="docutils literal"><span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">stat159-f17-reference</span> <span class="pre">stat159-f17-work</span></code></p>
+<p>Now in the <code class="docutils literal"><span class="pre">stat159-f17-work</span></code> directory you can make changes on
+notebooks etc. When we add course materials you can pull in the
+<code class="docutils literal"><span class="pre">stat159-f17-reference</span></code> directory, and then copy again.</p>
+</li>
+<li><p class="first">Absolute paths vs relative paths:</p>
+<p>Repositories are meant to be shared. If you have a path to data that
+looks like <code class="docutils literal"><span class="pre">Users/username/repo/data.csv</span></code>, will it be able to run
+on another computer? How can we change the path so that it can run
+from inside the <code class="docutils literal"><span class="pre">repo</span></code> directory?</p>
+</li>
+</ol>
+</div>
+<div class="section" id="File-IO">
+<h2>File IO<a class="headerlink" href="#File-IO" title="Permalink to this headline">¶</a></h2>
+<p>This section was slightly modified from the <a class="reference external" href="https://docs.python.org/3.6/tutorial/inputoutput.html">Python
+docs</a></p>
+<div class="section" id="Opening-a-file">
+<h3>Opening a file<a class="headerlink" href="#Opening-a-file" title="Permalink to this headline">¶</a></h3>
+<p>The function <code class="docutils literal"><span class="pre">open</span></code> returns a file object, and is most commonly used
+with two arguments: <code class="docutils literal"><span class="pre">open(filename,</span> <span class="pre">mode)</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;workfile&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The first argument is a string containing the filename. The second
+argument is another string containing a few characters describing the
+way in which the file will be used. <em>mode</em> can be <code class="docutils literal"><span class="pre">'r'</span></code> when the file
+will only be read, <code class="docutils literal"><span class="pre">'w'</span></code> for only writing (an existing file with the
+same name will be erased), and <code class="docutils literal"><span class="pre">'a'</span></code> opens the file for appending; any
+data written to the file is automatically added to the end. <code class="docutils literal"><span class="pre">'r+'</span></code>
+opens the file for both reading and writing. The <em>mode</em> argument is
+optional; <code class="docutils literal"><span class="pre">'r'</span></code> will be assumed if it’s omitted.</p>
+<p>Normally, files are opened in text mode, that means, you read and write
+strings from and to the file, which are encoded in a specific encoding.
+If encoding is not specified, the default is platform dependent (see
+open). <code class="docutils literal"><span class="pre">'b'</span></code> appended to the mode opens the file in binary mode: now
+the data is read and written in the form of bytes objects. This mode
+should be used for all files that don’t contain text.</p>
+<p>In text mode, the default when reading is to convert platform-specific
+line endings (<code class="docutils literal"><span class="pre">\n</span></code> on Unix, <code class="docutils literal"><span class="pre">\r\n</span></code> on Windows) to just <code class="docutils literal"><span class="pre">\n</span></code>. When
+writing in text mode, the default is to convert occurrences of <code class="docutils literal"><span class="pre">\n</span></code>
+back to platform-specific line endings. This behind-the-scenes
+modification to file data is fine for text files, but will corrupt
+binary data like that in JPEG or EXE files. Be very careful to use
+binary mode when reading and writing such files.</p>
+<p>It is good practice to use the with keyword when dealing with file
+objects. The advantage is that the file is properly closed after its
+suite finishes, even if an exception is raised at some point. Using with
+is also much shorter than writing equivalent try-finally blocks:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;workfile&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">read_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">closed</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[3]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>True
+</pre></div>
+</div>
+</div>
+<p>If you’re not using the with keyword, then you should call <code class="docutils literal"><span class="pre">f.close()</span></code>
+to close the file and immediately free up any system resources used by
+it. If you don’t explicitly close a file, Python’s garbage collector
+will eventually destroy the object and close the open file for you, but
+the file may stay open for a while. Another risk is that different
+Python implementations will do this clean-up at different times.</p>
+<p>After a file object is closed, either by a with statement or by calling
+<code class="docutils literal"><span class="pre">f.close()</span></code>, attempts to use the file object will automatically fail.
+:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Exercise: Write the equivalent logic of the <code class="docutils literal"><span class="pre">with</span></code> statement with
+try-finally blocks</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Methods-for-file-objects">
+<h3>Methods for file objects<a class="headerlink" href="#Methods-for-file-objects" title="Permalink to this headline">¶</a></h3>
+<p>First, let’s create a file object for <code class="docutils literal"><span class="pre">example.txt</span></code></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;lab5-files/example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Reading">
+<h4>Reading<a class="headerlink" href="#Reading" title="Permalink to this headline">¶</a></h4>
+<p>To read a file’s contents, call <code class="docutils literal"><span class="pre">f.read(size)</span></code>, which reads some
+quantity of data and returns it as a string (in text mode) or bytes
+object (in binary mode). <code class="docutils literal"><span class="pre">size</span></code> is an optional numeric argument. When
+<code class="docutils literal"><span class="pre">size</span></code> is omitted or negative, <strong>the entire contents of the file will
+be read and returned</strong>; it’s your problem if the file is twice as large
+as your machine’s memory. Otherwise, at most <em>size</em> bytes are read and
+returned. If the end of the file has been reached, <code class="docutils literal"><span class="pre">f.read()</span></code> will
+return an empty string (<code class="docutils literal"><span class="pre">''</span></code>). :</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+This is a temporary text file.
+We&#39;ll parse this file.
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[14]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&#39;&#39;
+</pre></div>
+</div>
+</div>
+<p><code class="docutils literal"><span class="pre">f.readline()</span></code> reads a single line from the file; a newline character
+(<code class="docutils literal"><span class="pre">\n</span></code>) is left at the end of the string, and is only omitted on the
+last line of the file if the file doesn’t end in a newline. This makes
+the return value unambiguous; if <code class="docutils literal"><span class="pre">f.readline()</span></code> returns an empty
+string, the end of the file has been reached, while a blank line is
+represented by <code class="docutils literal"><span class="pre">'\n'</span></code>, a string containing only a single newline. :</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[15]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&#39;This is a temporary text file.\n&#39;
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[16]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&quot;We&#39;ll parse this file.\n&quot;
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[17]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&#39;&#39;
+</pre></div>
+</div>
+</div>
+<p>For reading lines from a file, you can loop over the file object. This
+is memory efficient, fast, and leads to simple code:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+This is a temporary text file.
+We&#39;ll parse this file.
+</pre></div></div>
+</div>
+<p>If you want to read all the lines of a file in a list you can also use
+<code class="docutils literal"><span class="pre">list(f)</span></code> or <code class="docutils literal"><span class="pre">f.readlines()</span></code>.</p>
+</div>
+<div class="section" id="Writing">
+<h4>Writing<a class="headerlink" href="#Writing" title="Permalink to this headline">¶</a></h4>
+<p>Now let’s create a new file to write to</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;our_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><code class="docutils literal"><span class="pre">f.write(string)</span></code> writes the contents of <em>string</em> to the file,
+returning the number of characters written. :</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;This is a test</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[23]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>15
+</pre></div>
+</div>
+</div>
+<p>Other types of objects need to be converted – either to a string (in
+text mode) or a bytes object (in binary mode) – before writing them:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;the answer&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># convert the tuple to string</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p><code class="docutils literal"><span class="pre">f.tell()</span></code> returns an integer giving the file object’s current
+position in the file represented as number of bytes from the beginning
+of the file when in binary mode and an opaque number when in text mode.</p>
+<p>To change the file object’s position, use <code class="docutils literal"><span class="pre">f.seek(offset,</span> <span class="pre">from_what)</span></code>.
+The position is computed from adding <em>offset</em> to a reference point; the
+reference point is selected by the <em>from_what</em> argument. A <em>from_what</em>
+value of 0 measures from the beginning of the file, 1 uses the current
+file position, and 2 uses the end of the file as the reference point.
+<em>from_what</em> can be omitted and defaults to 0, using the beginning of
+the file as the reference point. :</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;our_file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rb+&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;0123456789abcdef&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[40]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>16
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>      <span class="c1"># Go to the 6th byte in the file</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[41]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>5
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[42]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>b&#39;5&#39;
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [43]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Go to the 3rd byte before the end</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[43]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>48
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[44]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>b&#39;4&#39;
+</pre></div>
+</div>
+</div>
+<p>In text files (those opened without a <code class="docutils literal"><span class="pre">b</span></code> in the mode string), only
+seeks relative to the beginning of the file are allowed (the exception
+being seeking to the very file end with <code class="docutils literal"><span class="pre">seek(0,</span> <span class="pre">2)</span></code>) and the only
+valid <em>offset</em> values are those returned from the <code class="docutils literal"><span class="pre">f.tell()</span></code>, or zero.
+Any other <em>offset</em> value produces undefined behaviour.</p>
+</div>
+<div class="section" id="Other-file-types">
+<h4>Other file types<a class="headerlink" href="#Other-file-types" title="Permalink to this headline">¶</a></h4>
+<p>Many times you’ll encounter data not stored in text files. In
+particular, data is oftentimes compressed. For the second homework
+you’ll need to read a file which has been compressed with <a class="reference external" href="https://www.gnu.org/software/gzip/">GNU
+Gzip</a>. You can open files like
+this in python in similar ways as ordinary text files.</p>
+</div>
+</div>
+</div>
+<div class="section" id="Calisthenics">
+<h2>Calisthenics<a class="headerlink" href="#Calisthenics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Exception-handling">
+<h3>Exception handling<a class="headerlink" href="#Exception-handling" title="Permalink to this headline">¶</a></h3>
+<p>Using a try-catch-finally block, write a function which takes in a list
+of numbers and returns a list of all the elements up until the first
+negative number.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># Type your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Quantiles">
+<h3>Quantiles<a class="headerlink" href="#Quantiles" title="Permalink to this headline">¶</a></h3>
+<p>Write a function to compute the median of a list of numbers</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># Type your code here</span>
+</pre></div>
+</div>
+</div>
+<p>Now write a function to compute the <span class="math">\(p^\text{th}\)</span> percentile</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># Type your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="File-I/O">
+<h3>File I/O<a class="headerlink" href="#File-I/O" title="Permalink to this headline">¶</a></h3>
+<p>Write a function which creates a file with <span class="math">\(n\)</span> lines numbered</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># Type your code here</span>
+</pre></div>
+</div>
+</div>
+<p>Write a function which appends to that file an extra <span class="math">\(m\)</span> lines</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># Type your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Stat 159/259 - Reproducible and Collaborative Data Science</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/01-git/Git-Tutorial..html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Index..html">A quick overview of the Jupyter Notebook and IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/03-reading1-discussion..html">Reading discussion - Developing open source scientific practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/04-reading2-discussion..html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/05-class-practice..html">Class practice: strings, lists &amp; numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/06-conda-pip-environments..html">Conda and pip - managing environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/07-reading3-discussion..html">From September 25 reading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/07-reading3-discussion..html#Make:-automating-tasks">Make: automating tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/08-ligo-make.html">LIGO, the 2017 Nobel prize in physics, and wrapping up Makefiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy..html">An Introduction to the Scientific Python Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy..html#Motivation:-the-trapezoidal-rule">Motivation: the trapezoidal rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy..html#NumPy-arrays:-the-right-data-structure-for-scientific-computing">NumPy arrays: the right data structure for scientific computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/intro-numpy..html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09-intro-numpy/trapezoid..html">The trapezoidal rule: vectorization and perormance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_beyond_basics..html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/10-matplotlib_live_plots..html">Matplotlib: Live plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/image_tutorial..html">Matplotlib image tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10-matplotlib_beyond_basics/image_tutorial..html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-strings..html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11-strings/11-nltk..html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/12-data-intro..html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/13-data-frames..html">Data Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/14-sphinx..html">An introduction to Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/16-testing.html">Testing your software in Python</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Beyond Plain Python..html">IPython: beyond plain Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Index..html">A quick overview of the Jupyter Notebook and IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Notebook Basics..html">Notebook Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Working With Markdown Cells..html">Markdown Cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Working With Markdown Cells..html#Heading-1">Heading 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/02-ipython/Working With Markdown Cells..html#Heading-2">Heading 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/15-pvalues/rabbits..html">P-values, Probability, Priors, Rabbits, Quantifauxcation, and Cargo-Cult Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readings.html">Readings</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab10..html">Lab 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab2.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab3.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab4.html">Lab 4</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab6..html">Lab 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab8..html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab9..html">Lab 9</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="lab4.html" title="previous chapter">Lab 4</a></li>
+      <li>Next: <a href="lab6..html" title="next chapter">Lab 6</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Fernando Perez.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/labs/lab5..ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

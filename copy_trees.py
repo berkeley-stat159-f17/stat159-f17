@@ -43,7 +43,9 @@ if 'source_suffix' in sphinx_conf:
 
 # And skip anything sphinx would too
 if 'exclude_patterns' in sphinx_conf:
-    skip_trees.update(sphinx_conf['exclude_patterns'])
+    xp = sphinx_conf['exclude_patterns']
+    skip_trees.update(p.replace('*', '') for p in xp)
+
 
 #-----------------------------------------------------------------------------
 # Functions
