@@ -52,6 +52,7 @@ Lectures
    :glob:
 
    lectures/02-ipython/*.ipynb
+   readings
 
 
 

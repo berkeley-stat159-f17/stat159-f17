@@ -75,7 +75,7 @@ language = None
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 
                     '**.ipynb_checkpoints', 'README.md', 'labs/lab_sols',
-                    'Untitled*.ipynb']
+                    'Untitled*.ipynb', 'misc']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
