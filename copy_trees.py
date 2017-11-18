@@ -15,33 +15,45 @@ from os.path import join as pjoin
 # Config
 #-----------------------------------------------------------------------------
 
-# From sphinx conf.py
-sphinx_conf = {}
-exec(open('conf.py').read(), {}, sphinx_conf)
-
-# Local
+VERBOSE = False
+#VERBOSE = True
 
 # Directory with source files
 src_dir = '.'
-# Directory where final html tree is built
+# Directory where final html tree is built - set in the Makefile
 out_dir = '_build/html'
 
 # Prefix of directories to skip (set when sphinx-quickstart was run)
 skip_prefix = '_'
-skip_extensions = set(['.rst'])
+skip_extensions = {'.rst', '.tex'}
 
 # Other directory trees to skip
-skip_trees = set(['.git', 'misc', '.ipynb_checkpoints'])
-
-# Always skip source files, since shpinx already copies those
-skip_extensions.update(set(sphinx_conf.get('source_suffix', {'.rst'})))
 
 # Any top-level files that may need to be copied as well
-top_files = ['links.txt']
+top_files = []
+
+# Update with info from sphinx conf.py
+sphinx_conf = {}
+exec(open('conf.py').read(), {}, sphinx_conf)
+skip_trees = {'.git', '.ipynb_checkpoints', 'misc'}
+
+# Always skip source files, since shpinx already copies those
+if 'source_suffix' in sphinx_conf:
+    skip_extensions.update(sphinx_conf['source_suffix'])
+
+# And skip anything sphinx would too
+if 'exclude_patterns' in sphinx_conf:
+    skip_trees.update(sphinx_conf['exclude_patterns'])
 
 #-----------------------------------------------------------------------------
 # Functions
 #-----------------------------------------------------------------------------
+
+def print(*a, **k):
+    import builtins
+
+    if VERBOSE:
+        builtins.print(*a, **k)
 
 
 def keep_filename(f, skip_ext=skip_extensions):

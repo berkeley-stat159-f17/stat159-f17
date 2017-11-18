@@ -17,6 +17,7 @@
   * double trouble 05-class-practice-all.ipynb - intro to unit testing.
 
 
+
 Remaining topic list
 
 * numpy, scipy
@@ -61,6 +62,9 @@ Other topics
   * https://khinsen.wordpress.com/2015/09/03/beyond-jupyter-whats-in-a-notebook
   * https://owainkenwayucl.github.io/2017/10/03/WhyIDontLikeNotebooks.html
 
+
+- Konrad Hinsen's posts on reproducibility
+http://blog.khinsen.net/posts/2017/11/16/a-plea-for-stability-in-the-scipy-ecosystem/
 
 ## Next year
 
