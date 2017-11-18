@@ -24,7 +24,7 @@ What is Anaconda?
 - Install Anaconda from the download
 - Open python by typing in `python` into the shell. Should see something like
 
-![Alt](/assets/images/python_anaconda.png)
+![Alt](lab_fig/python_anaconda.png)
 
 - Make sure you're using Anaconda's python. If not, open `~/.bashrc` and add
 
