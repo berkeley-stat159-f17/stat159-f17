@@ -2,6 +2,7 @@ _build
 .ipynb_checkpoints
 gh-token
 __pycache__
+.cache
 misc
 
 # emacs backups
