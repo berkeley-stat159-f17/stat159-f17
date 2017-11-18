@@ -21,10 +21,9 @@ help:
 
 .PHONY: github
 
-site: html
-	./copy_trees.py
 
 github: html
+	./copy_trees.py
 	ghp-import $(BUILDDIR)/html/
 	git push -u origin gh-pages
 	@echo
