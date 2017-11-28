@@ -15,8 +15,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <!-- General and theme style sheets -->
-<link rel="stylesheet" href="reveal.js/css/reveal.css">
-<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/css/reveal.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/css/theme/simple.css" id="theme">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -24,14 +24,14 @@ if( window.location.search.match( /print-pdf/gi ) ) {
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = 'reveal.js/css/print/pdf.css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/css/print/pdf.css';
         document.getElementsByTagName( 'head' )[0].appendChild( link );
 }
 
 </script>
 
 <!--[if lt IE 9]>
-<script src="reveal.js/lib/js/html5shiv.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/lib/js/html5shiv.js"></script>
 <![endif]-->
 
 <!-- Loading the mathjax macro -->
@@ -12072,7 +12072,10 @@ make linkcheck</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="conf.py-(cont.)"><code>conf.py</code> (cont.)<a class="anchor-link" href="#conf.py-(cont.)">&#182;</a></h2><h4 id="Markdown-.md-using-recommonmark.">Markdown <code>.md</code> using <code>recommonmark</code>.<a class="anchor-link" href="#Markdown-.md-using-recommonmark.">&#182;</a></h4><div class="highlight"><pre><span></span><span class="c1"># Add a source file parser for markdown</span>
+<h2 id="conf.py-(cont.)"><code>conf.py</code> (cont.)<a class="anchor-link" href="#conf.py-(cont.)">&#182;</a></h2><h4 id="Markdown-.md-using-recommonmark.">Markdown <code>.md</code> using <code>recommonmark</code>.<a class="anchor-link" href="#Markdown-.md-using-recommonmark.">&#182;</a></h4><div class="highlight"><pre><span></span><span class="c1"># For conversion from markdown to html</span>
+<span class="kn">import</span> <span class="nn">recommonmark.Parser</span>
+
+<span class="c1"># Add a source file parser for markdown</span>
 <span class="n">source_parsers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;.md&#39;</span><span class="p">:</span> <span class="s1">&#39;recommonmark.parser.CommonMarkParser&#39;</span><span class="p">,</span>
 <span class="p">}</span>
@@ -12205,8 +12208,8 @@ require(
       waitSeconds: 15
     },
     [
-      "reveal.js/lib/js/head.min.js",
-      "reveal.js/js/reveal.js"
+      "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/lib/js/head.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/js/reveal.js"
     ],
 
     function(head, Reveal){
@@ -12221,9 +12224,9 @@ require(
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
-                { src: "reveal.js/lib/js/classList.js",
+                { src: "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/lib/js/classList.js",
                   condition: function() { return !document.body.classList; } },
-                { src: "reveal.js/plugin/notes/notes.js",
+                { src: "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/plugin/notes/notes.js",
                   async: true,
                   condition: function() { return !!document.body.classList; } }
             ]
