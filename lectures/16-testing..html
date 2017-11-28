@@ -1,0 +1,306 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Testing your software in Python &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="IPython: beyond plain Python" href="02-ipython/Beyond Plain Python..html" />
+    <link rel="prev" title="P-values discussion with Prof. Philip B. Stark" href="15-pvalues/index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="Testing-your-software-in-Python">
+<h1>Testing your software in Python<a class="headerlink" href="#Testing-your-software-in-Python" title="Permalink to this headline">¶</a></h1>
+<p>We’ll follow the concise <a class="reference external" href="http://katyhuff.github.io/python-testing">Software Carpentry Testing
+Tutorial</a> authored by Katy
+Huff.</p>
+<div class="section" id="A-simple,-testable-mean">
+<h2>A simple, testable <code class="docutils literal"><span class="pre">mean</span></code><a class="headerlink" href="#A-simple,-testable-mean" title="Permalink to this headline">¶</a></h2>
+<p>Let’s checkpoint here with a directory that should have:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">mymean.py</span></code>:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">num_list</span><span class="p">):</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="n">num_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="nb">complex</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">NotImplemented</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">tests.py</span></code>:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mymean</span> <span class="kn">import</span> <span class="n">mean</span>
+
+<span class="k">def</span> <span class="nf">test_mean</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">mean</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">test_ints</span><span class="p">():</span>
+    <span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
+    <span class="n">exp</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">obs</span> <span class="o">==</span> <span class="n">exp</span>
+
+<span class="k">def</span> <span class="nf">test_zero</span><span class="p">():</span>
+    <span class="n">num_list</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
+    <span class="n">exp</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">obs</span> <span class="o">==</span> <span class="n">exp</span>
+
+<span class="k">def</span> <span class="nf">test_double</span><span class="p">():</span>
+    <span class="c1"># This one will fail in Python 2</span>
+    <span class="n">num_list</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
+    <span class="n">exp</span> <span class="o">=</span> <span class="mf">2.5</span>
+    <span class="k">assert</span> <span class="n">obs</span> <span class="o">==</span> <span class="n">exp</span>
+
+<span class="k">def</span> <span class="nf">test_long</span><span class="p">():</span>
+    <span class="n">big</span> <span class="o">=</span> <span class="mi">100000000</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">big</span><span class="p">))</span>
+    <span class="n">exp</span> <span class="o">=</span> <span class="n">big</span><span class="o">/</span><span class="mf">2.0</span>
+    <span class="k">assert</span> <span class="n">obs</span> <span class="o">==</span> <span class="n">exp</span>
+
+<span class="k">def</span> <span class="nf">test_complex</span><span class="p">():</span>
+    <span class="c1"># given that complex numbers are an unordered field</span>
+    <span class="c1"># the arithmetic mean of complex numbers is meaningless</span>
+    <span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3j</span><span class="p">,</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4j</span><span class="p">,</span> <span class="o">-</span><span class="mi">32</span> <span class="o">-</span> <span class="mi">2j</span><span class="p">]</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
+    <span class="n">exp</span> <span class="o">=</span> <span class="bp">NotImplemented</span>
+    <span class="k">assert</span> <span class="n">obs</span> <span class="o">==</span> <span class="n">exp</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>And let’s also put in there a simple <code class="docutils literal"><span class="pre">.gitignore</span></code>:</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">DS_Store</span>
+<span class="o">*~</span>
+<span class="n">__pycache__</span>
+<span class="o">*.</span><span class="n">py</span><span class="p">[</span><span class="n">co</span><span class="p">]</span>
+<span class="o">.</span><span class="n">coverage</span>
+<span class="o">.</span><span class="n">ipynb_checkpoints</span>
+<span class="n">Untitled</span><span class="o">*.</span><span class="n">ipynb</span>
+<span class="n">_configtest</span><span class="o">.</span><span class="n">o</span><span class="o">.</span><span class="n">d</span>
+</pre></div>
+</div>
+<p>Next, let’s make this into a public repo on our personal accounts.
+<a class="reference external" href="https://github.com/fperez/testing">Here’s mine</a> (note that one has a
+few more things that we’ll add later).</p>
+</div>
+<div class="section" id="Continuous-Integration-with-Travis">
+<h2>Continuous Integration with Travis<a class="headerlink" href="#Continuous-Integration-with-Travis" title="Permalink to this headline">¶</a></h2>
+<p>Let’s setup <a class="reference external" href="https://github.com/marketplace/travis-ci">Travis CI</a> for
+Github, using <strong>the free plan for Open Source</strong>:</p>
+<p>You’ll need to accept the Github authorization for Travis to access your
+account. <a class="reference external" href="https://docs.travis-ci.com/user/getting-started">More info here on the Travis
+docs</a>.</p>
+<p>Once that’s set up and your repo is up on github, go to your <a class="reference external" href="https://travis-ci.org/profile">Travis
+Profile page</a> and turn on the green
+checkmark to authorize this repo for Travis builds:</p>
+<p><em>Note:</em> if you don’t see your repo listed, click on the green “Sync
+Account” button in the top right.</p>
+</div>
+<div class="section" id="Running-your-tests-on-Travis">
+<h2>Running your tests on Travis<a class="headerlink" href="#Running-your-tests-on-Travis" title="Permalink to this headline">¶</a></h2>
+<p>Now, let’s have Travis run the tests for us on each commit,
+automatically!</p>
+<p>Add the following, absolutely minimal <code class="docutils literal"><span class="pre">.travis.yml</span></code> file to your repo:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="l l-Scalar l-Scalar-Plain">python</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="s">&quot;3.6&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">install</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install pytest</span>
+<span class="l l-Scalar l-Scalar-Plain">script</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest tests.py</span>
+</pre></div>
+</div>
+<p>Once you make a <code class="docutils literal"><span class="pre">git</span> <span class="pre">push</span></code> to your repo, you should see a build start,
+e.g:</p>
+<p>and if all goes well, you should then see something like this in the
+logs:</p>
+<div class="section" id="Exercise">
+<h3>Exercise<a class="headerlink" href="#Exercise" title="Permalink to this headline">¶</a></h3>
+<p>ds * Add a test of your <code class="docutils literal"><span class="pre">mean</span></code> function that uses numpy:</p>
+<ul class="simple">
+<li>Generate 10,000 uniformly distributed random numbers with numpy.</li>
+<li>Test that your mean is a proper numerical match to the numpy one.</li>
+<li>Once this test passes locally, add it to your Travis run.</li>
+</ul>
+</div>
+<div class="section" id="Travis-+-Conda">
+<h3>Travis + Conda<a class="headerlink" href="#Travis-+-Conda" title="Permalink to this headline">¶</a></h3>
+<p>If you want to build your travis run with Conda, you can create a proper
+environment as part of your Travis setup, here’s a simple example
+<code class="docutils literal"><span class="pre">.travis.yml</span></code> that uses Conda:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="l l-Scalar l-Scalar-Plain">python</span><span class="p p-Indicator">:</span>
+  <span class="c1"># We don&#39;t actually use the Travis Python, but this keeps it organized.</span>
+  <span class="p p-Indicator">-</span> <span class="s">&quot;3.6&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">install</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">sudo apt-get update</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">bash miniconda.sh -b -p $HOME/miniconda</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">export PATH=&quot;$HOME/miniconda/bin:$PATH&quot;</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hash -r</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">conda config --set always_yes yes --set changeps1 no</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">conda update -q conda</span>
+  <span class="c1"># Useful for debugging any issues with conda</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">conda info -a</span>
+
+  <span class="c1"># List your dependencies here to create the necessary environment</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION pytest</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">source activate test-environment</span>
+
+<span class="l l-Scalar l-Scalar-Plain">script</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest tests.py</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Exercise:-conda-with-an-environment.yml-file-for-Travis">
+<h3>Exercise: conda with an <code class="docutils literal"><span class="pre">environment.yml</span></code> file for Travis<a class="headerlink" href="#Exercise:-conda-with-an-environment.yml-file-for-Travis" title="Permalink to this headline">¶</a></h3>
+<p>Explore whether it’s possible to modify the above Travis setup to use a
+proper <code class="docutils literal"><span class="pre">environment.yml</span></code> file.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Stat 159/259 - Reproducible and Collaborative Data Science</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial..html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Index..html">A quick overview of the Jupyter Notebook and IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-reading1-discussion..html">Reading discussion - Developing open source scientific practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-reading2-discussion..html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-class-practice..html">Class practice: strings, lists &amp; numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-conda-pip-environments..html">Conda and pip - managing environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-reading3-discussion..html">From September 25 reading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-reading3-discussion..html#Make:-automating-tasks">Make: automating tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-ligo-make.html">LIGO, the 2017 Nobel prize in physics, and wrapping up Makefiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy..html">An Introduction to the Scientific Python Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy..html#Motivation:-the-trapezoidal-rule">Motivation: the trapezoidal rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy..html#NumPy-arrays:-the-right-data-structure-for-scientific-computing">NumPy arrays: the right data structure for scientific computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy..html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/trapezoid..html">The trapezoidal rule: vectorization and perormance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/10-matplotlib_beyond_basics..html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/10-matplotlib_live_plots..html">Matplotlib: Live plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/image_tutorial..html">Matplotlib image tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/image_tutorial..html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-strings/11-strings..html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-strings/11-nltk..html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12-data-intro..html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13-data-frames..html">Data Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14-sphinx..html">An introduction to Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Testing your software in Python</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Beyond Plain Python..html">IPython: beyond plain Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Index..html">A quick overview of the Jupyter Notebook and IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Notebook Basics..html">Notebook Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Working With Markdown Cells..html">Markdown Cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Working With Markdown Cells..html#Heading-1">Heading 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Working With Markdown Cells..html#Heading-2">Heading 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-pvalues/rabbits..html">P-values, Probability, Priors, Rabbits, Quantifauxcation, and Cargo-Cult Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readings.html">Readings</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab10..html">Lab 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab2.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab3.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab4.html">Lab 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab5..html">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab6..html">Lab 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab8..html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab9..html">Lab 9</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="15-pvalues/index.html" title="previous chapter">P-values discussion with Prof. Philip B. Stark</a></li>
+      <li>Next: <a href="02-ipython/Beyond Plain Python..html" title="next chapter">IPython: beyond plain Python</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Fernando Perez.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/lectures/16-testing..ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

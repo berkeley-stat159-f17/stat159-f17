@@ -1,0 +1,4 @@
+{
+  "testing_example.py::TestCase": true,
+  "testing_example.py::TestCase::test_error": true
+}

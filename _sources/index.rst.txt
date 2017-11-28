@@ -42,7 +42,7 @@ Lectures
    lectures/13-data-frames.ipynb
    lectures/14-sphinx.ipynb
    lectures/15-pvalues/index.md
-   lectures/16-testing.md
+   lectures/16-testing.ipynb
 
 
 .. docs that are referenced by others but not listed at the top-level TOC

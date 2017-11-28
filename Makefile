@@ -1,5 +1,4 @@
 # Minimal makefile for Sphinx documentation
-#
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
@@ -19,10 +18,15 @@ help:
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-.PHONY: github
 
+# Customizations beyond the default Sphinx Makefile.
 
-github: html
+.PHONY: slides github
+
+slides:
+	cd lectures && make slides
+
+github: slides html
 	./copy_trees.py
 	ghp-import $(BUILDDIR)/html/
 	git push -u origin gh-pages
