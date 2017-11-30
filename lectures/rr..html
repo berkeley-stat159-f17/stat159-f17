@@ -1,0 +1,1680 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Reinhart-Rogoff replication &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+</style>
+<div class="section" id="Reinhart-Rogoff-replication">
+<h1>Reinhart-Rogoff replication<a class="headerlink" href="#Reinhart-Rogoff-replication" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Replication of Reinhart-Rogoff “Growth in a Time of Debt.”</li>
+<li>Python port of R code by Thomas Herndon | Michael Ash | Robert
+Pollin</li>
+<li><a class="reference external" href="http://www.peri.umass.edu/236/hash/31e2ff374b6377b2ddec04deaa6388b1/publication/566/">http://www.peri.umass.edu/236/hash/31e2ff374b6377b2ddec04deaa6388b1/publication/566/</a></li>
+<li>Author: Vincent Arel-Bundock <a class="reference external" href="mailto:varel&#37;&#52;&#48;umich&#46;edu">varel<span>&#64;</span>umich<span>&#46;</span>edu</a></li>
+<li>Data:
+<a class="reference external" href="https://gist.github.com/vincentarelbundock/5409893/raw/a623f2f3bae027a0e51dd01ac5b70d44d909a7b9/RR-processed.csv">https://gist.github.com/vincentarelbundock/5409893/raw/a623f2f3bae027a0e51dd01ac5b70d44d909a7b9/RR-processed.csv</a></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">patsy</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">RR</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;RR-processed.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+/Users/fperez/usr/conda/envs/s159/lib/python3.6/site-packages/statsmodels/compat/pandas.py:56: FutureWarning: The pandas.core.datetools module is deprecated and will be removed in a future version. Please use the pandas.tseries module instead.
+  from pandas.core import datetools
+</pre></div></div>
+</div>
+<div class="section" id="Number-of-observations-per-country">
+<h2>Number of observations per country<a class="headerlink" href="#Number-of-observations-per-country" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">RR</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Country&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[2]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>Country
+Australia      64
+Austria        62
+Belgium        63
+Canada         64
+Denmark        56
+Finland        64
+France         54
+Germany        59
+Greece         40
+Ireland        63
+Italy          59
+Japan          54
+Netherlands    53
+New Zealand    64
+Norway         64
+Portugal       58
+Spain          42
+Sweden         64
+UK             64
+US             64
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Bins">
+<h2>Bins<a class="headerlink" href="#Bins" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0-30%&quot;</span><span class="p">,</span><span class="s2">&quot;30-60%&quot;</span><span class="p">,</span><span class="s2">&quot;60-90%&quot;</span><span class="p">,</span><span class="s2">&quot;Above 90%&quot;</span><span class="p">]</span>
+<span class="n">RR</span><span class="p">[</span><span class="s1">&#39;dgcat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">RR</span><span class="o">.</span><span class="n">debtgdp</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">RR</span><span class="o">.</span><span class="n">dgcat</span> <span class="o">=</span> <span class="p">[</span><span class="n">bins</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">RR</span><span class="o">.</span><span class="n">dgcat</span><span class="p">]</span>
+
+<span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0-30%&quot;</span><span class="p">,</span><span class="s2">&quot;30-60%&quot;</span><span class="p">,</span><span class="s2">&quot;60-90%&quot;</span><span class="p">,</span><span class="s2">&quot;90-120%&quot;</span><span class="p">,</span><span class="s2">&quot;Above 120%&quot;</span><span class="p">]</span>
+<span class="n">RR</span><span class="p">[</span><span class="s1">&#39;dgcat2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">RR</span><span class="o">.</span><span class="n">debtgdp</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">RR</span><span class="o">.</span><span class="n">dgcat2</span> <span class="o">=</span> <span class="p">[</span><span class="n">bins</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">RR</span><span class="o">.</span><span class="n">dgcat2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Regression-analysis">
+<h2>Regression analysis<a class="headerlink" href="#Regression-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">y</span><span class="p">,</span><span class="n">X</span> <span class="o">=</span> <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="s1">&#39;dRGDP ~ dgcat&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">RR</span><span class="p">[[</span><span class="s1">&#39;dRGDP&#39;</span><span class="p">,</span> <span class="s1">&#39;dgcat&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
+<span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>          <td>dRGDP</td>      <th>  R-squared:         </th> <td>   0.045</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.042</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   18.36</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Thu, 30 Nov 2017</td> <th>  Prob (F-statistic):</th> <td>1.22e-11</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>01:38:49</td>     <th>  Log-Likelihood:    </th> <td> -2927.9</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>  1175</td>      <th>  AIC:               </th> <td>   5864.</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>  1171</td>      <th>  BIC:               </th> <td>   5884.</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     3</td>      <th>                     </th>     <td> </td>
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+           <td></td>             <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>
+</tr>
+<tr>
+  <th>Intercept</th>          <td>    4.1735</td> <td>    0.142</td> <td>   29.413</td> <td> 0.000</td> <td>    3.895</td> <td>    4.452</td>
+</tr>
+<tr>
+  <th>dgcat[T.30-60%]</th>    <td>   -1.0814</td> <td>    0.199</td> <td>   -5.429</td> <td> 0.000</td> <td>   -1.472</td> <td>   -0.691</td>
+</tr>
+<tr>
+  <th>dgcat[T.60-90%]</th>    <td>   -0.9869</td> <td>    0.251</td> <td>   -3.931</td> <td> 0.000</td> <td>   -1.479</td> <td>   -0.494</td>
+</tr>
+<tr>
+  <th>dgcat[T.Above 90%]</th> <td>   -2.0056</td> <td>    0.313</td> <td>   -6.403</td> <td> 0.000</td> <td>   -2.620</td> <td>   -1.391</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>208.322</td> <th>  Durbin-Watson:     </th> <td>   1.385</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>1757.480</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td> 0.558</td>  <th>  Prob(JB):          </th> <td>    0.00</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 8.887</td>  <th>  Cond. No.          </th> <td>    4.57</td>
+</tr>
+</table></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">y2</span><span class="p">,</span><span class="n">X2</span> <span class="o">=</span> <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="s1">&#39;dRGDP ~ dgcat2&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">RR</span><span class="p">[[</span><span class="s1">&#39;dRGDP&#39;</span><span class="p">,</span> <span class="s1">&#39;dgcat2&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
+<span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y2</span><span class="p">,</span><span class="n">X2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>          <td>dRGDP</td>      <th>  R-squared:         </th> <td>   0.046</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.043</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   14.24</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Thu, 30 Nov 2017</td> <th>  Prob (F-statistic):</th> <td>2.36e-11</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>01:38:54</td>     <th>  Log-Likelihood:    </th> <td> -2926.9</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>  1175</td>      <th>  AIC:               </th> <td>   5864.</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>  1170</td>      <th>  BIC:               </th> <td>   5889.</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     4</td>      <th>                     </th>     <td> </td>
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+            <td></td>              <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>
+</tr>
+<tr>
+  <th>Intercept</th>            <td>    4.1735</td> <td>    0.142</td> <td>   29.423</td> <td> 0.000</td> <td>    3.895</td> <td>    4.452</td>
+</tr>
+<tr>
+  <th>dgcat2[T.30-60%]</th>     <td>   -1.0814</td> <td>    0.199</td> <td>   -5.431</td> <td> 0.000</td> <td>   -1.472</td> <td>   -0.691</td>
+</tr>
+<tr>
+  <th>dgcat2[T.60-90%]</th>     <td>   -0.9869</td> <td>    0.251</td> <td>   -3.933</td> <td> 0.000</td> <td>   -1.479</td> <td>   -0.495</td>
+</tr>
+<tr>
+  <th>dgcat2[T.90-120%]</th>    <td>   -1.7676</td> <td>    0.359</td> <td>   -4.929</td> <td> 0.000</td> <td>   -2.471</td> <td>   -1.064</td>
+</tr>
+<tr>
+  <th>dgcat2[T.Above 120%]</th> <td>   -2.6120</td> <td>    0.545</td> <td>   -4.796</td> <td> 0.000</td> <td>   -3.680</td> <td>   -1.543</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>210.356</td> <th>  Durbin-Watson:     </th> <td>   1.388</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>1756.317</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td> 0.570</td>  <th>  Prob(JB):          </th> <td>    0.00</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 8.880</td>  <th>  Cond. No.          </th> <td>    7.10</td>
+</tr>
+</table></div>
+</div>
+</div>
+<div class="section" id="Table-3-Corrected">
+<h2>Table 3 Corrected<a class="headerlink" href="#Table-3-Corrected" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1">## Country-Year average by debtgdp (&quot;correct weights&quot;)</span>
+<span class="n">RR</span><span class="o">.</span><span class="n">dRGDP</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">RR</span><span class="o">.</span><span class="n">dgcat</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[8]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>dgcat
+0-30%        4.173523
+30-60%       3.092145
+60-90%       3.186575
+Above 90%    2.167972
+Name: dRGDP, dtype: float64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1">## Averaged Country averages by debtgdp (&quot;equal weights&quot;)</span>
+<span class="n">RR</span><span class="o">.</span><span class="n">dRGDP</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">RR</span><span class="o">.</span><span class="n">Country</span><span class="p">,</span> <span class="n">RR</span><span class="o">.</span><span class="n">dgcat</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>dgcat</th>
+      <th>0-30%</th>
+      <th>30-60%</th>
+      <th>60-90%</th>
+      <th>Above 90%</th>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Australia</th>
+      <td>3.205885</td>
+      <td>4.947205</td>
+      <td>4.042175</td>
+      <td>3.774250</td>
+    </tr>
+    <tr>
+      <th>Austria</th>
+      <td>5.207527</td>
+      <td>3.256526</td>
+      <td>-3.824000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Belgium</th>
+      <td>NaN</td>
+      <td>4.191655</td>
+      <td>3.079868</td>
+      <td>2.566828</td>
+    </tr>
+    <tr>
+      <th>Canada</th>
+      <td>2.515704</td>
+      <td>3.525446</td>
+      <td>4.523574</td>
+      <td>2.956640</td>
+    </tr>
+    <tr>
+      <th>Denmark</th>
+      <td>3.518584</td>
+      <td>1.700034</td>
+      <td>2.391147</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Finland</th>
+      <td>3.817029</td>
+      <td>2.418535</td>
+      <td>5.488887</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>France</th>
+      <td>5.058476</td>
+      <td>2.616159</td>
+      <td>3.019631</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Germany</th>
+      <td>3.873759</td>
+      <td>0.875803</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Greece</th>
+      <td>4.001282</td>
+      <td>0.340200</td>
+      <td>2.696000</td>
+      <td>2.910632</td>
+    </tr>
+    <tr>
+      <th>Ireland</th>
+      <td>4.209251</td>
+      <td>4.452167</td>
+      <td>3.950139</td>
+      <td>2.428571</td>
+    </tr>
+    <tr>
+      <th>Italy</th>
+      <td>5.352632</td>
+      <td>2.054284</td>
+      <td>1.771529</td>
+      <td>1.028900</td>
+    </tr>
+    <tr>
+      <th>Japan</th>
+      <td>7.331001</td>
+      <td>3.957143</td>
+      <td>1.008411</td>
+      <td>0.687258</td>
+    </tr>
+    <tr>
+      <th>Netherlands</th>
+      <td>4.082614</td>
+      <td>2.620772</td>
+      <td>1.070436</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>New Zealand</th>
+      <td>2.465556</td>
+      <td>2.889572</td>
+      <td>3.883683</td>
+      <td>2.574727</td>
+    </tr>
+    <tr>
+      <th>Norway</th>
+      <td>3.400122</td>
+      <td>5.108289</td>
+      <td>10.201270</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Portugal</th>
+      <td>4.451419</td>
+      <td>3.549482</td>
+      <td>1.893899</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Spain</th>
+      <td>1.549332</td>
+      <td>3.398669</td>
+      <td>4.156250</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Sweden</th>
+      <td>3.567385</td>
+      <td>2.932237</td>
+      <td>2.665824</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>UK</th>
+      <td>NaN</td>
+      <td>2.231213</td>
+      <td>2.522133</td>
+      <td>2.399096</td>
+    </tr>
+    <tr>
+      <th>US</th>
+      <td>NaN</td>
+      <td>3.370208</td>
+      <td>3.264068</td>
+      <td>-1.988893</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1">## Country-Year average by debtgdp (&quot;correct weights&quot;) expanded categories</span>
+<span class="n">RR</span><span class="o">.</span><span class="n">dRGDP</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">RR</span><span class="o">.</span><span class="n">dgcat2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[10]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>dgcat2
+0-30%         4.173523
+30-60%        3.092145
+60-90%        3.186575
+90-120%       2.405934
+Above 120%    1.561553
+Name: dRGDP, dtype: float64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1">## Averaged Country averages by debtgdp (&quot;equal weights&quot;)</span>
+<span class="n">RR</span><span class="o">.</span><span class="n">dRGDP</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">RR</span><span class="o">.</span><span class="n">Country</span><span class="p">,</span> <span class="n">RR</span><span class="o">.</span><span class="n">dgcat2</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>dgcat2</th>
+      <th>0-30%</th>
+      <th>30-60%</th>
+      <th>60-90%</th>
+      <th>90-120%</th>
+      <th>Above 120%</th>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Australia</th>
+      <td>3.205885</td>
+      <td>4.947205</td>
+      <td>4.042175</td>
+      <td>6.920201</td>
+      <td>2.987763</td>
+    </tr>
+    <tr>
+      <th>Austria</th>
+      <td>5.207527</td>
+      <td>3.256526</td>
+      <td>-3.824000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Belgium</th>
+      <td>NaN</td>
+      <td>4.191655</td>
+      <td>3.079868</td>
+      <td>2.702629</td>
+      <td>-0.692378</td>
+    </tr>
+    <tr>
+      <th>Canada</th>
+      <td>2.515704</td>
+      <td>3.525446</td>
+      <td>4.523574</td>
+      <td>4.544839</td>
+      <td>0.574341</td>
+    </tr>
+    <tr>
+      <th>Denmark</th>
+      <td>3.518584</td>
+      <td>1.700034</td>
+      <td>2.391147</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Finland</th>
+      <td>3.817029</td>
+      <td>2.418535</td>
+      <td>5.488887</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>France</th>
+      <td>5.058476</td>
+      <td>2.616159</td>
+      <td>3.019631</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Germany</th>
+      <td>3.873759</td>
+      <td>0.875803</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Greece</th>
+      <td>4.001282</td>
+      <td>0.340200</td>
+      <td>2.696000</td>
+      <td>2.910632</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Ireland</th>
+      <td>4.209251</td>
+      <td>4.452167</td>
+      <td>3.950139</td>
+      <td>2.428571</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Italy</th>
+      <td>5.352632</td>
+      <td>2.054284</td>
+      <td>1.771529</td>
+      <td>1.028900</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Japan</th>
+      <td>7.331001</td>
+      <td>3.957143</td>
+      <td>1.008411</td>
+      <td>1.359564</td>
+      <td>0.537857</td>
+    </tr>
+    <tr>
+      <th>Netherlands</th>
+      <td>4.082614</td>
+      <td>2.620772</td>
+      <td>1.070436</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>New Zealand</th>
+      <td>2.465556</td>
+      <td>2.889572</td>
+      <td>3.883683</td>
+      <td>-2.256588</td>
+      <td>9.821699</td>
+    </tr>
+    <tr>
+      <th>Norway</th>
+      <td>3.400122</td>
+      <td>5.108289</td>
+      <td>10.201270</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Portugal</th>
+      <td>4.451419</td>
+      <td>3.549482</td>
+      <td>1.893899</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Spain</th>
+      <td>1.549332</td>
+      <td>3.398669</td>
+      <td>4.156250</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Sweden</th>
+      <td>3.567385</td>
+      <td>2.932237</td>
+      <td>2.665824</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>UK</th>
+      <td>NaN</td>
+      <td>2.231213</td>
+      <td>2.522133</td>
+      <td>3.303428</td>
+      <td>1.871568</td>
+    </tr>
+    <tr>
+      <th>US</th>
+      <td>NaN</td>
+      <td>3.370208</td>
+      <td>3.264068</td>
+      <td>0.995529</td>
+      <td>-10.942159</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="Selective-treatment-of-early-years">
+<h2>Selective treatment of early years<a class="headerlink" href="#Selective-treatment-of-early-years" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">RR</span><span class="o">.</span><span class="n">Country</span> <span class="o">==</span> <span class="s1">&#39;New Zealand&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">RR</span><span class="o">.</span><span class="n">Year</span> <span class="o">&lt;</span> <span class="mi">1950</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">RR</span><span class="o">.</span><span class="n">Country</span> <span class="o">==</span> <span class="s1">&#39;Australia&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">RR</span><span class="o">.</span><span class="n">Year</span> <span class="o">&lt;</span> <span class="mi">1951</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">RR</span><span class="o">.</span><span class="n">Country</span> <span class="o">==</span> <span class="s1">&#39;Canada&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">RR</span><span class="o">.</span><span class="n">Year</span> <span class="o">&lt;</span> <span class="mi">1951</span><span class="p">)</span>
+<span class="n">RR_selective</span> <span class="o">=</span> <span class="n">RR</span><span class="p">[</span><span class="n">idx</span> <span class="o">==</span> <span class="kc">False</span><span class="p">]</span>
+<span class="n">RR_selective</span><span class="o">.</span><span class="n">dRGDP</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">RR_selective</span><span class="o">.</span><span class="n">dgcat</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[12]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>dgcat
+0-30%        4.173523
+30-60%       3.092145
+60-90%       3.186575
+Above 90%    1.919934
+Name: dRGDP, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Equal-weights">
+<h2>Equal weights<a class="headerlink" href="#Equal-weights" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="Table-3-Weights,Exclusion">
+<h2>Table 3 Weights,Exclusion<a class="headerlink" href="#Table-3-Weights,Exclusion" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">RR_selective</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[13]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>Unnamed: 0    5.916408e+02
+Year          1.979633e+03
+Debt          1.621458e+07
+RGDP          2.369173e+05
+GDP           1.957611e+05
+dRGDP         3.408270e+00
+GDPI          5.034180e+01
+GDP1          1.470725e+07
+GDP2          1.824865e+07
+RGDP1         1.425590e+07
+RGDP2         3.072470e+07
+GDPI1         5.589542e+02
+GDPI2         8.690705e+01
+Infl          5.632643e+00
+Debt1         5.625405e+05
+Debt2         1.050730e+05
+Debtalt       1.006665e+07
+GDP2alt       4.450790e+05
+GDPalt        2.079659e+06
+RGDP2alt      1.033331e+05
+debtgdp       4.530375e+01
+GDP3          7.689113e+04
+GNI           5.156239e+08
+lRGDP         2.351587e+05
+lRGDP1        1.405853e+07
+lRGDP2        3.047113e+07
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Correct-weights">
+<h2>Correct weights<a class="headerlink" href="#Correct-weights" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="Table-3-Selective-years-exclusion">
+<h2>Table 3 Selective years exclusion<a class="headerlink" href="#Table-3-Selective-years-exclusion" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">RR_selective</span><span class="o">.</span><span class="n">dRGDP</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">RR_selective</span><span class="o">.</span><span class="n">Country</span><span class="p">,</span> <span class="n">RR_selective</span><span class="o">.</span><span class="n">dgcat</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>dgcat</th>
+      <th>0-30%</th>
+      <th>30-60%</th>
+      <th>60-90%</th>
+      <th>Above 90%</th>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Australia</th>
+      <td>3.205885</td>
+      <td>4.947205</td>
+      <td>4.042175</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Austria</th>
+      <td>5.207527</td>
+      <td>3.256526</td>
+      <td>-3.824000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Belgium</th>
+      <td>NaN</td>
+      <td>4.191655</td>
+      <td>3.079868</td>
+      <td>2.566828</td>
+    </tr>
+    <tr>
+      <th>Canada</th>
+      <td>2.515704</td>
+      <td>3.525446</td>
+      <td>4.523574</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Denmark</th>
+      <td>3.518584</td>
+      <td>1.700034</td>
+      <td>2.391147</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Finland</th>
+      <td>3.817029</td>
+      <td>2.418535</td>
+      <td>5.488887</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>France</th>
+      <td>5.058476</td>
+      <td>2.616159</td>
+      <td>3.019631</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Germany</th>
+      <td>3.873759</td>
+      <td>0.875803</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Greece</th>
+      <td>4.001282</td>
+      <td>0.340200</td>
+      <td>2.696000</td>
+      <td>2.910632</td>
+    </tr>
+    <tr>
+      <th>Ireland</th>
+      <td>4.209251</td>
+      <td>4.452167</td>
+      <td>3.950139</td>
+      <td>2.428571</td>
+    </tr>
+    <tr>
+      <th>Italy</th>
+      <td>5.352632</td>
+      <td>2.054284</td>
+      <td>1.771529</td>
+      <td>1.028900</td>
+    </tr>
+    <tr>
+      <th>Japan</th>
+      <td>7.331001</td>
+      <td>3.957143</td>
+      <td>1.008411</td>
+      <td>0.687258</td>
+    </tr>
+    <tr>
+      <th>Netherlands</th>
+      <td>4.082614</td>
+      <td>2.620772</td>
+      <td>1.070436</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>New Zealand</th>
+      <td>2.465556</td>
+      <td>2.889572</td>
+      <td>3.883683</td>
+      <td>-7.635102</td>
+    </tr>
+    <tr>
+      <th>Norway</th>
+      <td>3.400122</td>
+      <td>5.108289</td>
+      <td>10.201270</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Portugal</th>
+      <td>4.451419</td>
+      <td>3.549482</td>
+      <td>1.893899</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Spain</th>
+      <td>1.549332</td>
+      <td>3.398669</td>
+      <td>4.156250</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Sweden</th>
+      <td>3.567385</td>
+      <td>2.932237</td>
+      <td>2.665824</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>UK</th>
+      <td>NaN</td>
+      <td>2.231213</td>
+      <td>2.522133</td>
+      <td>2.399096</td>
+    </tr>
+    <tr>
+      <th>US</th>
+      <td>NaN</td>
+      <td>3.370208</td>
+      <td>3.264068</td>
+      <td>-1.988893</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="And-dropping-because-of-spreadsheet-error">
+<h2>And dropping because of spreadsheet error<a class="headerlink" href="#And-dropping-because-of-spreadsheet-error" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">drop</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Australia&quot;</span><span class="p">,</span><span class="s2">&quot;Austria&quot;</span><span class="p">,</span><span class="s2">&quot;Belgium&quot;</span><span class="p">,</span><span class="s2">&quot;Canada&quot;</span><span class="p">,</span><span class="s2">&quot;Denmark&quot;</span><span class="p">]</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">drop</span> <span class="k">else</span> <span class="kc">True</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">RR_selective</span><span class="o">.</span><span class="n">Country</span><span class="p">]</span>
+<span class="n">RR_selective_spreadsheet</span> <span class="o">=</span> <span class="n">RR_selective</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">RR_selective_spreadsheet</span><span class="o">.</span><span class="n">dRGDP</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">RR</span><span class="o">.</span><span class="n">dgcat</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[15]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>dgcat
+0-30%        4.236391
+30-60%       2.958902
+60-90%       3.160164
+Above 90%    1.692155
+Name: dRGDP, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="New-Zealand-transcription-error">
+<h2>New Zealand transcription error<a class="headerlink" href="#New-Zealand-transcription-error" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">RR_selective_spreadsheet_transcription</span> <span class="o">=</span> <span class="n">RR_selective_spreadsheet</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">RR_selective_spreadsheet_transcription</span><span class="o">.</span><span class="n">RGDP</span><span class="p">[</span><span class="n">RR_selective_spreadsheet_transcription</span><span class="o">.</span><span class="n">Country</span><span class="o">==</span><span class="s1">&#39;New Zealand&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">7.9</span>
+<span class="n">RR_selective_spreadsheet_transcription</span><span class="o">.</span><span class="n">dRGDP</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">RR</span><span class="o">.</span><span class="n">dgcat</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+/Users/fperez/usr/conda/envs/s159/lib/python3.6/site-packages/ipykernel_launcher.py:2: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[33]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>dgcat
+0-30%        4.236391
+30-60%       2.958902
+60-90%       3.160164
+Above 90%    1.692155
+Name: dRGDP, dtype: float64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">a</span> <span class="o">=</span> <span class="n">RR_selective_spreadsheet_transcription</span><span class="o">.</span><span class="n">Country</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">RR_selective_spreadsheet_transcription</span><span class="o">.</span><span class="n">dgcat</span>
+<span class="n">RR_selective_spreadsheet_transcription</span><span class="o">.</span><span class="n">dRGDP</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[34]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>dgcat
+0-30%        4.236391
+30-60%       2.958902
+60-90%       3.160164
+Above 90%    1.692155
+Name: dRGDP, dtype: float64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">published_means</span> <span class="o">=</span> <span class="n">RR_selective_spreadsheet_transcription</span><span class="o">.</span><span class="n">dRGDP</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+<span class="n">published_means</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;New Zealand&#39;</span><span class="p">,</span> <span class="s1">&#39;Above 90%&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">7.9</span>
+<span class="n">published_means</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[31]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>dgcat
+0-30%        4.089220
+30-60%       2.854316
+60-90%       3.399440
+Above 90%   -0.062062
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Medians">
+<h2>Medians<a class="headerlink" href="#Medians" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">RR</span><span class="o">.</span><span class="n">dRGDP</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">RR</span><span class="o">.</span><span class="n">dgcat</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span> <span class="c1"># Correct, equal weight</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[19]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>dgcat
+0-30%        4.145376
+30-60%       3.104629
+60-90%       2.897829
+Above 90%    2.335324
+Name: dRGDP, dtype: float64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">RR</span><span class="o">.</span><span class="n">dRGDP</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">RR</span><span class="o">.</span><span class="n">dgcat2</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span> <span class="c1"># Correct, expanded categories, equal weight</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[20]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>dgcat2
+0-30%         4.145376
+30-60%        3.104629
+60-90%        2.897829
+90-120%       2.373340
+Above 120%    2.039469
+Name: dRGDP, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Counts-of-years">
+<h2>Counts of years<a class="headerlink" href="#Counts-of-years" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">RR</span><span class="o">.</span><span class="n">Country</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">RR</span><span class="o">.</span><span class="n">Country</span><span class="p">,</span> <span class="n">RR</span><span class="o">.</span><span class="n">dgcat</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[21]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>dgcat
+0-30%        426.0
+30-60%       439.0
+60-90%       200.0
+Above 90%    110.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">RR_selective</span><span class="o">.</span><span class="n">Country</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">RR</span><span class="o">.</span><span class="n">Country</span><span class="p">,</span> <span class="n">RR</span><span class="o">.</span><span class="n">dgcat</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[22]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>dgcat
+0-30%        426.0
+30-60%       439.0
+60-90%       200.0
+Above 90%     96.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">RR_selective_spreadsheet</span><span class="o">.</span><span class="n">Country</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">RR</span><span class="o">.</span><span class="n">Country</span><span class="p">,</span> <span class="n">RR</span><span class="o">.</span><span class="n">dgcat</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[23]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>dgcat
+0-30%        329.0
+30-60%       324.0
+60-90%       138.0
+Above 90%     71.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Categorical-scatterplot">
+<h2>Categorical scatterplot<a class="headerlink" href="#Categorical-scatterplot" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0-30%&quot;</span><span class="p">,</span><span class="s2">&quot;30-60%&quot;</span><span class="p">,</span><span class="s2">&quot;60-90%&quot;</span><span class="p">,</span><span class="s2">&quot;Above 90%&quot;</span><span class="p">]</span>
+<span class="n">dat</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">RR</span><span class="o">.</span><span class="n">dRGDP</span><span class="p">[</span><span class="n">RR</span><span class="o">.</span><span class="n">dgcat</span><span class="o">==</span><span class="n">x</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">]</span>
+<span class="n">sm</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/lectures_rr._34_0.png" src="../_images/lectures_rr._34_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0-30%&quot;</span><span class="p">,</span><span class="s2">&quot;30-60%&quot;</span><span class="p">,</span><span class="s2">&quot;60-90%&quot;</span><span class="p">,</span><span class="s2">&quot;90-120%&quot;</span><span class="p">,</span><span class="s2">&quot;Above 120%&quot;</span><span class="p">]</span>
+<span class="n">dat</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">RR</span><span class="o">.</span><span class="n">dRGDP</span><span class="p">[</span><span class="n">RR</span><span class="o">.</span><span class="n">dgcat2</span><span class="o">==</span><span class="n">x</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">]</span>
+<span class="n">sm</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/lectures_rr._35_0.png" src="../_images/lectures_rr._35_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Country-Year-average-by-debtgdp-for-more-recent-samples">
+<h2>Country-Year average by debtgdp for more recent samples<a class="headerlink" href="#Country-Year-average-by-debtgdp-for-more-recent-samples" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">years</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1950</span><span class="p">,</span> <span class="mi">2001</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">RR</span><span class="p">[</span><span class="n">RR</span><span class="o">.</span><span class="n">Year</span> <span class="o">&gt;=</span> <span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">dRGDP</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">RR</span><span class="p">[</span><span class="n">RR</span><span class="o">.</span><span class="n">Year</span> <span class="o">&gt;=</span> <span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">dgcat</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">years</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[28]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[(1950, dgcat
+  0-30%        4.135295
+  30-60%       2.980839
+  60-90%       3.100982
+  Above 90%    2.121852
+  Name: dRGDP, dtype: float64), (1960, dgcat
+  0-30%        3.895619
+  30-60%       2.909601
+  60-90%       2.779663
+  Above 90%    2.074064
+  Name: dRGDP, dtype: float64), (1970, dgcat
+  0-30%        3.145224
+  30-60%       2.644951
+  60-90%       2.559289
+  Above 90%    1.959229
+  Name: dRGDP, dtype: float64), (1980, dgcat
+  0-30%        2.541408
+  30-60%       2.451346
+  60-90%       2.435681
+  Above 90%    1.959229
+  Name: dRGDP, dtype: float64), (1990, dgcat
+  0-30%        2.669334
+  30-60%       2.403622
+  60-90%       2.457587
+  Above 90%    1.823201
+  Name: dRGDP, dtype: float64), (2000, dgcat
+  0-30%        2.747593
+  30-60%       1.881735
+  60-90%       1.290506
+  Above 90%    1.745087
+  Name: dRGDP, dtype: float64)]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Stat 159/259 - Reproducible and Collaborative Data Science</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial..html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Index..html">A quick overview of the Jupyter Notebook and IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-reading1-discussion..html">Reading discussion - Developing open source scientific practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-reading2-discussion..html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-class-practice..html">Class practice: strings, lists &amp; numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-conda-pip-environments..html">Conda and pip - managing environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-reading3-discussion..html">From September 25 reading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-reading3-discussion..html#Make:-automating-tasks">Make: automating tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-ligo-make.html">LIGO, the 2017 Nobel prize in physics, and wrapping up Makefiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy..html">An Introduction to the Scientific Python Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy..html#Motivation:-the-trapezoidal-rule">Motivation: the trapezoidal rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy..html#NumPy-arrays:-the-right-data-structure-for-scientific-computing">NumPy arrays: the right data structure for scientific computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy..html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/trapezoid..html">The trapezoidal rule: vectorization and perormance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/10-matplotlib_beyond_basics..html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/10-matplotlib_live_plots..html">Matplotlib: Live plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/image_tutorial..html">Matplotlib image tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/image_tutorial..html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-strings/11-strings..html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-strings/11-nltk..html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12-data-intro..html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13-data-frames..html">Data Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14-sphinx..html">An introduction to Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16-testing..html">Testing your software in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17-numerical-chaos..html">Simple chaotic behavior in non-linear systems</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Beyond Plain Python..html">IPython: beyond plain Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Index..html">A quick overview of the Jupyter Notebook and IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Notebook Basics..html">Notebook Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Working With Markdown Cells..html">Markdown Cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Working With Markdown Cells..html#Heading-1">Heading 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Working With Markdown Cells..html#Heading-2">Heading 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-pvalues/rabbits..html">P-values, Probability, Priors, Rabbits, Quantifauxcation, and Cargo-Cult Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readings.html">Readings</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab10..html">Lab 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab2.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab3.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab4.html">Lab 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab5..html">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab6..html">Lab 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab8..html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab9..html">Lab 9</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Fernando Perez.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/lectures/rr..ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
