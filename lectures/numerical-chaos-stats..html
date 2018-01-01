@@ -1,0 +1,1523 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Some statistical questions in the logistic (chaotic) map &#8212; Stat 159/259 - Reproducible and Collaborative Data Science 1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="section" id="Some-statistical-questions-in-the-logistic-(chaotic)-map">
+<h1>Some statistical questions in the logistic (chaotic) map<a class="headerlink" href="#Some-statistical-questions-in-the-logistic-(chaotic)-map" title="Permalink to this headline">¶</a></h1>
+<p>Consider the seemingly trivial problem of evaluating with a computer the
+expression</p>
+<div class="math">
+\[f(x) = r x (1-x)\]</div>
+<p>where <span class="math">\(r\)</span> and <span class="math">\(x\)</span> are real numbers with <span class="math">\(r \in [0,4]\)</span>
+and <span class="math">\(x \in (0,1)\)</span>. This expression can also be written in an
+algebraically equivalent form:</p>
+<div class="math">
+\[f_2(x) = rx - rx^2.\]</div>
+<p>We will see, however, that when using a computer these two forms don’t
+necessarily produce the same answer. Computers can not represent the
+real numbers (a mathematical abstraction with infinite precision) but
+instead must use finite-precision numbers that can fit in finite memory.
+The two expressions above can, therefore, lead to slightly different
+answers as the various (algebraically equivalent) operations are carried
+by the computer.</p>
+<p>First a look at a few simple tests:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">fractions</span> <span class="k">import</span> <span class="n">Fraction</span>
+<span class="kn">from</span> <span class="nn">gmpy2</span> <span class="k">import</span> <span class="n">mpq</span> <span class="k">as</span> <span class="n">Fraction</span>
+<span class="n">Fraction</span><span class="p">(</span><span class="s1">&#39;1.9&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[1]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>mpq(19,10)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">r</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">r</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">r</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="s1">&#39;3.9&#39;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="s1">&#39;0.8&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f1:&#39;</span><span class="p">,</span> <span class="n">f1</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">f1</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f2:&#39;</span><span class="p">,</span> <span class="n">f2</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">f2</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+f1: 78/125 0.624
+f2: 78/125 0.624
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">r</span><span class="o">.</span><span class="n">numerator</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[3]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>6
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">r</span> <span class="o">=</span> <span class="mf">3.9</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f1:&#39;</span><span class="p">,</span> <span class="n">f1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f2:&#39;</span><span class="p">,</span> <span class="n">f2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+f1: 0.6239999999999999
+f2: 0.6239999999999997
+</pre></div></div>
+</div>
+<p>The difference is small but not zero:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;difference:&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">f1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">f2</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+difference: 2.220446049250313e-16
+</pre></div></div>
+</div>
+<p>More importantly, this difference begins to accumulate as we perform the
+same operations over and over. Let’s illustrate this behavior by using
+the formulas above <em>iteratively</em>, that is, by feeding the result of the
+evaluation back into the same formula:</p>
+<div class="math">
+\[x_{n+1} = f(x_n), n=0,1, \ldots\]</div>
+<p>We can experiment with different values of <span class="math">\(r\)</span> and different
+starting points <span class="math">\(x_0\)</span> to observe the different results. We will
+simply build a python list that contains the results of three different
+(algebraically equivalent) forms of evaluating the above expression.</p>
+<div class="admonition"><p class="admonition-title"><p>Exercise</p>
+</p><p><p>Build a little script that computes the iteration of <span class="math">\(f(x)\)</span> using
+three different ways of writing the expression. Store your results and
+plot them using the <code class="docutils literal"><span class="pre">plt.plot()</span></code> function (the solution follows).</p>
+</p></div><p>For completeness, we define three algebraically equivalent formulations:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">r</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">r</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">r</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="k">def</span> <span class="nf">f3</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>In order to see the difference between the initial behavior and the
+later evolution, let’s declare two variables to control our plotting:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">num_points</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># total number of points to compute</span>
+<span class="n">drop_points</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># don&#39;t display the first drop_points</span>
+</pre></div>
+</div>
+</div>
+<p>Using these, we can get the following figure:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="o">%%</span><span class="k">time</span>
+%matplotlib inline
+import matplotlib.pyplot as plt
+import numpy as np
+import sys
+
+x0 = Fraction(&#39;0.5&#39;) # Any starting value
+r  = Fraction(&#39;3.9&#39;)  # Change this to see changes in behavior
+fp = float((r-1.0)/r)
+x1 = x2 = x0
+data = []
+sizes = []
+data.append([float(x1), float(x2)])
+for i in range(num_points):
+    print(i, end=&#39; &#39;); sys.stdout.flush()
+    x1 = f1(x1)
+    x2 = f2(x2)
+    data.append([float(x1), float(x2)])
+    sizes.append(x1.numerator.bit_length())
+
+# Display the results
+plt.figure()
+plt.title(&#39;r=%1.1f&#39; % r)
+plt.axhline(fp, color=&#39;black&#39;)
+plt.plot(data[drop_points:], &#39;-o&#39;, markersize=4)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/lectures_numerical-chaos-stats._13_1.png" src="../_images/lectures_numerical-chaos-stats._13_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CPU times: user 840 ms, sys: 31 ms, total: 871 ms
+Wall time: 868 ms
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">sizes</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/lectures_numerical-chaos-stats._14_0.png" src="../_images/lectures_numerical-chaos-stats._14_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="o">%%</span><span class="k">time</span>
+float(x1 - x2)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CPU times: user 29.9 ms, sys: 31.2 ms, total: 61.2 ms
+Wall time: 61.2 ms
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[38]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>0.0
+</pre></div>
+</div>
+</div>
+<div class="admonition"><p class="admonition-title"><p>Exercise</p>
+</p><p><p>Now, experiment with different values of <span class="math">\(r\)</span> as well as different
+starting points <span class="math">\(x_0\)</span>. What do you see? What happens when
+<span class="math">\(r\)</span> is small (close to 0)? Experiment with these values of
+<span class="math">\(r\)</span>: [1.9, 2.9, 3.1, 3.5, 3.9] and think about the behavior of the
+system as you change <span class="math">\(r\)</span>.</p>
+</p></div><p>Once we’ve understood the basic pattern, let’s try to think of the
+entire evolution of the system <em>as a function of</em> <span class="math">\(r\)</span>. First,
+observe that a sequence generated by an iterative process of the form</p>
+<div class="math">
+\[x_{n+1} = f(x_n), n=0,1, \ldots\]</div>
+<p>will stop producing new values if there is a certain <span class="math">\(x^*\)</span> such
+that</p>
+<div class="math">
+\[x^* = f(x^*).\]</div>
+<p>This special <span class="math">\(x^*\)</span> is called a <em>fixed point</em> of the iterative
+process. It is easy to show that for our <span class="math">\(f(x)\)</span>, the fixed point
+is</p>
+<div class="math">
+\[x^* = \frac{r-1}{r}\]</div>
+<p>(in fact, that’s the value plotted as a thin black line in the earlier
+script).</p>
+<div class="admonition"><p class="admonition-title"><p>Exercise</p>
+</p><p><p>Study whether the iteration converges to the fixed point or not by
+letting it run for each value of r for a few hundred points and
+discarding those, and then plotting the rest. Make a diagram with these
+plots as a function of r.</p>
+</p></div><p>The following code is a simple solution:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">r</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">num_points</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">drop_points</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">rmin</span><span class="p">,</span> <span class="n">rmax</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mf">0.65</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">rmin</span><span class="p">,</span> <span class="n">rmax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">rmin</span><span class="p">,</span> <span class="n">rmax</span><span class="p">,</span> <span class="mi">2000</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">num_points</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_points</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">r</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">drop_points</span><span class="p">:]</span>
+    <span class="n">rplot</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rplot</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;b,&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div id="c85fc2e8-6ffe-40b2-a07c-f56b4a1dde4d"></div>
+<script type="text/javascript">
+var element = document.getElementById('c85fc2e8-6ffe-40b2-a07c-f56b4a1dde4d');
+/* Put everything inside the global mpl namespace */
+window.mpl = {};
+
+
+mpl.get_websocket_type = function() {
+    if (typeof(WebSocket) !== 'undefined') {
+        return WebSocket;
+    } else if (typeof(MozWebSocket) !== 'undefined') {
+        return MozWebSocket;
+    } else {
+        alert('Your browser does not have WebSocket support.' +
+              'Please try Chrome, Safari or Firefox ≥ 6. ' +
+              'Firefox 4 and 5 are also supported but you ' +
+              'have to enable WebSockets in about:config.');
+    };
+}
+
+mpl.figure = function(figure_id, websocket, ondownload, parent_element) {
+    this.id = figure_id;
+
+    this.ws = websocket;
+
+    this.supports_binary = (this.ws.binaryType != undefined);
+
+    if (!this.supports_binary) {
+        var warnings = document.getElementById("mpl-warnings");
+        if (warnings) {
+            warnings.style.display = 'block';
+            warnings.textContent = (
+                "This browser does not support binary websocket messages. " +
+                    "Performance may be slow.");
+        }
+    }
+
+    this.imageObj = new Image();
+
+    this.context = undefined;
+    this.message = undefined;
+    this.canvas = undefined;
+    this.rubberband_canvas = undefined;
+    this.rubberband_context = undefined;
+    this.format_dropdown = undefined;
+
+    this.image_mode = 'full';
+
+    this.root = $('<div/>');
+    this._root_extra_style(this.root)
+    this.root.attr('style', 'display: inline-block');
+
+    $(parent_element).append(this.root);
+
+    this._init_header(this);
+    this._init_canvas(this);
+    this._init_toolbar(this);
+
+    var fig = this;
+
+    this.waiting = false;
+
+    this.ws.onopen =  function () {
+            fig.send_message("supports_binary", {value: fig.supports_binary});
+            fig.send_message("send_image_mode", {});
+            if (mpl.ratio != 1) {
+                fig.send_message("set_dpi_ratio", {'dpi_ratio': mpl.ratio});
+            }
+            fig.send_message("refresh", {});
+        }
+
+    this.imageObj.onload = function() {
+            if (fig.image_mode == 'full') {
+                // Full images could contain transparency (where diff images
+                // almost always do), so we need to clear the canvas so that
+                // there is no ghosting.
+                fig.context.clearRect(0, 0, fig.canvas.width, fig.canvas.height);
+            }
+            fig.context.drawImage(fig.imageObj, 0, 0);
+        };
+
+    this.imageObj.onunload = function() {
+        fig.ws.close();
+    }
+
+    this.ws.onmessage = this._make_on_message_function(this);
+
+    this.ondownload = ondownload;
+}
+
+mpl.figure.prototype._init_header = function() {
+    var titlebar = $(
+        '<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ' +
+        'ui-helper-clearfix"/>');
+    var titletext = $(
+        '<div class="ui-dialog-title" style="width: 100%; ' +
+        'text-align: center; padding: 3px;"/>');
+    titlebar.append(titletext)
+    this.root.append(titlebar);
+    this.header = titletext[0];
+}
+
+
+
+mpl.figure.prototype._canvas_extra_style = function(canvas_div) {
+
+}
+
+
+mpl.figure.prototype._root_extra_style = function(canvas_div) {
+
+}
+
+mpl.figure.prototype._init_canvas = function() {
+    var fig = this;
+
+    var canvas_div = $('<div/>');
+
+    canvas_div.attr('style', 'position: relative; clear: both; outline: 0');
+
+    function canvas_keyboard_event(event) {
+        return fig.key_event(event, event['data']);
+    }
+
+    canvas_div.keydown('key_press', canvas_keyboard_event);
+    canvas_div.keyup('key_release', canvas_keyboard_event);
+    this.canvas_div = canvas_div
+    this._canvas_extra_style(canvas_div)
+    this.root.append(canvas_div);
+
+    var canvas = $('<canvas/>');
+    canvas.addClass('mpl-canvas');
+    canvas.attr('style', "left: 0; top: 0; z-index: 0; outline: 0")
+
+    this.canvas = canvas[0];
+    this.context = canvas[0].getContext("2d");
+
+    var backingStore = this.context.backingStorePixelRatio ||
+    this.context.webkitBackingStorePixelRatio ||
+    this.context.mozBackingStorePixelRatio ||
+    this.context.msBackingStorePixelRatio ||
+    this.context.oBackingStorePixelRatio ||
+    this.context.backingStorePixelRatio || 1;
+
+    mpl.ratio = (window.devicePixelRatio || 1) / backingStore;
+
+    var rubberband = $('<canvas/>');
+    rubberband.attr('style', "position: absolute; left: 0; top: 0; z-index: 1;")
+
+    var pass_mouse_events = true;
+
+    canvas_div.resizable({
+        start: function(event, ui) {
+            pass_mouse_events = false;
+        },
+        resize: function(event, ui) {
+            fig.request_resize(ui.size.width, ui.size.height);
+        },
+        stop: function(event, ui) {
+            pass_mouse_events = true;
+            fig.request_resize(ui.size.width, ui.size.height);
+        },
+    });
+
+    function mouse_event_fn(event) {
+        if (pass_mouse_events)
+            return fig.mouse_event(event, event['data']);
+    }
+
+    rubberband.mousedown('button_press', mouse_event_fn);
+    rubberband.mouseup('button_release', mouse_event_fn);
+    // Throttle sequential mouse events to 1 every 20ms.
+    rubberband.mousemove('motion_notify', mouse_event_fn);
+
+    rubberband.mouseenter('figure_enter', mouse_event_fn);
+    rubberband.mouseleave('figure_leave', mouse_event_fn);
+
+    canvas_div.on("wheel", function (event) {
+        event = event.originalEvent;
+        event['data'] = 'scroll'
+        if (event.deltaY < 0) {
+            event.step = 1;
+        } else {
+            event.step = -1;
+        }
+        mouse_event_fn(event);
+    });
+
+    canvas_div.append(canvas);
+    canvas_div.append(rubberband);
+
+    this.rubberband = rubberband;
+    this.rubberband_canvas = rubberband[0];
+    this.rubberband_context = rubberband[0].getContext("2d");
+    this.rubberband_context.strokeStyle = "#000000";
+
+    this._resize_canvas = function(width, height) {
+        // Keep the size of the canvas, canvas container, and rubber band
+        // canvas in synch.
+        canvas_div.css('width', width)
+        canvas_div.css('height', height)
+
+        canvas.attr('width', width * mpl.ratio);
+        canvas.attr('height', height * mpl.ratio);
+        canvas.attr('style', 'width: ' + width + 'px; height: ' + height + 'px;');
+
+        rubberband.attr('width', width);
+        rubberband.attr('height', height);
+    }
+
+    // Set the figure to an initial 600x600px, this will subsequently be updated
+    // upon first draw.
+    this._resize_canvas(600, 600);
+
+    // Disable right mouse context menu.
+    $(this.rubberband_canvas).bind("contextmenu",function(e){
+        return false;
+    });
+
+    function set_focus () {
+        canvas.focus();
+        canvas_div.focus();
+    }
+
+    window.setTimeout(set_focus, 100);
+}
+
+mpl.figure.prototype._init_toolbar = function() {
+    var fig = this;
+
+    var nav_element = $('<div/>')
+    nav_element.attr('style', 'width: 100%');
+    this.root.append(nav_element);
+
+    // Define a callback function for later on.
+    function toolbar_event(event) {
+        return fig.toolbar_button_onclick(event['data']);
+    }
+    function toolbar_mouse_event(event) {
+        return fig.toolbar_button_onmouseover(event['data']);
+    }
+
+    for(var toolbar_ind in mpl.toolbar_items) {
+        var name = mpl.toolbar_items[toolbar_ind][0];
+        var tooltip = mpl.toolbar_items[toolbar_ind][1];
+        var image = mpl.toolbar_items[toolbar_ind][2];
+        var method_name = mpl.toolbar_items[toolbar_ind][3];
+
+        if (!name) {
+            // put a spacer in here.
+            continue;
+        }
+        var button = $('<button/>');
+        button.addClass('ui-button ui-widget ui-state-default ui-corner-all ' +
+                        'ui-button-icon-only');
+        button.attr('role', 'button');
+        button.attr('aria-disabled', 'false');
+        button.click(method_name, toolbar_event);
+        button.mouseover(tooltip, toolbar_mouse_event);
+
+        var icon_img = $('<span/>');
+        icon_img.addClass('ui-button-icon-primary ui-icon');
+        icon_img.addClass(image);
+        icon_img.addClass('ui-corner-all');
+
+        var tooltip_span = $('<span/>');
+        tooltip_span.addClass('ui-button-text');
+        tooltip_span.html(tooltip);
+
+        button.append(icon_img);
+        button.append(tooltip_span);
+
+        nav_element.append(button);
+    }
+
+    var fmt_picker_span = $('<span/>');
+
+    var fmt_picker = $('<select/>');
+    fmt_picker.addClass('mpl-toolbar-option ui-widget ui-widget-content');
+    fmt_picker_span.append(fmt_picker);
+    nav_element.append(fmt_picker_span);
+    this.format_dropdown = fmt_picker[0];
+
+    for (var ind in mpl.extensions) {
+        var fmt = mpl.extensions[ind];
+        var option = $(
+            '<option/>', {selected: fmt === mpl.default_extension}).html(fmt);
+        fmt_picker.append(option)
+    }
+
+    // Add hover states to the ui-buttons
+    $( ".ui-button" ).hover(
+        function() { $(this).addClass("ui-state-hover");},
+        function() { $(this).removeClass("ui-state-hover");}
+    );
+
+    var status_bar = $('<span class="mpl-message"/>');
+    nav_element.append(status_bar);
+    this.message = status_bar[0];
+}
+
+mpl.figure.prototype.request_resize = function(x_pixels, y_pixels) {
+    // Request matplotlib to resize the figure. Matplotlib will then trigger a resize in the client,
+    // which will in turn request a refresh of the image.
+    this.send_message('resize', {'width': x_pixels, 'height': y_pixels});
+}
+
+mpl.figure.prototype.send_message = function(type, properties) {
+    properties['type'] = type;
+    properties['figure_id'] = this.id;
+    this.ws.send(JSON.stringify(properties));
+}
+
+mpl.figure.prototype.send_draw_message = function() {
+    if (!this.waiting) {
+        this.waiting = true;
+        this.ws.send(JSON.stringify({type: "draw", figure_id: this.id}));
+    }
+}
+
+
+mpl.figure.prototype.handle_save = function(fig, msg) {
+    var format_dropdown = fig.format_dropdown;
+    var format = format_dropdown.options[format_dropdown.selectedIndex].value;
+    fig.ondownload(fig, format);
+}
+
+
+mpl.figure.prototype.handle_resize = function(fig, msg) {
+    var size = msg['size'];
+    if (size[0] != fig.canvas.width || size[1] != fig.canvas.height) {
+        fig._resize_canvas(size[0], size[1]);
+        fig.send_message("refresh", {});
+    };
+}
+
+mpl.figure.prototype.handle_rubberband = function(fig, msg) {
+    var x0 = msg['x0'] / mpl.ratio;
+    var y0 = (fig.canvas.height - msg['y0']) / mpl.ratio;
+    var x1 = msg['x1'] / mpl.ratio;
+    var y1 = (fig.canvas.height - msg['y1']) / mpl.ratio;
+    x0 = Math.floor(x0) + 0.5;
+    y0 = Math.floor(y0) + 0.5;
+    x1 = Math.floor(x1) + 0.5;
+    y1 = Math.floor(y1) + 0.5;
+    var min_x = Math.min(x0, x1);
+    var min_y = Math.min(y0, y1);
+    var width = Math.abs(x1 - x0);
+    var height = Math.abs(y1 - y0);
+
+    fig.rubberband_context.clearRect(
+        0, 0, fig.canvas.width, fig.canvas.height);
+
+    fig.rubberband_context.strokeRect(min_x, min_y, width, height);
+}
+
+mpl.figure.prototype.handle_figure_label = function(fig, msg) {
+    // Updates the figure title.
+    fig.header.textContent = msg['label'];
+}
+
+mpl.figure.prototype.handle_cursor = function(fig, msg) {
+    var cursor = msg['cursor'];
+    switch(cursor)
+    {
+    case 0:
+        cursor = 'pointer';
+        break;
+    case 1:
+        cursor = 'default';
+        break;
+    case 2:
+        cursor = 'crosshair';
+        break;
+    case 3:
+        cursor = 'move';
+        break;
+    }
+    fig.rubberband_canvas.style.cursor = cursor;
+}
+
+mpl.figure.prototype.handle_message = function(fig, msg) {
+    fig.message.textContent = msg['message'];
+}
+
+mpl.figure.prototype.handle_draw = function(fig, msg) {
+    // Request the server to send over a new figure.
+    fig.send_draw_message();
+}
+
+mpl.figure.prototype.handle_image_mode = function(fig, msg) {
+    fig.image_mode = msg['mode'];
+}
+
+mpl.figure.prototype.updated_canvas_event = function() {
+    // Called whenever the canvas gets updated.
+    this.send_message("ack", {});
+}
+
+// A function to construct a web socket function for onmessage handling.
+// Called in the figure constructor.
+mpl.figure.prototype._make_on_message_function = function(fig) {
+    return function socket_on_message(evt) {
+        if (evt.data instanceof Blob) {
+            /* FIXME: We get "Resource interpreted as Image but
+             * transferred with MIME type text/plain:" errors on
+             * Chrome.  But how to set the MIME type?  It doesn't seem
+             * to be part of the websocket stream */
+            evt.data.type = "image/png";
+
+            /* Free the memory for the previous frames */
+            if (fig.imageObj.src) {
+                (window.URL || window.webkitURL).revokeObjectURL(
+                    fig.imageObj.src);
+            }
+
+            fig.imageObj.src = (window.URL || window.webkitURL).createObjectURL(
+                evt.data);
+            fig.updated_canvas_event();
+            fig.waiting = false;
+            return;
+        }
+        else if (typeof evt.data === 'string' && evt.data.slice(0, 21) == "data:image/png;base64") {
+            fig.imageObj.src = evt.data;
+            fig.updated_canvas_event();
+            fig.waiting = false;
+            return;
+        }
+
+        var msg = JSON.parse(evt.data);
+        var msg_type = msg['type'];
+
+        // Call the  "handle_{type}" callback, which takes
+        // the figure and JSON message as its only arguments.
+        try {
+            var callback = fig["handle_" + msg_type];
+        } catch (e) {
+            console.log("No handler for the '" + msg_type + "' message type: ", msg);
+            return;
+        }
+
+        if (callback) {
+            try {
+                // console.log("Handling '" + msg_type + "' message: ", msg);
+                callback(fig, msg);
+            } catch (e) {
+                console.log("Exception inside the 'handler_" + msg_type + "' callback:", e, e.stack, msg);
+            }
+        }
+    };
+}
+
+// from http://stackoverflow.com/questions/1114465/getting-mouse-location-in-canvas
+mpl.findpos = function(e) {
+    //this section is from http://www.quirksmode.org/js/events_properties.html
+    var targ;
+    if (!e)
+        e = window.event;
+    if (e.target)
+        targ = e.target;
+    else if (e.srcElement)
+        targ = e.srcElement;
+    if (targ.nodeType == 3) // defeat Safari bug
+        targ = targ.parentNode;
+
+    // jQuery normalizes the pageX and pageY
+    // pageX,Y are the mouse positions relative to the document
+    // offset() returns the position of the element relative to the document
+    var x = e.pageX - $(targ).offset().left;
+    var y = e.pageY - $(targ).offset().top;
+
+    return {"x": x, "y": y};
+};
+
+/*
+ * return a copy of an object with only non-object keys
+ * we need this to avoid circular references
+ * http://stackoverflow.com/a/24161582/3208463
+ */
+function simpleKeys (original) {
+  return Object.keys(original).reduce(function (obj, key) {
+    if (typeof original[key] !== 'object')
+        obj[key] = original[key]
+    return obj;
+  }, {});
+}
+
+mpl.figure.prototype.mouse_event = function(event, name) {
+    var canvas_pos = mpl.findpos(event)
+
+    if (name === 'button_press')
+    {
+        this.canvas.focus();
+        this.canvas_div.focus();
+    }
+
+    var x = canvas_pos.x * mpl.ratio;
+    var y = canvas_pos.y * mpl.ratio;
+
+    this.send_message(name, {x: x, y: y, button: event.button,
+                             step: event.step,
+                             guiEvent: simpleKeys(event)});
+
+    /* This prevents the web browser from automatically changing to
+     * the text insertion cursor when the button is pressed.  We want
+     * to control all of the cursor setting manually through the
+     * 'cursor' event from matplotlib */
+    event.preventDefault();
+    return false;
+}
+
+mpl.figure.prototype._key_event_extra = function(event, name) {
+    // Handle any extra behaviour associated with a key event
+}
+
+mpl.figure.prototype.key_event = function(event, name) {
+
+    // Prevent repeat events
+    if (name == 'key_press')
+    {
+        if (event.which === this._key)
+            return;
+        else
+            this._key = event.which;
+    }
+    if (name == 'key_release')
+        this._key = null;
+
+    var value = '';
+    if (event.ctrlKey && event.which != 17)
+        value += "ctrl+";
+    if (event.altKey && event.which != 18)
+        value += "alt+";
+    if (event.shiftKey && event.which != 16)
+        value += "shift+";
+
+    value += 'k';
+    value += event.which.toString();
+
+    this._key_event_extra(event, name);
+
+    this.send_message(name, {key: value,
+                             guiEvent: simpleKeys(event)});
+    return false;
+}
+
+mpl.figure.prototype.toolbar_button_onclick = function(name) {
+    if (name == 'download') {
+        this.handle_save(this, null);
+    } else {
+        this.send_message("toolbar_button", {name: name});
+    }
+};
+
+mpl.figure.prototype.toolbar_button_onmouseover = function(tooltip) {
+    this.message.textContent = tooltip;
+};
+mpl.toolbar_items = [["Home", "Reset original view", "fa fa-home icon-home", "home"], ["Back", "Back to  previous view", "fa fa-arrow-left icon-arrow-left", "back"], ["Forward", "Forward to next view", "fa fa-arrow-right icon-arrow-right", "forward"], ["", "", "", ""], ["Pan", "Pan axes with left mouse, zoom with right", "fa fa-arrows icon-move", "pan"], ["Zoom", "Zoom to rectangle", "fa fa-square-o icon-check-empty", "zoom"], ["", "", "", ""], ["Download", "Download plot", "fa fa-floppy-o icon-save", "download"]];
+
+mpl.extensions = ["eps", "jpeg", "pdf", "png", "ps", "raw", "svg", "tif"];
+
+mpl.default_extension = "png";var comm_websocket_adapter = function(comm) {
+    // Create a "websocket"-like object which calls the given IPython comm
+    // object with the appropriate methods. Currently this is a non binary
+    // socket, so there is still some room for performance tuning.
+    var ws = {};
+
+    ws.close = function() {
+        comm.close()
+    };
+    ws.send = function(m) {
+        //console.log('sending', m);
+        comm.send(m);
+    };
+    // Register the callback with on_msg.
+    comm.on_msg(function(msg) {
+        //console.log('receiving', msg['content']['data'], msg);
+        // Pass the mpl event to the overriden (by mpl) onmessage function.
+        ws.onmessage(msg['content']['data'])
+    });
+    return ws;
+}
+
+mpl.mpl_figure_comm = function(comm, msg) {
+    // This is the function which gets called when the mpl process
+    // starts-up an IPython Comm through the "matplotlib" channel.
+
+    var id = msg.content.data.id;
+    // Get hold of the div created by the display call when the Comm
+    // socket was opened in Python.
+    var element = $("#" + id);
+    var ws_proxy = comm_websocket_adapter(comm)
+
+    function ondownload(figure, format) {
+        window.open(figure.imageObj.src);
+    }
+
+    var fig = new mpl.figure(id, ws_proxy,
+                           ondownload,
+                           element.get(0));
+
+    // Call onopen now - mpl needs it, as it is assuming we've passed it a real
+    // web socket which is closed, not our websocket->open comm proxy.
+    ws_proxy.onopen();
+
+    fig.parent_element = element.get(0);
+    fig.cell_info = mpl.find_output_cell("<div id='" + id + "'></div>");
+    if (!fig.cell_info) {
+        console.error("Failed to find cell for figure", id, fig);
+        return;
+    }
+
+    var output_index = fig.cell_info[2]
+    var cell = fig.cell_info[0];
+
+};
+
+mpl.figure.prototype.handle_close = function(fig, msg) {
+    var width = fig.canvas.width/mpl.ratio
+    fig.root.unbind('remove')
+
+    // Update the output cell to use the data from the current canvas.
+    fig.push_to_output();
+    var dataURL = fig.canvas.toDataURL();
+    // Re-enable the keyboard manager in IPython - without this line, in FF,
+    // the notebook keyboard shortcuts fail.
+    IPython.keyboard_manager.enable()
+    $(fig.parent_element).html('<img src="' + dataURL + '" width="' + width + '">');
+    fig.close_ws(fig, msg);
+}
+
+mpl.figure.prototype.close_ws = function(fig, msg){
+    fig.send_message('closing', msg);
+    // fig.ws.close()
+}
+
+mpl.figure.prototype.push_to_output = function(remove_interactive) {
+    // Turn the data on the canvas into data in the output cell.
+    var width = this.canvas.width/mpl.ratio
+    var dataURL = this.canvas.toDataURL();
+    this.cell_info[1]['text/html'] = '<img src="' + dataURL + '" width="' + width + '">';
+}
+
+mpl.figure.prototype.updated_canvas_event = function() {
+    // Tell IPython that the notebook contents must change.
+    IPython.notebook.set_dirty(true);
+    this.send_message("ack", {});
+    var fig = this;
+    // Wait a second, then push the new image to the DOM so
+    // that it is saved nicely (might be nice to debounce this).
+    setTimeout(function () { fig.push_to_output() }, 1000);
+}
+
+mpl.figure.prototype._init_toolbar = function() {
+    var fig = this;
+
+    var nav_element = $('<div/>')
+    nav_element.attr('style', 'width: 100%');
+    this.root.append(nav_element);
+
+    // Define a callback function for later on.
+    function toolbar_event(event) {
+        return fig.toolbar_button_onclick(event['data']);
+    }
+    function toolbar_mouse_event(event) {
+        return fig.toolbar_button_onmouseover(event['data']);
+    }
+
+    for(var toolbar_ind in mpl.toolbar_items){
+        var name = mpl.toolbar_items[toolbar_ind][0];
+        var tooltip = mpl.toolbar_items[toolbar_ind][1];
+        var image = mpl.toolbar_items[toolbar_ind][2];
+        var method_name = mpl.toolbar_items[toolbar_ind][3];
+
+        if (!name) { continue; };
+
+        var button = $('<button class="btn btn-default" href="#" title="' + name + '"><i class="fa ' + image + ' fa-lg"></i></button>');
+        button.click(method_name, toolbar_event);
+        button.mouseover(tooltip, toolbar_mouse_event);
+        nav_element.append(button);
+    }
+
+    // Add the status bar.
+    var status_bar = $('<span class="mpl-message" style="text-align:right; float: right;"/>');
+    nav_element.append(status_bar);
+    this.message = status_bar[0];
+
+    // Add the close button to the window.
+    var buttongrp = $('<div class="btn-group inline pull-right"></div>');
+    var button = $('<button class="btn btn-mini btn-primary" href="#" title="Stop Interaction"><i class="fa fa-power-off icon-remove icon-large"></i></button>');
+    button.click(function (evt) { fig.handle_close(fig, {}); } );
+    button.mouseover('Stop Interaction', toolbar_mouse_event);
+    buttongrp.append(button);
+    var titlebar = this.root.find($('.ui-dialog-titlebar'));
+    titlebar.prepend(buttongrp);
+}
+
+mpl.figure.prototype._root_extra_style = function(el){
+    var fig = this
+    el.on("remove", function(){
+    fig.close_ws(fig, {});
+    });
+}
+
+mpl.figure.prototype._canvas_extra_style = function(el){
+    // this is important to make the div 'focusable
+    el.attr('tabindex', 0)
+    // reach out to IPython and tell the keyboard manager to turn it's self
+    // off when our div gets focus
+
+    // location in version 3
+    if (IPython.notebook.keyboard_manager) {
+        IPython.notebook.keyboard_manager.register_events(el);
+    }
+    else {
+        // location in version 2
+        IPython.keyboard_manager.register_events(el);
+    }
+
+}
+
+mpl.figure.prototype._key_event_extra = function(event, name) {
+    var manager = IPython.notebook.keyboard_manager;
+    if (!manager)
+        manager = IPython.keyboard_manager;
+
+    // Check for shift+enter
+    if (event.shiftKey && event.which == 13) {
+        this.canvas_div.blur();
+        event.shiftKey = false;
+        // Send a "J" for go to next cell
+        event.which = 74;
+        event.keyCode = 74;
+        manager.command_mode();
+        manager.handle_keydown(event);
+    }
+}
+
+mpl.figure.prototype.handle_save = function(fig, msg) {
+    fig.ondownload(fig, null);
+}
+
+
+mpl.find_output_cell = function(html_output) {
+    // Return the cell and output element which can be found *uniquely* in the notebook.
+    // Note - this is a bit hacky, but it is done because the "notebook_saving.Notebook"
+    // IPython event is triggered only after the cells have been serialised, which for
+    // our purposes (turning an active figure into a static one), is too late.
+    var cells = IPython.notebook.get_cells();
+    var ncells = cells.length;
+    for (var i=0; i<ncells; i++) {
+        var cell = cells[i];
+        if (cell.cell_type === 'code'){
+            for (var j=0; j<cell.output_area.outputs.length; j++) {
+                var data = cell.output_area.outputs[j];
+                if (data.data) {
+                    // IPython >= 3 moved mimebundle to data attribute of output
+                    data = data.data;
+                }
+                if (data['text/html'] == html_output) {
+                    return [cell, data, j];
+                }
+            }
+        }
+    }
+}
+
+// Register the function which deals with the matplotlib target/channel.
+// The kernel may be null if the page has been refreshed.
+if (IPython.notebook.kernel != null) {
+    IPython.notebook.kernel.comm_manager.register_target('matplotlib', mpl.mpl_figure_comm);
+}
+
+</script></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img src="data:image/png;base64,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" width="640"></div>
+</div>
+<div class="admonition"><p class="admonition-title"><p>Exercise</p>
+</p><p><p>Can you relate the features of this figure to the behavior you saw in
+your earlier plots? Zoom in the region past <span class="math">\(r=3\)</span>, what finer
+features do you see? Where is the fixed point we discussed earlier?</p>
+</p></div><div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;style.css&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<style>
+
+/* -- admonitions and warnings----------------------------------------- */
+
+div.admonition {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 7px;
+}
+
+div.admonition dt {
+    font-weight: bold;
+}
+
+div.admonition dl {
+    margin-bottom: 0;
+}
+
+p.admonition-title {
+    margin: 0px 10px 5px 0px;
+    font-weight: bold;
+}
+
+div.body p.centered {
+    text-align: center;
+    margin-top: 25px;
+}
+
+
+
+div.admonition, div.warning {
+    font-size: 0.9em;
+    margin: 1em 0 1em 0;
+    border: 1px solid #86989B;
+    background-color: #f7f7f7;
+    padding: 0;
+}
+
+div.admonition p, div.warning p {
+    margin: 0.5em 1em 0.5em 1em;
+    padding: 0;
+}
+
+div.admonition pre, div.warning pre {
+    margin: 0.4em 1em 0.4em 1em;
+}
+
+div.admonition p.admonition-title,
+div.warning p.admonition-title {
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    color: white;
+    border-bottom: 1px solid #86989B;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+
+div.warning {
+    border: 1px solid #940000;
+}
+
+div.warning p.admonition-title {
+    background-color: #CF0000;
+    border-bottom-color: #940000;
+}
+
+div.admonition ul, div.admonition ol,
+div.warning ul, div.warning ol {
+    margin: 0.1em 0.5em 0.5em 3em;
+    padding: 0;
+}
+
+</style></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Stat 159/259 - Reproducible and Collaborative Data Science</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="01-git/Git-Tutorial..html">An interactive Git Tutorial: the tool you didn’t know you needed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Index..html">A quick overview of the Jupyter Notebook and IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-reading1-discussion..html">Reading discussion - Developing open source scientific practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-reading2-discussion..html">Reading discussion - Scientific Python, IPython, Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-class-practice..html">Class practice: strings, lists &amp; numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-conda-pip-environments..html">Conda and pip - managing environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-reading3-discussion..html">From September 25 reading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-reading3-discussion..html#Make:-automating-tasks">Make: automating tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-ligo-make.html">LIGO, the 2017 Nobel prize in physics, and wrapping up Makefiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy..html">An Introduction to the Scientific Python Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy..html#Motivation:-the-trapezoidal-rule">Motivation: the trapezoidal rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy..html#NumPy-arrays:-the-right-data-structure-for-scientific-computing">NumPy arrays: the right data structure for scientific computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/intro-numpy..html#High-quality-data-visualization-with-Matplotlib">High quality data visualization with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-intro-numpy/trapezoid..html">The trapezoidal rule: vectorization and perormance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/10-matplotlib_beyond_basics..html">Matplotlib: Beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/10-matplotlib_live_plots..html">Matplotlib: Live plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/image_tutorial..html">Matplotlib image tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-matplotlib_beyond_basics/image_tutorial..html#Multichannel-images">Multichannel images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-strings/11-strings..html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-strings/11-nltk..html">NLTK: Natural Language Made Easy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12-data-intro..html">Data - an introduction to the world of Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13-data-frames..html">Data Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14-sphinx..html">An introduction to Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-pvalues/index.html">P-values discussion with Prof. Philip B. Stark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16-testing..html">Testing your software in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17-numerical-chaos..html">Simple chaotic behavior in non-linear systems</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Beyond Plain Python..html">IPython: beyond plain Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Index..html">A quick overview of the Jupyter Notebook and IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Notebook Basics..html">Notebook Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Working With Markdown Cells..html">Markdown Cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Working With Markdown Cells..html#Heading-1">Heading 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ipython/Working With Markdown Cells..html#Heading-2">Heading 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-pvalues/rabbits..html">P-values, Probability, Priors, Rabbits, Quantifauxcation, and Cargo-Cult Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readings.html">Readings</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab1.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab10..html">Lab 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab2.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab3.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab4.html">Lab 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab5..html">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab6..html">Lab 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab7.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab8..html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab9..html">Lab 9</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Course resources</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Fernando Perez.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/lectures/numerical-chaos-stats..ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
